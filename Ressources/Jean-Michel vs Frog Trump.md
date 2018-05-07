@@ -19,6 +19,8 @@ Dans les zones, il y a des maisons, avec des PNJ à l'intérieur, qui peuvent te
 
 ## Personnage
 
+Il a des cheveux bruns, un t-shirt rouge et un pantalon marron.
+
 Il a plusieurs caractéristiques:
 - Une jauge de vie et d'argent
 - Deux inventaires: un inventaire comportant les armes/(potions) et un inventaire pour les objets importants
@@ -28,10 +30,22 @@ Il est déplaçable avec ZQSD, E interagt w/ PNG , F pour pousser, j/k/l/ pour a
 
 Le héros peut parler à 3 types de PNJ: ceux qui indiquent le chemin vers les miniboss, ceux qui indiquent où sont les armes et ceux qui te vendent les objets.
 
+Tu ne peux pas tuer le mini-boss sans l'arme de la zone appropriée.
+
+## Ennemis
+
+Selon les zones, il existe plusieurs types d'ennemis: dans la zone de base, la zone de la Terre, on pourra y voir par exemple des coccinelles.
+
+Pour la zone de l'eau, on pourra y trouver des tentacules et des sushis.
+
+Pour la zone du désert, des cactus qui tirent des piques, et qui se cachent dans le sable pour réapparaitre à côté de Jean-Michel.
+Comme mini-boss pour cette zone, on y trouvera un gros cactus qui n'arrêtera pas de faire apparaître des cactus plus petits tant qu'il est encore en vie.
+
+Dans la dernière zone, on pourra y trouver des thugs de la street avec des armes à distance comme des pistolets à tirs lents (pour laisser le temps d'esquiver).
+Le boss final, Trump, rassemblera plusieurs caractéristiques des mini-boss.
 
 ## Gameplay
 
 Le jeu est vu de dessus, et est composé d'une tilemap, une map constituée de plusieurs 'tiles' ou 'tuiles'. Le personnage prend exactement 1 tuile, et peu se déplacer en haut, en bas, à gauche et à droite.
 
 
-> Written with [StackEdit](https://stackedit.io/).
