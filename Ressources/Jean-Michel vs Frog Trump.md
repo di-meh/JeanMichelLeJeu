@@ -8,6 +8,7 @@ Il y'a cependant quelques caractéristiques particulières.
 ## Quête
 
 Jean-Michel, attristé du fait que sa planète meurt, décide de tuer Frog Trump pour mettre fin à ce règne de tyrannie.
+Ouais, non en fait, il veut juste rentrer chez lui, et t'as toute la planète qui n'arrête pas de le faire chier sa mère.
 Sur son chemin, il va devoir traverser plusieurs zones avec des dangers particuliers, des PNJ à qui parler et des objets à récupérer.
 
 ## Monde
@@ -35,8 +36,10 @@ Tu ne peux pas tuer le mini-boss sans l'arme de la zone appropriée.
 ## Ennemis
 
 Selon les zones, il existe plusieurs types d'ennemis: dans la zone de base, la zone de la Terre, on pourra y voir par exemple des coccinelles.
+Les ennemis dans cette zone auront un pattern de déplacement plutôt simple, et se déplaceront de manière rectiligne.
 
 Pour la zone de l'eau, on pourra y trouver des tentacules et des sushis.
+On peut pourquoi pas y voir des ennemis zigzaguer.
 
 Pour la zone du désert, des cactus qui tirent des piques, et qui se cachent dans le sable pour réapparaitre à côté de Jean-Michel.
 Comme mini-boss pour cette zone, on y trouvera un gros cactus qui n'arrêtera pas de faire apparaître des cactus plus petits tant qu'il est encore en vie.
@@ -46,6 +49,6 @@ Le boss final, Trump, rassemblera plusieurs caractéristiques des mini-boss.
 
 ## Gameplay
 
-Le jeu est vu de dessus, et est composé d'une tilemap, une map constituée de plusieurs 'tiles' ou 'tuiles'. Le personnage prend exactement 1 tuile, et peu se déplacer en haut, en bas, à gauche et à droite.
+Le jeu est vu de dessus, et est composé d'une tilemap, une map constituée de plusieurs 'tiles' ou 'tuiles'. Le personnage prend exactement 1 tuile, et peut se déplacer en haut, en bas, à gauche et à droite.
 
 
