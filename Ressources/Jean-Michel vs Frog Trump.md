@@ -26,12 +26,12 @@ Il a plusieurs caractéristiques:
 
 Il est déplaçable avec ZQSD, E interagt w/ PNG , F pour pousser, j/k/l/ pour armes, M pour Map.
 
-Le héros peut parler à 3 types de PNJ: ceux qui indiquent le chemin vers les miniboss, ceux qui indiquent où son
+Le héros peut parler à 3 types de PNJ: ceux qui indiquent le chemin vers les miniboss, ceux qui indiquent où sont les armes et ceux qui te vendent les objets.
 
 
 ## Gameplay
 
-
+Le jeu est vu de dessus, et est composé d'une tilemap, une map constituée de plusieurs 'tiles' ou 'tuiles'. Le personnage prend exactement 1 tuile, et peu se déplacer en haut, en bas, à gauche et à droite.
 
 
 > Written with [StackEdit](https://stackedit.io/).
