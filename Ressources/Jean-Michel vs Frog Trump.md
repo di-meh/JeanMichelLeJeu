@@ -53,4 +53,12 @@ Le boss final, Trump, rassemblera plusieurs caractéristiques des mini-boss.
 
 Le jeu est vu de dessus, et est composé d'une tilemap, une map constituée de plusieurs 'tiles' ou 'tuiles'. Le personnage prend exactement 1 tuile, et peut se déplacer en haut, en bas, à gauche et à droite.
 
+## Carte
+
+### Zone 1
+
+Il s'agit de la zone de Terre. C'est la zone de départ.
+A son réveil, le héros parle à un PNJ qui lui explique qu'il est loin de chez lui, et que c'est vachement dangereux de s'aventurer seul.
+Il lui donne une canne, la toute première arme de base, une arme de corps à corps.
+Il s'agit aussi d'une opportunité pour le joueur d'apprendre les commandes de base.
 
