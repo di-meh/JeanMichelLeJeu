@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>projet-jeanmichel</name>
+	<name>projet-jeanmichel-tpB-msaber</name>
 	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
-<<<<<<< HEAD
-	</buildSpec>
-	<natures>
-=======
 		<buildCommand>
 			<name>org.eclipse.jdt.core.javabuilder</name>
 			<arguments>
@@ -17,6 +13,5 @@
 	</buildSpec>
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
->>>>>>> 57487bf6a05f5a7f8b2b0beafbe476f280422df7
 	</natures>
 </projectDescription>
