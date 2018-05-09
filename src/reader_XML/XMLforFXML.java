@@ -39,11 +39,11 @@ public class XMLforFXML {
       String expression = "/map/layer/data";
 
       String str = (String)path.evaluate(expression, root);
-
+/*
       System.out.println(str);
 
       System.out.println("-------------------------------------");
-
+*/
       
 
     } catch (ParserConfigurationException e) {
