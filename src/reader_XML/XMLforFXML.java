@@ -15,7 +15,7 @@ import org.w3c.dom.Element;
 //import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-public class XMLforFXML {
+public class XMLforFXML { //Non autorisé pour projet, mais à utiliser pour tester
 
 	public static void main(String args[]) {
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -36,11 +36,11 @@ public class XMLforFXML {
 			String expression = "/map/layer/data";
 
 			String str = (String)path.evaluate(expression, root);
-			/*
+			
       System.out.println(str);
 
-      System.out.println("-------------------------------------");
-			 */
+      //System.out.println("-------------------------------------");
+			 
 
 
 		} catch (ParserConfigurationException e) {
