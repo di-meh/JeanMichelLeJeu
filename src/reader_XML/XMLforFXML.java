@@ -16,52 +16,49 @@ import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
 public class XMLforFXML {
-	
+
 	public static void main(String args[]) {
-	DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-    try {
+		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+		try {
 
-       DocumentBuilder builder = factory.newDocumentBuilder();
+			DocumentBuilder builder = factory.newDocumentBuilder();
 
-       File fileXML = new File("./Ressources/tilemapfusion.xml");
+			File fileXML = new File("./Ressources/tilemapfusion.xml");
 
-       Document xml = builder.parse(fileXML);
+			Document xml = builder.parse(fileXML);
 
-       Element root = xml.getDocumentElement();
+			Element root = xml.getDocumentElement();
 
-       XPathFactory xpf = XPathFactory.newInstance();
+			XPathFactory xpf = XPathFactory.newInstance();
 
-       XPath path = xpf.newXPath();
+			XPath path = xpf.newXPath();
+			
+			String expression = "/map/layer/data";
 
-                 
-       
-
-      String expression = "/map/layer/data";
-
-      String str = (String)path.evaluate(expression, root);
-/*
+			String str = (String)path.evaluate(expression, root);
+			/*
       System.out.println(str);
 
       System.out.println("-------------------------------------");
-*/
-      
+			 */
 
-    } catch (ParserConfigurationException e) {
 
-       e.printStackTrace();
+		} catch (ParserConfigurationException e) {
 
-    } catch (SAXException e) {
+			e.printStackTrace();
 
-       e.printStackTrace();
+		} catch (SAXException e) {
 
-    } catch (IOException e) {
+			e.printStackTrace();
 
-       e.printStackTrace();
+		} catch (IOException e) {
 
-    } catch (XPathExpressionException e) {
- 
-       e.printStackTrace();
+			e.printStackTrace();
 
-    }
+		} catch (XPathExpressionException e) {
+
+			e.printStackTrace();
+
+		}
 	}
 }
