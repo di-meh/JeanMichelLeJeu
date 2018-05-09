@@ -23,7 +23,7 @@ public class XMLforFXML {
 
        DocumentBuilder builder = factory.newDocumentBuilder();
 
-       File fileXML = new File("/home/etudiants/info/msaber/git/projet-jeanmichel/Ressources/tilemapfusion.xml");
+       File fileXML = new File("./Ressources/tilemapfusion.xml");
 
        Document xml = builder.parse(fileXML);
 
