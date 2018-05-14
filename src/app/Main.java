@@ -21,7 +21,7 @@ public class Main extends Application {
 	}
 
 	@Override
-	public void start(Stage primaryStage) throws Exception {
+	public void start(Stage primaryStage) throws Exception { //TODO Faire en sorte que la boucle fonctionne et que le modèle soit fonctionnel.
 
 		try {
 
