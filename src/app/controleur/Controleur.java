@@ -5,6 +5,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.TilePane;
 
 
@@ -34,9 +36,11 @@ public class Controleur implements Initializable{
 			210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,
 			210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,
 			210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210};
-	//caca
 	
-	private String nomFichier;
+	
+	
+	
+	private Image imagetest;
 	
 	public Controleur() {
     	//Jeu jeu = new Jeu();
@@ -59,10 +63,13 @@ public class Controleur implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
+		this.imagetest = new Image("./Ressources/tile_herbe.jpg", 16, 0, false, false);
+		ImageView iv = new ImageView();
+		iv.setImage(this.imagetest);
+		iv.setFitWidth(16);
+		iv.setPreserveRatio(true);
+		iv.setCache(true);
 		
-		for (int n : this.tab) {
-			this.nomFichier = imageDe(n);
-		}
 		
 		
 		
