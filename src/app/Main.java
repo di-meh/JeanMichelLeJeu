@@ -6,6 +6,8 @@ import java.net.URL;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
 
@@ -26,6 +28,13 @@ public class Main extends Application {
 			loader.setLocation(url);
 			System.out.println(loader.getLocation());
 			TilePane root = loader.load();
+			Image img = new Image("./app/img/tile_herbe.jpg");
+			
+			ImageView iv = new ImageView();
+			iv.setImage(img);
+			iv.setFitWidth(16);
+			iv.setPreserveRatio(true);
+			root.getChildren().add(iv);
 			Scene scene = new Scene(root, 600, 400);
 			primaryStage.setScene(scene);
 			primaryStage.show();
