@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+
 import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
 
@@ -28,8 +29,10 @@ public class Main extends Application {
 			URL url = new File("src/app/vue/Map.fxml").toURI().toURL();
 			loader.setLocation(url);
 			System.out.println(loader.getLocation());
+
 			Pane root = loader.load();	
 			TilePane jeu = new TilePane();
+
 			Image img = new Image("./app/img/tile_herbe.jpg");
 			ImageView iv = new ImageView();
 			iv.setImage(img);
