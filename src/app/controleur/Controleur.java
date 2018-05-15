@@ -62,6 +62,10 @@ public class Controleur implements Initializable{
     @FXML
     private Pane robert;
 
+    public void remplirImg() {
+    	
+    }
+    
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
