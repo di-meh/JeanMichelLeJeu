@@ -54,7 +54,7 @@ public class Map {
 		int [][] tab2d = this.tab_2d;
 		for (int x = 0; x< tab1d.length; x++) {
 			for (int y = 0; y< tab1d.length; y++) {
-				tab2d[x][y] = tab1d[x+12*y];
+				tab2d[x][y] = tab1d[x+12*y]; //TODO résoudre le NullPointerException
 			}
 		}
 		return tab2d;
