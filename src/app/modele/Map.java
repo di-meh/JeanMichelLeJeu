@@ -51,10 +51,10 @@ public class Map {
 
 	
 	public int[][] tab1dTo2d(int [] tab1d) { //tester le 12y
-		int [][] tab2d = this.tab_2d;
-		for (int x = 0; x< tab1d.length; x++) {
-			for (int y = 0; y< tab1d.length; y++) {
-				tab2d[x][y] = tab1d[x+12*y]; //TODO résoudre le NullPointerException
+		int [][] tab2d = new int[12][12];
+		for (int x = 0; x< tab2d.length; x++) {
+			for (int y = 0; y< tab2d[x].length; y++) {
+				tab2d[x][y] = tab1d[x+12*y]; //TODO résoudre le ArrayIndexOutOfBoundsException
 			}
 		}
 		return tab2d;
