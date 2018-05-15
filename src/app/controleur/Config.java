@@ -1,9 +1,5 @@
 package app.controleur;
 
-
-import java.net.MalformedURLException;
-import java.net.URL;
-
 import javafx.scene.image.Image;
 
 public class Config {
