@@ -7,5 +7,5 @@ public class Library {
 	des constantes genre les pv des ennemis et tout
 	comme �a quand tu change les pv tu as juste � 
 	changer la valeur dans la biblioth�que*/
-	
+
 }
