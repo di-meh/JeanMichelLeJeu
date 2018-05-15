@@ -15,6 +15,7 @@ public class Controleur implements Initializable{
 	
 	//TODO Copier information de fichier XMLforFXML.java afin d'extraire les informations à partir d'un fichier xml
 	
+	
 	//mettre dans le modèle après avoir testé
 	private int[] tab = {
 			210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,
