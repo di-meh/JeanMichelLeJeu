@@ -54,7 +54,7 @@ public class Controleur implements Initializable{
 		else return "Test";
 	}
 	
-	public int[] getTab() {
+	public int[][] getTab() {
 		return this.tab;
 	}
 	
