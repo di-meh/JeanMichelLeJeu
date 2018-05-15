@@ -12,9 +12,9 @@ public class PersoPrinc {
 	private int y;
 	public PersoPrinc() {
 		//TODO initialiser x, y et listeItem
-		listeArmes=new ArrayList<>();
+		this.listeArmes=new ArrayList<>();
 		//listeItem = new ArrayList<>();
-		vie = new SimpleIntegerProperty(100);
+		this.vie = new SimpleIntegerProperty(100);
 		//x
 		//y
 		
