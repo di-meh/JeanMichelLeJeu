@@ -21,9 +21,6 @@ public class Controleur implements Initializable{
 
 	private Jeu jeu;
 	private Map map;
-	
-	@FXML
-	private TilePane mapPane;
 
 	@FXML
 	private Pane pane;

@@ -21,7 +21,7 @@ public class Map {
 
 	public Map() {
 		//p-e chargement des images
-		this.tab_2d = tab1dTo2d(tab_1d);
+		this.tab_2d = tab1dTo2d(tab_1d); //TODO investigate
 	}
 
 	public int[] getTab1d() {
@@ -49,10 +49,11 @@ public class Map {
 		}	
 	}
 
-	public int[][] tab1dTo2d(int [] tab1d) { //tester le 12j
-		int[][] tab2d = null;
-		for (int x = 0; x< 12; x++) {
-			for (int y = 0; y< 12; y++) {
+	
+	public int[][] tab1dTo2d(int [] tab1d) { //tester le 12y
+		int [][] tab2d = this.tab_2d;
+		for (int x = 0; x< tab1d.length; x++) {
+			for (int y = 0; y< tab1d.length; y++) {
 				tab2d[x][y] = tab1d[x+12*y];
 			}
 		}
