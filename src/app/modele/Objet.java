@@ -17,6 +17,7 @@ public class Objet {
 	}
 	public final String getLienIMG() {
 		return lienIMG;
+		
 	}
 	public final boolean isDeplacable() {
 		return deplacable;
