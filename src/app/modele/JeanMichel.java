@@ -4,14 +4,14 @@ import java.util.ArrayList;
 
 import javafx.beans.property.SimpleIntegerProperty;
 
-public class PersoPrinc {//TODO: bosser sur le modèle et sur son affichage dans le controleur
-	private ArrayList<Armes> listeArmes;
-	private Armes equipé;
+public class JeanMichel {//TODO: bosser sur le modèle et sur son affichage dans le controleur
+	private ArrayList<Arme> listeArmes;
+	private Arme equipé;
 //	private ArrayList<Item> listeItem;
 	private SimpleIntegerProperty vie;
 	private int x;
 	private int y;
-	public PersoPrinc() {
+	public JeanMichel() {
 		//TODO initialiser x, y et listeItem
 		this.listeArmes=new ArrayList<>();
 		//listeItem = new ArrayList<>();
@@ -20,10 +20,10 @@ public class PersoPrinc {//TODO: bosser sur le modèle et sur son affichage dans
 		//y
 		
 	}
-	public final ArrayList<Armes> getListeArmes() {
+	public final ArrayList<Arme> getListeArmes() {
 		return listeArmes;
 	}
-	public final void AddArmes(Armes arme) {
+	public final void AddArmes(Arme arme) {
 		this.listeArmes.add(arme);
 	}
 	public final SimpleIntegerProperty getVie() {

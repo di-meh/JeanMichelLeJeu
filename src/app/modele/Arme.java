@@ -1,12 +1,12 @@
 package app.modele;
 
-public class Armes {
+public class Arme {
 	private String nom;
 	private String zoneAdapt;
 	private int dgtZone;
 	private int dgtPasZone;
 
-	public Armes(String n, String za, int dgtPZ, int dgtZ) {
+	public Arme(String n, String za, int dgtPZ, int dgtZ) {
 		nom=n;
 		zoneAdapt=za;
 		dgtPasZone=dgtPZ;
