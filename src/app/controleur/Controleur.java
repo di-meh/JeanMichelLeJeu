@@ -25,9 +25,7 @@ public class Controleur implements Initializable{
 	private TilePane tilemap;
 
 	private Image imagetest;
-
-
-
+    
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		String nomImage;
@@ -46,9 +44,6 @@ public class Controleur implements Initializable{
 				this.tilemap.getChildren().add(img);
 			}
 		}
-
-
-
 	}
 
 
