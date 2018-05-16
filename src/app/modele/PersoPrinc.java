@@ -6,6 +6,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 
 public class PersoPrinc {
 	private ArrayList<Armes> listeArmes;
+	private Armes equipé;
 //	private ArrayList<Item> listeItem;
 	private SimpleIntegerProperty vie;
 	private int x;
@@ -42,6 +43,14 @@ public class PersoPrinc {
 	}
 	public final void setY(int y) {
 		this.y = y;
+	}
+	public void attaquer(/*Ennemi e*/) {
+//		if(equipé.getZoneAdapt().equals(getZone())) {
+//			e.setvie(equipé.getDgtZone());
+//		}
+//		else {
+//			e.setvie(equipé.getDgtPasZone());
+//		}
 	}
 
 }
