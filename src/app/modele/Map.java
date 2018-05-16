@@ -27,7 +27,7 @@ public class Map {
 	public int[] getTab1d() {
 		return this.tab_1d;
 	}
-	
+
 	public void setTab1d(int [] newtab) {
 		this.tab_1d = newtab;
 	}
@@ -49,7 +49,7 @@ public class Map {
 		}	
 	}
 
-	
+
 	public int[][] tab1dTo2d(int [] tab1d) { //tester le 12y
 		int [][] tab2d = new int[12][12];
 		for (int x = 0; x< tab2d.length; x++) {

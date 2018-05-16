@@ -8,7 +8,7 @@ public class Jeu {
 		//TODO Faire la classe Jeu, qui contiendra la gameloop et les différents objectifs 
 		this.map = m;
 	}
-	
+
 	public Map getMap() {
 		return this.map;
 	}

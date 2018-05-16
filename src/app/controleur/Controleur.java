@@ -24,18 +24,18 @@ public class Controleur implements Initializable{
 
 	@FXML
 	private Pane pane;
-	
+
 	@FXML
 	private TilePane tilemap;
 
 	private Image imagetest;
 
 
-	
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		String nomImage;
-		
+
 		this.tilemap.setPrefColumns(12);
 		this.tilemap.setPrefRows(12);
 		//tilepane setprefcol et prefrow
@@ -51,15 +51,6 @@ public class Controleur implements Initializable{
 				this.tilemap.getChildren().add(img);
 			}
 		}
-		// TODO Auto-generated method stub
-		//		this.imagetest = new Image("./Ressources/tile_herbe.jpg", 16, 0, false, false);
-		//		ImageView iv = new ImageView();
-		//		iv.setImage(this.imagetest);
-		//		iv.setFitWidth(16);
-		//		iv.setPreserveRatio(true);
-		//		iv.setCache(true);
-		//		this.robert = new Pane();
-		//		this.map = new TilePane();
 
 
 
