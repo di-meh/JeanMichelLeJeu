@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<TilePane fx:id="tilepane" prefColumns="12" prefHeight="400.0" prefRows="12" prefTileHeight="48.0" prefTileWidth="32.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="image" fitHeight="48.0" fitWidth="32.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
+         <rotationAxis>
+            <Point3D />
+         </rotationAxis>
+         <TilePane.margin>
+            <Insets left="256.0" top="256.0" />
+         </TilePane.margin>
+         <image>
+            <Image url="@../../../../Ressources/Female%20Sprite_face.jpg" />
+         </image>
+      </ImageView>
+   </children>
+</TilePane>
