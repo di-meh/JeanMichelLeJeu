@@ -14,7 +14,7 @@ public class testcharacter implements Initializable{
 	private ImageView image;
 	
 	public testcharacter() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	@Override
