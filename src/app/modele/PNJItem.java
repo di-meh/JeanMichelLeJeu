@@ -18,5 +18,10 @@ public class PNJItem  extends PNJ{
 			}
 		}
 	}
+
+	/*@Override
+	public void deplacement() {
+		
+	}*/
 	
 }

@@ -1,10 +1,12 @@
 package app.modele;
 
+import javafx.scene.image.Image;
+
 public abstract class PNJ {
 
 	private String nom;
 	
-	/*private Image tileset;*/
+	private Image tileset;
 	
 	private int positionX;
 	
@@ -14,9 +16,9 @@ public abstract class PNJ {
 		if (n == null || n.equals(""))
 			throw new Error("Creation class ennemi1 impossible : erreur nom incorrect");
 		this.nom = n;
-		/*if (lien == null || lien.equals(""))
+		if (lien == null || lien.equals(""))
 			throw new Error("Creation class ennemi1 impossible : erreur lien image incorrect");
-		this.tileset = new Image(lien);*/
+		this.tileset = new Image(lien);
 		if (x <= 0)
 			throw new Error("Creation class ennemi1 impossible : erreur x incorrect");
 		this.positionX = x;
@@ -46,9 +48,7 @@ public abstract class PNJ {
 		this.positionX = y;
 	}
 	
-	public void deplacement() {
-		
-	}
+/*	public abstract void deplacement();*/
 	
 	public abstract void parler(int i);
 	

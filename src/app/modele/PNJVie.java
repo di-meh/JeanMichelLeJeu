@@ -14,14 +14,23 @@ public class PNJVie extends PNJ{
 			switch(i){
 			case 1: System.out.println("Toi la ! Besoin de vie ?");
 			case 2: System.out.println("Ok salut !");
-			case 3: donnerVie();
+			case 3: System.out.println("Une vie coute 50 pieces");
+				vendreVie(); //recuperer somme argent
 			}
 		}
 	}
 
-	private void donnerVie() {
-		// TODO methode qui prend argent perso et donne vie en echange
-		
+	private void vendreVie() {
+		/*if()
+			System.out.println("Vous n'avez pas assez d'argent au revoir !");
+		else
+			setArgent(argent)
+		*/
 	}
+
+	/*@Override
+	public void deplacement() {
+		
+	}*/
 	
 }

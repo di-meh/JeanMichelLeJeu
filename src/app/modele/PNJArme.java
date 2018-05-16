@@ -11,20 +11,17 @@ public class PNJArme extends PNJ{
 		//menu pour discussion avec perso
 		
 		while(i != 4) {
-			switch(i){
+			switch(i) {
 			case 1: System.out.println("Hey ! Tu veux des infos sur les armes d'la region ?");
 			case 2: System.out.println("Ok salut !");
 			case 3: System.out.println("Alors, voila c'que j'sais : ");
 			}
 		}
 	}
-	
-/*
-	switch(i){
-		case 1:("Hey ! Tu veux des infos sur les armes d'la region ?");
-		case 2: System.out.println("Ok salut !");
-		case 3: System.out.println("Alors, voila c'que j'sais : ");
-	}
-*/
+
+	/*@Override
+	public void deplacement() {
+		
+	}*/
 	
 }
