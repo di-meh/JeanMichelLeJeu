@@ -22,7 +22,7 @@ public abstract class Ennemi {
 		this.nom = n;
 		if (lien == null || lien.equals(""))
 			throw new Error("Creation superclass ennemi impossible : erreur lien image incorrect");
-		this.tileset = new Image(lien);
+		this.setTileset(new Image(lien));
 		if (pv <= 0)
 			throw new Error("Creation superclass ennemi impossible : erreur points vie incorrect");
 		this.pointsVie = pv;
@@ -79,5 +79,13 @@ public abstract class Ennemi {
 	}
 	
 	public abstract void deplacement();
+
+	public Image getTileset() {
+		return tileset;
+	}
+
+	public void setTileset(Image tileset) {
+		this.tileset = tileset;
+	}
 	
 }

@@ -2,16 +2,6 @@ package app;
 
 import java.io.File;
 import java.net.URL;
-
-import app.modele.Ennemi;
-import app.modele.Ennemi1;
-import app.modele.Ennemi2;
-import app.modele.Ennemi3;
-import app.modele.Ennemi4;
-import app.modele.PNJ;
-import app.modele.PNJArme;
-import app.modele.PNJItem;
-import app.modele.PNJVie;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;

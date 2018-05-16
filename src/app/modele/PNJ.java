@@ -18,7 +18,7 @@ public abstract class PNJ {
 		this.nom = n;
 		if (lien == null || lien.equals(""))
 			throw new Error("Creation class ennemi1 impossible : erreur lien image incorrect");
-		this.tileset = new Image(lien);
+		this.setTileset(new Image(lien));
 		if (x <= 0)
 			throw new Error("Creation class ennemi1 impossible : erreur x incorrect");
 		this.positionX = x;
@@ -51,5 +51,13 @@ public abstract class PNJ {
 /*	public abstract void deplacement();*/
 	
 	public abstract void parler(int i);
+
+	public Image getTileset() {
+		return tileset;
+	}
+
+	public void setTileset(Image tileset) {
+		this.tileset = tileset;
+	}
 	
 }
