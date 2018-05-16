@@ -3,6 +3,15 @@ package app;
 import java.io.File;
 import java.net.URL;
 
+import app.modele.Ennemi;
+import app.modele.Ennemi1;
+import app.modele.Ennemi2;
+import app.modele.Ennemi3;
+import app.modele.Ennemi4;
+import app.modele.PNJ;
+import app.modele.PNJArme;
+import app.modele.PNJItem;
+import app.modele.PNJVie;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -22,9 +31,21 @@ public class Main extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception { //TODO Faire en sorte que la boucle fonctionne et que le modèle soit fonctionnel.
+		
+		//test ennemi
+		Ennemi e2 = new Ennemi1("ennemiBase", "/truc/tructruc");
+		Ennemi e3 = new Ennemi2("ennemiBase", "/truc/tructruc");
+		Ennemi e4 = new Ennemi3("ennemiBase", "/truc/tructruc");
+		Ennemi e5 = new Ennemi4("ennemiBase", "/truc/tructruc");
+		
+		//test pnj
+		PNJ p1 = new PNJArme(5, 3);
+		PNJ p2 = new PNJItem(5, 3);
+		PNJ p3 = new PNJVie(5, 3);
 
 		try {
 
+			
 			FXMLLoader loader = new FXMLLoader();
 			URL url = new File("src/app/vue/Map.fxml").toURI().toURL();
 			loader.setLocation(url);
