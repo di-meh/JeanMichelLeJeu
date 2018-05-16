@@ -7,15 +7,14 @@ public class PNJArme extends PNJ{
 		System.out.println("Class PNJArme created");
 	}
 
-	public void parler() {
+	public void parler(int i) {
 		//menu pour discussion avec perso
-		int i = 0;
 		
-		while(i != 5) {
-			System.out.println("Hey ! Tu veux des infos sur les armes d'la region ?");
-			switch(i) {
-			case 1: System.out.println("OK alors ...");
-			case 2: System.out.println("OK salut.");
+		while(i != 4) {
+			switch(i){
+			case 1: System.out.println("Hey ! Tu veux des infos sur les armes d'la region ?");
+			case 2: System.out.println("Ok salut !");
+			case 3: System.out.println("Alors, voila c'que j'sais : ");
 			}
 		}
 	}

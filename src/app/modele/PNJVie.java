@@ -7,9 +7,21 @@ public class PNJVie extends PNJ{
 		System.out.println("Class PNJVie created");
 	}
 	
-	public void parler() {
-		//menu pour discussion avec perso
-		System.out.println("Toi la ! Besoin de vie ?");
+	public void parler(int i) {
+		//menu pour discussion avec persos
+		
+		while(i != 4) {
+			switch(i){
+			case 1: System.out.println("Toi la ! Besoin de vie ?");
+			case 2: System.out.println("Ok salut !");
+			case 3: donnerVie();
+			}
+		}
+	}
+
+	private void donnerVie() {
+		// TODO methode qui prend argent perso et donne vie en echange
+		
 	}
 	
 }

@@ -50,6 +50,6 @@ public abstract class PNJ {
 		
 	}
 	
-	public abstract void parler();
+	public abstract void parler(int i);
 	
 }
