@@ -3,14 +3,16 @@ package app.modele;
 import java.util.ArrayList;
 
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.scene.image.Image;
 
 public class JeanMichel {//TODO: bosser sur le modèle et sur son affichage dans le controleur
 	private ArrayList<Arme> listeArmes;
-	private Arme equipé;
-//	private ArrayList<Item> listeItem;
-	private SimpleIntegerProperty vie;
-	private int x;
-	private int y;
+	private Arme armeEquipée;
+	//	private ArrayList<Item> inventaire;
+	private SimpleIntegerProperty vie, argent;
+	private int x, y;
+	private Image sprite;
+
 	public JeanMichel() {
 		//TODO initialiser x, y et listeItem
 		this.listeArmes=new ArrayList<>();
@@ -18,7 +20,7 @@ public class JeanMichel {//TODO: bosser sur le modèle et sur son affichage dans
 		this.vie = new SimpleIntegerProperty(100);
 		//x
 		//y
-		
+
 	}
 	public final ArrayList<Arme> getListeArmes() {
 		return listeArmes;
@@ -46,16 +48,34 @@ public class JeanMichel {//TODO: bosser sur le modèle et sur son affichage dans
 	}
 	public void attaquer(/*Ennemi e*/) {
 		try {
-//			if(equipé.getZoneAdapt().equals(e.getZone())) {
-//			e.setvie(equipé.getDgtZone());
-//		}
-//		else {
-//			e.setvie(equipé.getDgtPasZone());
-//		}
+			//			if(equipé.getZoneAdapt().equals(e.getZone())) {
+			//			e.setvie(equipé.getDgtZone());
+			//		}
+			//		else {
+			//			e.setvie(equipé.getDgtPasZone());
+			//		}
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
 
+	}
+	public Image getSprite() {
+		return sprite;
+	}
+	public void setSprite(Image sprite) {
+		this.sprite = sprite;
+	}
+	public SimpleIntegerProperty getArgent() {
+		return argent;
+	}
+	public void setArgent(SimpleIntegerProperty argent) {
+		this.argent = argent;
+	}
+	public Arme getArmeEquipée() {
+		return armeEquipée;
+	}
+	public void setArmeEquipée(Arme armeEquipée) {
+		this.armeEquipée = armeEquipée;
 	}
 
 }

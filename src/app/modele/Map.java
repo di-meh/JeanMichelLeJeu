@@ -43,7 +43,7 @@ public class Map {
 		case 187: return "./app/img/tile_187.png";
 		case 210: return "./app/img/tile_herbe.jpg";
 		case 211: return "./app/img/tile_211.png";
-		default: return "./app/img/tile_herbe.jpg"; // pour l'instant, on ajoute une tile verte dans le cas où il n'y a pas d'autres valeurs
+		default: return "./app/img/tile_herbe.jpg"; //on ajoute une tile verte dans le cas où il n'y a pas d'autres valeurs
 		}	
 	}
 

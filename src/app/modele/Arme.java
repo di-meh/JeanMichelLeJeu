@@ -3,6 +3,7 @@ package app.modele;
 public class Arme {
 	private String nom;
 	private String zoneAdapt;
+	private boolean estDansLaZone;
 	private int dgtZone;
 	private int dgtPasZone;
 
@@ -28,6 +29,16 @@ public class Arme {
 
 	public final int getDgtPasZone() {
 		return dgtPasZone;
+	}
+
+
+	public boolean isDansLaZone() {
+		return estDansLaZone;
+	}
+
+
+	public void setEstDansLaZone(boolean estDansLaZone) {
+		this.estDansLaZone = estDansLaZone;
 	}
 
 }
