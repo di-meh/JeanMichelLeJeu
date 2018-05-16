@@ -45,12 +45,17 @@ public class PersoPrinc {
 		this.y = y;
 	}
 	public void attaquer(/*Ennemi e*/) {
-//		if(equipé.getZoneAdapt().equals(getZone())) {
+		try {
+//			if(equipé.getZoneAdapt().equals(e.getZone())) {
 //			e.setvie(equipé.getDgtZone());
 //		}
 //		else {
 //			e.setvie(equipé.getDgtPasZone());
 //		}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
 	}
 
 }
