@@ -50,11 +50,11 @@ public class Map {
 	}
 
 
-	public int[][] tab1dTo2d(int [] tab1d) { //tester le 12y
+	public int[][] tab1dTo2d(int [] tab1d) {
 		int [][] tab2d = new int[12][12];
 		for (int x = 0; x< tab2d.length; x++) {
 			for (int y = 0; y< tab2d[x].length; y++) {
-				tab2d[x][y] = tab1d[x+12*y]; //TODO résoudre le ArrayIndexOutOfBoundsException
+				tab2d[x][y] = tab1d[x+12*y];
 			}
 		}
 		return tab2d;
