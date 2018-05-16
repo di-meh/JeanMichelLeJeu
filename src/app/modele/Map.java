@@ -58,5 +58,4 @@ public class Map {
 		}
 		return tab2d;
 	}
-
 }
