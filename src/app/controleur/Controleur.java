@@ -40,7 +40,7 @@ public class Controleur implements Initializable{
 		this.tilemap.setPrefRows(12);
 		//tilepane setprefcol et prefrow
 		this.map = new Map();
-		this.jeu = new Jeu(this.map);
+		this.setJeu(new Jeu(this.map));
 		int [][] t2 = this.map.getTab2d();
 		for (int x = 0; x< t2.length; x++) {
 			for (int y =0; y< t2[x].length; y++) {
@@ -54,6 +54,18 @@ public class Controleur implements Initializable{
 
 
 
+	}
+
+
+
+	public Jeu getJeu() {
+		return jeu;
+	}
+
+
+
+	public void setJeu(Jeu jeu) {
+		this.jeu = jeu;
 	}
 
 }
