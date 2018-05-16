@@ -20,15 +20,13 @@ public class Main extends Application {
 
 
 		try {
-
-			
 			FXMLLoader loader = new FXMLLoader();
 			URL url = new File("src/app/vue/Map.fxml").toURI().toURL();
 			loader.setLocation(url);
 			System.out.println(loader.getLocation());
 
 			Pane root = loader.load();	
-			Scene scene = new Scene(root, 600, 400);
+			Scene scene = new Scene(root, root.getPrefWidth(), root.getPrefHeight());
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch (Exception e) {
