@@ -13,6 +13,7 @@ public class Armes {
 		dgtZone=dgtZ;
 	}
 
+
 	public final String getNom() {
 		return nom;
 	}
