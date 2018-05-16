@@ -44,6 +44,7 @@ public class Controleur implements Initializable{
 				this.tilemap.getChildren().add(img);
 			}
 		}
+		this.pane.getChildren().add(new ImageView("./Ressources/Female_Sprite_face.jpg"));
 	}
 
 
