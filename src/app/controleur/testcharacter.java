@@ -13,6 +13,7 @@ public class testcharacter implements Initializable{
 	@FXML
 	private ImageView image;
 	
+	
 	public testcharacter() {
 		// TODO Auto-generated constructor stub
 	}
