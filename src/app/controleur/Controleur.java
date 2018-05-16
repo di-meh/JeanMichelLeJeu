@@ -3,6 +3,8 @@ package app.controleur;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import app.modele.Jeu;
+import app.modele.Map;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
@@ -12,70 +14,49 @@ import javafx.scene.layout.TilePane;
 
 
 public class Controleur implements Initializable{
-	
-	//TODO Copier information de fichier XMLforFXML.java afin d'extraire les informations à partir d'un fichier xml
-	
-	//mettre dans le modèle après avoir testé
-	private int[] tab = {
-			210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,
-			210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,
-			210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,
-			210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,
-			210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,
-			210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,
-			210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,
-			210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,
-			210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,
-			210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,
-			210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,
-			210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,
-			210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,
-			210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,
-			210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,
-			210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,
-			210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,
-			210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,
-			210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,
-			210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210,210};
-	
-	
-	
-	
-	private Image imagetest;
-	
-	public Controleur() {
-    	//Jeu jeu = new Jeu();
-    }
-	
-	public String imageDe(int i) {
-		if (i == 210) return "./Ressources/tile_herbe.jpg";
-		else return "Test";
-	}
-	
-	public int[] getTab() {
-		return this.tab;
-	}
-	
-    @FXML
-    private TilePane map;
-    
-    @FXML
-    private Pane robert;
 
+	private Jeu jeu;
+	private Map map;
+
+	@FXML
+	private Pane pane;
+
+	@FXML
+	private TilePane tilemap;
+
+	private Image imagetest;
+    
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
-//		this.imagetest = new Image("./Ressources/tile_herbe.jpg", 16, 0, false, false);
-//		ImageView iv = new ImageView();
-//		iv.setImage(this.imagetest);
-//		iv.setFitWidth(16);
-//		iv.setPreserveRatio(true);
-//		iv.setCache(true);
-//		this.robert = new Pane();
-//		this.map = new TilePane();
-		
-		
-		
+		String nomImage;
+
+		this.tilemap.setPrefColumns(12);
+		this.tilemap.setPrefRows(12);
+		this.map = new Map();
+		this.setJeu(new Jeu(this.map));
+		int [][] t2 = this.map.getTab2d();
+		for (int x = 0; x< t2.length; x++) {
+			for (int y =0; y< t2[x].length; y++) {
+				nomImage = this.map.imageDe(t2[x][y]);
+				this.imagetest = new Image(nomImage);
+				ImageView img = new ImageView();
+				img.setImage(imagetest);
+				this.tilemap.getChildren().add(img);
+			}
+		}
+		this.pane.getChildren().add(new ImageView(new Image("./app/img/Female_Sprite_face2.png")));
+	}
+
+
+
+	public Jeu getJeu() {
+		return jeu;
+	}
+
+
+
+	public void setJeu(Jeu jeu) {
+		this.jeu = jeu;
 	}
 
 }
