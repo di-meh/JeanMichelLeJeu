@@ -5,13 +5,13 @@ public class Armes {
 	private String zoneAdapt;
 	private int dgtZone;
 	private int dgtPasZone;
-	
+
 	public Armes(String n, String za, int dgtPZ, int dgtZ) {
 		nom=n;
 		zoneAdapt=za;
 		dgtPasZone=dgtPZ;
 		dgtZone=dgtZ;
-}
+	}
 
 	public final String getNom() {
 		return nom;
