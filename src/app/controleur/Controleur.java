@@ -15,10 +15,6 @@ import javafx.scene.layout.TilePane;
 
 public class Controleur implements Initializable{
 
-	//TODO Copier information de fichier XMLforFXML.java afin d'extraire les informations à partir d'un fichier xml
-
-	//mettre dans le modèle après avoir testé
-
 	private Jeu jeu;
 	private Map map;
 
@@ -38,7 +34,6 @@ public class Controleur implements Initializable{
 
 		this.tilemap.setPrefColumns(12);
 		this.tilemap.setPrefRows(12);
-		//tilepane setprefcol et prefrow
 		this.map = new Map();
 		this.setJeu(new Jeu(this.map));
 		int [][] t2 = this.map.getTab2d();
