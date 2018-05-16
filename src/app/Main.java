@@ -13,7 +13,6 @@ public class Main extends Application {
 
 	public static void main(String[] args) {
 		launch(args);
-
 	}
 
 	@Override
@@ -27,7 +26,7 @@ public class Main extends Application {
 			System.out.println(loader.getLocation());
 
 			Pane root = loader.load();	
-			Scene scene = new Scene(root, 600, 400);
+			Scene scene = new Scene(root, root.getPrefHeight(),root.getPrefWidth());
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch (Exception e) {

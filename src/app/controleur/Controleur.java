@@ -46,6 +46,9 @@ public class Controleur implements Initializable{
 		}
 
 		this.pane.getChildren().add(new ImageView(new Image("./app/img/Female_Sprite_face2.png")));
+		pane.getChildren().get(1).setLayoutX(64);
+		pane.getChildren().get(1).setLayoutY(100);
+
 	}
 
 
