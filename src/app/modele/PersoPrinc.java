@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import javafx.beans.property.SimpleIntegerProperty;
 
-public class PersoPrinc {
+public class PersoPrinc {//TODO: bosser sur le modèle et sur son affichage dans le controleur
 	private ArrayList<Armes> listeArmes;
 	private Armes equipé;
 //	private ArrayList<Item> listeItem;
