@@ -5,16 +5,12 @@ import java.util.ResourceBundle;
 
 import app.modele.Jeu;
 import app.modele.Map;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
-import javafx.util.Duration;
-
 
 public class Controleur implements Initializable {
 
