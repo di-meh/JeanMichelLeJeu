@@ -74,8 +74,7 @@ public class Controleur implements Initializable{
 		case S : pane.getChildren().get(1).setLayoutY(pane.getChildren().get(1).getLayoutY()+5);
 			break;
 		case D : pane.getChildren().get(1).setLayoutX(pane.getChildren().get(1).getLayoutX()+5);
-			break;	
-
+			break;
 		default:
 			break;
 		}
