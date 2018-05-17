@@ -33,7 +33,14 @@ public class Controleur implements Initializable{
 		String nomImage;
 		this.tilemap.setPrefColumns(12);
 		this.tilemap.setPrefRows(12);
+		
+		//TODO new PersoPinc
+		// new PersoPrincVue(...)
+		
 		this.map = new Map();
+		//TODO faire un new terrainVue(this.terrain) et c'est terrainVue qui construit les images.
+		
+		
 		this.setJeu(new Jeu(this.map));
 		int [][] t2 = this.map.getTab2d();
 		for (int x = 0; x< t2.length; x++) {
@@ -66,6 +73,7 @@ public class Controleur implements Initializable{
 		KeyCode value = e.getCode();
 		switch (value) {
 		case Z : pane.getChildren().get(1).setLayoutY(pane.getChildren().get(1).getLayoutY()-5);
+			//TODO appeler une méthode sur le personnage qui déplace le y
 			break;
 		case Q : pane.getChildren().get(1).setLayoutX(pane.getChildren().get(1).getLayoutX()-5);
 			break;

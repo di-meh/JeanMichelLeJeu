@@ -23,9 +23,6 @@ public class Map {
 		this.tab_2d = tab1dTo2d(tab_1d); //TODO investigate
 	}
 
-	public int[] getTab1d() {
-		return this.tab_1d;
-	}
 
 	public void setTab1d(int [] newtab) {
 		this.tab_1d = newtab;
@@ -34,6 +31,7 @@ public class Map {
 	public int[][] getTab2d() {
 		return this.tab_2d;
 	}
+	
 	public void setTab2d(int[][] newtab) {
 		this.tab_2d = newtab;
 	}
