@@ -7,6 +7,9 @@ public class Item {
 	private String lienIMG;
 	private boolean deplacable;
 	private boolean cassable;
+
+	//La dimension d'objet cassable est à revoir
+
 	public Item(String url, boolean dplcbl,boolean cssble) {
 		img=new Image(url,true);
 		deplacable=dplcbl;
@@ -17,7 +20,7 @@ public class Item {
 	}
 	public final String getLienIMG() {
 		return lienIMG;
-		
+
 	}
 	public final boolean isDeplacable() {
 		return deplacable;
