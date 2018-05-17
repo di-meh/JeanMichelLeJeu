@@ -8,7 +8,7 @@ import javafx.scene.image.Image;
 public class JeanMichel {//TODO: bosser sur le modèle et sur son affichage dans le controleur
 	private ArrayList<Arme> listeArmes;
 	private Arme armeEquipée;
-	//	private ArrayList<Item> inventaire;
+	private ArrayList<Item> inventaire;
 	private SimpleIntegerProperty vie, argent;
 	private int x, y;
 	private Image sprite;
@@ -16,7 +16,7 @@ public class JeanMichel {//TODO: bosser sur le modèle et sur son affichage dans
 	public JeanMichel() {
 		//TODO initialiser x, y et listeItem
 		this.listeArmes=new ArrayList<>();
-		//listeItem = new ArrayList<>();
+		setInventaire(new ArrayList<>());
 		this.vie = new SimpleIntegerProperty(100);
 		x=0;
 		y=0;
@@ -76,6 +76,12 @@ public class JeanMichel {//TODO: bosser sur le modèle et sur son affichage dans
 	}
 	public void setArmeEquipée(Arme armeEquipée) {
 		this.armeEquipée = armeEquipée;
+	}
+	public ArrayList<Item> getInventaire() {
+		return inventaire;
+	}
+	public void setInventaire(ArrayList<Item> inventaire) {
+		this.inventaire = inventaire;
 	}
 
 }
