@@ -16,7 +16,7 @@ public class Map {
 			210,210,186,210,210,210,210,211,210,210,210,210,
 			210,210,210,210,210,210,210,210,210,210,210,210};
 	private int[][] tab_2d;
-	
+
 	private static final int taille_tab = 12;
 
 	public Map() {
@@ -37,7 +37,7 @@ public class Map {
 	public void setTab2d(int[][] newtab) {
 		this.tab_2d = newtab;
 	}
-	
+
 	public int getTailleTab() {
 		return taille_tab;
 	}

@@ -45,8 +45,8 @@ public class Controleur implements Initializable {
 			}
 		}
 		this.pane.getChildren().add(new ImageView(new Image("./app/img/Female_Sprite_face2.png"))); // Image du personnage, à déplacer dans le modèle
-		jeu.init();
-		jeu.getGameLoop().play();
+//		jeu.init();
+//		jeu.getGameLoop().play();
 	}
 
 
