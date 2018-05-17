@@ -29,7 +29,7 @@ public class Main extends Application {
 			System.out.println(loader.getLocation());
 
 			Pane root = loader.load();	
-			Scene scene = new Scene(root, 600, 400);
+			Scene scene = new Scene(root, 192, 192);
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch (Exception e) {

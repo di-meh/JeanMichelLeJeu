@@ -45,6 +45,19 @@ public class Controleur implements Initializable{
 			}
 		}
 		this.pane.getChildren().add(new ImageView(new Image("./app/img/Female_Sprite_face2.png")));
+		
+		
+		
+		/*ImageView aiguille = new ImageView(new Image(Metronome.class.getResourceAsStream("images/aiguille.png")));
+        aiguille.setFitHeight(32);
+        aiguille.setPreserveRatio(true);
+        aiguille.setTranslateX(16);
+        aiguille.setTranslateY(2);
+        */
+		
+		
+		
+		
 	}
 
 
