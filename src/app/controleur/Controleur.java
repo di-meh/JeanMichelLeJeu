@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import app.modele.Jeu;
 import app.modele.Map;
 import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
@@ -16,7 +17,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
 
 
-public class Controleur implements Initializable, EventHandler<KeyEvent>{
+public class Controleur implements Initializable{
 
 	private Jeu jeu;
 	private Map map;
@@ -28,9 +29,6 @@ public class Controleur implements Initializable, EventHandler<KeyEvent>{
 	private TilePane tilemap;
 
 	private Image imagetest;
-
-
-
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -49,13 +47,12 @@ public class Controleur implements Initializable, EventHandler<KeyEvent>{
 				this.tilemap.getChildren().add(img);
 			}
 		}
+		
 		this.pane.getChildren().add(new ImageView(new Image("./app/img/Female_Sprite_face2.png")));
 		pane.getChildren().get(1).setLayoutX(84);
 		pane.getChildren().get(1).setLayoutY(84);
 		pane.getChildren().get(1).setOnKeyTyped(e -> {
-			if(e.getCode() == KeyCode.Z)
-			pane.getChildren().get(1).setLayoutX(pane.getChildren().get(1).getLayoutX()+16);
-			});
+		});
 	}
 
 
@@ -68,13 +65,22 @@ public class Controleur implements Initializable, EventHandler<KeyEvent>{
 	public void setJeu(Jeu jeu) {
 		this.jeu = jeu;
 	}
+	public void gererfleche(KeyEvent e) {
+		
+		KeyCode value = e.getCode();
+		switch (value) {
+		case Z : pane.getChildren().get(1).setLayoutY(pane.getChildren().get(1).getLayoutY()-5);
+			break;
+		case Q : pane.getChildren().get(1).setLayoutX(pane.getChildren().get(1).getLayoutX()-5);
+			break;
+		case S : pane.getChildren().get(1).setLayoutY(pane.getChildren().get(1).getLayoutY()+5);
+			break;
+		case D : pane.getChildren().get(1).setLayoutX(pane.getChildren().get(1).getLayoutX()+5);
+			break;	
 
-
-
-	@Override
-	public void handle(KeyEvent event) {
-		// TODO Auto-generated method stub
-		pane.getChildren().get(1).setLayoutX(pane.getChildren().get(1).getLayoutX()+12);
+		default:
+			break;
+		}
 	}
 
 }
