@@ -15,7 +15,7 @@ public class testcharacter implements Initializable{
 	
 	
 	public testcharacter() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 	@Override

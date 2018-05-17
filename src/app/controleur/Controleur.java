@@ -9,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
 
@@ -25,11 +27,10 @@ public class Controleur implements Initializable{
 	private TilePane tilemap;
 
 	private Image imagetest;
-    
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		String nomImage;
-
 		this.tilemap.setPrefColumns(12);
 		this.tilemap.setPrefRows(12);
 		this.map = new Map();
@@ -44,7 +45,10 @@ public class Controleur implements Initializable{
 				this.tilemap.getChildren().add(img);
 			}
 		}
+		
 		this.pane.getChildren().add(new ImageView(new Image("./app/img/Female_Sprite_face2.png")));
+		pane.getChildren().get(1).setLayoutX(84);
+		pane.getChildren().get(1).setLayoutY(84);
 	}
 
 
@@ -54,9 +58,24 @@ public class Controleur implements Initializable{
 	}
 
 
-
 	public void setJeu(Jeu jeu) {
 		this.jeu = jeu;
+	}
+	public void gererfleche(KeyEvent e) {
+		
+		KeyCode value = e.getCode();
+		switch (value) {
+		case Z : pane.getChildren().get(1).setLayoutY(pane.getChildren().get(1).getLayoutY()-5);
+			break;
+		case Q : pane.getChildren().get(1).setLayoutX(pane.getChildren().get(1).getLayoutX()-5);
+			break;
+		case S : pane.getChildren().get(1).setLayoutY(pane.getChildren().get(1).getLayoutY()+5);
+			break;
+		case D : pane.getChildren().get(1).setLayoutX(pane.getChildren().get(1).getLayoutX()+5);
+			break;
+		default:
+			break;
+		}
 	}
 
 }
