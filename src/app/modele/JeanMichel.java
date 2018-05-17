@@ -20,7 +20,7 @@ public class JeanMichel {//TODO: bosser sur le modèle et sur son affichage dans
 		this.vie = new SimpleIntegerProperty(100);
 		//x
 		//y
-
+		sprite = new Image("./app/img/Female_Sprite_face2.png"); //test de sprite
 	}
 	public final ArrayList<Arme> getListeArmes() {
 		return listeArmes;

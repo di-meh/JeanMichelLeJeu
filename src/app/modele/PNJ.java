@@ -6,7 +6,7 @@ public abstract class PNJ {
 
 	private String nom;
 
-	private Image tileset;
+	private Image sprite;
 
 	private int positionX;
 
@@ -53,11 +53,11 @@ public abstract class PNJ {
 	public abstract void parler(int i);
 
 	public Image getTileset() {
-		return tileset;
+		return sprite;
 	}
 
 	public void setTileset(Image tileset) {
-		this.tileset = tileset;
+		this.sprite = tileset;
 	}
 
 }

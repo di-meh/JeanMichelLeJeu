@@ -6,7 +6,7 @@ public abstract class Ennemi {
 
 	private String nom;
 
-	private Image tileset;
+	private Image sprite;
 
 	private int pointsVie;
 
@@ -81,11 +81,11 @@ public abstract class Ennemi {
 	public abstract void deplacement();
 
 	public Image getTileset() {
-		return tileset;
+		return sprite;
 	}
 
 	public void setTileset(Image tileset) {
-		this.tileset = tileset;
+		this.sprite = tileset;
 	}
 
 }

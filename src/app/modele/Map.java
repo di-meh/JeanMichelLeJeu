@@ -16,7 +16,8 @@ public class Map {
 			210,210,186,210,210,210,210,211,210,210,210,210,
 			210,210,210,210,210,210,210,210,210,210,210,210};
 	private int[][] tab_2d;
-
+	
+	private static final int taille_tab = 12;
 
 	public Map() {
 		this.tab_2d = tab1dTo2d(tab_1d);
@@ -36,6 +37,10 @@ public class Map {
 	public void setTab2d(int[][] newtab) {
 		this.tab_2d = newtab;
 	}
+	
+	public int getTailleTab() {
+		return taille_tab;
+	}
 
 	public String imageDe(int i) {
 		switch(i) {
@@ -49,10 +54,10 @@ public class Map {
 
 
 	public int[][] tab1dTo2d(int [] tab1d) {
-		int [][] tab2d = new int[12][12];
+		int [][] tab2d = new int[taille_tab][taille_tab];
 		for (int x = 0; x< tab2d.length; x++) {
 			for (int y = 0; y< tab2d[x].length; y++) {
-				tab2d[x][y] = tab1d[x+12*y];
+				tab2d[x][y] = tab1d[x+taille_tab*y];
 			}
 		}
 		return tab2d;
