@@ -10,8 +10,6 @@ public class Jeu {
 	private JeanMichel heros;
 	private Timeline gameLoop;
 
-	private int temps;
-
 
 	public Jeu(Map m) {
 		//TODO Faire la classe Jeu, qui contiendra la gameloop et les différents objectifs 
@@ -27,7 +25,6 @@ public class Jeu {
 	
 	public void init() {
 		setGameLoop(new Timeline());
-		temps=0;
 		gameLoop.setCycleCount(Timeline.INDEFINITE);
 
 		KeyFrame kf = new KeyFrame(
@@ -39,10 +36,6 @@ public class Jeu {
 						System.out.println("Vous êtes mort");
 						gameLoop.stop();
 					}
-					else if (temps%5==0){
-						System.out.println("un tour");
-					}
-					temps++;
 				})
 				);
 		gameLoop.getKeyFrames().add(kf);
