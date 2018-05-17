@@ -48,4 +48,8 @@ public class Jeu {
 	public void setGameLoop(Timeline gameLoop) {
 		this.gameLoop = gameLoop;
 	}
+	
+	public JeanMichel getHeros() {
+		return heros;
+	}
 }

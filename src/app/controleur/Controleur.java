@@ -27,8 +27,8 @@ public class Controleur implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		this.tilemap.setPrefColumns(this.map.getTailleTab());
-		this.tilemap.setPrefRows(this.map.getTailleTab());
+		this.tilemap.setPrefColumns(12);
+		this.tilemap.setPrefRows(12);
 		this.map = new Map();
 		this.setJeu(new Jeu(this.map));
 		int [][] t2 = this.map.getTab2d();
@@ -40,7 +40,7 @@ public class Controleur implements Initializable {
 				this.tilemap.getChildren().add(img);
 			}
 		}
-		this.pane.getChildren().add(new ImageView(new Image("./app/img/Female_Sprite_face2.png"))); // Image du personnage, à déplacer dans le modèle
+		this.pane.getChildren().add(new ImageView(jeu.getHeros().getSprite())); // Image du personnage, à déplacer dans le modèle
 //		jeu.init();
 //		jeu.getGameLoop().play();
 	}

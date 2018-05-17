@@ -38,10 +38,6 @@ public class Map {
 		this.tab_2d = newtab;
 	}
 
-	public int getTailleTab() {
-		return taille_tab;
-	}
-
 	public String imageDe(int i) {
 		switch(i) {
 		case 186: return "./app/img/tile_186.png";
