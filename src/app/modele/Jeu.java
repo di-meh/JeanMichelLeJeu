@@ -26,7 +26,7 @@ public class Jeu {
 	public void init() {
 		setGameLoop(new Timeline());
 		temps=0;
-		getGameLoop().setCycleCount(Timeline.INDEFINITE);
+		gameLoop.setCycleCount(Timeline.INDEFINITE);
 
 		KeyFrame kf = new KeyFrame(
 				Duration.seconds(0.018), //environ 60 FPS
@@ -35,7 +35,7 @@ public class Jeu {
 				(ev ->{
 					if(temps==100){
 						System.out.println("fini");
-						getGameLoop().stop();
+						gameLoop.stop();
 					}
 					else if (temps%5==0){
 						System.out.println("un tour");
@@ -43,7 +43,7 @@ public class Jeu {
 					temps++;
 				})
 				);
-		getGameLoop().getKeyFrames().add(kf);
+		gameLoop.getKeyFrames().add(kf);
 	}
 
 	public Timeline getGameLoop() {
