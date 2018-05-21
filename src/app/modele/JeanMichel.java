@@ -17,15 +17,14 @@ public class JeanMichel {
 	
 	private int positionY;
 	
-	public JeanMichel(Arme e) {
+	public JeanMichel(Arme e, int x, int y) {
 		//TODO initialiser x, y et listeItem
-		this.inventaireArmes=new ArrayList<>();
+		this.inventaireArmes = new ArrayList<>();
 		this.equipée = e;
 		//listeItem = new ArrayList<>();
 		this.pointsVie = new SimpleIntegerProperty(100);
-		//x
-		//y
-		
+		this.positionX = x;
+		this.positionY = y;
 	}
 	
 	public final ArrayList<Arme> getListeArmes() {

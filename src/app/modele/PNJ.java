@@ -6,8 +6,6 @@ public abstract class PNJ {
 
 	private String nom;
 	
-	private Image tileset;
-	
 	private int positionX;
 	
 	private int positionY;
@@ -16,9 +14,6 @@ public abstract class PNJ {
 		if (n == null || n.equals(""))
 			throw new Error("Creation class ennemi1 impossible : erreur nom incorrect");
 		this.nom = n;
-		if (lien == null || lien.equals(""))
-			throw new Error("Creation class ennemi1 impossible : erreur lien image incorrect");
-		this.tileset = new Image(lien);
 		if (x <= 0)
 			throw new Error("Creation class ennemi1 impossible : erreur x incorrect");
 		this.positionX = x;

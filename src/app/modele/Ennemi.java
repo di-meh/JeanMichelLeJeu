@@ -6,8 +6,6 @@ public abstract class Ennemi {
 
 	private String nom;
 	
-	private Image tileset;
-	
 	private int pointsVie;
 	
 	private int attaque;
@@ -20,9 +18,6 @@ public abstract class Ennemi {
 		if (n == null || n.equals(""))
 			throw new Error("Creation superclass ennemi impossible : erreur nom incorrect");
 		this.nom = n;
-		if (lien == null || lien.equals(""))
-			throw new Error("Creation superclass ennemi impossible : erreur lien image incorrect");
-		this.tileset = new Image(lien);
 		if (pv <= 0)
 			throw new Error("Creation superclass ennemi impossible : erreur points vie incorrect");
 		this.pointsVie = pv;
