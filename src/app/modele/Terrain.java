@@ -1,6 +1,6 @@
 package app.modele;
 
-public class Map {
+public class Terrain {
 
 	private int[] tab_1d = {
 			210,210,210,210,210,210,210,210,210,210,210,210,
@@ -18,7 +18,7 @@ public class Map {
 	private int[][] tab_2d;
 
 
-	public Map() {
+	public Terrain() {
 		//p-e chargement des images
 		this.tab_2d = tab1dTo2d(tab_1d); //TODO investigate
 	}
