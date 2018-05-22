@@ -3,6 +3,7 @@ package app.controleur;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import app.modele.JeanMichel;
 import app.modele.Jeu;
 import app.modele.Terrain;
 import javafx.fxml.FXML;
@@ -19,7 +20,8 @@ public class Controleur implements Initializable{
 
 	private Jeu jeu;
 	private Terrain map;
-
+	private JeanMichel heros;
+	private int tailleMap =  12;
 	@FXML
 	private Pane pane;
 
@@ -31,9 +33,9 @@ public class Controleur implements Initializable{
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		String nomImage;
-		this.tilemap.setPrefColumns(12);
-		this.tilemap.setPrefRows(12);
-		
+		this.tilemap.setPrefColumns(tailleMap);
+		this.tilemap.setPrefRows(tailleMap);
+		this.heros = new JeanMichel(null, 0, 0);
 		//TODO new PersoPinc
 		// new PersoPrincVue(...)
 		

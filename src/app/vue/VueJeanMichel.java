@@ -1,25 +1,65 @@
 package app.vue;
 
+import app.modele.JeanMichel;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 public class VueJeanMichel {
+	private JeanMichel heros;
+	private SimpleIntegerProperty positionX, positionY;
+
+	public VueJeanMichel(JeanMichel heros) {
+		this.heros = heros;
+		positionX.bind(heros.XProperty());
+		positionY.bind(heros.YProperty());
+
+	}
 	
-public void gererfleche(KeyEvent e) {
-		
+	
+	public void deplacement(KeyEvent e) {
 		KeyCode value = e.getCode();
-		switch (value) {
-		case Z : pane.getChildren().get(1).setLayoutY(pane.getChildren().get(1).getLayoutY()-5);
-			//TODO appeler une méthode sur le personnage qui déplace le y
-			break;
-		case Q : pane.getChildren().get(1).setLayoutX(pane.getChildren().get(1).getLayoutX()-5);
-			break;
-		case S : pane.getChildren().get(1).setLayoutY(pane.getChildren().get(1).getLayoutY()+5);
-			break;
-		case D : pane.getChildren().get(1).setLayoutX(pane.getChildren().get(1).getLayoutX()+5);
-			break;
+		
+		switch(value) {
+		case Z: this.heros.haut();
+		break;
+		case Q: this.heros.gauche();
+		break;
+		case S: this.heros.bas();
+		break;
+		case D: this.heros.droite();
+		break;
 		default:
 			break;
 		}
+	}
+//	public void gererfleche(KeyEvent e) { à garder de côté au cas où le déplacement ne fonctionne pass
+//
+//		KeyCode value = e.getCode();
+//		switch (value) {
+//		case Z : pane.getChildren().get(1).setLayoutY(pane.getChildren().get(1).getLayoutY()-5);
+//		//TODO appeler une méthode sur le personnage qui déplace le y
+//		break;
+//		case Q : pane.getChildren().get(1).setLayoutX(pane.getChildren().get(1).getLayoutX()-5);
+//		break;
+//		case S : pane.getChildren().get(1).setLayoutY(pane.getChildren().get(1).getLayoutY()+5);
+//		break;
+//		case D : pane.getChildren().get(1).setLayoutX(pane.getChildren().get(1).getLayoutX()+5);
+//		break;
+//		default:
+//			break;
+//		}
+//	}
+	public SimpleIntegerProperty getPositionX() {
+		return positionX;
+	}
+	public void setPositionX(SimpleIntegerProperty positionX) {
+		this.positionX = positionX;
+	}
+	public SimpleIntegerProperty getPositionY() {
+		return positionY;
+	}
+	public void setPositionY(SimpleIntegerProperty positionY) {
+		this.positionY = positionY;
 	}
 }
