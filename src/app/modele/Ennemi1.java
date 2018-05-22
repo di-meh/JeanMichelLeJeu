@@ -1,5 +1,6 @@
 package app.modele;
 
+
 public class Ennemi1 extends Ennemi{
 
 	public Ennemi1(String n) {
@@ -10,7 +11,7 @@ public class Ennemi1 extends Ennemi{
 	@Override
 	public void deplacement() {
 		
-		
+
 	}
 
 }
