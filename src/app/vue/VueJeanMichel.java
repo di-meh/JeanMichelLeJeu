@@ -13,8 +13,8 @@ public class VueJeanMichel {
 
 	public VueJeanMichel(JeanMichel heros) {
 		this.heros = heros;
-		positionX.bind(heros.XProperty());
-		positionY.bind(heros.YProperty());
+		/*positionX.bind(heros.XProperty());
+		positionY.bind(heros.YProperty());*/
 
 	}
 	
@@ -23,14 +23,18 @@ public class VueJeanMichel {
 		KeyCode value = e.getCode();
 		
 		switch(value) {
-		case Z: this.heros.haut();
-		break;
-		case Q: this.heros.gauche();
-		break;
-		case S: this.heros.bas();
-		break;
-		case D: this.heros.droite();
-		break;
+		case Z: if(!collision(0, 1))
+			this.heros.haut();
+			break;
+		case Q: if(!collision(-1, 0))
+			this.heros.gauche();
+			break;
+		case S: if(!collision(0, -1))
+			this.heros.bas();
+			break;
+		case D: if(!collision(1, 0))
+			this.heros.droite();
+			break;
 		default:
 			break;
 		}
@@ -73,6 +77,17 @@ public class VueJeanMichel {
 	public String getImage() {
 		return "./app/img/Female_Sprite_face2.png";
 	}
+	
+	public boolean collision(int x, int y) {
+		
+		if() {
+			
+		}
+			
+		return true;
+	}
+	
+	
 }
 
 
