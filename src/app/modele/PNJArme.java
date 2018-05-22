@@ -2,8 +2,8 @@ package app.modele;
 
 public class PNJArme extends PNJ{
 
-	public PNJArme(int x, int y) {
-		super("truc5", "machin5", x, y);
+	public PNJArme(String n, int x, int y) {
+		super(n, x, y);
 		System.out.println("Class PNJArme created");
 	}
 
