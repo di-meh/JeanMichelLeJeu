@@ -37,7 +37,6 @@ public class Controleur implements Initializable{
 		
 		this.heros = new JeanMichel(null, 0, 0);
 		this.vueHeros = new VueJeanMichel(heros);
-
 		this.map = new Terrain();
 		this.vueMap = new VueTerrain(this.map);
 		//TODO faire un new terrainVue(this.terrain) et c'est terrainVue qui construit les images.
@@ -51,8 +50,6 @@ public class Controleur implements Initializable{
 		vueHeros.getPositionY().bind(heros.YProperty());
 		pane.getChildren().get(2).layoutXProperty().bind(heros.XProperty());
 		pane.getChildren().get(2).layoutYProperty().bind(heros.YProperty());
-		
-		
 	}
 
 
