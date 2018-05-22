@@ -4,10 +4,13 @@ import app.modele.JeanMichel;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import java.util.ArrayList;
 
 public class VueJeanMichel {
 	
 	private JeanMichel heros;
+	
+	private ArrayList<Integer> obstacles;
 	
 	private SimpleIntegerProperty positionX, positionY;
 
@@ -15,10 +18,10 @@ public class VueJeanMichel {
 		this.heros = heros;
 		/*positionX.bind(heros.XProperty());
 		positionY.bind(heros.YProperty());*/
+		this.obstacles = new ArrayList<Integer>();
 
 	}
-	
-	
+
 	public void deplacement(KeyEvent e) {
 		KeyCode value = e.getCode();
 		
@@ -81,10 +84,10 @@ public class VueJeanMichel {
 	public boolean collision(int x, int y) {
 		
 		if() {
-			
+			return true;
 		}
 			
-		return true;
+		return false;
 	}
 	
 	

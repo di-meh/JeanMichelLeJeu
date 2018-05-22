@@ -3,8 +3,7 @@ package app.modele;
 import java.util.ArrayList;
 
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
+
 
 public class JeanMichel {
 

@@ -63,6 +63,7 @@ public class Controleur implements Initializable{
 		
 
 		this.pane.getChildren().add(new ImageView(new Image(vueHeros.getImage())));
+		this.pane.getChildren().add(new ImageView(new Image("./app/img/1.png")));
 		pane.getChildren().get(1).setLayoutX(84);
 		pane.getChildren().get(1).setLayoutY(84);
 	}
