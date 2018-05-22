@@ -83,10 +83,10 @@ public class VueJeanMichel {
 	
 	public boolean collision(int x, int y) {
 		
-		if() {
+		/*if() {
 			return true;
-		}
-			
+		}*/
+		//TODO faire la lite qui contient les id des images a obstacles
 		return false;
 	}
 	
