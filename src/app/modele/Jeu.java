@@ -2,14 +2,14 @@ package app.modele;
 
 public class Jeu {
 
-	private Map map;
+	private Terrain map;
 
-	public Jeu(Map m) {
+	public Jeu(Terrain m) {
 		//TODO Faire la classe Jeu, qui contiendra la gameloop et les différents objectifs 
 		this.map = m;
 	}
 
-	public Map getMap() {
+	public Terrain getMap() {
 		return this.map;
 	}
 

@@ -7,7 +7,7 @@ public class JeanMichel {
 	
 	private ArrayList<Arme> inventaireArmes;
 	
-	private Arme equipée;
+	private Arme equipee;
 	
 //	private ArrayList<Item> listeItem;
 	
@@ -20,7 +20,7 @@ public class JeanMichel {
 	public JeanMichel(Arme e, int x, int y) {
 		//TODO initialiser x, y et listeItem
 		this.inventaireArmes = new ArrayList<>();
-		this.equipée = e;
+		this.equipee = e;
 		//listeItem = new ArrayList<>();
 		this.pointsVie = new SimpleIntegerProperty(100);
 		this.positionX = x;

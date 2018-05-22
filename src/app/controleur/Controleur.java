@@ -4,7 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import app.modele.Jeu;
-import app.modele.Map;
+import app.modele.Terrain;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
@@ -18,7 +18,7 @@ import javafx.scene.layout.TilePane;
 public class Controleur implements Initializable{
 
 	private Jeu jeu;
-	private Map map;
+	private Terrain map;
 
 	@FXML
 	private Pane pane;
@@ -37,7 +37,7 @@ public class Controleur implements Initializable{
 		//TODO new PersoPinc
 		// new PersoPrincVue(...)
 		
-		this.map = new Map();
+		this.map = new Terrain();
 		//TODO faire un new terrainVue(this.terrain) et c'est terrainVue qui construit les images.
 		
 		
