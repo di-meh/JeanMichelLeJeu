@@ -1,7 +1,5 @@
 package app.modele;
 
-import javafx.scene.image.Image;
-
 public abstract class PNJ {
 
 	private String nom;
@@ -10,7 +8,7 @@ public abstract class PNJ {
 	
 	private int positionY;
 	
-	public PNJ(String n, String lien, int x, int y) {
+	public PNJ(String n, int x, int y) {
 		if (n == null || n.equals(""))
 			throw new Error("Creation class ennemi1 impossible : erreur nom incorrect");
 		this.nom = n;

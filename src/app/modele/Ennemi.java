@@ -1,7 +1,5 @@
 package app.modele;
 
-import javafx.scene.image.Image;
-
 public abstract class Ennemi {
 
 	private String nom;
@@ -14,7 +12,7 @@ public abstract class Ennemi {
 	
 	private int positionY;
 	
-	public Ennemi(String n, String lien, int pv, int atq, int x, int y) {
+	public Ennemi(String n, int pv, int atq, int x, int y) {
 		if (n == null || n.equals(""))
 			throw new Error("Creation superclass ennemi impossible : erreur nom incorrect");
 		this.nom = n;
