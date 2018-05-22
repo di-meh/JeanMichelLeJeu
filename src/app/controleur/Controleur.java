@@ -6,6 +6,7 @@ import java.util.ResourceBundle;
 import app.modele.JeanMichel;
 import app.modele.Jeu;
 import app.modele.Terrain;
+import app.vue.VueJeanMichel;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
@@ -19,8 +20,13 @@ import javafx.scene.layout.TilePane;
 public class Controleur implements Initializable{
 
 	private Jeu jeu;
+	
 	private Terrain map;
+	
 	private JeanMichel heros;
+	
+	private VueJeanMichel vueHeros;
+	
 	private int tailleMap =  12;
 	@FXML
 	private Pane pane;
@@ -36,6 +42,7 @@ public class Controleur implements Initializable{
 		this.tilemap.setPrefColumns(tailleMap);
 		this.tilemap.setPrefRows(tailleMap);
 		this.heros = new JeanMichel(null, 0, 0);
+		this.vueHeros = new VueJeanMichel(heros);
 		//TODO new PersoPinc
 		// new PersoPrincVue(...)
 		
@@ -55,8 +62,7 @@ public class Controleur implements Initializable{
 			}
 		}
 		
-		this.pane.getChildren().add(new ImageView(new Image("./app/img/Female_Sprite_face2.png")));
-		this.pane.getChildren().add(new ImageView(new Image("./app/img/Female_Sprite_face2.png")));
+		this.pane.getChildren().add(new ImageView(new Image(vueHeros.getImage())));
 		pane.getChildren().get(1).setLayoutX(84);
 		pane.getChildren().get(1).setLayoutY(84);
 	}

@@ -6,7 +6,9 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 public class VueJeanMichel {
+	
 	private JeanMichel heros;
+	
 	private SimpleIntegerProperty positionX, positionY;
 
 	public VueJeanMichel(JeanMichel heros) {
@@ -33,6 +35,7 @@ public class VueJeanMichel {
 			break;
 		}
 	}
+	
 //	public void gererfleche(KeyEvent e) { à garder de côté au cas où le déplacement ne fonctionne pass
 //
 //		KeyCode value = e.getCode();
@@ -50,16 +53,26 @@ public class VueJeanMichel {
 //			break;
 //		}
 //	}
+	
 	public SimpleIntegerProperty getPositionX() {
 		return positionX;
 	}
+	
 	public void setPositionX(SimpleIntegerProperty positionX) {
 		this.positionX = positionX;
 	}
+	
 	public SimpleIntegerProperty getPositionY() {
 		return positionY;
 	}
+	
 	public void setPositionY(SimpleIntegerProperty positionY) {
 		this.positionY = positionY;
 	}
+	
+	public String getImage() {
+		return "./app/img/Female_Sprite_face2.png";
+	}
 }
+
+
