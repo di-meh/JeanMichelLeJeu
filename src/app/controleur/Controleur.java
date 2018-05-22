@@ -21,7 +21,7 @@ public class Controleur implements Initializable{
 	private Jeu jeu;
 	private Terrain map;
 	private JeanMichel heros;
-	private int tailleMap =  12;
+	private int tailleMap = 12;
 	@FXML
 	private Pane pane;
 
@@ -56,8 +56,8 @@ public class Controleur implements Initializable{
 		}
 		
 		this.pane.getChildren().add(new ImageView(new Image("./app/img/Female_Sprite_face2.png")));
-		pane.getChildren().get(1).setLayoutX(84);
-		pane.getChildren().get(1).setLayoutY(84);
+		pane.getChildren().get(1).setLayoutX(0);
+		pane.getChildren().get(1).setLayoutY(0);
 	}
 
 
