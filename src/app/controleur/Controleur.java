@@ -24,7 +24,6 @@ public class Controleur implements Initializable{
 	private Terrain map;
 	
 	private JeanMichel heros;
-	
 	private VueJeanMichel vueHeros;
 	
 	private int tailleMap =  12;
@@ -62,6 +61,7 @@ public class Controleur implements Initializable{
 			}
 		}
 		
+
 		this.pane.getChildren().add(new ImageView(new Image(vueHeros.getImage())));
 		pane.getChildren().get(1).setLayoutX(84);
 		pane.getChildren().get(1).setLayoutY(84);
