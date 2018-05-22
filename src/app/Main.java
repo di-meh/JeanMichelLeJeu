@@ -27,7 +27,7 @@ public class Main extends Application {
 			Pane root = loader.load();
 			Controleur c = loader.getController();
 			Scene scene = new Scene(root, root.getPrefHeight(),root.getPrefWidth());
-			scene.setOnKeyPressed(e-> c.gererfleche(e));
+			scene.setOnKeyPressed(e-> c.getVueJeanMichel().deplacement(e));
 			primaryStage.setScene(scene);
 			primaryStage.show();
 

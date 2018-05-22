@@ -2,6 +2,7 @@ package app.vue;
 
 import app.modele.JeanMichel;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
@@ -9,12 +10,16 @@ public class VueJeanMichel {
 	
 	private JeanMichel heros;
 	
+	private Image sprite = new Image("./app/img/Female_Sprite_face2.png");
+	
 	private SimpleIntegerProperty positionX, positionY;
 
 	public VueJeanMichel(JeanMichel heros) {
 		this.heros = heros;
-		positionX.bind(heros.XProperty());
-		positionY.bind(heros.YProperty());
+		this.positionX = new SimpleIntegerProperty();
+		this.positionY = new SimpleIntegerProperty();
+//		positionX.bind(heros.XProperty());
+//		positionY.bind(heros.YProperty());
 
 	}
 	
@@ -23,7 +28,7 @@ public class VueJeanMichel {
 		KeyCode value = e.getCode();
 		
 		switch(value) {
-		case Z: this.heros.haut();
+		case Z: this.heros.haut(); System.out.println(this.heros.getX()); System.out.println(this.heros.getY());
 		break;
 		case Q: this.heros.gauche();
 		break;
@@ -72,6 +77,11 @@ public class VueJeanMichel {
 	
 	public String getImage() {
 		return "./app/img/Female_Sprite_face2.png";
+	}
+
+
+	public Image getSprite() {
+		return sprite;
 	}
 }
 
