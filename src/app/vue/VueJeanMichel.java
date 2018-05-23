@@ -5,7 +5,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 public class VueJeanMichel {
 	
@@ -20,10 +20,6 @@ public class VueJeanMichel {
 		this.heros = heros;
 		this.positionX = new SimpleIntegerProperty();
 		this.positionY = new SimpleIntegerProperty();
-//		positionX.bind(heros.XProperty());
-//		positionY.bind(heros.YProperty());
-		/*positionX.bind(heros.XProperty());
-		positionY.bind(heros.YProperty());*/
 		//this.obstacles = new ArrayList<Integer>();
 
 	}
@@ -32,7 +28,7 @@ public class VueJeanMichel {
 		KeyCode value = e.getCode();
 		
 		switch(value) {
-		case Z: this.heros.haut(); System.out.println(this.heros.getX()); System.out.println(this.heros.getY());
+		case Z: this.heros.haut(); //System.out.println(this.heros.getX()); System.out.println(this.heros.getY());
 		break;
 		case Q: this.heros.gauche();
 		break;
@@ -44,24 +40,6 @@ public class VueJeanMichel {
 			break;
 		}
 	}
-	
-//	public void gererfleche(KeyEvent e) { à garder de côté au cas où le déplacement ne fonctionne pass
-//
-//		KeyCode value = e.getCode();
-//		switch (value) {
-//		case Z : pane.getChildren().get(1).setLayoutY(pane.getChildren().get(1).getLayoutY()-5);
-//		//TODO appeler une méthode sur le personnage qui déplace le y
-//		break;
-//		case Q : pane.getChildren().get(1).setLayoutX(pane.getChildren().get(1).getLayoutX()-5);
-//		break;
-//		case S : pane.getChildren().get(1).setLayoutY(pane.getChildren().get(1).getLayoutY()+5);
-//		break;
-//		case D : pane.getChildren().get(1).setLayoutX(pane.getChildren().get(1).getLayoutX()+5);
-//		break;
-//		default:
-//			break;
-//		}
-//	}
 	
 	public SimpleIntegerProperty getPositionX() {
 		return positionX;
@@ -88,14 +66,14 @@ public class VueJeanMichel {
 		return sprite;
 	}
 	
-	public boolean collision(int x, int y) {
-		
-		/*if() {
-			return true;
-		}*/
-		//TODO faire la lite qui contient les id des images a obstacles
-		return false;
-	}
+//	public boolean collision(int x, int y) {
+//		
+//		/*if() {
+//			return true;
+//		}*/
+//		//TODO faire la lite qui contient les id des images a obstacles
+//		return false;
+//	}
 	
 	
 }

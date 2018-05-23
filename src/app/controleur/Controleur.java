@@ -43,11 +43,13 @@ public class Controleur implements Initializable{
 
 
 		//this.setJeu(new Jeu(this.map));
-
+		
+		//Ajout des élements dans le Scene Builder
 		this.pane.getChildren().add(this.vueMap.getTileMap());
 		this.pane.getChildren().add(new ImageView(vueHeros.getSprite()));
-		vueHeros.getPositionX().bind(heros.XProperty());
-		vueHeros.getPositionY().bind(heros.YProperty());
+		
+		//Bind la position du sprite à la position du héros
+		
 		pane.getChildren().get(2).layoutXProperty().bind(heros.XProperty());
 		pane.getChildren().get(2).layoutYProperty().bind(heros.YProperty());
 	}
@@ -66,25 +68,5 @@ public class Controleur implements Initializable{
 	public VueJeanMichel getVueJeanMichel() {
 		return this.vueHeros;
 	}
-	//	public void gererfleche(KeyEvent e) {
-	//		
-	//		KeyCode value = e.getCode();
-	//		switch (value) {
-	//		case Z : pane.getChildren().get(1).setLayoutY(pane.getChildren().get(1).getLayoutY()-5);
-	//			//TODO appeler une méthode sur le personnage qui déplace le y
-	//			break;
-	//		case Q : pane.getChildren().get(1).setLayoutX(pane.getChildren().get(1).getLayoutX()-5);
-	//			break;
-	//		case S : pane.getChildren().get(1).setLayoutY(pane.getChildren().get(1).getLayoutY()+5);
-	//			break;
-	//		case D : pane.getChildren().get(1).setLayoutX(pane.getChildren().get(1).getLayoutX()+5);
-	//			break;
-	//		default:
-	//			break;
-	//		}
-	//	}
-
-
-
 }
 

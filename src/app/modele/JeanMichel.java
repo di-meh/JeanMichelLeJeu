@@ -21,7 +21,7 @@ public class JeanMichel {
 	public JeanMichel(Arme e, int x, int y) {
 		//TODO initialiser x, y et listeItem
 		this.inventaireArmes = new ArrayList<>();
-		this.equipee = e;
+		this.setArme(e);
 		//listeItem = new ArrayList<>();
 		this.pointsVie = new SimpleIntegerProperty(100);
 		this.positionX = new SimpleIntegerProperty(x);
@@ -143,6 +143,14 @@ public class JeanMichel {
 			// TODO: handle exception
 		}
 
+	}
+
+	public Arme getArmeEquipee() {
+		return equipee;
+	}
+
+	public void setArme(Arme equipee) {
+		this.equipee = equipee;
 	}
 
 }
