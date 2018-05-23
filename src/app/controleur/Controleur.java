@@ -2,7 +2,6 @@ package app.controleur;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import app.modele.JeanMichel;
 import app.modele.Jeu;
 import app.modele.Terrain;
@@ -23,8 +22,8 @@ public class Controleur implements Initializable {
 
 	private JeanMichel heros;
 	private VueJeanMichel vueHeros;
-	
-	
+
+
 	@FXML
 	private Pane pane;
 
@@ -40,13 +39,13 @@ public class Controleur implements Initializable {
 		this.vueMap = new VueTerrain(this.map);
 
 		//this.setJeu(new Jeu(this.map));
-		
+
 		//Ajout des élements dans le Scene Builder
 		this.pane.getChildren().add(this.vueMap.getTileMap());
 		this.pane.getChildren().add(new ImageView(vueHeros.getSprite()));
-		
+
 		//Bind la position du sprite à la position du héros
-		
+
 		pane.getChildren().get(2).layoutXProperty().bind(heros.XProperty());
 		pane.getChildren().get(2).layoutYProperty().bind(heros.YProperty());
 	}

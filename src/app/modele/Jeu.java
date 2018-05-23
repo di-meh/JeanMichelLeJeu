@@ -23,7 +23,7 @@ public class Jeu {
 	public Terrain getMap() {
 		return this.map;
 	}
-	
+
 	public void init() {
 		setGameLoop(new Timeline());
 		gameLoop.setCycleCount(Timeline.INDEFINITE);
@@ -49,7 +49,7 @@ public class Jeu {
 	public void setGameLoop(Timeline gameLoop) {
 		this.gameLoop = gameLoop;
 	}
-	
+
 	public JeanMichel getHeros() {
 		return heros;
 	}

@@ -7,7 +7,7 @@ public abstract class Ennemi {
 	private String nom;
 
 	private Image sprite;
-	
+
 	private int pointsVie;
 
 	private int attaque;
@@ -17,7 +17,7 @@ public abstract class Ennemi {
 	private int positionY;
 
 	public Ennemi(String n, String lien, int pv, int atq, int x, int y) {
-	
+
 		if (n == null || n.equals(""))
 			throw new Error("Creation superclass ennemi impossible : erreur nom incorrect");
 		this.nom = n;

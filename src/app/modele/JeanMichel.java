@@ -92,19 +92,19 @@ public class JeanMichel {
 	public final void setY(int y) {
 		this.positionX.setValue(y);
 	}
-	
+
 	public void haut() {
 		this.positionY.set(getY()-1);
 	}
-	
+
 	public void bas() {
 		this.positionY.set(getY()+1);
 	}
-	
+
 	public void gauche() {
 		this.positionX.set(getX()-1);
 	}
-	
+
 	public void droite() {
 		this.positionX.set(getX()+1);
 	}
