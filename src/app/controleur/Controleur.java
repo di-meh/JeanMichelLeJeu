@@ -31,7 +31,6 @@ public class Controleur implements Initializable {
 	@FXML
 	private TilePane tilemap;
 
-	private Image imagetest;
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
