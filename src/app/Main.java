@@ -33,10 +33,7 @@ public class Main extends Application {
 
 			System.out.println(loader.getLocation());
 
-			Pane root1 = loader.load();	
-			Scene scene1 = new Scene(root1, 192, 192);
-
-			primaryStage.setScene(scene1);
+			primaryStage.setScene(scene);
 			primaryStage.show();
 
 			

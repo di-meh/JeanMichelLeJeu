@@ -11,7 +11,6 @@ import app.vue.VueTerrain;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
@@ -33,35 +32,19 @@ public class Controleur implements Initializable{
 
 	@FXML
 	private TilePane tilemap;
-
-
-	private Image imagetest;
     
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-
-		String nomImage;
 
 		this.tilemap.setPrefColumns(12);
 		this.tilemap.setPrefRows(12);
 		this.map = new Terrain();
 		this.setJeu(new Jeu(this.map));
-		int [][] t2 = this.map.getTab2d();
-		for (int x = 0; x< t2.length; x++) {
-			for (int y =0; y< t2[x].length; y++) {
-				nomImage = this.map.imageDe(t2[x][y]);
-				this.imagetest = new Image(nomImage);
-				ImageView img = new ImageView();
-				img.setImage(imagetest);
-				this.tilemap.getChildren().add(img);
-			}
-		}
-		this.pane.getChildren().add(new ImageView(new Image("./app/modele/Essaianim.png")));
+		this.vueMap = new VueTerrain(this.map);
 
 		this.heros = new JeanMichel(null, 0, 0);
 		this.vueHeros = new VueJeanMichel(heros);
 		this.map = new Terrain();
-		this.vueMap = new VueTerrain(this.map);
 		//TODO faire un new terrainVue(this.terrain) et c'est terrainVue qui construit les images.
 
 
