@@ -19,8 +19,7 @@ public class Terrain {
 
 
 	public Terrain() {
-		//p-e chargement des images
-		this.tab_2d = tab1dTo2d(tab_1d); //TODO investigate
+		this.tab_2d = tab1dTo2d(tab_1d);
 	}
 
 
