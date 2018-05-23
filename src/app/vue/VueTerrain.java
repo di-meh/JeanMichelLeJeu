@@ -22,7 +22,7 @@ public class VueTerrain {
 		int [][] t2 = this.terrain.getTab2d();
 		for (int x = 0; x< t2.length; x++) {
 			for (int y =0; y< t2[x].length; y++) {
-				Image img = new Image(this.terrain.imageDe(t2[x][y]));
+				Image img = new Image(imageDe(t2[x][y]));
 				ImageView imgVw = new ImageView();
 				imgVw.setImage(img);
 				this.tilemap.getChildren().add(imgVw);
@@ -33,6 +33,14 @@ public class VueTerrain {
 	public TilePane getTileMap() {
 		return this.tilemap;
 	}
-
+	public String imageDe(int i) {
+		switch(i) {
+		case 186: return "./app/img/tile_186.png";
+		case 187: return "./app/img/tile_187.png";
+		case 210: return "./app/img/tile_herbe.jpg";
+		case 211: return "./app/img/tile_211.png";
+		default: return "./app/img/tile_herbe.jpg"; // pour l'instant, on ajoute une tile verte dans le cas où il n'y a pas d'autres valeurs
+		}	
+	}
 
 }
