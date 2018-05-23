@@ -26,7 +26,6 @@ public class Main extends Application {
 			System.out.println(loader.getLocation());
 			Pane root = loader.load();	
 			Scene scene = new Scene(root, root.getPrefWidth(), root.getPrefHeight());
-//			System.out.println(loader.getLocation());
 			Controleur c = loader.getController();
 			scene.setOnKeyPressed(e-> c.getVueJeanMichel().deplacement(e));
 			primaryStage.setScene(scene);
