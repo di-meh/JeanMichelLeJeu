@@ -39,6 +39,6 @@ public class Arme {
 
 	public void setEstDansLaZone(boolean estDansLaZone) {
 		this.estDansLaZone = estDansLaZone;
+		
 	}
-
 }

@@ -6,20 +6,21 @@ import javafx.util.Duration;
 
 public class Jeu {
 
-	private Map map;
+
 	private JeanMichel heros;
 	private Timeline gameLoop;
 
+	private Terrain map;
 
-	public Jeu(Map m) {
+	public Jeu(Terrain m) {
 		//TODO Faire la classe Jeu, qui contiendra la gameloop et les différents objectifs 
 		this.map = m;
-		heros = new JeanMichel();
+		heros = new JeanMichel(null, 0, 0);
 		init();
 		getGameLoop().play();
 	}
 
-	public Map getMap() {
+	public Terrain getMap() {
 		return this.map;
 	}
 	
@@ -32,7 +33,7 @@ public class Jeu {
 				// on définit ce qui se passe à chaque frame 
 				// c'est un eventHandler d'ou le lambda
 				(ev ->{
-					if(heros.getVie().intValue()==0){
+					if(heros.getPointsVie()==0){
 						System.out.println("Vous êtes mort");
 						gameLoop.stop();
 					}

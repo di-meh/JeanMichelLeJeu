@@ -5,83 +5,133 @@ import java.util.ArrayList;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.image.Image;
 
-public class JeanMichel {//TODO: bosser sur le modèle et sur son affichage dans le controleur
-	private ArrayList<Arme> listeArmes;
-	private Arme armeEquipée;
-	private ArrayList<Item> inventaire;
-	private SimpleIntegerProperty vie, argent;
-	private int x, y;
-	private Image sprite;
 
-	public JeanMichel() {
+public class JeanMichel {
+
+	private ArrayList<Arme> inventaireArmes;
+
+	private Arme equipee;
+
+	//	private ArrayList<Item> listeItem;
+
+	private SimpleIntegerProperty pointsVie;
+
+	private SimpleIntegerProperty positionX;
+
+	private SimpleIntegerProperty positionY;
+
+	public JeanMichel(Arme e, int x, int y) {
 		//TODO initialiser x, y et listeItem
-		this.listeArmes=new ArrayList<>();
-		setInventaire(new ArrayList<>());
-		this.vie = new SimpleIntegerProperty(100);
-		x=0;
-		y=0;
-		sprite = new Image("./app/img/Female_Sprite_face2.png"); //test de sprite
+		this.inventaireArmes = new ArrayList<>();
+		this.setArme(e);
+		//listeItem = new ArrayList<>();
+		this.pointsVie = new SimpleIntegerProperty(100);
+		this.positionX = new SimpleIntegerProperty(x);
+		this.positionY = new SimpleIntegerProperty(y);
 	}
-	public final ArrayList<Arme> getListeArmes() {
-		return listeArmes;
+
+	public ArrayList<Arme> getListeArmes() {
+		return inventaireArmes;
 	}
-	public final void AddArmes(Arme arme) {
-		this.listeArmes.add(arme);
+
+	public void AddArmes(Arme a) {
+		this.inventaireArmes.add(a);
 	}
-	public final SimpleIntegerProperty getVie() {
-		return vie;
+
+
+
+	public SimpleIntegerProperty pointsVieProperty() {
+		return this.pointsVie;
 	}
-	public final void setVie(SimpleIntegerProperty vie) {
-		this.vie = vie;
+
+	public void setPointsVie(SimpleIntegerProperty v) {
+		this.pointsVie = v;
 	}
+	public int getPointsVie() {
+		return this.pointsVie.getValue();
+	}
+
+	public void setPointsVie(int val) {
+		this.pointsVie.setValue(val);
+	}
+
+
+
+
+	public final SimpleIntegerProperty XProperty() {
+		return this.positionX;
+	}
+
+	public final void setX(SimpleIntegerProperty x) {
+		this.positionX = x;
+	}
+
 	public final int getX() {
-		return x;
+		return this.positionX.getValue();
 	}
+
 	public final void setX(int x) {
-		this.x = x;
+		this.positionX.setValue(x);
 	}
+
+
+
+	public final SimpleIntegerProperty YProperty() {
+		return this.positionY;
+	}
+
+	public final void setY(SimpleIntegerProperty y) {
+		this.positionY = y;
+	}
+
+
 	public final int getY() {
-		return y;
+		return this.positionY.getValue();
 	}
+
 	public final void setY(int y) {
-		this.y = y;
+		this.positionX.setValue(y);
 	}
+	
+	public void haut() {
+		this.positionY.set(getY()-1);
+		System.out.println("caca");
+	}
+	
+	public void bas() {
+		this.positionY.set(getY()+1);
+	}
+	
+	public void gauche() {
+		this.positionX.set(getX()-1);
+	}
+	
+	public void droite() {
+		this.positionX.set(getX()+1);
+	}
+
+
+
 	public void attaquer(/*Ennemi e*/) {
 		try {
-			//			if(equipé.getZoneAdapt().equals(e.getZone())) {
-			//			e.setvie(equipé.getDgtZone());
+			//			if(equipe.getZoneAdapt().equals(e.getZone())) {
+			//			e.setvie(equipe.getDgtZone());
 			//		}
 			//		else {
-			//			e.setvie(equipé.getDgtPasZone());
+			//			e.setvie(equipe.getDgtPasZone());
 			//		}
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
 
 	}
-	public Image getSprite() {
-		return sprite;
+
+	public Arme getArmeEquipee() {
+		return equipee;
 	}
-	public void setSprite(Image sprite) {
-		this.sprite = sprite;
-	}
-	public SimpleIntegerProperty getArgent() {
-		return argent;
-	}
-	public void setArgent(SimpleIntegerProperty argent) {
-		this.argent = argent;
-	}
-	public Arme getArmeEquipée() {
-		return armeEquipée;
-	}
-	public void setArmeEquipée(Arme armeEquipée) {
-		this.armeEquipée = armeEquipée;
-	}
-	public ArrayList<Item> getInventaire() {
-		return inventaire;
-	}
-	public void setInventaire(ArrayList<Item> inventaire) {
-		this.inventaire = inventaire;
+
+	public void setArme(Arme equipee) {
+		this.equipee = equipee;
 	}
 
 }

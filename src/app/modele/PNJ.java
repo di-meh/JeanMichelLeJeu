@@ -7,12 +7,13 @@ public abstract class PNJ {
 	private String nom;
 
 	private Image sprite;
-
+	
 	private int positionX;
 
 	private int positionY;
 
 	public PNJ(String n, String lien, int x, int y) {
+	
 		if (n == null || n.equals(""))
 			throw new Error("Creation class ennemi1 impossible : erreur nom incorrect");
 		this.nom = n;
