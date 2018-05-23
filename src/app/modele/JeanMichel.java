@@ -19,7 +19,6 @@ public class JeanMichel {
 	private SimpleIntegerProperty positionY;
 
 	public JeanMichel(Arme e, int x, int y) {
-		//TODO initialiser x, y et listeItem
 		this.inventaireArmes = new ArrayList<>();
 		this.setArme(e);
 		//listeItem = new ArrayList<>();
@@ -112,37 +111,20 @@ public class JeanMichel {
 	}
 
 
-//	public void deplacer(KeyEvent e) {
-//		
-//		KeyCode value = e.getCode();
-//		switch(value) {
-//		case Z: this.positionY.subtract(1);
-//		break;
-//		case Q: this.positionX.subtract(1);
-//		break;
-//		case S: this.positionY.add(1);
-//		break;
-//		case D: this.positionX.add(1);
-//		break;
-//
+
+//	public void attaquer(/*Ennemi e*/) { TODO
+//		try {
+//			//			if(equipe.getZoneAdapt().equals(e.getZone())) {
+//			//			e.setvie(equipe.getDgtZone());
+//			//		}
+//			//		else {
+//			//			e.setvie(equipe.getDgtPasZone());
+//			//		}
+//		} catch (Exception e) {
+//			// TODO: handle exception
 //		}
+//
 //	}
-
-
-
-	public void attaquer(/*Ennemi e*/) {
-		try {
-			//			if(equipe.getZoneAdapt().equals(e.getZone())) {
-			//			e.setvie(equipe.getDgtZone());
-			//		}
-			//		else {
-			//			e.setvie(equipe.getDgtPasZone());
-			//		}
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-
-	}
 
 	public Arme getArmeEquipee() {
 		return equipee;
