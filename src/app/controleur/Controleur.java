@@ -38,8 +38,6 @@ public class Controleur implements Initializable {
 		this.vueHeros = new VueJeanMichel(heros);
 		this.map = new Terrain();
 		this.vueMap = new VueTerrain(this.map);
-		//TODO faire un new terrainVue(this.terrain) et c'est terrainVue qui construit les images.
-
 
 		//this.setJeu(new Jeu(this.map));
 		

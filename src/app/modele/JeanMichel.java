@@ -95,7 +95,6 @@ public class JeanMichel {
 	
 	public void haut() {
 		this.positionY.set(getY()-1);
-		System.out.println("caca");
 	}
 	
 	public void bas() {
