@@ -10,10 +10,11 @@ public class VueTerrain {
 	private Terrain terrain;
 	private TilePane tilemap;
 
-	private int tailleMap = 12;
+	private int tailleMap;
 
 	public VueTerrain(Terrain t) {
 		this.terrain = t;
+		this.tailleMap = this.terrain.getTailletab();
 		this.tilemap = new TilePane();
 		this.tilemap.setPrefColumns(tailleMap);
 		this.tilemap.setPrefRows(tailleMap);
