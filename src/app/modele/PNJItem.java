@@ -3,7 +3,7 @@ package app.modele;
 public class PNJItem  extends PNJ{
 
 	public PNJItem(String n, int x, int y) {
-		super(n, x, y);
+		super(n, null, x, y);
 		System.out.println("Class PNJItem created");
 	}
 

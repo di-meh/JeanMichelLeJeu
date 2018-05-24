@@ -3,6 +3,9 @@ package app.modele;
 import java.util.ArrayList;
 
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+
 
 public class JeanMichel {
 
@@ -14,14 +17,11 @@ public class JeanMichel {
 
 	private SimpleIntegerProperty pointsVie;
 
-	private SimpleIntegerProperty positionX;
-
-	private SimpleIntegerProperty positionY;
+	private SimpleIntegerProperty positionX, positionY;
 
 	public JeanMichel(Arme e, int x, int y) {
-		//TODO initialiser x, y et listeItem
 		this.inventaireArmes = new ArrayList<>();
-		this.equipee = e;
+		this.setArme(e);
 		//listeItem = new ArrayList<>();
 		this.pointsVie = new SimpleIntegerProperty(100);
 		this.positionX = new SimpleIntegerProperty(x);
@@ -91,58 +91,58 @@ public class JeanMichel {
 		this.positionX.setValue(y);
 	}
 	
-	
-	
-	
-	
+	public void deplacement(KeyEvent e) {
+		KeyCode value = e.getCode();
+
+		switch(value) {
+		case Z: haut(); 
+		break;
+		case Q: gauche();
+		break;
+		case S: bas();
+		break;
+		case D: droite();
+		break;
+		default:
+			break;
+		}
+	}
+
 	public void haut() {
-		this.positionY.set(getY()-1);
-		System.out.println("caca");
+		this.positionY.set(getY()-4);
 	}
-	
+
 	public void bas() {
-		this.positionY.set(getY()+1);
+		this.positionY.set(getY()+4);
 	}
-	
+
 	public void gauche() {
-		this.positionX.set(getX()-1);
+		this.positionX.set(getX()-4);
 	}
-	
+
 	public void droite() {
-		this.positionX.set(getX()+1);
+		this.positionX.set(getX()+4);
 	}
-
-
-//	public void deplacer(KeyEvent e) {
-//		
-//		KeyCode value = e.getCode();
-//		switch(value) {
-//		case Z: this.positionY.subtract(1);
-//		break;
-//		case Q: this.positionX.subtract(1);
-//		break;
-//		case S: this.positionY.add(1);
-//		break;
-//		case D: this.positionX.add(1);
-//		break;
-//
+//	public void attaquer(/*Ennemi e*/) { TODO
+//		try {
+//			//			if(equipe.getZoneAdapt().equals(e.getZone())) {
+//			//			e.setvie(equipe.getDgtZone());
+//			//		}
+//			//		else {
+//			//			e.setvie(equipe.getDgtPasZone());
+//			//		}
+//		} catch (Exception e) {
+//			// TODO: handle exception
 //		}
+//
 //	}
 
+	public Arme getArmeEquipee() {
+		return equipee;
+	}
 
-
-	public void attaquer(/*Ennemi e*/) {
-		try {
-			//			if(equipe.getZoneAdapt().equals(e.getZone())) {
-			//			e.setvie(equipe.getDgtZone());
-			//		}
-			//		else {
-			//			e.setvie(equipe.getDgtPasZone());
-			//		}
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-
+	public void setArme(Arme equipee) {
+		this.equipee = equipee;
 	}
 
 }

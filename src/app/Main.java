@@ -15,7 +15,7 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
-
+	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
@@ -25,18 +25,15 @@ public class Main extends Application {
 			FXMLLoader loader = new FXMLLoader();
 			URL url = new File("src/app/vue/Map.fxml").toURI().toURL();
 			loader.setLocation(url);
-//			System.out.println(loader.getLocation());
-			Pane root = loader.load();
+			System.out.println(loader.getLocation());
+			Pane root = loader.load();	
+			Scene scene = new Scene(root, root.getPrefWidth(), root.getPrefHeight());
 			Controleur c = loader.getController();
-			Scene scene = new Scene(root, root.getPrefHeight(),root.getPrefWidth());
-			scene.setOnKeyPressed(e-> c.getVueJeanMichel().deplacement(e));
+			scene.setOnKeyPressed(e-> c.getJeanMichel().deplacement(e));
 
 			System.out.println(loader.getLocation());
 
-			Pane root1 = loader.load();	
-			Scene scene1 = new Scene(root1, 192, 192);
-
-			primaryStage.setScene(scene1);
+			primaryStage.setScene(scene);
 			primaryStage.show();
 
 			
@@ -46,4 +43,5 @@ public class Main extends Application {
 
 
 	}
+
 }
