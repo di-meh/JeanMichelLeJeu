@@ -10,7 +10,6 @@ import app.vue.VueTerrain;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
@@ -40,12 +39,14 @@ public class Controleur implements Initializable {
 		this.map = new Terrain();
 		this.setJeu(new Jeu(this.map));
 
-		this.pane.getChildren().add(new ImageView(new Image("./app/modele/Essaianim.png")));
+		this.vueMap = new VueTerrain(this.map);
 
 		this.heros = new JeanMichel(null, 0, 0);
 		this.vueHeros = new VueJeanMichel(heros);
 		this.map = new Terrain();
+
 		this.vueMap = new VueTerrain(this.map);
+
 
 		//this.setJeu(new Jeu(this.map));
 

@@ -1,5 +1,6 @@
 package app.modele;
 
+
 import javafx.scene.image.Image;
 
 public abstract class Ennemi {

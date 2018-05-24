@@ -7,12 +7,16 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 
-public class JeanMichel {
+public class JeanMichel{
 
 	private ArrayList<Arme> inventaireArmes;
 
 	private Arme equipee;
 
+	private int tailleX;
+	
+	private int tailleY;
+	
 	//	private ArrayList<Item> listeItem;
 
 	private SimpleIntegerProperty pointsVie;
@@ -20,6 +24,9 @@ public class JeanMichel {
 	private SimpleIntegerProperty positionX, positionY;
 
 	public JeanMichel(Arme e, int x, int y) {
+		//TODO initialiser x, y et listeItem
+		this.tailleX = 16;
+		this.tailleY = 32;
 		this.inventaireArmes = new ArrayList<>();
 		this.setArme(e);
 		//listeItem = new ArrayList<>();
@@ -36,8 +43,6 @@ public class JeanMichel {
 		this.inventaireArmes.add(a);
 	}
 
-
-
 	public SimpleIntegerProperty pointsVieProperty() {
 		return this.pointsVie;
 	}
@@ -52,9 +57,6 @@ public class JeanMichel {
 	public void setPointsVie(int val) {
 		this.pointsVie.setValue(val);
 	}
-
-
-
 
 	public final SimpleIntegerProperty XProperty() {
 		return this.positionX;
@@ -72,8 +74,6 @@ public class JeanMichel {
 		this.positionX.setValue(x);
 	}
 
-
-
 	public final SimpleIntegerProperty YProperty() {
 		return this.positionY;
 	}
@@ -81,7 +81,6 @@ public class JeanMichel {
 	public final void setY(SimpleIntegerProperty y) {
 		this.positionY = y;
 	}
-
 
 	public final int getY() {
 		return this.positionY.getValue();
