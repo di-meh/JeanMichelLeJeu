@@ -109,19 +109,19 @@ public class JeanMichel {
 	}
 
 	public void haut() {
-		this.positionY.set(getY()-1);
+		this.positionY.set(getY()-4);
 	}
 
 	public void bas() {
-		this.positionY.set(getY()+1);
+		this.positionY.set(getY()+4);
 	}
 
 	public void gauche() {
-		this.positionX.set(getX()-1);
+		this.positionX.set(getX()-4);
 	}
 
 	public void droite() {
-		this.positionX.set(getX()+1);
+		this.positionX.set(getX()+4);
 	}
 //	public void attaquer(/*Ennemi e*/) { TODO
 //		try {
