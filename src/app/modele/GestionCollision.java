@@ -1,9 +1,9 @@
 package app.modele;
 
-public class Collision {
+public class GestionCollision {
 	private Terrain map;
 	
-	public Collision(Terrain t) {
+	public GestionCollision(Terrain t) {
 		this.map = t;
 	}
 	
