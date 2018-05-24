@@ -3,7 +3,6 @@ package app.modele;
 import java.util.ArrayList;
 
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.scene.image.Image;
 
 
 public class JeanMichel {
@@ -16,9 +15,7 @@ public class JeanMichel {
 
 	private SimpleIntegerProperty pointsVie;
 
-	private SimpleIntegerProperty positionX;
-
-	private SimpleIntegerProperty positionY;
+	private SimpleIntegerProperty positionX, positionY;
 
 	public JeanMichel(Arme e, int x, int y) {
 		this.inventaireArmes = new ArrayList<>();
