@@ -3,6 +3,8 @@ package app.modele;
 import java.util.ArrayList;
 
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 
 public class JeanMichel {
@@ -87,6 +89,23 @@ public class JeanMichel {
 
 	public final void setY(int y) {
 		this.positionX.setValue(y);
+	}
+	
+	public void deplacement(KeyEvent e) {
+		KeyCode value = e.getCode();
+
+		switch(value) {
+		case Z: haut(); 
+		break;
+		case Q: gauche();
+		break;
+		case S: bas();
+		break;
+		case D: droite();
+		break;
+		default:
+			break;
+		}
 	}
 
 	public void haut() {

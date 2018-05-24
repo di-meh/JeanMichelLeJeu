@@ -62,8 +62,8 @@ public class Controleur implements Initializable {
 	}
 
 
-	public VueJeanMichel getVueJeanMichel() {
-		return this.vueHeros;
+	public JeanMichel getJeanMichel() {
+		return this.heros;
 	}
 }
 
