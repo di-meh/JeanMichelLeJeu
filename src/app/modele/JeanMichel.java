@@ -4,12 +4,16 @@ import java.util.ArrayList;
 
 import javafx.beans.property.SimpleIntegerProperty;
 
-public class JeanMichel {
+public class JeanMichel{
 
 	private ArrayList<Arme> inventaireArmes;
 
 	private Arme equipee;
 
+	private int tailleX;
+	
+	private int tailleY;
+	
 	//	private ArrayList<Item> listeItem;
 
 	private SimpleIntegerProperty pointsVie;
@@ -20,6 +24,8 @@ public class JeanMichel {
 
 	public JeanMichel(Arme e, int x, int y) {
 		//TODO initialiser x, y et listeItem
+		this.tailleX = 16;
+		this.tailleY = 32;
 		this.inventaireArmes = new ArrayList<>();
 		this.equipee = e;
 		//listeItem = new ArrayList<>();
@@ -36,8 +42,6 @@ public class JeanMichel {
 		this.inventaireArmes.add(a);
 	}
 
-
-
 	public SimpleIntegerProperty pointsVieProperty() {
 		return this.pointsVie;
 	}
@@ -52,9 +56,6 @@ public class JeanMichel {
 	public void setPointsVie(int val) {
 		this.pointsVie.setValue(val);
 	}
-
-
-
 
 	public final SimpleIntegerProperty XProperty() {
 		return this.positionX;
@@ -72,8 +73,6 @@ public class JeanMichel {
 		this.positionX.setValue(x);
 	}
 
-
-
 	public final SimpleIntegerProperty YProperty() {
 		return this.positionY;
 	}
@@ -82,7 +81,6 @@ public class JeanMichel {
 		this.positionY = y;
 	}
 
-
 	public final int getY() {
 		return this.positionY.getValue();
 	}
@@ -90,10 +88,6 @@ public class JeanMichel {
 	public final void setY(int y) {
 		this.positionX.setValue(y);
 	}
-	
-	
-	
-	
 	
 	public void haut() {
 		this.positionY.set(getY()-1);

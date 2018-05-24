@@ -49,6 +49,9 @@ public class VueTerrain {
 		case 197: return "./src/app/img/tile_197.png";
 		case 223: return "./src/app/img/tile_223.png";
 		case 271: return "./src/app/img/tile_271.png";
+		case 193: return "./src/app/img/tile_193.png";
+		case 198: return "./src/app/img/tile_198.png";
+		case 268: return "./src/app/img/tile_268.png";
 		default: return "./src/app/img/tile_244.png"; // pour l'instant, on ajoute une tile verte dans le cas où il n'y a pas d'autres valeurs
 		}	
 	}

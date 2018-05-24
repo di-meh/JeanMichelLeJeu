@@ -1,6 +1,6 @@
 package app.modele;
 
-public abstract class Ennemi {
+public abstract class Ennemi{
 
 	private String nom;
 	
