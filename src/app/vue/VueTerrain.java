@@ -1,5 +1,6 @@
 package app.vue;
 
+
 import app.modele.Terrain;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -12,9 +13,11 @@ public class VueTerrain {
 
 	private int tailleMap;
 
+	
+	
 	public VueTerrain(Terrain t) {
 		this.terrain = t;
-		this.tailleMap = this.terrain.getTailletab();
+		this.tailleMap = this.terrain.getTailleTab();
 		this.tilemap = new TilePane();
 		this.tilemap.setPrefColumns(tailleMap);
 		this.tilemap.setPrefRows(tailleMap);

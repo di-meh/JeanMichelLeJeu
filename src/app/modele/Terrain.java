@@ -16,11 +16,11 @@ public class Terrain {
 			210,210,186,210,210,210,210,211,210,210,210,210,
 			210,210,210,210,210,210,210,210,210,210,210,210};
 	private int[][] tab_2d;
-
-	private int tailleTab = 12;
 	
+	private int tailleTab = 12;	
 	public Terrain() {
 		this.tab_2d = tab1dTo2d(tab_1d);
+		this.setTailleTab(12);
 	}
 
 
@@ -50,12 +50,12 @@ public class Terrain {
 	}
 
 
-	public int getTailletab() {
+	public int getTailleTab() {
 		return tailleTab;
 	}
 
 
-	public void setTailletab(int tailletab) {
-		this.tailleTab = tailletab;
+	public void setTailleTab(int tailleTab) {
+		this.tailleTab = tailleTab;
 	}
 }

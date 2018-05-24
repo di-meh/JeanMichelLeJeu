@@ -21,7 +21,6 @@ public class JeanMichel {
 	private SimpleIntegerProperty positionY;
 
 	public JeanMichel(Arme e, int x, int y) {
-		//TODO initialiser x, y et listeItem
 		this.inventaireArmes = new ArrayList<>();
 		this.setArme(e);
 		//listeItem = new ArrayList<>();
@@ -108,22 +107,19 @@ public class JeanMichel {
 	public void droite() {
 		this.positionX.set(getX()+1);
 	}
-
-
-
-	public void attaquer(/*Ennemi e*/) {
-		try {
-			//			if(equipe.getZoneAdapt().equals(e.getZone())) {
-			//			e.setvie(equipe.getDgtZone());
-			//		}
-			//		else {
-			//			e.setvie(equipe.getDgtPasZone());
-			//		}
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-
-	}
+//	public void attaquer(/*Ennemi e*/) { TODO
+//		try {
+//			//			if(equipe.getZoneAdapt().equals(e.getZone())) {
+//			//			e.setvie(equipe.getDgtZone());
+//			//		}
+//			//		else {
+//			//			e.setvie(equipe.getDgtPasZone());
+//			//		}
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//		}
+//
+//	}
 
 	public Arme getArmeEquipee() {
 		return equipee;
