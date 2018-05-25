@@ -6,27 +6,24 @@ public class GestionCollision {
 
 	private Terrain terrain;
 	
-	private int[][] tabBasique;
 	
 	private ArrayList<Integer> obstacles;
 	
-	private JeanMichel jeanMichel;
 	
 	public GestionCollision() {
 		this.obstacles = new ArrayList<Integer>();
+		this.obstacles.add(197);
 		this.terrain = new Terrain();
-		this.tabBasique = this.terrain.getTab2d();
-		this.jeanMichel = new JeanMichel(null, 0, 0);
 	}
 	
-	public boolean collisione() {
-		if(estObstacle(caseDe()))
+	public boolean collisionne(int x, int y) {
+		if(estObstacle(caseDe(x, y)))
 			return true;
 		return false;
 	}
 	
-	public int caseDe() {
-		return this.tabBasique[this.jeanMichel.getX()%16][this.jeanMichel.getY()%16];
+	public int caseDe(int x, int y) {
+		return this.terrain.getTab2d()[x/16][y/16];
 	}
 	
 	public boolean estObstacle(int i) {

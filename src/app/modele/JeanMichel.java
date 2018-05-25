@@ -13,15 +13,15 @@ public class JeanMichel{
 
 	private Arme equipee;
 
-	private int tailleX;
-	
-	private int tailleY;
+	private int tailleX, tailleY;
 	
 	//	private ArrayList<Item> listeItem;
 
 	private SimpleIntegerProperty pointsVie;
 
 	private SimpleIntegerProperty positionX, positionY;
+	
+	private GestionCollision collision;
 
 	public JeanMichel(Arme e, int x, int y) {
 		//TODO initialiser x, y et listeItem
@@ -33,6 +33,7 @@ public class JeanMichel{
 		this.pointsVie = new SimpleIntegerProperty(100);
 		this.positionX = new SimpleIntegerProperty(x);
 		this.positionY = new SimpleIntegerProperty(y);
+		this.collision = new GestionCollision();
 	}
 
 	public ArrayList<Arme> getListeArmes() {
@@ -94,13 +95,13 @@ public class JeanMichel{
 		KeyCode value = e.getCode();
 
 		switch(value) {
-		case Z: haut(); 
+		case Z: if(!collision.collisionne(getX(), getY() - 4)) haut(); 
 		break;
-		case Q: gauche();
+		case Q: if(!collision.collisionne(getX()-4, getY())) gauche();
 		break;
-		case S: bas();
+		case S: if(!collision.collisionne(getX(), getY() + 4)) bas();
 		break;
-		case D: droite();
+		case D: if(!collision.collisionne(getX()+4, getY()))droite();
 		break;
 		default:
 			break;

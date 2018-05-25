@@ -30,9 +30,6 @@ public class Main extends Application {
 			Scene scene = new Scene(root, root.getPrefWidth(), root.getPrefHeight());
 			Controleur c = loader.getController();
 			scene.setOnKeyPressed(e-> c.getJeanMichel().deplacement(e));
-
-			System.out.println(loader.getLocation());
-
 			primaryStage.setScene(scene);
 			primaryStage.show();
 
