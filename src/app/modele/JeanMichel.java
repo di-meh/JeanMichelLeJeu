@@ -95,13 +95,13 @@ public class JeanMichel{
 		KeyCode value = e.getCode();
 
 		switch(value) {
-		case Z: if(!collision.collisionne(getX(), getY() - 4)) haut(); 
+		case Z: if(!collision.collisionne(getX(), getY() - 4)) haut(); System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
 		break;
-		case Q: if(!collision.collisionne(getX()-4, getY())) gauche();
+		case Q: if(!collision.collisionne(getX()-4, getY())) gauche(); System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
 		break;
-		case S: if(!collision.collisionne(getX(), getY() + 4)) bas();
+		case S: if(!collision.collisionne(getX(), getY() + 4)) bas();System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
 		break;
-		case D: if(!collision.collisionne(getX()+4, getY()))droite();
+		case D: if(!collision.collisionne(getX()+4, getY()))droite();System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
 		break;
 		default:
 			break;

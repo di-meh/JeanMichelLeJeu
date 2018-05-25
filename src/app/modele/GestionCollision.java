@@ -13,6 +13,7 @@ public class GestionCollision {
 	public GestionCollision() {
 		this.obstacles = new ArrayList<Integer>();
 		this.obstacles.add(197);
+		//this.obstacles.add(187);
 		this.terrain = new Terrain();
 	}
 	
