@@ -8,7 +8,7 @@ public class VueJeanMichel {
 
 	private JeanMichel heros;
 
-	private Image sprite = new Image("file:./src/app/img/Female_Sprite_face2_test.png");
+	private Image sprite = new Image("file:./src/app/img/jeanMi.png");
 	//private ArrayList<Integer> obstacles;
 
 	//private SimpleIntegerProperty positionX, positionY;
