@@ -120,7 +120,7 @@ public class Terrain {
 	
 	public void initMap() { //Méthode permettant de générer une map via un text file
 		String thisLine = null;
-
+		//P-E faire des commentaires en disant de skip la ligne si premier caractère = # ou autre
 		try {
 			BufferedReader br = new BufferedReader(new FileReader("src/app/modele/MapMatrice.txt"));
 			StringTokenizer s = new StringTokenizer(thisLine, ",");
