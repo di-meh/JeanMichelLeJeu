@@ -23,7 +23,7 @@ public class XMLforFXML { //Non autorisé pour projet, mais à utiliser pour tes
 
 			DocumentBuilder builder = factory.newDocumentBuilder();
 
-			File fileXML = new File("./Ressources/tilemap_1st_collisionTest.xml");
+			File fileXML = new File("./Ressources/tilemap_1st_collisionTest_2calques.xml");
 
 			Document xml = builder.parse(fileXML);
 

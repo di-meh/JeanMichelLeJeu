@@ -118,19 +118,21 @@ public class Terrain {
 		return this.tab_2d;
 	}
 	
-	public void initMap() {
+	public void initMap() { //Méthode permettant de générer une map via un text file
 		String thisLine = null;
 
 		try {
 			BufferedReader br = new BufferedReader(new FileReader("src/app/modele/MapMatrice.txt"));
 			StringTokenizer s = new StringTokenizer(thisLine, ",");
-
 			while ((thisLine = br.readLine())!= null) {
 				System.out.println(thisLine);
 			}
-		}catch(Exception e) {
+			br.close();
+		} catch(Exception e) {
 			e.printStackTrace();
 		}
+		
+		
 	}
 
 
