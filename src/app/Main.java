@@ -1,7 +1,10 @@
 package app;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.net.URL;
+import java.util.StringTokenizer;
 
 import app.controleur.Controleur;
 import javafx.application.Application;
@@ -13,13 +16,27 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
 	public static void main(String[] args) {
+		
+		String thisLine = null;
+
+		try {
+			BufferedReader br = new BufferedReader(new FileReader("src/app/modele/MapMatrice.txt"));
+
+			while ((thisLine = br.readLine())!= null) {
+				System.out.println(thisLine);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 		launch(args);
+		
 	}
-	
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
 		try {
+
 			primaryStage.setTitle("Jean-Michel : le jeu");
 
 			FXMLLoader loader = new FXMLLoader();
@@ -34,6 +51,9 @@ public class Main extends Application {
 			primaryStage.show();
 
 			
+
+
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -1,5 +1,9 @@
 package app.modele;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.StringTokenizer;
+
 public class Terrain {
 
 
@@ -109,11 +113,26 @@ public class Terrain {
 		this.tab_2d = tab1dTo2d(tab_1d);
 		this.setTab2dObs(tab1dTo2d(tab_1d_obs));
 		this.setTailleTab(12);
-
+		
 	}
 
 	public int[][] getTab2dBase() {
 		return this.tab_2d;
+	}
+	
+	public void initMap() {
+		String thisLine = null;
+
+		try {
+			BufferedReader br = new BufferedReader(new FileReader("src/app/modele/MapMatrice.txt"));
+			StringTokenizer s = new StringTokenizer(thisLine, ",");
+
+			while ((thisLine = br.readLine())!= null) {
+				System.out.println(thisLine);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 
