@@ -15,8 +15,6 @@ public class JeanMichel{
 
 	private int tailleX, tailleY;
 	
-	//	private ArrayList<Item> listeItem;
-
 	private SimpleIntegerProperty pointsVie;
 
 	private SimpleIntegerProperty positionX, positionY;
@@ -24,12 +22,10 @@ public class JeanMichel{
 	private GestionCollision collision;
 
 	public JeanMichel(Arme e, int x, int y) {
-		//TODO initialiser x, y et listeItem
 		this.setTailleX(17);
 		this.setTailleY(23);
 		this.inventaireArmes = new ArrayList<>();
 		this.setArme(e);
-		//listeItem = new ArrayList<>();
 		this.pointsVie = new SimpleIntegerProperty(100);
 		this.positionX = new SimpleIntegerProperty(x);
 		this.positionY = new SimpleIntegerProperty(y);
@@ -95,15 +91,13 @@ public class JeanMichel{
 		KeyCode value = e.getCode();
 
 		switch(value) {
-		case Z: if(!collision.collisionne(getX(), getY() - 4) && !collision.collisionne(getX()+getTailleX(), getY()-4)) haut(); //System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
+		case Z: if(!collision.collisionne(getX(), getY() - 4) && !collision.collisionne(getX()+getTailleX(), getY()-4)) haut();
 		break;
-		case Q: if(!collision.collisionne(getX()-4, getY()) && !collision.collisionne(getX()-4, getY()+getTailleY()) && !collision.collisionne(getX()-4, getY()+getTailleY()/2)) gauche(); //System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
+		case Q: if(!collision.collisionne(getX()-4, getY()) && !collision.collisionne(getX()-4, getY()+getTailleY()) && !collision.collisionne(getX()-4, getY()+getTailleY()/2)) gauche(); 
 		break;
-		case S: if(!collision.collisionne(getX(), getY() + 4+getTailleY()) && !collision.collisionne(getX()+getTailleX(), getY()+4+getTailleY())) bas(); //System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
+		case S: if(!collision.collisionne(getX(), getY() + 4+getTailleY()) && !collision.collisionne(getX()+getTailleX(), getY()+4+getTailleY())) bas(); 
 		break;
-		case D: if(!collision.collisionne(getX()+4+getTailleX(), getY()) && !collision.collisionne(getX()+getTailleX()+4, getY()+getTailleY()) && !collision.collisionne(getX()+getTailleX()+4, getY()+getTailleY()/2)) droite(); //System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
-		break;
-		case H: System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
+		case D: if(!collision.collisionne(getX()+4+getTailleX(), getY()) && !collision.collisionne(getX()+getTailleX()+4, getY()+getTailleY()) && !collision.collisionne(getX()+getTailleX()+4, getY()+getTailleY()/2)) droite(); 
 		break;
 		default:
 			break;
@@ -125,19 +119,6 @@ public class JeanMichel{
 	public void droite() {
 		this.positionX.set(getX()+4);
 	}
-//	public void attaquer(/*Ennemi e*/) { TODO
-//		try {
-//			//			if(equipe.getZoneAdapt().equals(e.getZone())) {
-//			//			e.setvie(equipe.getDgtZone());
-//			//		}
-//			//		else {
-//			//			e.setvie(equipe.getDgtPasZone());
-//			//		}
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//		}
-//
-//	}
 
 	public Arme getArmeEquipee() {
 		return equipee;

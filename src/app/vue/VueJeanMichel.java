@@ -9,9 +9,6 @@ public class VueJeanMichel {
 	private JeanMichel heros;
 
 	private Image sprite = new Image("file:./src/app/img/jeanMi.png");
-	//private ArrayList<Integer> obstacles;
-
-	//private SimpleIntegerProperty positionX, positionY;
 
 	public VueJeanMichel(JeanMichel heros) {
 		this.setHeros(heros);

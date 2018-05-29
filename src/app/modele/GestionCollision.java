@@ -12,8 +12,7 @@ public class GestionCollision {
 	
 	public GestionCollision() {
 		this.obstacles = new ArrayList<Integer>();
-		this.obstacles.add(197);
-		//this.obstacles.add(187);
+		this.obstacles.add(197); //ici, le 197 correspond au rocher
 		this.terrain = new Terrain();
 	}
 	

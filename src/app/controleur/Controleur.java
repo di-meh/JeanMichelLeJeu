@@ -47,10 +47,9 @@ public class Controleur implements Initializable {
 
 		this.vueMap = new VueTerrain(this.map);
 
-
-		//this.setJeu(new Jeu(this.map));
-
+		
 		//Ajout des élements dans le Scene Builder
+		
 		this.pane.getChildren().add(this.vueMap.getTileMap());
 		this.pane.getChildren().add(new ImageView(vueHeros.getSprite()));
 
