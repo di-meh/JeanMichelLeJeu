@@ -66,6 +66,14 @@ public class JeanMichel{
 	public final void setX(SimpleIntegerProperty x) {
 		this.positionX = x;
 	}
+	
+	public final SimpleIntegerProperty YProperty() {
+		return this.positionY;
+	}
+	
+	public final void setY(SimpleIntegerProperty y) {
+		this.positionY = y;
+	}
 
 	public final int getX() {
 		return this.positionX.getValue();
@@ -75,13 +83,6 @@ public class JeanMichel{
 		this.positionX.setValue(x);
 	}
 
-	public final SimpleIntegerProperty YProperty() {
-		return this.positionY;
-	}
-
-	public final void setY(SimpleIntegerProperty y) {
-		this.positionY = y;
-	}
 
 	public final int getY() {
 		return this.positionY.getValue();
@@ -109,19 +110,19 @@ public class JeanMichel{
 	}
 
 	public void haut() {
-		this.positionY.set(getY()-4);
+		this.positionY.set(getY()-1);
 	}
 
 	public void bas() {
-		this.positionY.set(getY()+4);
+		this.positionY.set(getY()+1);
 	}
 
 	public void gauche() {
-		this.positionX.set(getX()-4);
+		this.positionX.set(getX()-1);
 	}
 
 	public void droite() {
-		this.positionX.set(getX()+4);
+		this.positionX.set(getX()+1);
 	}
 //	public void attaquer(/*Ennemi e*/) { TODO
 //		try {

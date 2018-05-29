@@ -1,42 +1,28 @@
 package app.modele;
 
-
-import javafx.scene.image.Image;
+import javafx.beans.property.SimpleIntegerProperty;
 
 public abstract class Ennemi {
 
 	private String nom;
 
-	private Image sprite;
-
+	private SimpleIntegerProperty positionX;
+	
+	private SimpleIntegerProperty positionY;
+	
 	private int pointsVie;
 
 	private int attaque;
 
-	private int positionX;
+	public Ennemi(String n, int pv, int atq, int x, int y) {
 
-	private int positionY;
-
-	public Ennemi(String n, String lien, int pv, int atq, int x, int y) {
-
-		if (n == null || n.equals(""))
-			throw new Error("Creation superclass ennemi impossible : erreur nom incorrect");
+		this.positionX = new SimpleIntegerProperty(x);
+		this.positionY = new SimpleIntegerProperty(y);
+		
 		this.nom = n;
-		if (lien == null || lien.equals(""))
-			throw new Error("Creation superclass ennemi impossible : erreur lien image incorrect");
-		this.setTileset(new Image(lien));
-		if (pv <= 0)
-			throw new Error("Creation superclass ennemi impossible : erreur points vie incorrect");
 		this.pointsVie = pv;
-		if (atq <= 0)
-			throw new Error("Creation superclass ennemi impossible : erreur attaque incorrect");
 		this.attaque = atq;
-		if (x <= 0)
-			throw new Error("Creation superclass ennemi impossible : erreur x incorrect");
-		this.positionX = x;
-		if (y <= 0)
-			throw new Error("Creation superclass ennemi impossible : erreur y incorrect");
-		this.positionY = y;
+		
 		System.out.println("Superclass ennemi created");
 	}
 
@@ -52,24 +38,32 @@ public abstract class Ennemi {
 		return this.attaque;
 	}
 
-	public int getPositionX() {
+	public int getX() {
+		return this.positionX.getValue();
+	}
+
+	public int getY() {
+		return this.positionY.getValue();
+	}
+	
+	public final SimpleIntegerProperty XProperty() {
 		return this.positionX;
 	}
 
-	public int getPositionY() {
+	public final void setX(SimpleIntegerProperty x) {
+		this.positionX = x;
+	}
+	
+	public final SimpleIntegerProperty YProperty() {
 		return this.positionY;
+	}
+	
+	public final void setY(SimpleIntegerProperty y) {
+		this.positionY = y;
 	}
 
 	public void setAttaque(int atq) {
-		this.attaque += atq;
-	}
-
-	public void setPositionX(int x) {
-		this.positionX = x;
-	}
-
-	public void setPositionY(int y) {
-		this.positionY = y;
+		this.attaque = atq;
 	}
 
 	public void setVie(int pv) {
@@ -81,13 +75,21 @@ public abstract class Ennemi {
 	}
 
 	public abstract void deplacement();
-
-	public Image getTileset() {
-		return sprite;
+	
+	public void haut() {
+		this.positionY.set(getY()-1);
 	}
 
-	public void setTileset(Image tileset) {
-		this.sprite = tileset;
+	public void bas() {
+		this.positionY.set(getY()+1);
+	}
+
+	public void gauche() {
+		this.positionX.set(getX()-1);
+	}
+
+	public void droite() {
+		this.positionX.set(getX()+1);
 	}
 
 }
