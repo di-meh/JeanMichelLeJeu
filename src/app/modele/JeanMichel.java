@@ -24,7 +24,6 @@ public class JeanMichel{
 	private GestionCollision collision;
 
 	public JeanMichel(Arme e, int x, int y) {
-		//TODO initialiser x, y et listeItem
 		this.setTailleX(17);
 		this.setTailleY(23);
 		this.inventaireArmes = new ArrayList<>();
