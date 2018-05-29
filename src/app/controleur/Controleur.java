@@ -89,7 +89,6 @@ public class Controleur implements Initializable {
 					}
 					else {
 						this.jeu.getEnnemi().droite();
-						this.jeu.getEnnemi().gauche();
 					}
 				})
 				);
