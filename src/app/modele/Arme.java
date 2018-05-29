@@ -1,35 +1,44 @@
 package app.modele;
 
 public class Arme {
-	
 	private String nom;
-	
-	private boolean estDansSaZone;
-	
-	private int degatDansZone;
-	
-	private int degatHorsZone;
+	private String zoneAdapt;
+	private boolean estDansLaZone;
+	private int dgtZone;
+	private int dgtPasZone;
 
-	public Arme(String n, boolean z, int dz, int hz) {
-		this.nom = n;
-		this.estDansSaZone = z;
-		this.degatDansZone = dz;
-		this.degatDansZone = hz;
+	public Arme(String n, String za, int dgtPZ, int dgtZ) {
+		nom=n;
+		zoneAdapt=za;
+		dgtPasZone=dgtPZ;
+		dgtZone=dgtZ;
 	}
 
 
 	public final String getNom() {
-		return this.nom;
+		return nom;
 	}
 
-	public final boolean getZoneAdapt() {
-		return this.estDansSaZone;
+	public final String getZoneAdapt() {
+		return zoneAdapt;
 	}
 
-	public final int getDegat() {
-		if(this.estDansSaZone)
-			return this.degatDansZone;
-		return this.degatHorsZone;
+	public final int getDgtZone() {
+		return dgtZone;
 	}
 
+	public final int getDgtPasZone() {
+		return dgtPasZone;
+	}
+
+
+	public boolean isDansLaZone() {
+		return estDansLaZone;
+	}
+
+
+	public void setEstDansLaZone(boolean estDansLaZone) {
+		this.estDansLaZone = estDansLaZone;
+		
+	}
 }

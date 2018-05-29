@@ -3,7 +3,7 @@ package app.modele;
 public class PNJVie extends PNJ{
 
 	public PNJVie(String n, int x, int y) {
-		super(n, x, y);
+		super(n, null, x, y);
 		System.out.println("Class PNJVie created");
 	}
 	

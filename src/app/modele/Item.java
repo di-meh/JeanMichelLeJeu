@@ -2,12 +2,15 @@ package app.modele;
 
 import javafx.scene.image.Image;
 
-public class Objet {
+public class Item {
 	private Image img;
 	private String lienIMG;
 	private boolean deplacable;
 	private boolean cassable;
-	public Objet(String url, boolean dplcbl,boolean cssble) {
+
+	//La dimension d'objet cassable est à revoir
+
+	public Item(String url, boolean dplcbl,boolean cssble) {
 		img=new Image(url,true);
 		deplacable=dplcbl;
 		cassable=cssble;
@@ -17,7 +20,7 @@ public class Objet {
 	}
 	public final String getLienIMG() {
 		return lienIMG;
-		
+
 	}
 	public final boolean isDeplacable() {
 		return deplacable;

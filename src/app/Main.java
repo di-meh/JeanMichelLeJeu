@@ -18,16 +18,18 @@ public class Main extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
+
 		try {
 			primaryStage.setTitle("Jean-Michel : le jeu");
 
 			FXMLLoader loader = new FXMLLoader();
 			URL url = new File("src/app/vue/Map.fxml").toURI().toURL();
 			loader.setLocation(url);
-			Pane root = loader.load();
+			System.out.println(loader.getLocation());
+			Pane root = loader.load();	
+			Scene scene = new Scene(root, root.getPrefWidth(), root.getPrefHeight());
 			Controleur c = loader.getController();
-			Scene scene = new Scene(root, root.getPrefHeight(),root.getPrefWidth());
-			scene.setOnKeyPressed(e-> c.getVueJeanMichel().deplacement(e));
+			scene.setOnKeyPressed(e-> c.getJeanMichel().deplacement(e));
 			primaryStage.setScene(scene);
 			primaryStage.show();
 

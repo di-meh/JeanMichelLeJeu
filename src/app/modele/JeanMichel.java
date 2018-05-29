@@ -3,28 +3,37 @@ package app.modele;
 import java.util.ArrayList;
 
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
-public class JeanMichel {
+
+public class JeanMichel{
 
 	private ArrayList<Arme> inventaireArmes;
 
 	private Arme equipee;
 
+	private int tailleX, tailleY;
+	
 	//	private ArrayList<Item> listeItem;
 
 	private SimpleIntegerProperty pointsVie;
 
-	private SimpleIntegerProperty positionX;
-
-	private SimpleIntegerProperty positionY;
+	private SimpleIntegerProperty positionX, positionY;
+	
+	private GestionCollision collision;
 
 	public JeanMichel(Arme e, int x, int y) {
+		//TODO initialiser x, y et listeItem
+		this.setTailleX(17);
+		this.setTailleY(23);
 		this.inventaireArmes = new ArrayList<>();
 		this.setArme(e);
 		//listeItem = new ArrayList<>();
 		this.pointsVie = new SimpleIntegerProperty(100);
 		this.positionX = new SimpleIntegerProperty(x);
 		this.positionY = new SimpleIntegerProperty(y);
+		this.collision = new GestionCollision();
 	}
 
 	public ArrayList<Arme> getListeArmes() {
@@ -34,8 +43,6 @@ public class JeanMichel {
 	public void AddArmes(Arme a) {
 		this.inventaireArmes.add(a);
 	}
-
-
 
 	public SimpleIntegerProperty pointsVieProperty() {
 		return this.pointsVie;
@@ -51,9 +58,6 @@ public class JeanMichel {
 	public void setPointsVie(int val) {
 		this.pointsVie.setValue(val);
 	}
-
-
-
 
 	public final SimpleIntegerProperty XProperty() {
 		return this.positionX;
@@ -71,8 +75,6 @@ public class JeanMichel {
 		this.positionX.setValue(x);
 	}
 
-
-
 	public final SimpleIntegerProperty YProperty() {
 		return this.positionY;
 	}
@@ -80,7 +82,6 @@ public class JeanMichel {
 	public final void setY(SimpleIntegerProperty y) {
 		this.positionY = y;
 	}
-
 
 	public final int getY() {
 		return this.positionY.getValue();
@@ -90,28 +91,40 @@ public class JeanMichel {
 		this.positionX.setValue(y);
 	}
 	
-	
-	
-	
-	
+	public void deplacement(KeyEvent e) {
+		KeyCode value = e.getCode();
+
+		switch(value) {
+		case Z: if(!collision.collisionne(getX(), getY() - 4) && !collision.collisionne(getX()+getTailleX(), getY()-4)) haut(); //System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
+		break;
+		case Q: if(!collision.collisionne(getX()-4, getY()) && !collision.collisionne(getX()-4, getY()+getTailleY()) && !collision.collisionne(getX()-4, getY()+getTailleY()/2)) gauche(); //System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
+		break;
+		case S: if(!collision.collisionne(getX(), getY() + 4+getTailleY()) && !collision.collisionne(getX()+getTailleX(), getY()+4+getTailleY())) bas(); //System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
+		break;
+		case D: if(!collision.collisionne(getX()+4+getTailleX(), getY()) && !collision.collisionne(getX()+getTailleX()+4, getY()+getTailleY()) && !collision.collisionne(getX()+getTailleX()+4, getY()+getTailleY()/2)) droite(); //System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
+		break;
+		case H: System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
+		break;
+		default:
+			break;
+		}
+	}
+
 	public void haut() {
-		this.positionY.set(getY()-1);
+		this.positionY.set(getY()-4);
 	}
-	
+
 	public void bas() {
-		this.positionY.set(getY()+1);
+		this.positionY.set(getY()+4);
 	}
-	
+
 	public void gauche() {
-		this.positionX.set(getX()-1);
+		this.positionX.set(getX()-4);
 	}
-	
+
 	public void droite() {
-		this.positionX.set(getX()+1);
+		this.positionX.set(getX()+4);
 	}
-
-
-
 //	public void attaquer(/*Ennemi e*/) { TODO
 //		try {
 //			//			if(equipe.getZoneAdapt().equals(e.getZone())) {
@@ -132,6 +145,22 @@ public class JeanMichel {
 
 	public void setArme(Arme equipee) {
 		this.equipee = equipee;
+	}
+
+	public int getTailleX() {
+		return tailleX;
+	}
+
+	public void setTailleX(int tailleX) {
+		this.tailleX = tailleX;
+	}
+
+	public int getTailleY() {
+		return tailleY;
+	}
+
+	public void setTailleY(int tailleY) {
+		this.tailleY = tailleY;
 	}
 
 }
