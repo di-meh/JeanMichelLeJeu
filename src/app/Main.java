@@ -23,7 +23,7 @@ public class Main extends Application {
 			primaryStage.setTitle("Jean-Michel : le jeu");
 
 			FXMLLoader loader = new FXMLLoader();
-			URL url = new File("src/app/vue/MapTest.fxml").toURI().toURL();
+			URL url = new File("src/app/vue/Map.fxml").toURI().toURL();
 			loader.setLocation(url);
 			System.out.println(loader.getLocation());
 			BorderPane root = loader.load();	
