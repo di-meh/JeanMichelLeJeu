@@ -99,7 +99,7 @@ public class Terrain {
 		this.setTailleTab(12);
 
 		//p-e chargement des images
-		/*this.tabBasique = tab1dTo2d(terrainBasique); //TODO investigate
+		/*this.tabBasique = tab1dTo2d(terrainBasique);
 		this.tabMaison = tab1dTo2d(terrainMaison);*/
 
 	}

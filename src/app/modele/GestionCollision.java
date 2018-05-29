@@ -24,7 +24,13 @@ public class GestionCollision {
 	}
 	
 	public int caseDe(int x, int y) {
-		return this.terrain.getTab2d()[x/16][y/16];
+		try {
+			return this.terrain.getTab2d()[y/16][x/16];
+		} catch (Exception e) {
+			//Ceci sert à arrêter le joueur lorsqu'il atteint le bord de la map
+		}
+		return obstacles.get(0); //test de collision sur le côté
+		
 	}
 	
 	public boolean estObstacle(int i) {
