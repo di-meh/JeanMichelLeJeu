@@ -17,14 +17,12 @@ public class GestionCollision {
 	}
 	
 	public boolean collisionne(int x, int y) {
-		if(estObstacle(caseDe(x, y)))
-			return true;
-		return false;
+		return estObstacle(caseDe(x, y));
 	}
 	
 	public int caseDe(int x, int y) {
 		try {
-			return this.terrain.getTab2d()[y/16][x/16];
+			return this.terrain.getTab2dObs()[y/16][x/16];
 		} catch (Exception e) {
 			//Ceci sert à arrêter le joueur lorsqu'il atteint le bord de la map
 		}

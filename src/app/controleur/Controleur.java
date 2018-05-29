@@ -13,6 +13,7 @@ import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
 import javafx.util.Duration;
@@ -26,6 +27,9 @@ public class Controleur implements Initializable {
 	private VueJeanMichel vueHeros;
 	private Timeline gameLoop;
 	private VueEnnemi vueEnnemi;
+	
+	@FXML
+	private BorderPane borderpane;
 
 	@FXML
 	private Pane pane;
@@ -46,23 +50,21 @@ public class Controleur implements Initializable {
 
 		this.heros = new JeanMichel(null, 0, 0);
 		this.vueHeros = new VueJeanMichel(heros);
-		this.map = new Terrain();
-
-		this.vueMap = new VueTerrain(this.map);
 
 		//Ajout des élements dans le Scene Builder
 		this.pane.getChildren().add(this.vueMap.getTileMap());
+		this.pane.getChildren().add(this.vueMap.getTileMapObs());
 		this.pane.getChildren().add(new ImageView(vueHeros.getSprite()));
 		
 		this.pane.getChildren().add(new ImageView(vueEnnemi.getSprite()));
 		//Bind la position du sprite à la position du héros
 
 		
-		pane.getChildren().get(2).layoutXProperty().bind(heros.XProperty());
-		pane.getChildren().get(2).layoutYProperty().bind(heros.YProperty());
+		pane.getChildren().get(3).layoutXProperty().bind(heros.XProperty());
+		pane.getChildren().get(3).layoutYProperty().bind(heros.YProperty());
 		
-		pane.getChildren().get(3).layoutXProperty().bind(this.jeu.getEnnemi().XProperty());
-		pane.getChildren().get(3).layoutYProperty().bind(this.jeu.getEnnemi().YProperty());
+		pane.getChildren().get(4).layoutXProperty().bind(this.jeu.getEnnemi().XProperty());
+		pane.getChildren().get(4).layoutYProperty().bind(this.jeu.getEnnemi().YProperty());
 		
 		init();
 		getGameLoop().play();

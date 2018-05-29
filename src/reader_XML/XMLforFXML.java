@@ -23,7 +23,7 @@ public class XMLforFXML { //Non autorisé pour projet, mais à utiliser pour tes
 
 			DocumentBuilder builder = factory.newDocumentBuilder();
 
-			File fileXML = new File("./Ressources/tilemapfusion.xml");
+			File fileXML = new File("./Ressources/tilemap_1st_collisionTest.xml");
 
 			Document xml = builder.parse(fileXML);
 
@@ -32,15 +32,15 @@ public class XMLforFXML { //Non autorisé pour projet, mais à utiliser pour tes
 			XPathFactory xpf = XPathFactory.newInstance();
 
 			XPath path = xpf.newXPath();
-			
+
 			String expression = "/map/layer/data";
 
 			String str = (String)path.evaluate(expression, root);
-			
-      System.out.println(str);
 
-      //System.out.println("-------------------------------------");
-			 
+			System.out.println(str);
+
+			//System.out.println("-------------------------------------");
+
 
 
 		} catch (ParserConfigurationException e) {

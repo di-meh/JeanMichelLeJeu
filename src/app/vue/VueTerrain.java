@@ -10,7 +10,7 @@ public class VueTerrain {
 
 	private Terrain terrain;
 	
-	private TilePane tilemap;
+	private TilePane tilemap_base, tilemap_obs;
 
 	private int tailleMap;
 
@@ -18,36 +18,54 @@ public class VueTerrain {
 	public VueTerrain(Terrain t) {
 		this.terrain = t;
 		this.tailleMap = this.terrain.getTailleTab();
-		this.tilemap = new TilePane();
-		this.tilemap.setPrefColumns(tailleMap);
-		this.tilemap.setPrefRows(tailleMap);
+		
+		this.tilemap_base = new TilePane();
+		this.tilemap_obs = new TilePane();
+		
+		this.tilemap_base.setPrefColumns(tailleMap);
+		this.tilemap_base.setPrefRows(tailleMap);
+		
+		this.tilemap_obs.setPrefColumns(tailleMap);
+		this.tilemap_obs.setPrefRows(tailleMap);
 
-		int [][] t2 = this.terrain.getTab2d();
+		int [][] t2base = this.terrain.getTab2dBase();
+		int [][] t2obs = this.terrain.getTab2dObs();
 
-		for (int x = 0; x< t2.length; x++) {
-			for (int y =0; y< t2[x].length; y++) {
-
-				Image img = new Image("file:" + imageDe(t2[x][y]));
-
+		for (int x = 0; x< t2base.length; x++) {
+			for (int y =0; y< t2base[x].length; y++) {
+				Image img = new Image("file:" + imageDe(t2base[x][y]));
 				ImageView imgVw = new ImageView();
 				imgVw.setImage(img);
-				this.tilemap.getChildren().add(imgVw);
+				this.tilemap_base.getChildren().add(imgVw);
+			}
+		}
+		
+		for (int x = 0; x< t2obs.length; x++) {
+			for (int y = 0; y<t2obs[x].length; y++) {
+				Image img = new Image("file:" + imageDe(t2obs[x][y]));
+				ImageView imgVw = new ImageView();
+				imgVw.setImage(img);
+				this.tilemap_obs.getChildren().add(imgVw);
 			}
 		}
 	}
 
 	public TilePane getTileMap() {
-		return this.tilemap;
+		return this.tilemap_base;
+	}
+	public TilePane getTileMapObs() {
+		return this.tilemap_obs;
 	}
 
 	public String imageDe(int i) {
 		switch(i) {
+		case 0: return "./src/app/img/tile_0.png";
 		case 186: return "./src/app/img/tile_186.png";
 		case 187: return "./src/app/img/tile_187.png";
 		case 210: return "./src/app/img/tile_herbe.jpg";
 		case 211: return "./src/app/img/tile_211.png";
 		case 197: return "./src/app/img/tile_rocher.png";
-		default: return "./src/app/img/tile_herbe.jpg"; // pour l'instant, on ajoute une tile verte dans le cas où il n'y a pas d'autres valeurs
+		default: return "./src/app/img/tile_0.png"; // pour l'instant, on ajoute une tile transparente dans le cas où il n'y a pas d'autres valeurs
 		}	
 	}
 
