@@ -83,22 +83,22 @@ public abstract class Ennemi {
 	public abstract void deplacement();
 	
 	public void haut() {
-		if(!collision.collisionne(getX(), getY() - 4))
+		if(!collision.collisionne(getX(), getY() - 4) && !collision.collisionne(getX()+getTailleX(), getY()-4))
 				this.positionY.set(getY()-1);
 	}
 
 	public void bas() {
-		if(!collision.collisionne(getX()-4, getY()))
+		if(!collision.collisionne(getX(), getY() + 4 + getTailleY()) && !collision.collisionne(getX()+getTailleX(), getY()+4+getTailleY()))
 				this.positionY.set(getY()+1);
 	}
 
 	public void gauche() {
-		if(!collision.collisionne(getX(), getY() + 4 + getTailleY()))
+		if(!collision.collisionne(getX()-4, getY()) && !collision.collisionne(getX()-4, getY()+getTailleY()) && !collision.collisionne(getX()-4, getY()+getTailleY()/2))
 				this.positionX.set(getX()-1);
 	}
 
 	public void droite() {
-		if(!collision.collisionne(getX() + 4 + getTailleX(), getY()))
+		if(!collision.collisionne(getX() + 4 + getTailleX(), getY()) && !collision.collisionne(getX()+getTailleX()+4, getY()+getTailleY()) && !collision.collisionne(getX()+getTailleX()+4, getY()+getTailleY()/2))
 			this.positionX.set(getX()+1);
 	}
 	

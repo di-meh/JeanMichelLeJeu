@@ -8,10 +8,7 @@ public class Ennemi1 extends Ennemi {
 
 	@Override
 	public void deplacement() {
-		for(int i = 0; i < 20; i++) {
-			droite();
-			System.out.println("Je vais a droite");
-		}
+		
 			
 	}
 
