@@ -59,6 +59,7 @@ public class Controleur implements Initializable {
 
 		pane.getChildren().get(2).layoutXProperty().bind(heros.XProperty());
 		pane.getChildren().get(2).layoutYProperty().bind(heros.YProperty());
+		
 		init();
 		getGameLoop().play();
 
