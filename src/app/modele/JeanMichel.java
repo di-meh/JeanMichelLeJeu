@@ -25,8 +25,8 @@ public class JeanMichel{
 
 	public JeanMichel(Arme e, int x, int y) {
 		//TODO initialiser x, y et listeItem
-		this.tailleX = 16;
-		this.tailleY = 32;
+		this.setTailleX(17);
+		this.setTailleY(23);
 		this.inventaireArmes = new ArrayList<>();
 		this.setArme(e);
 		//listeItem = new ArrayList<>();
@@ -96,13 +96,15 @@ public class JeanMichel{
 		KeyCode value = e.getCode();
 
 		switch(value) {
-		case Z: if(!collision.collisionne(getX(), getY() - 4)) haut(); System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
+		case Z: if(!collision.collisionne(getX(), getY() - 4) && !collision.collisionne(getX()+getTailleX(), getY()-4)) haut(); //System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
 		break;
-		case Q: if(!collision.collisionne(getX()-4, getY())) gauche(); System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
+		case Q: if(!collision.collisionne(getX()-4, getY()) && !collision.collisionne(getX()-4, getY()+getTailleY()) && !collision.collisionne(getX()-4, getY()+getTailleY()/2)) gauche(); //System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
 		break;
-		case S: if(!collision.collisionne(getX(), getY() + 4)) bas();System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
+		case S: if(!collision.collisionne(getX(), getY() + 4+getTailleY()) && !collision.collisionne(getX()+getTailleX(), getY()+4+getTailleY())) bas(); //System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
 		break;
-		case D: if(!collision.collisionne(getX()+4, getY()))droite();System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
+		case D: if(!collision.collisionne(getX()+4+getTailleX(), getY()) && !collision.collisionne(getX()+getTailleX()+4, getY()+getTailleY()) && !collision.collisionne(getX()+getTailleX()+4, getY()+getTailleY()/2)) droite(); //System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
+		break;
+		case H: System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
 		break;
 		default:
 			break;
@@ -144,6 +146,22 @@ public class JeanMichel{
 
 	public void setArme(Arme equipee) {
 		this.equipee = equipee;
+	}
+
+	public int getTailleX() {
+		return tailleX;
+	}
+
+	public void setTailleX(int tailleX) {
+		this.tailleX = tailleX;
+	}
+
+	public int getTailleY() {
+		return tailleY;
+	}
+
+	public void setTailleY(int tailleY) {
+		this.tailleY = tailleY;
 	}
 
 }
