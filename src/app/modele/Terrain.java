@@ -109,11 +109,9 @@ public class Terrain {
 
 
 	public Terrain() {
-
 		this.tab_2d = tab1dTo2d(tab_1d);
 		this.setTab2dObs(tab1dTo2d(tab_1d_obs));
 		this.setTailleTab(12);
-		
 	}
 
 	public int[][] getTab2dBase() {
