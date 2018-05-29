@@ -23,6 +23,8 @@ public class JeanMichel{
 	
 	private GestionCollision collision;
 
+	private int attaque;
+	
 	public JeanMichel(Arme e, int x, int y) {
 		this.setTailleX(17);
 		this.setTailleY(23);
@@ -50,6 +52,7 @@ public class JeanMichel{
 	public void setPointsVie(SimpleIntegerProperty v) {
 		this.pointsVie = v;
 	}
+	
 	public int getPointsVie() {
 		return this.pointsVie.getValue();
 	}
@@ -91,7 +94,7 @@ public class JeanMichel{
 		this.positionX.setValue(y);
 	}
 	
-	public void deplacement(KeyEvent e) {
+	public void action(KeyEvent e) {
 		KeyCode value = e.getCode();
 
 		switch(value) {
@@ -102,6 +105,16 @@ public class JeanMichel{
 		case S: if(!collision.collisionne(getX(), getY() + 4 + getTailleY()) && !collision.collisionne(getX()+getTailleX(), getY()+4+getTailleY())) bas(); //System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
 		break;
 		case D: if(!collision.collisionne(getX() + 4 + getTailleX(), getY()) && !collision.collisionne(getX()+getTailleX()+4, getY()+getTailleY()) && !collision.collisionne(getX()+getTailleX()+4, getY()+getTailleY()/2)) droite(); //System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
+		break;
+		case E: System.out.println("Bouton E pressed"); //attaquer
+		break;
+		case F: System.out.println("Bouton F pressed"); //pousser/tirer
+		break;
+		case K: System.out.println("Bouton K pressed"); //changer d'arme
+		break;
+		case L: System.out.println("Bouton L pressed"); //parler
+		break;
+		case M: System.out.println("Bouton M pressed"); //afficher map
 		break;
 		default:
 			break;
@@ -161,4 +174,29 @@ public class JeanMichel{
 		this.tailleY = tailleY;
 	}
 
+	public void estAttaque(int atq) {
+		this.pointsVie.setValue(getPointsVie()-atq);
+	}
+	
+
 }
+
+/*
+ * 
+ * personnageCible.recevoirDegats(arme.getDegatArme());
+               
+                if(personnageCible.getHp() <= 0)
+                {
+                        this.lvl += 1;
+                }
+ * 
+ * 
+ */
+
+
+
+
+
+
+
+

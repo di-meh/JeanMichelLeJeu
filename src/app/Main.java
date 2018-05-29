@@ -29,7 +29,7 @@ public class Main extends Application {
 			Pane root = loader.load();	
 			Scene scene = new Scene(root, root.getPrefWidth(), root.getPrefHeight());
 			Controleur c = loader.getController();
-			scene.setOnKeyPressed(e-> c.getJeanMichel().deplacement(e));
+			scene.setOnKeyPressed(e-> c.getJeanMichel().action(e));
 			primaryStage.setScene(scene);
 			primaryStage.show();
 

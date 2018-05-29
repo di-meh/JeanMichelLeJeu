@@ -9,14 +9,14 @@ public abstract class Ennemi {
 	private SimpleIntegerProperty positionX;
 	
 	private SimpleIntegerProperty positionY;
-	
-	private int pointsVie;
 
 	private int tailleX, tailleY;
 	
-	private int attaque;
+	private SimpleIntegerProperty pointsVie;
 	
 	private GestionCollision collision;
+	
+	private int attaque;
 
 	public Ennemi(String n, int pv, int atq, int x, int y) {
 
@@ -25,7 +25,7 @@ public abstract class Ennemi {
 		this.tailleX = 12;
 		this.tailleY = 29;
 		this.nom = n;
-		this.pointsVie = pv;
+		this.pointsVie = new SimpleIntegerProperty(100);
 		this.attaque = atq;
 		this.collision = new GestionCollision();
 		
@@ -36,12 +36,20 @@ public abstract class Ennemi {
 		return this.nom;
 	}
 
-	public int getVie() {
+	public SimpleIntegerProperty pointsVieProperty() {
 		return this.pointsVie;
 	}
 
-	public int getAttaque() {
-		return this.attaque;
+	public void setPointsVie(SimpleIntegerProperty v) {
+		this.pointsVie = v;
+	}
+	
+	public int getPointsVie() {
+		return this.pointsVie.getValue();
+	}
+
+	public void setPointsVie(int val) {
+		this.pointsVie.setValue(val);
 	}
 
 	public int getX() {
@@ -70,14 +78,6 @@ public abstract class Ennemi {
 
 	public void setAttaque(int atq) {
 		this.attaque = atq;
-	}
-
-	public void setVie(int pv) {
-		this.pointsVie = pv;
-	}
-
-	public void perdreVie(int pv) {
-		this.pointsVie -= pv;
 	}
 
 	public abstract void deplacement();
@@ -117,5 +117,13 @@ public abstract class Ennemi {
 	public void setTailleY(int tailleY) {
 		this.tailleY = tailleY;
 	}
+	
+	public int attaque() {
+		return this.attaque;
+	}
 
+	public void estAttaque(int atq) {
+		this.pointsVie.setValue(getPointsVie()-atq);
+	}
+	
 }
