@@ -18,5 +18,9 @@ public class Jeu {
 	public Ennemi getEnnemi() {
 		return ennemi;
 	}
+
+	public JeanMichel getJeanMichel() {
+		return jeanMichel;
+	}
 	
 }
