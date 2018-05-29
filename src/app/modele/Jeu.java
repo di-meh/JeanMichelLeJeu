@@ -11,7 +11,7 @@ public class Jeu {
 
 	public Jeu() {
 		//this.ennemis = new ArrayList<Ennemi>();
-		this.ennemi = new Ennemi1("test",50, 12, 6, 6);
+		this.ennemi = new Ennemi1("test",50, 12, 0, 80);
 		this.jeanMichel = new JeanMichel(null, 0, 0);
 	}
 

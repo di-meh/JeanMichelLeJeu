@@ -61,6 +61,7 @@ public class Controleur implements Initializable {
 		this.pane.getChildren().add(new ImageView(vueEnnemi.getSprite()));
 		//Bind la position du sprite à la position du héros
 
+		
 		pane.getChildren().get(2).layoutXProperty().bind(heros.XProperty());
 		pane.getChildren().get(2).layoutYProperty().bind(heros.YProperty());
 		
@@ -89,7 +90,6 @@ public class Controleur implements Initializable {
 						getGameLoop().stop();
 					}
 					else {
-						System.out.println("je vais vers la droite");
 						this.jeu.getEnnemi().droite();
 					}
 				})
