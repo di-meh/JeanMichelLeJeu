@@ -17,9 +17,7 @@ public class GestionCollision {
 	}
 	
 	public boolean collisionne(int x, int y) {
-		if(estObstacle(caseDe(x, y)))
-			return true;
-		return false;
+		return estObstacle(caseDe(x, y));
 	}
 	
 	public int caseDe(int x, int y) {
