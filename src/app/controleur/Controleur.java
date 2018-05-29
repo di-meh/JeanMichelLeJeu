@@ -59,6 +59,10 @@ public class Controleur implements Initializable {
 
 		pane.getChildren().get(2).layoutXProperty().bind(heros.XProperty());
 		pane.getChildren().get(2).layoutYProperty().bind(heros.YProperty());
+		
+		pane.getChildren().get(3).layoutXProperty().bind(this.jeu.getEnnemi().XProperty());
+		pane.getChildren().get(3).layoutYProperty().bind(this.jeu.getEnnemi().YProperty());
+		
 		init();
 		getGameLoop().play();
 
@@ -81,6 +85,7 @@ public class Controleur implements Initializable {
 						getGameLoop().stop();
 					}
 					else {
+						System.out.println("je vais vers la droite");
 						this.jeu.getEnnemi().droite();
 					}
 				})

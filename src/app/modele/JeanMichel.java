@@ -100,11 +100,9 @@ public class JeanMichel{
 		break;
 		case Q: if(!collision.collisionne(getX()-4, getY()) && !collision.collisionne(getX()-4, getY()+getTailleY()) && !collision.collisionne(getX()-4, getY()+getTailleY()/2)) gauche(); //System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
 		break;
-		case S: if(!collision.collisionne(getX(), getY() + 4+getTailleY()) && !collision.collisionne(getX()+getTailleX(), getY()+4+getTailleY())) bas(); //System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
+		case S: if(!collision.collisionne(getX(), getY() + 4 + getTailleY()) && !collision.collisionne(getX()+getTailleX(), getY()+4+getTailleY())) bas(); //System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
 		break;
-		case D: if(!collision.collisionne(getX()+4+getTailleX(), getY()) && !collision.collisionne(getX()+getTailleX()+4, getY()+getTailleY()) && !collision.collisionne(getX()+getTailleX()+4, getY()+getTailleY()/2)) droite(); //System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
-		break;
-		case H: System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
+		case D: if(!collision.collisionne(getX() + 4 + getTailleX(), getY()) && !collision.collisionne(getX()+getTailleX()+4, getY()+getTailleY()) && !collision.collisionne(getX()+getTailleX()+4, getY()+getTailleY()/2)) droite(); //System.out.println(collision.caseDe(getX(), getY())); System.out.println(collision.caseDe(getX(), getY()));
 		break;
 		default:
 			break;

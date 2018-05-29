@@ -12,16 +12,22 @@ public abstract class Ennemi {
 	
 	private int pointsVie;
 
+	private int tailleX, tailleY;
+	
 	private int attaque;
+	
+	private GestionCollision collision;
 
 	public Ennemi(String n, int pv, int atq, int x, int y) {
 
 		this.positionX = new SimpleIntegerProperty(x);
 		this.positionY = new SimpleIntegerProperty(y);
-		
+		this.tailleX = 12;
+		this.tailleY = 29;
 		this.nom = n;
 		this.pointsVie = pv;
 		this.attaque = atq;
+		this.collision = new GestionCollision();
 		
 		System.out.println("Superclass ennemi created");
 	}
@@ -77,19 +83,39 @@ public abstract class Ennemi {
 	public abstract void deplacement();
 	
 	public void haut() {
-		this.positionY.set(getY()-1);
+		if(!collision.collisionne(getX(), getY() - 4))
+				this.positionY.set(getY()-1);
 	}
 
 	public void bas() {
-		this.positionY.set(getY()+1);
+		if(!collision.collisionne(getX()-4, getY()))
+				this.positionY.set(getY()+1);
 	}
 
 	public void gauche() {
-		this.positionX.set(getX()-1);
+		if(!collision.collisionne(getX(), getY() + 4 + getTailleY()))
+				this.positionX.set(getX()-1);
 	}
 
 	public void droite() {
-		this.positionX.set(getX()+1);
+		if(!collision.collisionne(getX() + 4 + getTailleX(), getY()))
+			this.positionX.set(getX()+1);
+	}
+	
+	public int getTailleX() {
+		return tailleX;
+	}
+
+	public void setTailleX(int tailleX) {
+		this.tailleX = tailleX;
+	}
+
+	public int getTailleY() {
+		return tailleY;
+	}
+
+	public void setTailleY(int tailleY) {
+		this.tailleY = tailleY;
 	}
 
 }
