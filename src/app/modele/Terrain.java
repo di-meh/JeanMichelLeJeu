@@ -10,13 +10,28 @@ public class Terrain {
 			210,210,210,210,187,210,210,210,210,210,210,210,
 			210,210,211,210,210,210,210,210,210,187,210,210,
 			210,210,210,210,210,210,186,210,210,210,210,210,
-			210,210,210,210,210,197,210,210,210,210,210,210,
+			210,210,210,210,210,210,210,210,210,210,210,210,
 			210,210,210,210,210,210,210,211,210,210,210,210,
 			210,210,210,187,210,210,210,210,210,210,210,210,
 			210,210,210,210,186,210,210,210,210,186,210,210,
 			210,210,186,210,210,210,210,211,210,210,210,210,
 			210,210,210,210,210,210,210,210,210,210,210,210};
-	private int[][] tab_2d;
+	
+	private int[] tab_1d_obs = {
+			0,0,0,0,0,0,0,0,0,0,0,0,
+			0,0,0,0,0,0,0,0,0,0,0,0,
+			0,0,0,0,0,0,0,0,0,0,0,0,
+			0,0,0,0,0,0,0,0,0,0,0,0,
+			0,0,0,0,0,0,0,0,0,0,0,0,
+			0,0,0,0,0,0,0,0,0,0,0,0,
+			0,0,0,0,0,197,0,0,0,0,0,0,
+			0,0,0,0,0,0,0,0,0,0,0,0,
+			0,0,0,0,0,0,0,0,0,0,0,0,
+			0,0,0,0,0,0,0,0,0,0,0,0,
+			0,0,0,0,0,0,0,0,0,0,0,0,
+			0,0,0,0,0,0,0,0,0,0,0,0
+	};
+	private int[][] tab_2d, tab_2d_obs;
 	
 	private int tailleTab = 12;	
 /*
@@ -86,49 +101,20 @@ public class Terrain {
 			0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,303,0,0,0,0,0,0,305,0,0,
 			0,0,0,0,0,0,0,0,0,0,0,0,0,305,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 			0,0,0,0,0,0,0,304,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,302};
-	
-	
-	private int[][] tabBasique;
-
-	private int[][] tabMaison;*/
+*/
 
 
 	public Terrain() {
 
 		this.tab_2d = tab1dTo2d(tab_1d);
+		this.setTab2dObs(tab1dTo2d(tab_1d_obs));
 		this.setTailleTab(12);
 
-		//p-e chargement des images
-		/*this.tabBasique = tab1dTo2d(terrainBasique);
-		this.tabMaison = tab1dTo2d(terrainMaison);*/
-
 	}
 
-
-/*	public void setBasique(int [] newtab) {
-		this.terrainBasique = newtab;
-	}*/
-
-	public int[][] getTab2d() {
+	public int[][] getTab2dBase() {
 		return this.tab_2d;
 	}
-	
-	/*public void setBasique(int[][] newtab) {
-		this.tabBasique = newtab;
-	}
-	
-	public void setMaison(int [] newtab) {
-		this.terrainMaison = newtab;
-	}
-
-	public int[][] getMaison() {
-		return this.tabMaison;
-	}
-	
-	public void setMaison(int[][] newtab) {
-		this.tabMaison = newtab;
-	}*/
-
 
 
 	public int[][] tab1dTo2d(int [] tab1d) {
@@ -150,6 +136,16 @@ public class Terrain {
 
 	public void setTailleTab(int tailleTab) {
 		this.tailleTab = tailleTab;
+	}
+
+
+	public int[][] getTab2dObs() {
+		return tab_2d_obs;
+	}
+
+
+	public void setTab2dObs(int[][] tab_2d_obs) {
+		this.tab_2d_obs = tab_2d_obs;
 	}
 
 	
