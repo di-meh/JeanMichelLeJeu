@@ -10,7 +10,7 @@ public class Jeu {
 
 	public Jeu() {
 		this.ennemis = new ArrayList<Ennemi>();
-		this.ennemis.add(new Ennemi1("test",50, 12, 0, 80));
+		this.ennemis.add(new Ennemi("test",50, 0, 80));
 		this.jeanMichel = new JeanMichel(null, 0, 0);
 	}
 

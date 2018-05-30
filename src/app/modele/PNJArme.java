@@ -3,7 +3,7 @@ package app.modele;
 public class PNJArme extends PNJ{
 
 	public PNJArme(String n, int x, int y) {
-		super(n, null, x, y);
+		super(n, x, y);
 		System.out.println("Class PNJArme created");
 	}
 
@@ -19,9 +19,5 @@ public class PNJArme extends PNJ{
 		}
 	}
 
-	/*@Override
-	public void deplacement() {
-		
-	}*/
 	
 }
