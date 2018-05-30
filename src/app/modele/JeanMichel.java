@@ -27,7 +27,7 @@ public class JeanMichel extends Personnage{
 		return inventaireArmes;
 	}
 
-	public void AddArmes(Arme a) {
+	public void addArmes(Arme a) {
 		this.inventaireArmes.add(a);
 	}
 	
