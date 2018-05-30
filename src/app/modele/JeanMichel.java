@@ -13,8 +13,6 @@ public class JeanMichel extends Personnage{
 
 	private Arme equipee;
 
-	private SimpleIntegerProperty positionX, positionY;
-	
 	private GestionCollision collision;
 
 	
