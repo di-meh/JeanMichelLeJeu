@@ -68,8 +68,6 @@ public class Controleur implements Initializable {
 
 		init();
 		getGameLoop().play();
-
-
 	}
 
 	//GameLoop
@@ -82,6 +80,7 @@ public class Controleur implements Initializable {
 				Duration.seconds(0.018), //environ 60 FPS
 				// on définit ce qui se passe à chaque frame 
 				// c'est un eventHandler d'ou le lambda
+				
 				(ev ->{
 					if(heros.getPointsVie() == 0){
 						System.out.println("Vous êtes mort");
