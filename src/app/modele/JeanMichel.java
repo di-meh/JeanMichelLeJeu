@@ -11,7 +11,7 @@ public class JeanMichel extends Personnage{
 	private ArrayList<Arme> inventaireArmes;
 
 	private Arme equipee;
-	
+
 	private GestionCollision collision;
 
 	
