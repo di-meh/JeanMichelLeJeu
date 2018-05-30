@@ -1,6 +1,5 @@
 package app.vue;
 
-
 import app.modele.Terrain;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -58,34 +57,18 @@ public class VueTerrain {
 	}
 
 	public String imageDe(int i) {
-		switch(i) {
-		case 0: return "./src/app/img/tile_0.png";
-		case 186: return "./src/app/img/tile_186.png";
-		case 187: return "./src/app/img/tile_187.png";
-		case 210: return "./src/app/img/tile_herbe.jpg";
-		case 211: return "./src/app/img/tile_211.png";
-		case 197: return "./src/app/img/tile_rocher.png";
-		case 163: return "./src/app/img/tile_163.png";
-		case 214: return "./src/app/img/tile_214.png";
-		case 212: return "./src/app/img/tile_212.png";
-		case 234: return "./src/app/img/tile_234.png";
-		case 188: return "./src/app/img/tile_188.png";
-		case 185: return "./src/app/img/tile_185.png";
-		case 237: return "./src/app/img/tile_237.png";
-		case 209: return "./src/app/img/tile_209.png";
-		case 161: return "./src/app/img/tile_161.png";
-		case 213: return "./src/app/img/tile_213.png";
-		case 236: return "./src/app/img/tile_236.png";
-		case 233: return "./src/app/img/tile_233.png";
-		case 164: return "./src/app/img/tile_164.png";
-		case 162: return "./src/app/img/tile_162.png";
-		default: return "./src/app/img/tile_0.png"; // pour l'instant, on ajoute une tile transparente dans le cas où il n'y a pas d'autres valeurs
-		}	
-	}
+		try {
+			return "./src/app/img/tile_"+i+".png";
+		}catch (Exception e) {
+			e.printStackTrace();
+			return "./src/app/img/tile_0.png";
+		}
+	}	
+}
 
 
 
-	/*public String imageDe(int i) {
+/*public String imageDe(int i) {
 		switch(i) {
 		case 219: return "./src/app/img/tile_219.png";
 		case 220: return "./src/app/img/tile_220.png";
@@ -107,5 +90,4 @@ public class VueTerrain {
 		}	
 	}*/
 
-}
 
