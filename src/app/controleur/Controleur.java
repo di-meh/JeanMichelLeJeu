@@ -27,7 +27,7 @@ public class Controleur implements Initializable {
 	private VueJeanMichel vueHeros;
 	private Timeline gameLoop;
 	private VueEnnemi vueEnnemi;
-	
+
 	@FXML
 	private BorderPane borderpane;
 
@@ -36,7 +36,7 @@ public class Controleur implements Initializable {
 
 	@FXML
 	private TilePane tilemap;
-    
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
@@ -55,28 +55,27 @@ public class Controleur implements Initializable {
 		this.pane.getChildren().add(this.vueMap.getTileMap());
 		this.pane.getChildren().add(this.vueMap.getTileMapObs());
 		this.pane.getChildren().add(new ImageView(vueHeros.getSprite()));
-		
+
 		this.pane.getChildren().add(new ImageView(vueEnnemi.getSprite()));
 		//Bind la position du sprite à la position du héros
 
-		
+
 		pane.getChildren().get(3).layoutXProperty().bind(heros.XProperty());
 		pane.getChildren().get(3).layoutYProperty().bind(heros.YProperty());
-		
+
 		pane.getChildren().get(4).layoutXProperty().bind(this.jeu.getEnnemi().XProperty());
 		pane.getChildren().get(4).layoutYProperty().bind(this.jeu.getEnnemi().YProperty());
-		
+
 		init();
 		getGameLoop().play();
-		
 	}
 
 	//GameLoop
 	private void init() {
-		
+
 		setGameLoop(new Timeline());
 		getGameLoop().setCycleCount(Timeline.INDEFINITE);
-		
+
 		KeyFrame kf = new KeyFrame(
 				Duration.seconds(0.018), //environ 60 FPS
 				// on définit ce qui se passe à chaque frame 
@@ -93,9 +92,9 @@ public class Controleur implements Initializable {
 				})
 				);
 		getGameLoop().getKeyFrames().add(kf);
-		
+
 	}
-	
+
 	public Timeline getGameLoop() {
 		return gameLoop;
 	}
@@ -103,7 +102,7 @@ public class Controleur implements Initializable {
 	public void setGameLoop(Timeline gameLoop) {
 		this.gameLoop = gameLoop;
 	}
-	
+
 	public Jeu getJeu() {
 		return jeu;
 	}

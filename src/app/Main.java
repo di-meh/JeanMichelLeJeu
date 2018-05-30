@@ -2,7 +2,6 @@ package app;
 
 import java.io.File;
 import java.net.URL;
-
 import app.controleur.Controleur;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -15,11 +14,12 @@ public class Main extends Application {
 	public static void main(String[] args) {
 		launch(args);
 	}
-	
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 
 		try {
+
 			primaryStage.setTitle("Jean-Michel : le jeu");
 
 			FXMLLoader loader = new FXMLLoader();
@@ -33,7 +33,6 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.show();
 
-			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

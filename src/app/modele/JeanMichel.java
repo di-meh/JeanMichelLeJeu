@@ -73,19 +73,19 @@ public class JeanMichel extends Personnage{
 	public void droite() {
 		this.positionX.set(getX()+4);
 	}
-//	public void attaquer(/*Ennemi e*/) { TODO
-//		try {
-//			//			if(equipe.getZoneAdapt().equals(e.getZone())) {
-//			//			e.setvie(equipe.getDgtZone());
-//			//		}
-//			//		else {
-//			//			e.setvie(equipe.getDgtPasZone());
-//			//		}
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//		}
-//
-//	}
+	//	public void attaquer(/*Ennemi e*/) { TODO
+	//		try {
+	//			//			if(equipe.getZoneAdapt().equals(e.getZone())) {
+	//			//			e.setvie(equipe.getDgtZone());
+	//			//		}
+	//			//		else {
+	//			//			e.setvie(equipe.getDgtPasZone());
+	//			//		}
+	//		} catch (Exception e) {
+	//			// TODO: handle exception
+	//		}
+	//
+	//	}
 
 	public Arme getArmeEquipee() {
 		return equipee;

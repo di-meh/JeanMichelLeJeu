@@ -21,5 +21,5 @@ public class Jeu {
 	public JeanMichel getJeanMichel() {
 		return jeanMichel;
 	}
-	
+
 }

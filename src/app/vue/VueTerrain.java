@@ -9,22 +9,22 @@ import javafx.scene.layout.TilePane;
 public class VueTerrain {
 
 	private Terrain terrain;
-	
+
 	private TilePane tilemap_base, tilemap_obs;
 
 	private int tailleMap;
 
-	
+
 	public VueTerrain(Terrain t) {
 		this.terrain = t;
 		this.tailleMap = this.terrain.getTailleTab();
-		
+
 		this.tilemap_base = new TilePane();
 		this.tilemap_obs = new TilePane();
-		
+
 		this.tilemap_base.setPrefColumns(tailleMap);
 		this.tilemap_base.setPrefRows(tailleMap);
-		
+
 		this.tilemap_obs.setPrefColumns(tailleMap);
 		this.tilemap_obs.setPrefRows(tailleMap);
 
@@ -39,7 +39,7 @@ public class VueTerrain {
 				this.tilemap_base.getChildren().add(imgVw);
 			}
 		}
-		
+
 		for (int x = 0; x< t2obs.length; x++) {
 			for (int y = 0; y<t2obs[x].length; y++) {
 				Image img = new Image("file:" + imageDe(t2obs[x][y]));
