@@ -65,16 +65,20 @@ public class VueTerrain {
 		case 210: return "./src/app/img/tile_herbe.jpg";
 		case 211: return "./src/app/img/tile_211.png";
 		case 197: return "./src/app/img/tile_rocher.png";
-		case 163: return "";
-		case 214: return "";
-		case 234: return "";
-		case 236: return "";
-		case 188: return "";
-		case 185: return "";
-		case 237: return "";
-		case 209: return "";
-		case 161: return "";
-		case 213: return "";
+		case 163: return "./src/app/img/tile_163.png";
+		case 214: return "./src/app/img/tile_214.png";
+		case 212: return "./src/app/img/tile_212.png";
+		case 234: return "./src/app/img/tile_234.png";
+		case 188: return "./src/app/img/tile_188.png";
+		case 185: return "./src/app/img/tile_185.png";
+		case 237: return "./src/app/img/tile_237.png";
+		case 209: return "./src/app/img/tile_209.png";
+		case 161: return "./src/app/img/tile_161.png";
+		case 213: return "./src/app/img/tile_213.png";
+		case 236: return "./src/app/img/tile_236.png";
+		case 233: return "./src/app/img/tile_233.png";
+		case 164: return "./src/app/img/tile_164.png";
+		case 162: return "./src/app/img/tile_162.png";
 		default: return "./src/app/img/tile_0.png"; // pour l'instant, on ajoute une tile transparente dans le cas où il n'y a pas d'autres valeurs
 		}	
 	}
