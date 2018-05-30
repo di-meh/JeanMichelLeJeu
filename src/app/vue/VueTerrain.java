@@ -65,6 +65,16 @@ public class VueTerrain {
 		case 210: return "./src/app/img/tile_herbe.jpg";
 		case 211: return "./src/app/img/tile_211.png";
 		case 197: return "./src/app/img/tile_rocher.png";
+		case 163: return "";
+		case 214: return "";
+		case 234: return "";
+		case 236: return "";
+		case 188: return "";
+		case 185: return "";
+		case 237: return "";
+		case 209: return "";
+		case 161: return "";
+		case 213: return "";
 		default: return "./src/app/img/tile_0.png"; // pour l'instant, on ajoute une tile transparente dans le cas où il n'y a pas d'autres valeurs
 		}	
 	}
