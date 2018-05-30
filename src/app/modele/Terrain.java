@@ -37,6 +37,7 @@ public class Terrain {
 	};
 	private int[][] tab_2d, tab_2d_obs;
 	
+	private String urlMapBase = "src/app/modele/MapMatriceBase.txt", urlMapObs = "src/app/modele/MapMatriceObs.txt";
 	private int tailleTab = 12;	
 /*
 	private int[] terrainBasique = {
@@ -118,19 +119,45 @@ public class Terrain {
 		return this.tab_2d;
 	}
 	
-	public void initMap() { //Méthode permettant de générer une map via un text file
-		String thisLine = null;
-		//P-E faire des commentaires en disant de skip la ligne si premier caractère = # ou autre
+	public void initMap(String url) { //Méthode permettant de générer une map via un text file
+//		String thisLine = null;
+//		//P-E faire des commentaires en disant de skip la ligne si premier caractère = # ou autre
+//		try {
+//			BufferedReader br = new BufferedReader(new FileReader("src/app/modele/MapMatrice.txt"));
+//			StringTokenizer s = new StringTokenizer(thisLine, ",");
+//			while ((thisLine = br.readLine())!= null) {
+//				System.out.println(thisLine);
+//			}
+//			br.close();
+//		} catch(Exception e) {
+//			e.printStackTrace();
+//		}
+		
+		String ligne = null;
+		
 		try {
-			BufferedReader br = new BufferedReader(new FileReader("src/app/modele/MapMatrice.txt"));
-			StringTokenizer s = new StringTokenizer(thisLine, ",");
-			while ((thisLine = br.readLine())!= null) {
-				System.out.println(thisLine);
-			}
+			BufferedReader br = new BufferedReader(new FileReader(url));
+			StringTokenizer s = new StringTokenizer(ligne, ",");
+			
+			do {
+				for (int x = 0; x<this.tab_2d.length; x++) {
+					for (int y = 0; y< this.tab_2d[x].length; y++) {
+						ligne = br.readLine();
+						while(s.hasMoreTokens()) {
+							this.tab_2d[x][y] = Integer.parseInt(s.nextToken(","));
+					}
+				}
+				
+				}
+			}while (ligne != null);
 			br.close();
-		} catch(Exception e) {
+			
+		}catch(Exception e) {
 			e.printStackTrace();
 		}
+		
+		
+		
 		
 		
 	}

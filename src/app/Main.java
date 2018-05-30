@@ -20,11 +20,12 @@ public class Main extends Application {
 		String thisLine = null;
 
 		try {
-			BufferedReader br = new BufferedReader(new FileReader("src/app/modele/MapMatrice.txt"));
+			BufferedReader br = new BufferedReader(new FileReader("src/app/modele/MapMatriceBase.txt"));
 
 			while ((thisLine = br.readLine())!= null) {
 				System.out.println(thisLine);
 			}
+			br.close();
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
