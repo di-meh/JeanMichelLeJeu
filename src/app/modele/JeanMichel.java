@@ -14,13 +14,13 @@ public class JeanMichel{
 	private Arme equipee;
 
 	private int tailleX, tailleY;
-	
+
 	//	private ArrayList<Item> listeItem;
 
 	private SimpleIntegerProperty pointsVie;
 
 	private SimpleIntegerProperty positionX, positionY;
-	
+
 	private GestionCollision collision;
 
 	public JeanMichel(Arme e, int x, int y) {
@@ -65,11 +65,11 @@ public class JeanMichel{
 	public final void setX(SimpleIntegerProperty x) {
 		this.positionX = x;
 	}
-	
+
 	public final SimpleIntegerProperty YProperty() {
 		return this.positionY;
 	}
-	
+
 	public final void setY(SimpleIntegerProperty y) {
 		this.positionY = y;
 	}
@@ -90,7 +90,7 @@ public class JeanMichel{
 	public final void setY(int y) {
 		this.positionX.setValue(y);
 	}
-	
+
 	public void deplacement(KeyEvent e) {
 		KeyCode value = e.getCode();
 
@@ -123,19 +123,19 @@ public class JeanMichel{
 	public void droite() {
 		this.positionX.set(getX()+4);
 	}
-//	public void attaquer(/*Ennemi e*/) { TODO
-//		try {
-//			//			if(equipe.getZoneAdapt().equals(e.getZone())) {
-//			//			e.setvie(equipe.getDgtZone());
-//			//		}
-//			//		else {
-//			//			e.setvie(equipe.getDgtPasZone());
-//			//		}
-//		} catch (Exception e) {
-//			// TODO: handle exception
-//		}
-//
-//	}
+	//	public void attaquer(/*Ennemi e*/) { TODO
+	//		try {
+	//			//			if(equipe.getZoneAdapt().equals(e.getZone())) {
+	//			//			e.setvie(equipe.getDgtZone());
+	//			//		}
+	//			//		else {
+	//			//			e.setvie(equipe.getDgtPasZone());
+	//			//		}
+	//		} catch (Exception e) {
+	//			// TODO: handle exception
+	//		}
+	//
+	//	}
 
 	public Arme getArmeEquipee() {
 		return equipee;
