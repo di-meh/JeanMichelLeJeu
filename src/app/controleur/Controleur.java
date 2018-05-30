@@ -7,6 +7,7 @@ import app.modele.Jeu;
 import app.modele.Terrain;
 import app.vue.VueEnnemi;
 import app.vue.VueJeanMichel;
+import app.vue.VuePNJ;
 import app.vue.VueTerrain;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -19,15 +20,19 @@ import javafx.scene.layout.TilePane;
 import javafx.util.Duration;
 
 public class Controleur implements Initializable {
-
+	
+	//modeles
 	private Jeu jeu;
 	private Terrain map;
+	//vues
 	private VueTerrain vueMap;
-	private JeanMichel heros;
 	private VueJeanMichel vueHeros;
-	private Timeline gameLoop;
 	private VueEnnemi vueEnnemi;
+	private VuePNJ vuePNJ;
+	
+	private Timeline gameLoop;
 
+	//FXML
 	@FXML
 	private BorderPane borderpane;
 
@@ -47,24 +52,27 @@ public class Controleur implements Initializable {
 
 		this.vueEnnemi = new VueEnnemi(this.jeu.getEnnemi());
 		this.vueMap = new VueTerrain(this.map);
-
-		this.heros = new JeanMichel(null, 0, 0);
-		this.vueHeros = new VueJeanMichel(heros);
+		this.vuePNJ = new VuePNJ(this.jeu.getPNJ());
+		this.vueHeros = new VueJeanMichel(this.jeu.getJeanMichel());
 
 		//Ajout des élements dans le Scene Builder
 		this.pane.getChildren().add(this.vueMap.getTileMap());
 		this.pane.getChildren().add(this.vueMap.getTileMapObs());
+		
 		this.pane.getChildren().add(new ImageView(vueHeros.getSprite()));
-
 		this.pane.getChildren().add(new ImageView(vueEnnemi.getSprite()));
+		this.pane.getChildren().add(new ImageView(vuePNJ.getSprite()));
 		//Bind la position du sprite à la position du héros
 
 
-		pane.getChildren().get(3).layoutXProperty().bind(heros.XProperty());
-		pane.getChildren().get(3).layoutYProperty().bind(heros.YProperty());
+		pane.getChildren().get(3).layoutXProperty().bind(this.jeu.getJeanMichel().XProperty());
+		pane.getChildren().get(3).layoutYProperty().bind(this.jeu.getJeanMichel().YProperty());
 
 		pane.getChildren().get(4).layoutXProperty().bind(this.jeu.getEnnemi().XProperty());
 		pane.getChildren().get(4).layoutYProperty().bind(this.jeu.getEnnemi().YProperty());
+		
+		pane.getChildren().get(5).layoutXProperty().bind(this.jeu.getPNJ().XProperty());
+		pane.getChildren().get(5).layoutYProperty().bind(this.jeu.getPNJ().YProperty());
 
 		init();
 		getGameLoop().play();
@@ -82,12 +90,12 @@ public class Controleur implements Initializable {
 				// c'est un eventHandler d'ou le lambda
 				
 				(ev ->{
-					if(heros.getPointsVie() == 0){
+					if(this.jeu.getJeanMichel().getPointsVie() == 0){
 						System.out.println("Vous êtes mort");
 						getGameLoop().stop();
 					}
 					else {
-						this.jeu.getEnnemi().droite();
+						this.jeu.update();
 					}
 				})
 				);
@@ -108,7 +116,7 @@ public class Controleur implements Initializable {
 	}
 
 	public JeanMichel getJeanMichel() {
-		return this.heros;
+		return this.jeu.getJeanMichel();
 	}
 }
 

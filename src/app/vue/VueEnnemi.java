@@ -9,11 +9,8 @@ public class VueEnnemi {
 
 	private Image sprite = new Image("file:./src/app/img/cactus.png");
 
-	//private SimpleIntegerProperty positionX, positionY;
-
 	public VueEnnemi(Ennemi e) {
 		this.setEnnemi(e);
-		//this.obstacles = new ArrayList<Integer>();
 
 	}
 
@@ -26,7 +23,7 @@ public class VueEnnemi {
 		return sprite;
 	}
 
-	public Ennemi getHeros() {
+	public Ennemi getEnnemi() {
 		return ennemi;
 	}
 

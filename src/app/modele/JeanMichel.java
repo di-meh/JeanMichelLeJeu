@@ -49,7 +49,7 @@ public class JeanMichel extends Personnage{
 		break;
 		case K: System.out.println("Button K pressed"); //changer d'arme
 		break;
-		case L: System.out.println("Button L pressed"); //parler
+		case L: parler();
 		break;
 		case M: System.out.println("Button M pressed"); //afficher map
 		break;
@@ -110,7 +110,10 @@ public class JeanMichel extends Personnage{
 			}
 		}
 	}
-
+	
+	public void parler() {
+		
+	}
 }
 
 /*
@@ -124,11 +127,4 @@ public class JeanMichel extends Personnage{
  * 
  * 
  */
-
-
-
-
-
-
-
 

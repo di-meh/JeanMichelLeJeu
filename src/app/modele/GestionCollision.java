@@ -6,7 +6,6 @@ public class GestionCollision {
 
 	private Terrain terrain;
 
-
 	private ArrayList<Integer> obstacles;
 
 
@@ -35,6 +34,14 @@ public class GestionCollision {
 			if(i == o)
 				return true;
 		}
+		return false;
+	}
+	
+	public boolean collisionPerso(Personnage p) {
+		/*if() {
+			
+			return true;
+		}*/
 		return false;
 	}
 
