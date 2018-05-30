@@ -2,7 +2,6 @@ package app.modele;
 
 import java.util.ArrayList;
 
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
@@ -12,8 +11,6 @@ public class JeanMichel extends Personnage{
 	private ArrayList<Arme> inventaireArmes;
 
 	private Arme equipee;
-
-	private SimpleIntegerProperty positionX, positionY;
 	
 	private GestionCollision collision;
 
@@ -46,15 +43,15 @@ public class JeanMichel extends Personnage{
 		break;
 		case D: if(!collision.collisionne(getX() + 4 + getTailleX(), getY()) && !collision.collisionne(getX()+getTailleX()+4, getY()+getTailleY()) && !collision.collisionne(getX()+getTailleX()+4, getY()+getTailleY()/2) /* et collision avec ennemis et pnj*/ ) droite();                              
 		break;
-		case E: System.out.println("Bouton E pressed"); //attaquer
+		case E: System.out.println("Button E pressed"); //attaquer
 		break;
-		case F: System.out.println("Bouton F pressed"); //pousser/tirer
+		case F: System.out.println("Button F pressed"); //pousser/tirer
 		break;
-		case K: System.out.println("Bouton K pressed"); //changer d'arme
+		case K: System.out.println("Button K pressed"); //changer d'arme
 		break;
-		case L: System.out.println("Bouton L pressed"); //parler
+		case L: System.out.println("Button L pressed"); //parler
 		break;
-		case M: System.out.println("Bouton M pressed"); //afficher map
+		case M: System.out.println("Button M pressed"); //afficher map
 		break;
 		default:
 			break;

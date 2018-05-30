@@ -6,9 +6,7 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 	
 	private String nom;
 
-	protected SimpleIntegerProperty positionX;
-
-	protected SimpleIntegerProperty positionY;
+	protected SimpleIntegerProperty positionX, positionY;
 	
 	protected SimpleIntegerProperty pointsVie;
 

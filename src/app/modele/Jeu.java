@@ -2,7 +2,6 @@ package app.modele;
 
 import java.util.ArrayList;
 
-
 public class Jeu {
 
 	private ArrayList<Ennemi> ennemis;
@@ -11,6 +10,7 @@ public class Jeu {
 	public Jeu() {
 		this.ennemis = new ArrayList<Ennemi>();
 		this.ennemis.add(new Ennemi("test",50, 0, 80));
+		this.ennemis.add(new Ennemi("test2",50, 80, 0));
 		this.jeanMichel = new JeanMichel(null, 0, 0);
 	}
 

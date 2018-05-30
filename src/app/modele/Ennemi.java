@@ -22,12 +22,12 @@ public class Ennemi extends Personnage{
 	}
 
 	public void gauche() {
-		if(!collision.collisionne(getX()-4, getY()) && !collision.collisionne(getX() - 4, getY() + getTailleY()) && !collision.collisionne(getX() - 4, getY() + getTailleY()/2))
+		if(!collision.collisionne(getX() - 4, getY()) && !collision.collisionne(getX() - 4, getY() + getTailleY()) && !collision.collisionne(getX() - 4, getY() + getTailleY()/2))
 				this.positionX.set(getX() - 1);
 	}
 
 	public void droite() {
-		if(!collision.collisionne(getX() + 4 + getTailleX(), getY()) && !collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()) && !collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()/2))
+		if(!collision.collisionne(getX() + 4 + getTailleX(), getY()) && !collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()) && !collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()/2))     
 			this.positionX.set(getX() + 1);
 	}
 	
