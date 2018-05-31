@@ -38,24 +38,24 @@ public class JeanMichel extends Personnage{
 		switch(value) {
 		case Z: if(!this.collision.collisionne(getX(), getY() - 4) 
 				&& !this.collision.collisionne(getX() + getTailleX(), getY()-4) 
-				&& !this.collision.collisionPerso(this.jeu.getEnnemis().get(0)))
+				/*&& !this.collision.collisionPerso(this.jeu.getEnnemis().get(0))*/)
 			haut();
 		break;
 		case Q: if(!this.collision.collisionne(getX() - 4, getY()) 
 				&& !this.collision.collisionne(getX() - 4, getY()+getTailleY()) 
 				&& !this.collision.collisionne(getX() - 4, getY()+getTailleY()/2) 
-				&& !this.collision.collisionPerso(this.jeu.getEnnemis().get(0)))
+				/*&& !this.collision.collisionPerso(this.jeu.getEnnemis().get(0))*/)
 			gauche();
 		break;
 		case S: if(!this.collision.collisionne(getX(), getY() + 4 + getTailleY()) 
 				&& !this.collision.collisionne(getX() + getTailleX(), getY() + 4 + getTailleY()) 
-				&& !this.collision.collisionPerso(this.jeu.getEnnemis().get(0)))
+				/*&& !this.collision.collisionPerso(this.jeu.getEnnemis().get(0))*/)
 			bas();
 		break;
 		case D: if(!this.collision.collisionne(getX() + 4 + getTailleX(), getY()) 
 				&& !this.collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()) 
 				&& !this.collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()/2) 
-				&& !this.collision.collisionPerso(this.jeu.getEnnemis().get(0)))
+				/*&& !this.collision.collisionPerso(this.jeu.getEnnemis().get(0))*/)
 			droite();
 		break;
 		case E: System.out.println("Button E pressed"); //attaquer
