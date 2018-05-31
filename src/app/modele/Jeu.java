@@ -37,29 +37,33 @@ public class Jeu {
 		addPNJ(new PNJVie("testPNJVie", 20, 40));
 	}
 	
+	public void update() {
+		this.ennemis.get(0).seDeplacer();
+		
+	}
+	
 	public void addEnnemi(Ennemi e) {
 		this.ennemis.add(e);
 	}
 	
-	public Ennemi getEnnemi() {
-		return this.ennemis.get(0);
+	public ArrayList<Ennemi> getEnnemis() {
+		return this.ennemis;
 	}
 	
 	public void addPNJ(PNJ p) {
 		this.pnjs.add(p);
 	}
 	
-	public PNJ getPNJ() {
-		return this.pnjs.get(0);
-	}
-	
-	public void update() {
-		this.ennemis.get(0).seDeplacer();
-		
+	public ArrayList<PNJ> getPNJ() {
+		return this.pnjs;
 	}
 
 	public JeanMichel getJeanMichel() {
 		return jeanMichel;
+	}
+	
+	public Jeu getJeu() {
+		return this;
 	}
 
 }

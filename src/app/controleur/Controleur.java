@@ -49,7 +49,7 @@ public class Controleur implements Initializable {
 		this.map = new Terrain();
 		this.jeu = new Jeu();
 
-		this.vueEnnemi = new VueEnnemi(this.jeu.getEnnemi());
+		this.vueEnnemi = new VueEnnemi(this.jeu.getEnnemis().get(0));
 		this.vueMap = new VueTerrain(this.map);
 		this.vueHeros = new VueJeanMichel(this.jeu.getJeanMichel());
 
@@ -66,8 +66,8 @@ public class Controleur implements Initializable {
 		pane.getChildren().get(3).layoutXProperty().bind(this.jeu.getJeanMichel().XProperty());
 		pane.getChildren().get(3).layoutYProperty().bind(this.jeu.getJeanMichel().YProperty());
 
-		pane.getChildren().get(4).layoutXProperty().bind(this.jeu.getEnnemi().XProperty());
-		pane.getChildren().get(4).layoutYProperty().bind(this.jeu.getEnnemi().YProperty());
+		pane.getChildren().get(4).layoutXProperty().bind(this.jeu.getEnnemis().get(0).XProperty());
+		pane.getChildren().get(4).layoutYProperty().bind(this.jeu.getEnnemis().get(0).YProperty());
 
 		init();
 		getGameLoop().play();

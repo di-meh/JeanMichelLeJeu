@@ -15,8 +15,8 @@ public class Ennemi extends Personnage{
 	}
 
 	public void haut() {
-		if(!collision.collisionne(getX(), getY() - 4) 
-				&& !collision.collisionne(getX() + getTailleX(), getY() - 4)) {
+		if(!this.collision.collisionne(getX(), getY() - 4) 
+				&& !this.collision.collisionne(getX() + getTailleX(), getY() - 4)) {
 			this.positionY.set(getY() - 1);
 			this.orientation = 0;
 		}
@@ -25,8 +25,8 @@ public class Ennemi extends Personnage{
 	}
 
 	public void bas() {
-		if(!collision.collisionne(getX(), getY() + 4 + getTailleY()) 
-				&& !collision.collisionne(getX() + getTailleX(), getY() + 4 + getTailleY())) {
+		if(!this.collision.collisionne(getX(), getY() + 4 + getTailleY()) 
+				&& !this.collision.collisionne(getX() + getTailleX(), getY() + 4 + getTailleY())) {
 			this.positionY.set(getY() + 1);
 			this.orientation = 1;
 		}
@@ -35,9 +35,9 @@ public class Ennemi extends Personnage{
 	}
 
 	public void gauche() {
-		if(!collision.collisionne(getX() - 4, getY()) 
-				&& !collision.collisionne(getX() - 4, getY() + getTailleY()) 
-				&& !collision.collisionne(getX() - 4, getY() + getTailleY()/2)) {
+		if(!this.collision.collisionne(getX() - 4, getY()) 
+				&& !this.collision.collisionne(getX() - 4, getY() + getTailleY()) 
+				&& !this.collision.collisionne(getX() - 4, getY() + getTailleY()/2)) {
 			this.positionX.set(getX() - 1);
 			this.orientation = 2;
 		}
@@ -46,9 +46,9 @@ public class Ennemi extends Personnage{
 	}
 
 	public void droite() {
-		if(!collision.collisionne(getX() + 4 + getTailleX(), getY()) 
-				&& !collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()) 
-				&& !collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()/2)) {    
+		if(!this.collision.collisionne(getX() + 4 + getTailleX(), getY()) 
+				&& !this.collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()) 
+				&& !this.collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()/2)) {    
 			this.positionX.set(getX() + 1);
 			this.orientation = 3;
 		}

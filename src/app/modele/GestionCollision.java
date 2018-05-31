@@ -39,7 +39,6 @@ public class GestionCollision {
 	
 	public boolean collisionPerso(Personnage p) {
 		/*if() {
-			
 			return true;
 		}*/
 		return false;
