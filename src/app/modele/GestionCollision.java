@@ -8,7 +8,6 @@ public class GestionCollision {
 
 	private ArrayList<Integer> obstacles;
 
-
 	public GestionCollision() {
 		this.obstacles = new ArrayList<Integer>();
 		this.terrain = new Terrain();
@@ -45,7 +44,7 @@ public class GestionCollision {
 		}
 		return false;
 	}
-	
+
 	public boolean collisionPerso(Personnage p) {
 		/*if() {
 			return true;

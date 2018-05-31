@@ -13,7 +13,7 @@ public class JeanMichel extends Personnage{
 	private Arme equipee;
 
 	private GestionCollision collision;
-	
+
 	private Jeu jeu;
 
 	public JeanMichel(Arme e, int x, int y) {
@@ -23,7 +23,7 @@ public class JeanMichel extends Personnage{
 		this.collision = new GestionCollision();
 		//listeItem = new ArrayList<>();
 	}
-	
+
 	public ArrayList<Arme> getListeArmes() {
 		return inventaireArmes;
 	}
@@ -31,7 +31,7 @@ public class JeanMichel extends Personnage{
 	public void addArmes(Arme a) {
 		this.inventaireArmes.add(a);
 	}
-	
+
 	public void action(KeyEvent e) {
 		KeyCode value = e.getCode();
 
@@ -88,7 +88,7 @@ public class JeanMichel extends Personnage{
 	public void droite() {
 		this.positionX.set(getX() + 4);
 	}
-	
+
 	//	public void attaquer(/*Ennemi e*/) { TODO
 	//		try {
 	//			//			if(equipe.getZoneAdapt().equals(e.getZone())) {
@@ -114,10 +114,10 @@ public class JeanMichel extends Personnage{
 	public void estAttaque(int atq) {
 		this.pointsVie.setValue(getPointsVie()-atq);
 	}
-	
+
 	public void repondre() {
 		int i = 0;
-		
+
 		while(i != 4) {
 			switch(i) {
 			case 1: System.out.println("Oui");
@@ -126,22 +126,22 @@ public class JeanMichel extends Personnage{
 			}
 		}
 	}
-	
+
 	public void parler() {
-		
+
 	}
-	
+
 	public Jeu getJeu() {
 		return this.jeu.getJeu();
-		
+
 	}
-	
+
 }
 
 /*
  * 
  * personnageCible.recevoirDegats(arme.getDegatArme());
-               
+
                 if(personnageCible.getHp() <= 0)
                 {
                         this.lvl += 1;
