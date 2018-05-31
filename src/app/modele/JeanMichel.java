@@ -35,13 +35,27 @@ public class JeanMichel extends Personnage{
 		KeyCode value = e.getCode();
 
 		switch(value) {
-		case Z: if(!collision.collisionne(getX(), getY() - 4) && !collision.collisionne(getX()+getTailleX(), getY()-4) /* et collision avec ennemis et pnj*/ ) haut();
+		case Z: if(!this.collision.collisionne(getX(), getY() - 4) 
+				&& !this.collision.collisionne(getX()+getTailleX(), getY()-4) 
+				&& !this.collision.collisionPerso(null) )
+			haut();
 		break;
-		case Q: if(!collision.collisionne(getX()-4, getY()) && !collision.collisionne(getX()-4, getY()+getTailleY()) && !collision.collisionne(getX()-4, getY()+getTailleY()/2) /* et collision avec ennemis et pnj*/ ) gauche();
+		case Q: if(!this.collision.collisionne(getX()-4, getY()) 
+				&& !this.collision.collisionne(getX() - 4, getY()+getTailleY()) 
+				&& !collision.collisionne(getX() - 4, getY()+getTailleY()/2) 
+				&& !this.collision.collisionPerso(null) )
+			gauche();
 		break;
-		case S: if(!collision.collisionne(getX(), getY() + 4 + getTailleY()) && !collision.collisionne(getX()+getTailleX(), getY()+4+getTailleY()) /* et collision avec ennemis et pnj*/ ) bas();
+		case S: if(!this.collision.collisionne(getX(), getY() + 4 + getTailleY()) 
+				&& !this.collision.collisionne(getX()+getTailleX(), getY() + 4 + getTailleY()) 
+				&& !this.collision.collisionPerso(null) )
+			bas();
 		break;
-		case D: if(!collision.collisionne(getX() + 4 + getTailleX(), getY()) && !collision.collisionne(getX()+getTailleX()+4, getY()+getTailleY()) && !collision.collisionne(getX()+getTailleX()+4, getY()+getTailleY()/2) /* et collision avec ennemis et pnj*/ ) droite();                              
+		case D: if(!this.collision.collisionne(getX() + 4 + getTailleX(), getY()) 
+				&& !this.collision.collisionne(getX()+getTailleX() + 4, getY()+getTailleY()) 
+				&& !this.collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()/2) 
+				&& !this.collision.collisionPerso(null) )
+			droite();
 		break;
 		case E: System.out.println("Button E pressed"); //attaquer
 		break;
@@ -59,20 +73,21 @@ public class JeanMichel extends Personnage{
 	}
 
 	public void haut() {
-		this.positionY.set(getY()-4);
+		this.positionY.set(getY() - 4);
 	}
 
 	public void bas() {
-		this.positionY.set(getY()+4);
+		this.positionY.set(getY() + 4);
 	}
 
 	public void gauche() {
-		this.positionX.set(getX()-4);
+		this.positionX.set(getX() - 4);
 	}
 
 	public void droite() {
-		this.positionX.set(getX()+4);
+		this.positionX.set(getX() + 4);
 	}
+	
 	//	public void attaquer(/*Ennemi e*/) { TODO
 	//		try {
 	//			//			if(equipe.getZoneAdapt().equals(e.getZone())) {

@@ -18,8 +18,12 @@ public class Jeu {
 
 	public void init() {
 		//ajouter les ennemis
+			//zone1
 		addEnnemi(new Ennemi("testEnnemi1",50, 0, 80));
 		addEnnemi(new Ennemi("testEnnemi2",50, 80, 0));
+		
+			//zone2
+		
 		
 		
 		//ajouter les pnjs
@@ -50,7 +54,8 @@ public class Jeu {
 	}
 	
 	public void update() {
-		this.ennemis.get(0).droite();
+		this.ennemis.get(0).seDeplacer();
+		
 	}
 
 	public JeanMichel getJeanMichel() {

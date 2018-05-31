@@ -7,7 +7,6 @@ import app.modele.Jeu;
 import app.modele.Terrain;
 import app.vue.VueEnnemi;
 import app.vue.VueJeanMichel;
-import app.vue.VuePNJ;
 import app.vue.VueTerrain;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -28,7 +27,7 @@ public class Controleur implements Initializable {
 	private VueTerrain vueMap;
 	private VueJeanMichel vueHeros;
 	private VueEnnemi vueEnnemi;
-	private VuePNJ vuePNJ;
+
 	
 	private Timeline gameLoop;
 
@@ -52,7 +51,6 @@ public class Controleur implements Initializable {
 
 		this.vueEnnemi = new VueEnnemi(this.jeu.getEnnemi());
 		this.vueMap = new VueTerrain(this.map);
-		this.vuePNJ = new VuePNJ(this.jeu.getPNJ());
 		this.vueHeros = new VueJeanMichel(this.jeu.getJeanMichel());
 
 		//Ajout des élements dans le Scene Builder
@@ -61,18 +59,15 @@ public class Controleur implements Initializable {
 		
 		this.pane.getChildren().add(new ImageView(vueHeros.getSprite()));
 		this.pane.getChildren().add(new ImageView(vueEnnemi.getSprite()));
-		this.pane.getChildren().add(new ImageView(vuePNJ.getSprite()));
 		//Bind la position du sprite à la position du héros
 
 
+		//affichage des persos
 		pane.getChildren().get(3).layoutXProperty().bind(this.jeu.getJeanMichel().XProperty());
 		pane.getChildren().get(3).layoutYProperty().bind(this.jeu.getJeanMichel().YProperty());
 
 		pane.getChildren().get(4).layoutXProperty().bind(this.jeu.getEnnemi().XProperty());
 		pane.getChildren().get(4).layoutYProperty().bind(this.jeu.getEnnemi().YProperty());
-		
-		pane.getChildren().get(5).layoutXProperty().bind(this.jeu.getPNJ().XProperty());
-		pane.getChildren().get(5).layoutYProperty().bind(this.jeu.getPNJ().YProperty());
 
 		init();
 		getGameLoop().play();
