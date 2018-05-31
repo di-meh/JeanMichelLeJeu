@@ -11,7 +11,7 @@ public class Terrain {
 	private String urlMapBase = "src/app/modele/MapMatriceBase.txt", urlMapObs = "src/app/modele/MapMatriceObs.txt";
 
 
-	private static final int tailleTab = 12;	
+	private static final int tailleTab = 32;	
 
 
 	public Terrain() {

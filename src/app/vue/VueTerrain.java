@@ -1,6 +1,5 @@
 package app.vue;
 
-
 import app.modele.Terrain;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -58,20 +57,18 @@ public class VueTerrain {
 	}
 
 	public String imageDe(int i) {
-		switch(i) {
-		case 0: return "./src/app/img/tile_0.png";
-		case 186: return "./src/app/img/tile_186.png";
-		case 187: return "./src/app/img/tile_187.png";
-		case 210: return "./src/app/img/tile_herbe.jpg";
-		case 211: return "./src/app/img/tile_211.png";
-		case 197: return "./src/app/img/tile_rocher.png";
-		default: return "./src/app/img/tile_0.png"; // pour l'instant, on ajoute une tile transparente dans le cas où il n'y a pas d'autres valeurs
-		}	
-	}
+		try {
+			return "./src/app/img/tile_"+i+".png";
+		}catch (Exception e) {
+			e.printStackTrace();
+			return "./src/app/img/tile_0.png";
+		}
+	}	
+}
 
 
 
-	/*public String imageDe(int i) {
+/*public String imageDe(int i) {
 		switch(i) {
 		case 219: return "./src/app/img/tile_219.png";
 		case 220: return "./src/app/img/tile_220.png";
@@ -93,5 +90,4 @@ public class VueTerrain {
 		}	
 	}*/
 
-}
 
