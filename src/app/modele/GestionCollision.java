@@ -20,7 +20,6 @@ public class GestionCollision {
 					this.obstacles.add(tabObs[x][y]);
 			}
 		}
-		//this.obstacles.add(197);
 	}
 
 	public boolean collisionne(int x, int y) {
@@ -38,10 +37,9 @@ public class GestionCollision {
 	}
 
 	public boolean estObstacle(int i) {
-		for(int o : obstacles) {
+		for(int o : obstacles)
 			if(i == o)
 				return true;
-		}
 		return false;
 	}
 
