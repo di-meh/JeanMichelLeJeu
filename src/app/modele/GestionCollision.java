@@ -11,8 +11,17 @@ public class GestionCollision {
 
 	public GestionCollision() {
 		this.obstacles = new ArrayList<Integer>();
-		this.obstacles.add(197);
 		this.terrain = new Terrain();
+		// Les commentaires dessous sont un test d'ajout des obstacles directement dans l'arraylist au lieu de les ajouter à la main
+		// Cependant un "problème" à soulever, est qu'il crée des doublons, mais dans le cas de notre utilisation, cela importe peu
+		int[][] tabObs = this.terrain.initMap("src/app/modele/MapMatriceObs.txt");
+		for (int x = 0; x< tabObs.length; x++) {
+			for (int y = 0; y<tabObs[x].length; y++) {
+				if (tabObs[x][y] !=0) 
+					this.obstacles.add(tabObs[x][y]);
+			}
+		}
+		//this.obstacles.add(197);
 	}
 
 	public boolean collisionne(int x, int y) {
