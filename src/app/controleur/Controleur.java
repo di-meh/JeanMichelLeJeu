@@ -56,6 +56,7 @@ public class Controleur implements Initializable {
 		//Ajout des élements dans le Scene Builder
 		this.pane.getChildren().add(this.vueMap.getTileMap());
 		this.pane.getChildren().add(this.vueMap.getTileMapObs());
+		this.pane.getChildren().add(this.vueMap.getTileMapMov());
 
 		this.pane.getChildren().add(new ImageView(vueHeros.getSprite()));
 		this.pane.getChildren().add(new ImageView(vueEnnemi.getSprite()));
@@ -63,11 +64,11 @@ public class Controleur implements Initializable {
 
 
 		//affichage des persos
-		pane.getChildren().get(3).layoutXProperty().bind(this.jeu.getJeanMichel().XProperty());
-		pane.getChildren().get(3).layoutYProperty().bind(this.jeu.getJeanMichel().YProperty());
+		pane.getChildren().get(4).layoutXProperty().bind(this.jeu.getJeanMichel().XProperty());
+		pane.getChildren().get(4).layoutYProperty().bind(this.jeu.getJeanMichel().YProperty());
 
-		pane.getChildren().get(4).layoutXProperty().bind(this.jeu.getEnnemis().get(0).XProperty());
-		pane.getChildren().get(4).layoutYProperty().bind(this.jeu.getEnnemis().get(0).YProperty());
+		pane.getChildren().get(5).layoutXProperty().bind(this.jeu.getEnnemis().get(0).XProperty());
+		pane.getChildren().get(5).layoutYProperty().bind(this.jeu.getEnnemis().get(0).YProperty());
 
 		init();
 		getGameLoop().play();

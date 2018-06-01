@@ -60,7 +60,8 @@ public class JeanMichel extends Personnage{
 		break;
 		case E: System.out.println("Button E pressed"); //attaquer
 		break;
-		case F: System.out.println("Button F pressed"); //pousser/tirer
+		case F: System.out.println("Button F pressed");//pousser/tirer
+		pousser(e);
 		break;
 		case K: System.out.println("Button K pressed"); //changer d'arme
 		break;
@@ -129,6 +130,28 @@ public class JeanMichel extends Personnage{
 
 	public void parler() {
 
+	}
+	
+	public void pousser(KeyEvent c) { //TODO gérer le cas de tirer
+		
+		KeyCode value = c.getCode();
+		switch (value) {
+		case Z:if(!this.collision.collisionne(getX(), getY() - 4) 
+				&& !this.collision.collisionne(getX() + getTailleX(), getY()-4)) System.out.println("Bouton Z presséééééééééééééééééééééééééééééé");
+				break;
+		case S:if(!this.collision.collisionne(getX(), getY() + 4 + getTailleY()) 
+				&& !this.collision.collisionne(getX() + getTailleX(), getY() + 4 + getTailleY())) System.out.println("Bouton S presséééééééééééééééééééééééééééééé");
+			break;
+		case Q:if(!this.collision.collisionne(getX() - 4, getY()) 
+				&& !this.collision.collisionne(getX() - 4, getY()+getTailleY()) 
+				&& !this.collision.collisionne(getX() - 4, getY()+getTailleY()/2)) System.out.println("Bouton Q presséééééééééééééééééééééééééééééé");
+			break;
+		case D: if(!this.collision.collisionne(getX() + 4 + getTailleX(), getY()) 
+				&& !this.collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()) 
+				&& !this.collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()/2)) System.out.println("Bouton D presséééééééééééééééééééééééééééééé");
+			break;
+		default: break;
+		}
 	}
 
 	public Jeu getJeu() {
