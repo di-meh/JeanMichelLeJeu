@@ -31,10 +31,12 @@ public class JeanMichel extends Personnage{
 	}
 	
 	public void action(KeyEvent e) {
+		
 		KeyCode value = e.getCode();
 
 		switch(value) {
 		case Z: if(!this.collision.collisionne(getX(), getY() - 4) 
+				&& !this.collision.collisionne(getX() + getTailleX(), getY()-4)
 				&& !this.collision.collisionne(getX() + getTailleX(), getY()-4))
 			haut();
 		break;
@@ -44,7 +46,8 @@ public class JeanMichel extends Personnage{
 			gauche();
 		break;
 		case S: if(!this.collision.collisionne(getX(), getY() + 4 + getTailleY()) 
-				&& !this.collision.collisionne(getX() + getTailleX(), getY() + 4 + getTailleY()))
+				&& !this.collision.collisionne(getX() + getTailleX(), getY() + 4 + getTailleY())
+				&& !this.collision.collisionne(getX() - 4, getY()+getTailleY()/2))
 			bas();
 		break;
 		case D: if(!this.collision.collisionne(getX() + 4 + getTailleX(), getY()) 
@@ -124,7 +127,7 @@ public class JeanMichel extends Personnage{
 	public void parler() {
 		
 	}
-	
+
 }
 
 /*

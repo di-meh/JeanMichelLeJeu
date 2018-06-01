@@ -25,6 +25,10 @@ public class GestionCollision {
 			}
 			
 		}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3f10470b32782a7d13477ca7c4473b995790d961
 	}
 
 	public boolean collisionne(int x, int y) {
@@ -49,5 +53,25 @@ public class GestionCollision {
 		return false;
 	}
 	
+<<<<<<< HEAD
+=======
+	public boolean collisionPerso(Personnage p, int d, int pas) {
+		switch(d) {
+		case 1: verifie(p, x, y + pas);
+		case 2: verifie(p, pas);
+		case 3: verifie(p, pas);
+		case 4: verifie(p, pas);
+		}
+		
+		return false;
+	}
+	
+	public boolean verifie(Personnage p, int x, int y) {
+		/*if() {
+			return true;
+		}*/
+		return false;
+	}
+>>>>>>> 3f10470b32782a7d13477ca7c4473b995790d961
 
 }
