@@ -8,7 +8,6 @@ public class GestionCollision {
 
 	private ArrayList<Integer> obstacles;
 
-
 	public GestionCollision() {
 		this.obstacles = new ArrayList<Integer>();
 		this.terrain = new Terrain();
@@ -47,22 +46,34 @@ public class GestionCollision {
 		return false;
 	}
 	
-	public boolean collisionPerso(Personnage p, int d, int pas) {
+	public boolean collisionPerso(Personnage p, Personnage p1, int d, int pas) {
 		switch(d) {
-		case 1: verifie(p, x, y + pas);
-		case 2: verifie(p, pas);
-		case 3: verifie(p, pas);
-		case 4: verifie(p, pas);
+		case 0: return verifie(p, p1, 0, -pas);
+		case 1: return verifie(p, p1, -pas, 0);
+		case 2: return verifie(p, p1, 0, pas);
+		case 3: return verifie(p, p1, pas, 0);
 		}
-		
 		return false;
 	}
 	
-	public boolean verifie(Personnage p, int x, int y) {
-		/*if() {
+	public boolean verifie(Personnage p, Personnage p1, int x, int y) {
+		
+		if(pointdansCarre(p, p1.getX() + x, p1.getY() + y)
+		|| pointdansCarre(p, p1.getX() + x + p.getTailleX(), p1.getY() + y)
+		|| pointdansCarre(p, p1.getX() + x, p1.getY() + y + p1.getTailleY())
+		|| pointdansCarre(p, p1.getX() + x + p1.getTailleX(), p1.getY() + y + p1.getTailleY()))
 			return true;
-		}*/
+		
 		return false;
 	}
 
+	private boolean pointdansCarre(Personnage p, int x, int y) {
+		if(x >= p.getX() && x <= p.getX() + p.getTailleX() && y >= p.getY() && y <= p.getY() + p.getTailleY()
+		|| x >= p.getX() && x <= p.getX() + p.getTailleX() && y >= p.getY() && y <= p.getY() + p.getTailleY())
+			return true;
+		
+		return false;
+		
+	}
+	
 }
