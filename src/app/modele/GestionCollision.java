@@ -12,16 +12,19 @@ public class GestionCollision {
 	public GestionCollision() {
 		this.obstacles = new ArrayList<Integer>();
 		this.terrain = new Terrain();
+		
 		// Les commentaires dessous sont un test d'ajout des obstacles directement dans l'arraylist au lieu de les ajouter à la main
 		// Cependant un "problème" à soulever, est qu'il crée des doublons, mais dans le cas de notre utilisation, cela importe peu
 		int[][] tabObs = this.terrain.initMap("src/app/modele/MapMatriceObs.txt");
-		for (int x = 0; x< tabObs.length; x++) {
-			for (int y = 0; y<tabObs[x].length; y++) {
+		
+		for (int x = 0; x < tabObs.length; x++) {
+			
+			for (int y = 0; y < tabObs[x].length; y++) {
 				if (tabObs[x][y] !=0) 
 					this.obstacles.add(tabObs[x][y]);
 			}
+			
 		}
-		//this.obstacles.add(197);
 	}
 
 	public boolean collisionne(int x, int y) {
@@ -46,10 +49,27 @@ public class GestionCollision {
 		return false;
 	}
 	
-	public boolean collisionPerso(Personnage p) {
-		/*if() {
+	public boolean collisionPerso(Personnage p, Personnage p1, int d) {
+		
+		switch(d) {
+		case 0: verifie(p, p1, 0, -4);
+		case 1: verifie(p, p1, -4, 0);
+		case 2: verifie(p, p1, 0, 4);
+		case 3: verifie(p, p1, 4, 0dd);
+				
+		}
+		return false;
+		
+	}
+	
+	public boolean verifie(Personnage p, Personnage p1, int x, int y) {
+		
+		if(p.getX() == p1.getX() + x 
+			&& p.getY() == p1.getY() + y 
+			&& p.getX() + p.getTailleX() == p1.getX() + x 
+			&& p.getY() + p.getTailleY() == p1.getY() + y )
 			return true;
-		}*/
+		
 		return false;
 	}
 
