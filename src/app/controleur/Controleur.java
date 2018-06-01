@@ -48,6 +48,7 @@ public class Controleur implements Initializable {
 		this.tilemap.setPrefRows(12);
 		this.map = new Terrain();
 		this.jeu = new Jeu();
+		this.jeu.getJeanMichel().setJeu(this.jeu);
 
 		this.vueEnnemi = new VueEnnemi(this.jeu.getEnnemis().get(0));
 		this.vueMap = new VueTerrain(this.map);
