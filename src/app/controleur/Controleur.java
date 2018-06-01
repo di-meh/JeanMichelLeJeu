@@ -19,7 +19,7 @@ import javafx.scene.layout.TilePane;
 import javafx.util.Duration;
 
 public class Controleur implements Initializable {
-	
+
 	//modeles
 	private Jeu jeu;
 	private Terrain map;
@@ -28,7 +28,7 @@ public class Controleur implements Initializable {
 	private VueJeanMichel vueHeros;
 	private VueEnnemi vueEnnemi;
 
-	
+
 	private Timeline gameLoop;
 
 	//FXML
@@ -56,7 +56,7 @@ public class Controleur implements Initializable {
 		//Ajout des élements dans le Scene Builder
 		this.pane.getChildren().add(this.vueMap.getTileMap());
 		this.pane.getChildren().add(this.vueMap.getTileMapObs());
-		
+
 		this.pane.getChildren().add(new ImageView(vueHeros.getSprite()));
 		this.pane.getChildren().add(new ImageView(vueEnnemi.getSprite()));
 		//Bind la position du sprite à la position du héros
@@ -83,7 +83,7 @@ public class Controleur implements Initializable {
 				Duration.seconds(0.018), //environ 60 FPS
 				// on définit ce qui se passe à chaque frame 
 				// c'est un eventHandler d'ou le lambda
-				
+
 				(ev ->{
 					if(this.jeu.getJeanMichel().getPointsVie() == 0){
 						System.out.println("Vous êtes mort");

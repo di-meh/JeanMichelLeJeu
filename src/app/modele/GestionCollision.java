@@ -8,7 +8,6 @@ public class GestionCollision {
 
 	private ArrayList<Integer> obstacles;
 
-
 	public GestionCollision() {
 		this.obstacles = new ArrayList<Integer>();
 		this.terrain = new Terrain();
@@ -43,10 +42,16 @@ public class GestionCollision {
 	}
 
 	public boolean estObstacle(int i) {
-		for(int o : obstacles) {
+		for(int o : obstacles)
 			if(i == o)
 				return true;
-		}
+		return false;
+	}
+
+	public boolean collisionPerso(Personnage p) {
+		/*if() {
+			return true;
+		}*/
 		return false;
 	}
 
