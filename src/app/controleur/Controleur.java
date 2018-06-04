@@ -58,13 +58,6 @@ public class Controleur implements Initializable {
 		this.pane.getChildren().add(vueHeros.getSprite());
 		this.pane.getChildren().add(vueEnnemi.getSprite());
 		
-		//Bind la position du sprite à la position du héros
-		pane.getChildren().get(4).layoutXProperty().bind(this.jeu.getJeanMichel().XProperty());
-		pane.getChildren().get(4).layoutYProperty().bind(this.jeu.getJeanMichel().YProperty());
-
-		pane.getChildren().get(5).layoutXProperty().bind(this.jeu.getEnnemis().get(0).XProperty());
-		pane.getChildren().get(5).layoutYProperty().bind(this.jeu.getEnnemis().get(0).YProperty());
-
 		init();
 		getGameLoop().play();
 	}

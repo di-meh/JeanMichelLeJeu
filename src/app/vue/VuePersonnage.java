@@ -15,8 +15,8 @@ public class VuePersonnage {
 	public VuePersonnage(Personnage p, String url) {
 		this.personnage = p;
 		this.sprite = new ImageView(url);
-//		this.sprite.translateXProperty().bind(this.personnage.XProperty());
-//		this.sprite.translateYProperty().bind(this.personnage.YProperty());
+		this.sprite.translateXProperty().bind(this.personnage.XProperty());
+		this.sprite.translateYProperty().bind(this.personnage.YProperty());
 	}
 	
 //	public ImageView getSprite() {
