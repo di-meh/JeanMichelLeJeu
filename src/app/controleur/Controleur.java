@@ -12,7 +12,6 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
@@ -43,9 +42,6 @@ public class Controleur implements Initializable {
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-
-		this.tilemap.setPrefColumns(12);
-		this.tilemap.setPrefRows(12);
 		this.map = new Terrain();
 		this.jeu = new Jeu();
 
@@ -58,12 +54,11 @@ public class Controleur implements Initializable {
 		this.pane.getChildren().add(this.vueMap.getTileMapObs());
 		this.pane.getChildren().add(this.vueMap.getTileMapMov());
 
-		this.pane.getChildren().add(new ImageView(vueHeros.getSprite()));
-		this.pane.getChildren().add(new ImageView(vueEnnemi.getSprite()));
-		//Bind la position du sprite à la position du héros
-
-
 		//affichage des persos
+		this.pane.getChildren().add(vueHeros.getSprite());
+		this.pane.getChildren().add(vueEnnemi.getSprite());
+		
+		//Bind la position du sprite à la position du héros
 		pane.getChildren().get(4).layoutXProperty().bind(this.jeu.getJeanMichel().XProperty());
 		pane.getChildren().get(4).layoutYProperty().bind(this.jeu.getJeanMichel().YProperty());
 
