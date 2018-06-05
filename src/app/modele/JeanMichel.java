@@ -52,7 +52,7 @@ public class JeanMichel extends Personnage{
 				/*&& !this.collision.collisionPerso(this.jeu.getEnnemis().get(0))*/)
 			bas();
 		break;
-		case D: if(!this.collision.collisionne(getX() + 4 + getTailleX(), getY()) 
+		case D: if(!this.collision.collisionne(getX() + 4, getY()) 
 				&& !this.collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()) 
 				&& !this.collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()/2) 
 				/*&& !this.collision.collisionPerso(this.jeu.getEnnemis().get(0))*/)
