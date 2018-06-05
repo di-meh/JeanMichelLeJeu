@@ -44,6 +44,9 @@ public class Controleur implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		this.map = new Terrain();
 		this.jeu = new Jeu();
+		
+		this.jeu.getJeanMichel().setJeu(this.jeu);
+		this.jeu.getEnnemis().get(0).setJeu(this.jeu);
 
 		this.vueEnnemi = new VueEnnemi(this.jeu.getEnnemis().get(0));
 		this.vueMap = new VueTerrain(this.map);

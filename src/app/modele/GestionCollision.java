@@ -63,11 +63,34 @@ public class GestionCollision {
 		return false;
 	}
 
-	public boolean collisionPerso(Personnage p) {
-		/*if() {
-			return true;
-		}*/
+	public boolean collisionPerso(Personnage p, Personnage p1, int d, int pas) {
+		switch(d) {
+		case 0: return verifie(p, p1, 0, -pas);
+		case 1: return verifie(p, p1, -pas, 0);
+		case 2: return verifie(p, p1, 0, pas);
+		case 3: return verifie(p, p1, pas, 0);
+		}
 		return false;
 	}
 
+	public boolean verifie(Personnage p, Personnage p1, int x, int y) {
+		
+		if(pointdansCarre(p, p1.getX() + x, p1.getY() + y)
+		|| pointdansCarre(p, p1.getX() + x + p.getTailleX(), p1.getY() + y)
+		|| pointdansCarre(p, p1.getX() + x, p1.getY() + y + p1.getTailleY())
+		|| pointdansCarre(p, p1.getX() + x + p1.getTailleX(), p1.getY() + y + p1.getTailleY()))
+			return true;
+
+		return false;
+	}
+
+	private boolean pointdansCarre(Personnage p, int x, int y) {
+		if(x >= p.getX() && x <= p.getX() + p.getTailleX() && y >= p.getY() && y <= p.getY() + p.getTailleY()
+		|| x >= p.getX() && x <= p.getX() + p.getTailleX() && y >= p.getY() && y <= p.getY() + p.getTailleY())
+			return true;
+		
+		return false;
+		
+	}
+	
 }
