@@ -2,10 +2,14 @@ package app.controleur;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import app.modele.Coeur;
 import app.modele.JeanMichel;
 import app.modele.Jeu;
 import app.modele.Terrain;
+import app.vue.VueCoeur;
 import app.vue.VueEnnemi;
+import app.vue.VueItem;
 import app.vue.VueJeanMichel;
 import app.vue.VueTerrain;
 import javafx.animation.KeyFrame;
@@ -22,10 +26,12 @@ public class Controleur implements Initializable {
 	//modeles
 	private Jeu jeu;
 	private Terrain map;
+	private Coeur coeur;
 	//vues
 	private VueTerrain vueMap;
 	private VueJeanMichel vueHeros;
 	private VueEnnemi vueEnnemi;
+	private VueItem vueitem;
 
 
 	private Timeline gameLoop;
@@ -44,6 +50,7 @@ public class Controleur implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		this.map = new Terrain();
 		this.jeu = new Jeu();
+		this.coeur = new Coeur(20,40);
 		
 		this.jeu.getJeanMichel().setJeu(this.jeu);
 		this.jeu.getEnnemis().get(0).setJeu(this.jeu);
@@ -51,16 +58,18 @@ public class Controleur implements Initializable {
 		this.vueEnnemi = new VueEnnemi(this.jeu.getEnnemis().get(0));
 		this.vueMap = new VueTerrain(this.map);
 		this.vueHeros = new VueJeanMichel(this.jeu.getJeanMichel());
+		this.vueitem = new VueCoeur(this.coeur);
 
 		//Ajout des élements dans le Scene Builder
 		
-		this.pane.getChildren().add(this.vueMap.getTileMap());
+		this.tilemap.getChildren().add(this.vueMap.getTileMap());
 		this.pane.getChildren().add(this.vueMap.getTileMapObs());
 		this.pane.getChildren().add(this.vueMap.getTileMapMov());
 
 		//affichage des persos
 		this.pane.getChildren().add(vueHeros.getSprite());
 		this.pane.getChildren().add(vueEnnemi.getSprite());
+		this.pane.getChildren().add(vueitem.getSprite());
 		
 		init();
 		getGameLoop().play();

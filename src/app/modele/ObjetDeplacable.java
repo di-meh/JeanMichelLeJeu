@@ -20,4 +20,24 @@ public class ObjetDeplacable {
 		this.Oy = Oy;
 		objetsdeplacables = new ArrayList<>();
 	}
+	
+	public int getID() {
+		return id;
+	}
+	
+	public int getX() {
+		return x;
+	}
+	public int getY() {
+		return y;
+	}
+	public int getOX() {
+		return Ox;
+	}
+	public int getOY() {
+		return Oy;
+	}
+	public ArrayList<ObjetDeplacable> getListe() {
+		return objetsdeplacables;
+	}
 }

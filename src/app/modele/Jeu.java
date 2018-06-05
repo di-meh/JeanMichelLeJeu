@@ -7,6 +7,7 @@ public class Jeu {
 	private ArrayList<Ennemi> ennemis;
 	private ArrayList<PNJ> pnjs;
 	private JeanMichel jeanMichel;
+	private Item item;
 
 	public Jeu() {
 		this.ennemis = new ArrayList<Ennemi>();
@@ -22,8 +23,6 @@ public class Jeu {
 		addEnnemi(new Ennemi("testEnnemi2",50, 80, 0));
 
 		//zone2
-
-
 
 		//ajouter les pnjs
 		//zone1

@@ -1,32 +1,59 @@
 package app.modele;
 
-import javafx.scene.image.Image;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.scene.image.ImageView;
 
 public class Item {
-	private Image img;
-	private String lienIMG;
-	private boolean deplacable;
-	private boolean cassable;
+//	private ImageView img;
+//	private String lienIMG;
+	
+	private String nom;
+	private SimpleIntegerProperty x;
+	private SimpleIntegerProperty y;
+//	private boolean deplacable;
+//	private boolean cassable;
 
 	//La dimension d'objet cassable est à revoir
 
-	public Item(String url, boolean dplcbl,boolean cssble) {
-		img=new Image(url,true);
-		deplacable=dplcbl;
-		cassable=cssble;
+	public Item(String nom, int x, int y) {
+		this.nom = nom;
+		this.x = new SimpleIntegerProperty(x);
+		this.y = new SimpleIntegerProperty(y);
+//		deplacable=dplcbl;
+//		cassable=cssble;
 	}
-	public final Image getImg() {
-		return img;
+	
+	
+	public int getX() {
+		return x.get();
 	}
-	public final String getLienIMG() {
-		return lienIMG;
-
+	
+	public int getY() {
+		return y.get();
 	}
-	public final boolean isDeplacable() {
-		return deplacable;
+	
+	public SimpleIntegerProperty XProperty() {
+		return x;
 	}
-	public final boolean isCassable() {
-		return cassable;
+	public SimpleIntegerProperty YProperty() {
+		return y;
 	}
-
+	
+	public String getNom() {
+		return nom;
+	}
+//	public final ImageView getImg() {
+//		return img;
+//	}
+//	public final String getLienIMG() {
+//		return lienIMG;
+//	}
+//	public final boolean isDeplacable() {
+//		return deplacable;
+//	}
+//	public final boolean isCassable() {
+//		return cassable;
+//	}
+//	
+	
 }
