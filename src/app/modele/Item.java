@@ -1,7 +1,6 @@
 package app.modele;
 
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.scene.image.ImageView;
 
 public class Item {
 //	private ImageView img;
@@ -42,6 +41,7 @@ public class Item {
 	public String getNom() {
 		return nom;
 	}
+	
 //	public final ImageView getImg() {
 //		return img;
 //	}

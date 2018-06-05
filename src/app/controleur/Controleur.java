@@ -3,7 +3,6 @@ package app.controleur;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import app.modele.Coeur;
 import app.modele.JeanMichel;
 import app.modele.Jeu;
 import app.modele.Terrain;
@@ -26,7 +25,6 @@ public class Controleur implements Initializable {
 	//modeles
 	private Jeu jeu;
 	private Terrain map;
-	private Coeur coeur;
 	//vues
 	private VueTerrain vueMap;
 	private VueJeanMichel vueHeros;
@@ -69,7 +67,6 @@ public class Controleur implements Initializable {
 		this.pane.getChildren().add(vueitem.getSprite());
 		this.pane.getChildren().add(vueHeros.getSprite());
 		this.pane.getChildren().add(vueEnnemi.getSprite());
-		
 		init();
 		getGameLoop().play();
 	}
@@ -86,13 +83,16 @@ public class Controleur implements Initializable {
 				// c'est un eventHandler d'ou le lambda
 
 				(ev ->{
+					if (this.jeu.getJeanMichel().getX() == this.jeu.getItem().getX() && this.jeu.getJeanMichel().getY() == this.jeu.getItem().getY()) { //TODO le faire dans le modèle
+						this.pane.getChildren().remove(vueitem.getSprite());
+						
+					}
 					if(this.jeu.getJeanMichel().getPointsVie() == 0){
 						System.out.println("Vous êtes mort");
 						getGameLoop().stop();
 					}
-					else {
+					else
 						this.jeu.update();
-					}
 				})
 				);
 		getGameLoop().getKeyFrames().add(kf);

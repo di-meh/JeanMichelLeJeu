@@ -61,12 +61,13 @@ public class Jeu {
 		return jeanMichel;
 	}
 
-	public Jeu getJeu() {
-		return this;
-	}
 	
 	public Item getItem() {
 		return item;
+	}
+	
+	public void setItem(Item e) {
+		this.item = e;
 	}
 
 

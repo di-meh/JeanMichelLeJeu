@@ -7,7 +7,7 @@ public class GestionCollision {
 	private Terrain terrain;
 
 	private ArrayList<Integer> obstacles, obstacles_mov;
-
+	
 	public GestionCollision() {
 		this.obstacles = new ArrayList<Integer>();
 		this.obstacles_mov = new ArrayList<Integer>();
@@ -34,9 +34,11 @@ public class GestionCollision {
 		}
 	}
 
-	public boolean collisionne(int x, int y) {
+	public boolean collisionneObstacle(int x, int y) {
 		return estObstacle(caseDe(x, y));
 	}
+	
+	
 
 	public int caseDe(int x, int y) {
 		try {
@@ -56,12 +58,13 @@ public class GestionCollision {
 			if(i == o)
 				return true;
 		for (int o : obstacles_mov)
-			if (i == o) {
+			if (i == o) 
 				return true;
-			}
+			
 				
 		return false;
 	}
+	
 
 	public boolean collisionPerso(Personnage p, Personnage p1, int d, int pas) {
 		switch(d) {
@@ -73,7 +76,7 @@ public class GestionCollision {
 		return false;
 	}
 
-	public boolean verifie(Personnage p, Personnage p1, int x, int y) {
+	private boolean verifie(Personnage p, Personnage p1, int x, int y) {
 		
 		if(pointdansCarre(p, p1.getX() + x, p1.getY() + y)
 		|| pointdansCarre(p, p1.getX() + x + p.getTailleX(), p1.getY() + y)
