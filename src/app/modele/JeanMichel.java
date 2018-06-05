@@ -142,18 +142,18 @@ public class JeanMichel extends Personnage{
 		KeyCode value = c.getCode();
 		switch (value) {
 		case Z:if(!this.collision.collisionne(getX(), getY() - 4) 
-				&& !this.collision.collisionne(getX() + getTailleX(), getY()-4)) System.out.println("Bouton Z presséééééééééééééééééééééééééééééé");
+				&& !this.collision.collisionne(getX() + getTailleX(), getY()-4)) System.out.println("Bouton Z pressé");
 		break;
 		case S:if(!this.collision.collisionne(getX(), getY() + 4 + getTailleY()) 
-				&& !this.collision.collisionne(getX() + getTailleX(), getY() + 4 + getTailleY())) System.out.println("Bouton S presséééééééééééééééééééééééééééééé");
+				&& !this.collision.collisionne(getX() + getTailleX(), getY() + 4 + getTailleY())) System.out.println("Bouton S pressé");
 		break;
 		case Q:if(!this.collision.collisionne(getX() - 4, getY()) 
 				&& !this.collision.collisionne(getX() - 4, getY()+getTailleY()) 
-				&& !this.collision.collisionne(getX() - 4, getY()+getTailleY()/2)) System.out.println("Bouton Q presséééééééééééééééééééééééééééééé");
+				&& !this.collision.collisionne(getX() - 4, getY()+getTailleY()/2)) System.out.println("Bouton Q pressé");
 		break;
 		case D: if(!this.collision.collisionne(getX() + 4 + getTailleX(), getY()) 
 				&& !this.collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()) 
-				&& !this.collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()/2)) System.out.println("Bouton D presséééééééééééééééééééééééééééééé");
+				&& !this.collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()/2)) System.out.println("Bouton D pressé");
 		break;
 		default: break;
 		}

@@ -2,6 +2,8 @@ package app.controleur;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import app.modele.BFS;
 import app.modele.JeanMichel;
 import app.modele.Jeu;
 import app.modele.Terrain;
@@ -22,11 +24,11 @@ public class Controleur implements Initializable {
 	//modeles
 	private Jeu jeu;
 	private Terrain map;
+	private BFS bfs;
 	//vues
 	private VueTerrain vueMap;
 	private VueJeanMichel vueHeros;
 	private VueEnnemi vueEnnemi;
-
 
 	private Timeline gameLoop;
 
@@ -44,6 +46,7 @@ public class Controleur implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		this.map = new Terrain();
 		this.jeu = new Jeu();
+		this.bfs = new BFS(this.jeu.getJeanMichel());
 		
 		this.jeu.getJeanMichel().setJeu(this.jeu);
 		this.jeu.getEnnemis().get(0).setJeu(this.jeu);
