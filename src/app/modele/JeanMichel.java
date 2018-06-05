@@ -2,12 +2,11 @@ package app.modele;
 
 import java.util.ArrayList;
 
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
 
-public class JeanMichel{
+public class JeanMichel extends Personnage{
 
 	private ArrayList<Arme> inventaireArmes;
 
@@ -15,89 +14,62 @@ public class JeanMichel{
 
 	private int tailleX, tailleY;
 	
-	private SimpleIntegerProperty pointsVie;
-
-	private SimpleIntegerProperty positionX, positionY;
-	
 	private GestionCollision collision;
 
+	private Jeu jeu;
+
 	public JeanMichel(Arme e, int x, int y) {
-		this.setTailleX(17);
-		this.setTailleY(23);
+		super("Jean-Michel", 100, x, y, 17, 23);
 		this.inventaireArmes = new ArrayList<>();
 		this.setArme(e);
-		this.pointsVie = new SimpleIntegerProperty(100);
-		this.positionX = new SimpleIntegerProperty(x);
-		this.positionY = new SimpleIntegerProperty(y);
 		this.collision = new GestionCollision();
+		//listeItem = new ArrayList<>();
 	}
 
 	public ArrayList<Arme> getListeArmes() {
 		return inventaireArmes;
 	}
 
-	public void AddArmes(Arme a) {
+	public void addArmes(Arme a) {
 		this.inventaireArmes.add(a);
 	}
 
-	public SimpleIntegerProperty pointsVieProperty() {
-		return this.pointsVie;
-	}
-
-	public void setPointsVie(SimpleIntegerProperty v) {
-		this.pointsVie = v;
-	}
-	public int getPointsVie() {
-		return this.pointsVie.getValue();
-	}
-
-	public void setPointsVie(int val) {
-		this.pointsVie.setValue(val);
-	}
-
-	public final SimpleIntegerProperty XProperty() {
-		return this.positionX;
-	}
-
-	public final void setX(SimpleIntegerProperty x) {
-		this.positionX = x;
-	}
-
-	public final int getX() {
-		return this.positionX.getValue();
-	}
-
-	public final void setX(int x) {
-		this.positionX.setValue(x);
-	}
-
-	public final SimpleIntegerProperty YProperty() {
-		return this.positionY;
-	}
-
-	public final void setY(SimpleIntegerProperty y) {
-		this.positionY = y;
-	}
-
-	public final int getY() {
-		return this.positionY.getValue();
-	}
-
-	public final void setY(int y) {
-		this.positionX.setValue(y);
-	}
-	
-	public void deplacement(KeyEvent e) {
+	public void action(KeyEvent e) {
 		KeyCode value = e.getCode();
 
 		switch(value) {
-		case Z: if(!collision.collisionne(getX(), getY() - 4) && !collision.collisionne(getX()+getTailleX(), getY()-4)) haut();
+		case Z: if(!this.collision.collisionne(getX(), getY() - 4) 
+				&& !this.collision.collisionne(getX() + getTailleX(), getY()-4) 
+				/*&& !this.collision.collisionPerso(this.jeu.getEnnemis().get(0))*/)
+			haut();
 		break;
-		case Q: if(!collision.collisionne(getX()-4, getY()) && !collision.collisionne(getX()-4, getY()+getTailleY()) && !collision.collisionne(getX()-4, getY()+getTailleY()/2)) gauche(); 
+		case Q: if(!this.collision.collisionne(getX() - 4, getY()) 
+				&& !this.collision.collisionne(getX() - 4, getY()+getTailleY()) 
+				&& !this.collision.collisionne(getX() - 4, getY()+getTailleY()/2) 
+				/*&& !this.collision.collisionPerso(this.jeu.getEnnemis().get(0))*/)
+			gauche();
 		break;
-		case S: if(!collision.collisionne(getX(), getY() + 4+getTailleY()) && !collision.collisionne(getX()+getTailleX(), getY()+4+getTailleY())) bas(); 
+		case S: if(!this.collision.collisionne(getX(), getY() + 4 + getTailleY()) 
+				&& !this.collision.collisionne(getX() + getTailleX(), getY() + 4 + getTailleY()) 
+				/*&& !this.collision.collisionPerso(this.jeu.getEnnemis().get(0))*/)
+			bas();
 		break;
-		case D: if(!collision.collisionne(getX()+4+getTailleX(), getY()) && !collision.collisionne(getX()+getTailleX()+4, getY()+getTailleY()) && !collision.collisionne(getX()+getTailleX()+4, getY()+getTailleY()/2)) droite(); 
+		case D: if(!this.collision.collisionne(getX() + 4, getY()) 
+				&& !this.collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()) 
+				&& !this.collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()/2) 
+				/*&& !this.collision.collisionPerso(this.jeu.getEnnemis().get(0))*/)
+			droite();
+		break;
+		case E: System.out.println("Button E pressed"); //attaquer
+		break;
+		case F: System.out.println("Button F pressed");//pousser/tirer
+				pousser(e);
+		break;
+		case K: System.out.println("Button K pressed"); //changer d'arme
+		break;
+		case L: parler();
+		break;
+		case M: System.out.println("Button M pressed"); //afficher map
 		break;
 		default:
 			break;
@@ -105,20 +77,34 @@ public class JeanMichel{
 	}
 
 	public void haut() {
-		this.positionY.set(getY()-4);
+		this.positionY.set(getY() - 4);
 	}
 
 	public void bas() {
-		this.positionY.set(getY()+4);
+		this.positionY.set(getY() + 4);
 	}
 
 	public void gauche() {
-		this.positionX.set(getX()-4);
+		this.positionX.set(getX() - 4);
 	}
 
 	public void droite() {
-		this.positionX.set(getX()+4);
+		this.positionX.set(getX() + 4);
 	}
+
+	//	public void attaquer(/*Ennemi e*/) { TODO
+	//		try {
+	//			//			if(equipe.getZoneAdapt().equals(e.getZone())) {
+	//			//			e.setvie(equipe.getDgtZone());
+	//			//		}
+	//			//		else {
+	//			//			e.setvie(equipe.getDgtPasZone());
+	//			//		}
+	//		} catch (Exception e) {
+	//			// TODO: handle exception
+	//		}
+	//
+	//	}
 
 	public Arme getArmeEquipee() {
 		return equipee;
@@ -128,20 +114,65 @@ public class JeanMichel{
 		this.equipee = equipee;
 	}
 
-	public int getTailleX() {
-		return tailleX;
+	public void estAttaque(int atq) {
+		this.pointsVie.setValue(getPointsVie()-atq);
 	}
 
-	public void setTailleX(int tailleX) {
-		this.tailleX = tailleX;
+	public void repondre() {
+		int i = 0;
+
+		while(i != 4) {
+			switch(i) {
+			case 1: System.out.println("Oui");
+			case 2: System.out.println("Non");
+			case 3: System.out.println("J'ai pas compris");
+			}
+		}
 	}
 
-	public int getTailleY() {
-		return tailleY;
+	public void parler() {
+
 	}
 
-	public void setTailleY(int tailleY) {
-		this.tailleY = tailleY;
+	public void pousser(KeyEvent c) { //TODO gérer le cas de tirer
+		// Impossible de gérer deux keypress à la suite à travers deux méthodes différentes 
+		
+		KeyCode value = c.getCode();
+		switch (value) {
+		case Z:if(!this.collision.collisionne(getX(), getY() - 4) 
+				&& !this.collision.collisionne(getX() + getTailleX(), getY()-4)) System.out.println("Bouton Z presséééééééééééééééééééééééééééééé");
+		break;
+		case S:if(!this.collision.collisionne(getX(), getY() + 4 + getTailleY()) 
+				&& !this.collision.collisionne(getX() + getTailleX(), getY() + 4 + getTailleY())) System.out.println("Bouton S presséééééééééééééééééééééééééééééé");
+		break;
+		case Q:if(!this.collision.collisionne(getX() - 4, getY()) 
+				&& !this.collision.collisionne(getX() - 4, getY()+getTailleY()) 
+				&& !this.collision.collisionne(getX() - 4, getY()+getTailleY()/2)) System.out.println("Bouton Q presséééééééééééééééééééééééééééééé");
+		break;
+		case D: if(!this.collision.collisionne(getX() + 4 + getTailleX(), getY()) 
+				&& !this.collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()) 
+				&& !this.collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()/2)) System.out.println("Bouton D presséééééééééééééééééééééééééééééé");
+		break;
+		default: break;
+		}
+	}
+
+	public Jeu getJeu() {
+		return this.jeu.getJeu();
+
 	}
 
 }
+
+/*
+ * 
+ * personnageCible.recevoirDegats(arme.getDegatArme());
+
+                if(personnageCible.getHp() <= 0)
+                {
+                        this.lvl += 1;
+                }
+ * 
+ * 
+ */
+

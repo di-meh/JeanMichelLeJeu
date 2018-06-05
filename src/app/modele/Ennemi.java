@@ -1,93 +1,81 @@
 package app.modele;
 
+public class Ennemi extends Personnage{
 
-import javafx.scene.image.Image;
+	private GestionCollision collision;
 
-public abstract class Ennemi {
+	private int orientation;
 
-	private String nom;
+	public Ennemi(String n, int pv, int x, int y) {
+		super(n, pv, x, y, 12, 29);
+		this.collision = new GestionCollision();
+		this.orientation = 0;
 
-	private Image sprite;
-
-	private int pointsVie;
-
-	private int attaque;
-
-	private int positionX;
-
-	private int positionY;
-
-	public Ennemi(String n, String lien, int pv, int atq, int x, int y) {
-
-		if (n == null || n.equals(""))
-			throw new Error("Creation superclass ennemi impossible : erreur nom incorrect");
-		this.nom = n;
-		if (lien == null || lien.equals(""))
-			throw new Error("Creation superclass ennemi impossible : erreur lien image incorrect");
-		this.setTileset(new Image(lien));
-		if (pv <= 0)
-			throw new Error("Creation superclass ennemi impossible : erreur points vie incorrect");
-		this.pointsVie = pv;
-		if (atq <= 0)
-			throw new Error("Creation superclass ennemi impossible : erreur attaque incorrect");
-		this.attaque = atq;
-		if (x <= 0)
-			throw new Error("Creation superclass ennemi impossible : erreur x incorrect");
-		this.positionX = x;
-		if (y <= 0)
-			throw new Error("Creation superclass ennemi impossible : erreur y incorrect");
-		this.positionY = y;
 		System.out.println("Superclass ennemi created");
 	}
 
-	public String getNom() {
-		return this.nom;
+	public void haut() {
+		if(!this.collision.collisionne(getX(), getY() - 4) 
+				&& !this.collision.collisionne(getX() + getTailleX(), getY() - 4)) {
+			this.positionY.set(getY() - 1);
+			this.orientation = 0;
+		}
+		else
+			this.orientation = 1;
 	}
 
-	public int getVie() {
-		return this.pointsVie;
+	public void bas() {
+		if(!this.collision.collisionne(getX(), getY() + 4 + getTailleY()) 
+				&& !this.collision.collisionne(getX() + getTailleX(), getY() + 4 + getTailleY())) {
+			this.positionY.set(getY() + 1);
+			this.orientation = 1;
+		}
+		else
+			this.orientation = 0;
 	}
 
-	public int getAttaque() {
-		return this.attaque;
+	public void gauche() {
+		if(!this.collision.collisionne(getX() - 4, getY()) 
+				&& !this.collision.collisionne(getX() - 4, getY() + getTailleY()) 
+				&& !this.collision.collisionne(getX() - 4, getY() + getTailleY()/2)) {
+			this.positionX.set(getX() - 1);
+			this.orientation = 2;
+		}
+		else
+			this.orientation = 3;
 	}
 
-	public int getPositionX() {
-		return this.positionX;
+	public void droite() {
+		if(!this.collision.collisionne(getX() + 4 + getTailleX(), getY()) 
+				&& !this.collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()) 
+				&& !this.collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()/2)) {    
+			this.positionX.set(getX() + 1);
+			this.orientation = 3;
+		}
+		else
+			this.orientation = 2;
 	}
 
-	public int getPositionY() {
-		return this.positionY;
+	/*	public int attaque() {
+		if()
+			return this.attaque;
+	}*/
+
+	public void estAttaque(int atq) {
+		this.pointsVie.setValue(getPointsVie()-atq);
 	}
 
-	public void setAttaque(int atq) {
-		this.attaque += atq;
-	}
-
-	public void setPositionX(int x) {
-		this.positionX = x;
-	}
-
-	public void setPositionY(int y) {
-		this.positionY = y;
-	}
-
-	public void setVie(int pv) {
-		this.pointsVie = pv;
-	}
-
-	public void perdreVie(int pv) {
-		this.pointsVie -= pv;
-	}
-
-	public abstract void deplacement();
-
-	public Image getTileset() {
-		return sprite;
-	}
-
-	public void setTileset(Image tileset) {
-		this.sprite = tileset;
+	public void seDeplacer() {
+		switch(this.orientation) {
+		case 0: haut();
+		break;
+		case 1: bas();
+		break;
+		case 2: droite();
+		break;
+		case 3: gauche();
+		break;
+		}
 	}
 
 }

@@ -5,76 +5,103 @@ import java.util.ResourceBundle;
 import app.modele.JeanMichel;
 import app.modele.Jeu;
 import app.modele.Terrain;
+import app.vue.VueEnnemi;
 import app.vue.VueJeanMichel;
 import app.vue.VueTerrain;
-
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
+import javafx.util.Duration;
 
 public class Controleur implements Initializable {
 
+	//modeles
 	private Jeu jeu;
-
 	private Terrain map;
+	//vues
 	private VueTerrain vueMap;
-
-	private JeanMichel heros;
 	private VueJeanMichel vueHeros;
+	private VueEnnemi vueEnnemi;
 
+
+	private Timeline gameLoop;
+
+	//FXML
+	@FXML
+	private BorderPane borderpane;
 
 	@FXML
 	private Pane pane;
 
 	@FXML
 	private TilePane tilemap;
-    
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-
-		this.tilemap.setPrefColumns(12);
-		this.tilemap.setPrefRows(12);
 		this.map = new Terrain();
-		this.setJeu(new Jeu(this.map));
+		this.jeu = new Jeu();
 
+		this.vueEnnemi = new VueEnnemi(this.jeu.getEnnemis().get(0));
 		this.vueMap = new VueTerrain(this.map);
+		this.vueHeros = new VueJeanMichel(this.jeu.getJeanMichel());
 
-		this.heros = new JeanMichel(null, 0, 0);
-		this.vueHeros = new VueJeanMichel(heros);
-		this.map = new Terrain();
-
-		this.vueMap = new VueTerrain(this.map);
-
-		
 		//Ajout des élements dans le Scene Builder
 		
 		this.pane.getChildren().add(this.vueMap.getTileMap());
-		this.pane.getChildren().add(new ImageView(vueHeros.getSprite()));
+		this.pane.getChildren().add(this.vueMap.getTileMapObs());
+		this.pane.getChildren().add(this.vueMap.getTileMapMov());
 
-		//Bind la position du sprite à la position du héros
+		//affichage des persos
+		this.pane.getChildren().add(vueHeros.getSprite());
+		this.pane.getChildren().add(vueEnnemi.getSprite());
+		
+		init();
+		getGameLoop().play();
+	}
 
-		pane.getChildren().get(2).layoutXProperty().bind(heros.XProperty());
-		pane.getChildren().get(2).layoutYProperty().bind(heros.YProperty());
-		
-	
-	
-		
+	//GameLoop
+	private void init() {
+
+		setGameLoop(new Timeline());
+		getGameLoop().setCycleCount(Timeline.INDEFINITE);
+
+		KeyFrame kf = new KeyFrame(
+				Duration.seconds(0.018), //environ 60 FPS
+				// on définit ce qui se passe à chaque frame 
+				// c'est un eventHandler d'ou le lambda
+
+				(ev ->{
+					if(this.jeu.getJeanMichel().getPointsVie() == 0){
+						System.out.println("Vous êtes mort");
+						getGameLoop().stop();
+					}
+					else {
+						this.jeu.update();
+					}
+				})
+				);
+		getGameLoop().getKeyFrames().add(kf);
+
+	}
+
+	public Timeline getGameLoop() {
+		return gameLoop;
+	}
+
+	public void setGameLoop(Timeline gameLoop) {
+		this.gameLoop = gameLoop;
 	}
 
 	public Jeu getJeu() {
 		return jeu;
 	}
 
-
-	public void setJeu(Jeu jeu) {
-		this.jeu = jeu;
-	}
-
-
 	public JeanMichel getJeanMichel() {
-		return this.heros;
+		return this.jeu.getJeanMichel();
 	}
 }
 

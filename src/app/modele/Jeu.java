@@ -1,55 +1,68 @@
 package app.modele;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.util.Duration;
+import java.util.ArrayList;
 
 public class Jeu {
 
+	private ArrayList<Ennemi> ennemis;
+	private ArrayList<PNJ> pnjs;
+	private JeanMichel jeanMichel;
 
-	private JeanMichel heros;
-	private Timeline gameLoop;
-
-	private Terrain map;
-
-	public Jeu(Terrain m) {
-		this.map = m;
-		heros = new JeanMichel(null, 0, 0);
+	public Jeu() {
+		this.ennemis = new ArrayList<Ennemi>();
+		this.pnjs = new ArrayList<PNJ>();
+		this.jeanMichel = new JeanMichel(null, 0, 0);
 		init();
-		getGameLoop().play();
-	}
-
-	public Terrain getMap() {
-		return this.map;
 	}
 
 	public void init() {
-		setGameLoop(new Timeline());
-		gameLoop.setCycleCount(Timeline.INDEFINITE);
+		//ajouter les ennemis
+		//zone1
+		addEnnemi(new Ennemi("testEnnemi1",50, 0, 80));
+		addEnnemi(new Ennemi("testEnnemi2",50, 80, 0));
 
-		KeyFrame kf = new KeyFrame(
-				Duration.seconds(0.018), //environ 60 FPS
-				// on définit ce qui se passe à chaque frame 
-				(ev ->{
-					if(heros.getPointsVie()==0){
-						System.out.println("Vous êtes mort");
-						gameLoop.stop();
-					}
-				})
-				);
-		gameLoop.getKeyFrames().add(kf);
+		//zone2
+
+
+
+		//ajouter les pnjs
+		//zone1
+		addPNJ(new PNJArme("testPNJArme", 20, 40));
+		addPNJ(new PNJItem("testPNJItem", 125, 40));
+		addPNJ(new PNJVie("testPNJVie", 10, 200));
+		//zone2
+		addPNJ(new PNJArme("testPNJArme", 10, 200));
+		addPNJ(new PNJItem("testPNJItem", 125, 40));
+		addPNJ(new PNJVie("testPNJVie", 20, 40));
 	}
 
-	public Timeline getGameLoop() {
-		return gameLoop;
+	public void update() {
+		this.ennemis.get(0).seDeplacer();
+
 	}
 
-	public void setGameLoop(Timeline gameLoop) {
-		this.gameLoop = gameLoop;
+	public void addEnnemi(Ennemi e) {
+		this.ennemis.add(e);
 	}
 
-	public JeanMichel getHeros() {
-		return heros;
+	public ArrayList<Ennemi> getEnnemis() {
+		return this.ennemis;
 	}
-	
+
+	public void addPNJ(PNJ p) {
+		this.pnjs.add(p);
+	}
+
+	public ArrayList<PNJ> getPNJ() {
+		return this.pnjs;
+	}
+
+	public JeanMichel getJeanMichel() {
+		return jeanMichel;
+	}
+
+	public Jeu getJeu() {
+		return this;
+	}
+
 }
