@@ -6,9 +6,8 @@ import java.util.StringTokenizer;
 
 public class Terrain {
 
-	private int[][] tab_2d, tab_2d_obs;
-
-	private String urlMapBase = "src/app/modele/MapMatriceBase.txt", urlMapObs = "src/app/modele/MapMatriceObs.txt";
+	private int[][] tab_2d, tab_2d_obs, tab_2d_obs_mov;
+	private String urlMapBase = "src/app/modele/MapMatriceBase.txt", urlMapObs = "src/app/modele/MapMatriceObs.txt", urlMapObsMov = "src/app/modele/MapMatriceObsMov.txt";
 
 	private static final int tailleTab = 32;
 
@@ -18,12 +17,11 @@ public class Terrain {
 	public Terrain() {
 		this.tab_2d = initMap(urlMapBase);
 		this.tab_2d_obs = initMap(urlMapObs);
+		this.tab_2d_obs_mov = initMap(urlMapObsMov);
 	}
-
 	public int[][] getTab2dBase() {
 		return this.tab_2d;
 	}
-
 	public int[][] initMap(String url) { //Méthode permettant de générer une map via un text file
 
 		//Première version, à améliorer
@@ -63,6 +61,21 @@ public class Terrain {
 
 	public int[][] getTab2dObs() {
 		return tab_2d_obs;
+	}
+	public int[][] getTab2dObsMov() {
+		return tab_2d_obs_mov;
+	}
+	
+	public String getUrlBase() {
+		return urlMapBase;
+	}
+	
+	public String getUrlObs() {
+		return urlMapObs;
+	}
+	
+	public String getUrlMov() {
+		return urlMapObsMov;
 	}
 
 

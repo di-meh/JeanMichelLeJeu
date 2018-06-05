@@ -9,7 +9,7 @@ public class VueTerrain {
 
 	private Terrain terrain;
 
-	private TilePane tilemap_base, tilemap_obs;
+	private TilePane tilemap_base, tilemap_obs, tilemap_obs_mov;
 
 	private int tailleMap;
 
@@ -20,16 +20,24 @@ public class VueTerrain {
 
 		this.tilemap_base = new TilePane();
 		this.tilemap_obs = new TilePane();
+		this.tilemap_obs_mov = new TilePane();
 
 		this.tilemap_base.setPrefColumns(tailleMap);
 		this.tilemap_base.setPrefRows(tailleMap);
 
 		this.tilemap_obs.setPrefColumns(tailleMap);
 		this.tilemap_obs.setPrefRows(tailleMap);
+		
+		this.tilemap_obs_mov.setPrefColumns(tailleMap);
+		this.tilemap_obs_mov.setPrefRows(tailleMap);
 
 		int [][] t2base = this.terrain.getTab2dBase();
 		int [][] t2obs = this.terrain.getTab2dObs();
-
+		int [][] t2mov = this.terrain.getTab2dObsMov();
+		
+		
+		//duplication de code
+		
 		for (int x = 0; x< t2base.length; x++) {
 			for (int y =0; y< t2base[x].length; y++) {
 				Image img = new Image("file:" + imageDe(t2base[x][y]));
@@ -47,6 +55,15 @@ public class VueTerrain {
 				this.tilemap_obs.getChildren().add(imgVw);
 			}
 		}
+		
+		for (int x = 0; x< t2mov.length; x++) {
+			for (int y = 0; y<t2mov[x].length; y++) {
+				Image img = new Image("file:" + imageDe(t2mov[x][y]));
+				ImageView imgVw = new ImageView();
+				imgVw.setImage(img);
+				this.tilemap_obs_mov.getChildren().add(imgVw);
+			}
+		}
 	}
 
 	public TilePane getTileMap() {
@@ -54,6 +71,21 @@ public class VueTerrain {
 	}
 	public TilePane getTileMapObs() {
 		return this.tilemap_obs;
+	}
+	
+	public TilePane getTileMapMov() {
+		return tilemap_obs_mov;
+	}
+	
+	public void construcTilePane(int[][] tab) {
+		for (int x = 0; x< tab.length; x++) {
+			for (int y = 0; y<tab[x].length; y++) {
+				Image img = new Image("file:" + imageDe(tab[x][y]));
+				ImageView imgVw = new ImageView();
+				imgVw.setImage(img);
+				this.tilemap_obs.getChildren().add(imgVw);
+			}
+		}
 	}
 
 	public String imageDe(int i) {

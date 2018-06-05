@@ -12,7 +12,6 @@ public class Jeu {
 		this.ennemis = new ArrayList<Ennemi>();
 		this.pnjs = new ArrayList<PNJ>();
 		this.jeanMichel = new JeanMichel(null, 0, 0);
-
 		init();
 	}
 
