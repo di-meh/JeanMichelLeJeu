@@ -41,7 +41,6 @@ public class JeanMichel extends Personnage{
 				&& !this.collision.collisionneObstacle(getX() + getTailleX(), getY()-4) 
 				&& !this.collision.collisionPerso(this.jeu.getEnnemis().get(0), this, 0, 4))
 			haut();
-		
 			
 		break;
 		case Q: if(!this.collision.collisionneObstacle(getX() - 4, getY()) 
