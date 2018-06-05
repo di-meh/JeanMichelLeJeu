@@ -12,7 +12,10 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
 import javafx.util.Duration;
@@ -40,11 +43,29 @@ public class Controleur implements Initializable {
 	@FXML
 	private TilePane tilemap;
 
+	@FXML
+	private HBox hbox;
+
+	@FXML
+	private ImageView heart0;
+
+	@FXML
+	private ImageView heart1;
+
+	@FXML
+	private ImageView heart2;
+
+	@FXML
+	private ImageView heart3;
+
+	@FXML
+	private ImageView heart4;
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		this.map = new Terrain();
 		this.jeu = new Jeu();
-		
+
 		this.jeu.getJeanMichel().setJeu(this.jeu);
 		this.jeu.getEnnemis().get(0).setJeu(this.jeu);
 
@@ -53,7 +74,7 @@ public class Controleur implements Initializable {
 		this.vueHeros = new VueJeanMichel(this.jeu.getJeanMichel());
 
 		//Ajout des élements dans le Scene Builder
-		
+
 		this.pane.getChildren().add(this.vueMap.getTileMap());
 		this.pane.getChildren().add(this.vueMap.getTileMapObs());
 		this.pane.getChildren().add(this.vueMap.getTileMapMov());
@@ -61,7 +82,7 @@ public class Controleur implements Initializable {
 		//affichage des persos
 		this.pane.getChildren().add(vueHeros.getSprite());
 		this.pane.getChildren().add(vueEnnemi.getSprite());
-		
+
 		init();
 		getGameLoop().play();
 	}
@@ -84,6 +105,7 @@ public class Controleur implements Initializable {
 					}
 					else {
 						this.jeu.update();
+						verifVie();
 					}
 				})
 				);
@@ -105,6 +127,34 @@ public class Controleur implements Initializable {
 
 	public JeanMichel getJeanMichel() {
 		return this.jeu.getJeanMichel();
+	}
+	public void verifVie() {
+		int vieJM = jeu.getJeanMichel().getPointsVie();
+		if (vieJM == 5) {
+			heart4.setImage(heart0.getImage());
+		}else {
+			heart4.setImage(new Image("file: ./src/app/img/heartempty.png"));
+		}
+		if (vieJM == 4) {
+			heart3.setImage(heart0.getImage());
+		}else {
+			heart3.setImage(new Image("file: ./src/app/img/heartempty.png"));
+		}
+		if (vieJM == 3) {
+			heart2.setImage(heart0.getImage());
+		}else {
+			heart2.setImage(new Image("file: ./src/app/img/heartempty.png"));
+		}
+		if (vieJM == 2) {
+			heart1.setImage(heart0.getImage());
+		}else {
+			heart1.setImage(new Image("file: ./src/app/img/heartempty.png"));
+		}
+		if (vieJM == 1) {
+			heart0.setImage(heart0.getImage());
+		}else {
+			heart0.setImage(new Image("file: ./src/app/img/heartempty.png"));
+		}
 	}
 }
 

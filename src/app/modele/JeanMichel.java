@@ -61,6 +61,7 @@ public class JeanMichel extends Personnage{
 			droite();
 		break;
 		case E: System.out.println("Button E pressed"); //attaquer
+		jeu.getEnnemis().get(0).attaquer(this);
 		break;
 		case F: System.out.println("Button F pressed");//pousser/tirer
 				pousser(e);

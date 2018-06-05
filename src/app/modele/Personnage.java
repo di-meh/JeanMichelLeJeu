@@ -91,5 +91,22 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 	public void setTailleY(int tailleY) {
 		this.tailleY = tailleY;
 	}
-	
+	public void attaquer(Personnage en) { 
+//		try {
+//						if(equipee.getZoneAdapt().equals(en.getZone())) {
+//						en.estAttaque(equipee.getDgtZone());
+//					}
+//					else {
+//						en.estAttaque(equipee.getDgtPasZone());
+//					}
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//		}
+		if (en != null) {
+			en.estAttaque(1);
+		}
+	}
+	public void estAttaque(int atq) {
+		this.pointsVie.setValue(getPointsVie()-atq);	
+	}
 }

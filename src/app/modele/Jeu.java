@@ -38,6 +38,7 @@ public class Jeu {
 
 	public void update() {
 		this.ennemis.get(0).seDeplacer();
+		System.out.println(this.jeanMichel.getPointsVie());
 
 	}
 
