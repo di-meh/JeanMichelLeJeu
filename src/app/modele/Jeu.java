@@ -13,6 +13,7 @@ public class Jeu {
 		this.ennemis = new ArrayList<Ennemi>();
 		this.pnjs = new ArrayList<PNJ>();
 		this.jeanMichel = new JeanMichel(null, 0, 0);
+		this.item = new Coeur(20,40);
 		init();
 	}
 
@@ -62,6 +63,10 @@ public class Jeu {
 
 	public Jeu getJeu() {
 		return this;
+	}
+	
+	public Item getItem() {
+		return item;
 	}
 
 

@@ -50,7 +50,6 @@ public class Controleur implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		this.map = new Terrain();
 		this.jeu = new Jeu();
-		this.coeur = new Coeur(20,40);
 		
 		this.jeu.getJeanMichel().setJeu(this.jeu);
 		this.jeu.getEnnemis().get(0).setJeu(this.jeu);
@@ -58,7 +57,7 @@ public class Controleur implements Initializable {
 		this.vueEnnemi = new VueEnnemi(this.jeu.getEnnemis().get(0));
 		this.vueMap = new VueTerrain(this.map);
 		this.vueHeros = new VueJeanMichel(this.jeu.getJeanMichel());
-		this.vueitem = new VueCoeur(this.coeur);
+		this.vueitem = new VueCoeur(this.jeu.getItem());
 
 		//Ajout des élements dans le Scene Builder
 		
@@ -67,9 +66,9 @@ public class Controleur implements Initializable {
 		this.pane.getChildren().add(this.vueMap.getTileMapMov());
 
 		//affichage des persos
+		this.pane.getChildren().add(vueitem.getSprite());
 		this.pane.getChildren().add(vueHeros.getSprite());
 		this.pane.getChildren().add(vueEnnemi.getSprite());
-		this.pane.getChildren().add(vueitem.getSprite());
 		
 		init();
 		getGameLoop().play();
