@@ -12,8 +12,6 @@ public class JeanMichel extends Personnage{
 
 	private Arme equipee;
 
-	private int tailleX, tailleY;
-	
 	private GestionCollision collision;
 
 
