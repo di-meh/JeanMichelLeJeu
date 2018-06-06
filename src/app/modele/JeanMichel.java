@@ -1,6 +1,7 @@
 package app.modele;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -13,7 +14,6 @@ public class JeanMichel extends Personnage{
 	private Arme equipee;
 
 	private GestionCollision collision;
-
 
 	private Jeu jeu;
 
@@ -63,11 +63,11 @@ public class JeanMichel extends Personnage{
 		case E: System.out.println("Button E pressed"); //attaquer
 		break;
 		case F: System.out.println("Button F pressed");//pousser/tirer
-				pousser(e);
 		break;
 		case K: System.out.println("Button K pressed"); //changer d'arme
 		break;
-		case L: parler();
+		case L: 
+			this.jeu.getPNJ().get(0).parler(parler());
 		break;
 		case M: System.out.println("Button M pressed"); //afficher map
 		break;
@@ -92,20 +92,6 @@ public class JeanMichel extends Personnage{
 		this.positionX.set(getX() + 4);
 	}
 
-	//	public void attaquer(/*Ennemi e*/) { TODO
-	//		try {
-	//			//			if(equipe.getZoneAdapt().equals(e.getZone())) {
-	//			//			e.setvie(equipe.getDgtZone());
-	//			//		}
-	//			//		else {
-	//			//			e.setvie(equipe.getDgtPasZone());
-	//			//		}
-	//		} catch (Exception e) {
-	//			// TODO: handle exception
-	//		}
-	//
-	//	}
-
 	public Arme getArmeEquipee() {
 		return equipee;
 	}
@@ -115,47 +101,9 @@ public class JeanMichel extends Personnage{
 	}
 
 	public void estAttaque(int atq) {
-		this.pointsVie.setValue(getPointsVie()-atq);
+		this.pointsVie.setValue(getPointsVie() - atq);
 	}
 
-	public void repondre() {
-		int i = 0;
-
-		while(i != 4) {
-			switch(i) {
-			case 1: System.out.println("Oui");
-			case 2: System.out.println("Non");
-			case 3: System.out.println("J'ai pas compris");
-			}
-		}
-	}
-
-	public void parler() {
-
-	}
-
-	public void pousser(KeyEvent c) { //TODO gérer le cas de tirer
-		// Impossible de gérer deux keypress à la suite à travers deux méthodes différentes 
-		
-		KeyCode value = c.getCode();
-		switch (value) {
-		case Z:if(!this.collision.collisionne(getX(), getY() - 4) 
-				&& !this.collision.collisionne(getX() + getTailleX(), getY()-4)) System.out.println("Bouton Z pressé");
-		break;
-		case S:if(!this.collision.collisionne(getX(), getY() + 4 + getTailleY()) 
-				&& !this.collision.collisionne(getX() + getTailleX(), getY() + 4 + getTailleY())) System.out.println("Bouton S pressé");
-		break;
-		case Q:if(!this.collision.collisionne(getX() - 4, getY()) 
-				&& !this.collision.collisionne(getX() - 4, getY()+getTailleY()) 
-				&& !this.collision.collisionne(getX() - 4, getY()+getTailleY()/2)) System.out.println("Bouton Q pressé");
-		break;
-		case D: if(!this.collision.collisionne(getX() + 4 + getTailleX(), getY()) 
-				&& !this.collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()) 
-				&& !this.collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()/2)) System.out.println("Bouton D pressé");
-		break;
-		default: break;
-		}
-	}
 
 	public Jeu getJeu() {
 		return this.jeu.getJeu();
@@ -167,17 +115,42 @@ public class JeanMichel extends Personnage{
 		
 	}
 
+	public int parler() {
+		Scanner sc = new Scanner(System.in);
+		
+		int menu = 0;
+		
+		String menuParler = "1. Oui \n"
+				+ "2. Non \n"
+				+ "3. J'ai pas compris \n"
+				+ "4. Au revoir";
+		
+		while (menu < 5) {
+			
+			System.out.println(menuParler);
+			System.out.println();
+			
+			menu = Integer.parseInt(sc.nextLine());
+			
+			switch (menu) {
+			case 1: System.out.println("Oui");
+			return 1;
+			case 2: System.out.println("Non");
+			return 2;
+			case 3: System.out.println("Pas compris");
+			return 3;
+			case 4: System.out.println("Au revouir");
+			return 4;
+			}
+		}
+		sc.close();
+		return 5;
+	}
+	
 }
 
-/*
- * 
- * personnageCible.recevoirDegats(arme.getDegatArme());
 
-                if(personnageCible.getHp() <= 0)
-                {
-                        this.lvl += 1;
-                }
- * 
- * 
- */
+
+
+
 

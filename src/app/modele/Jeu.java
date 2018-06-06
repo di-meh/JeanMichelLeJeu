@@ -23,8 +23,8 @@ public class Jeu {
 		addEnnemi(new Ennemi("testEnnemi2",50, 80, 0));
 
 		//zone2
-
-
+		addEnnemi(new Ennemi("testEnnemi1",50, 0, 80));
+		addEnnemi(new Ennemi("testEnnemi2",50, 80, 0));
 
 		//ajouter les pnjs
 		//zone1
@@ -66,13 +66,13 @@ public class Jeu {
 		return this;
 	}
 
-	public Tile getPositionEnnemi() {
+	/*public Tile getPositionEnnemi() {
 		return null;
 	
 	}
 	
 	public void setPositionEnnemi(Ennemi e) {
 		
-	}
+	}*/
 
 }

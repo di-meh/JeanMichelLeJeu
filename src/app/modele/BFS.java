@@ -33,7 +33,7 @@ public class BFS {
 		
 		this.queue.clear();
 		
-		while(!this.tiles.isEmpty()) {
+		while(!this.queue.isEmpty()) {
 			ajouterVoisinsMap(this.queue.peek());
 			this.queue.poll();
 			for(Map.Entry<Tile, Tile> t : tiles.entrySet()) {

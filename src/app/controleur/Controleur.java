@@ -8,6 +8,7 @@ import app.modele.Jeu;
 import app.modele.Terrain;
 import app.vue.VueEnnemi;
 import app.vue.VueJeanMichel;
+import app.vue.VuePNJ;
 import app.vue.VueTerrain;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -27,6 +28,7 @@ public class Controleur implements Initializable {
 	private VueTerrain vueMap;
 	private VueJeanMichel vueHeros;
 	private VueEnnemi vueEnnemi;
+	private VuePNJ vuePNJ;
 
 	private Timeline gameLoop;
 
@@ -51,6 +53,7 @@ public class Controleur implements Initializable {
 		this.vueEnnemi = new VueEnnemi(this.jeu.getEnnemis().get(0));
 		this.vueMap = new VueTerrain(this.map);
 		this.vueHeros = new VueJeanMichel(this.jeu.getJeanMichel());
+		this.vuePNJ = new VuePNJ(this.jeu.getPNJ().get(0));
 
 		//Ajout des élements dans le Scene Builder
 		
@@ -61,6 +64,7 @@ public class Controleur implements Initializable {
 		//affichage des persos
 		this.pane.getChildren().add(vueHeros.getSprite());
 		this.pane.getChildren().add(vueEnnemi.getSprite());
+		this.pane.getChildren().add(vuePNJ.getSprite());
 		
 		init();
 		getGameLoop().play();

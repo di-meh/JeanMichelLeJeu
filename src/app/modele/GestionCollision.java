@@ -18,8 +18,8 @@ public class GestionCollision {
 		int[][] tabObs = this.terrain.initMap(this.terrain.getUrlObs());
 		int [][] tabMov = this.terrain.initMap(this.terrain.getUrlMov());
 
-		for (int x = 0; x< tabObs.length; x++) {
-			for (int y = 0; y<tabObs[x].length; y++) {
+		for (int x = 0; x < tabObs.length; x++) {
+			for (int y = 0; y < tabObs[x].length; y++) {
 				if (tabObs[x][y] !=0) 
 					this.obstacles.add(tabObs[x][y]);
 			}
@@ -27,7 +27,7 @@ public class GestionCollision {
 		}
 
 		for (int x = 0; x<tabMov.length; x++) {
-			for (int y = 0; y<tabMov[x].length; y++) {
+			for (int y = 0; y < tabMov[x].length; y++) {
 				if (tabMov[x][y] != 0)
 					this.obstacles_mov.add(tabMov[x][y]);
 			}

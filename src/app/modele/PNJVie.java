@@ -8,13 +8,12 @@ public class PNJVie extends PNJ{
 	}
 	
 	public void parler(int i) {
-		//menu pour discussion avec persos
 		
 		while(i != 4) {
 			switch(i){
-			case 1: System.out.println("Toi la ! Besoin de vie ?");
-			case 2: System.out.println("Ok salut !");
-			case 3: System.out.println("Une vie coute 50 pieces");
+			case 0: System.out.println("Toi la ! Besoin de vie ?");
+			case 1: System.out.println("Ok salut !");
+			case 2: System.out.println("Une vie coute 50 pieces");
 				vendreVie(); //recuperer somme argent
 			}
 		}
@@ -27,10 +26,5 @@ public class PNJVie extends PNJ{
 			setArgent(argent)
 		*/
 	}
-
-	/*@Override
-	public void deplacement() {
-		
-	}*/
 	
 }
