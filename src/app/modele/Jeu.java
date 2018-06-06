@@ -12,7 +12,8 @@ public class Jeu {
 		this.ennemis = new ArrayList<Ennemi>();
 		this.pnjs = new ArrayList<PNJ>();
 		this.jeanMichel = new JeanMichel(null, 0, 0);
-		init();
+		
+		init(); //s'oocupe d'ajouter les ennemis/pnj aux listes
 	}
 
 	public void init() {
@@ -65,5 +66,13 @@ public class Jeu {
 		return this;
 	}
 
+	public Tile getPositionEnnemi() {
+		return null;
+	
+	}
+	
+	public void setPositionEnnemi(Ennemi e) {
+		
+	}
 
 }
