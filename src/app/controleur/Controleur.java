@@ -107,9 +107,9 @@ public class Controleur implements Initializable {
 					}
 					else {
 						this.jeu.update();
-						if (Jeu.ennemiRetiré) {
-							pane.getChildren().remove(5);
-							Jeu.ennemiRetiré=false;
+						if (Jeu.ennemiRetiré != null) {
+							pane.getChildren().remove(Jeu.ennemiRetiré);
+							Jeu.ennemiRetiré=null;
 						}
 						verifVie();
 						
