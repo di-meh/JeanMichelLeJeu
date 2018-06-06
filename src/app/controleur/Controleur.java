@@ -15,7 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.TilePane;
 import javafx.util.Duration;
@@ -44,7 +44,7 @@ public class Controleur implements Initializable {
 	private TilePane tilemap;
 
 	@FXML
-	private HBox hbox;
+	private GridPane grid;
 
 	@FXML
 	private ImageView heart0;
@@ -74,7 +74,6 @@ public class Controleur implements Initializable {
 		this.vueHeros = new VueJeanMichel(this.jeu.getJeanMichel());
 
 		//Ajout des élements dans le Scene Builder
-
 		this.pane.getChildren().add(this.vueMap.getTileMap());
 		this.pane.getChildren().add(this.vueMap.getTileMapObs());
 		this.pane.getChildren().add(this.vueMap.getTileMapMov());
@@ -101,7 +100,7 @@ public class Controleur implements Initializable {
 				(ev ->{
 					if(this.jeu.getJeanMichel().getPointsVie() == 0){
 						System.out.println("Vous êtes mort");
-						heart0.setImage(new Image("file: ./src/app/img/heartempty.png"));
+						heart0.setImage(new Image("file:./src/app/img/heartempty.png"));
 						this.pane.getChildren().remove(4);
 						getGameLoop().stop();
 						
@@ -136,22 +135,22 @@ public class Controleur implements Initializable {
 		if (vieJM/2 == 5) {
 			heart4.setImage(heart0.getImage());
 		}else {
-			heart4.setImage(new Image("file: ./src/app/img/heartempty.png"));
+			heart4.setImage(new Image("file:./src/app/img/heartempty.png"));
 		}
 		if (vieJM/2 >= 4) {
 			heart3.setImage(heart0.getImage());
 		}else {
-			heart3.setImage(new Image("file: ./src/app/img/heartempty.png"));
+			heart3.setImage(new Image("file:./src/app/img/heartempty.png"));
 		}
 		if (vieJM/2 >= 3) {
 			heart2.setImage(heart0.getImage());
 		}else {
-			heart2.setImage(new Image("file: ./src/app/img/heartempty.png"));
+			heart2.setImage(new Image("file:./src/app/img/heartempty.png"));
 		}
 		if (vieJM/2 >= 2) {
 			heart1.setImage(heart0.getImage());
 		}else {
-			heart1.setImage(new Image("file: ./src/app/img/heartempty.png"));
+			heart1.setImage(new Image("file:./src/app/img/heartempty.png"));
 		}
 		if (vieJM/2 >= 1) {
 			heart0.setImage(heart0.getImage());
