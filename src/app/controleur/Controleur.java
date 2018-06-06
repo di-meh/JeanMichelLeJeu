@@ -101,7 +101,10 @@ public class Controleur implements Initializable {
 				(ev ->{
 					if(this.jeu.getJeanMichel().getPointsVie() == 0){
 						System.out.println("Vous êtes mort");
+						heart0.setImage(new Image("file: ./src/app/img/heartempty.png"));
+						this.pane.getChildren().remove(4);
 						getGameLoop().stop();
+						
 					}
 					else {
 						this.jeu.update();
@@ -130,31 +133,30 @@ public class Controleur implements Initializable {
 	}
 	public void verifVie() {
 		int vieJM = jeu.getJeanMichel().getPointsVie();
-		if (vieJM == 5) {
+		if (vieJM/2 == 5) {
 			heart4.setImage(heart0.getImage());
 		}else {
 			heart4.setImage(new Image("file: ./src/app/img/heartempty.png"));
 		}
-		if (vieJM == 4) {
+		if (vieJM/2 >= 4) {
 			heart3.setImage(heart0.getImage());
 		}else {
 			heart3.setImage(new Image("file: ./src/app/img/heartempty.png"));
 		}
-		if (vieJM == 3) {
+		if (vieJM/2 >= 3) {
 			heart2.setImage(heart0.getImage());
 		}else {
 			heart2.setImage(new Image("file: ./src/app/img/heartempty.png"));
 		}
-		if (vieJM == 2) {
+		if (vieJM/2 >= 2) {
 			heart1.setImage(heart0.getImage());
 		}else {
 			heart1.setImage(new Image("file: ./src/app/img/heartempty.png"));
 		}
-		if (vieJM == 1) {
+		if (vieJM/2 >= 1) {
 			heart0.setImage(heart0.getImage());
-		}else {
-			heart0.setImage(new Image("file: ./src/app/img/heartempty.png"));
 		}
 	}
+	
 }
 

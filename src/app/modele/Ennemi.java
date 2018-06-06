@@ -1,5 +1,6 @@
 package app.modele;
 
+
 public class Ennemi extends Personnage{
 
 	private GestionCollision collision;
@@ -13,7 +14,6 @@ public class Ennemi extends Personnage{
 		super(n, pv, x, y, 12, 29);
 		this.collision = new GestionCollision();
 		this.orientation = 0;
-
 		System.out.println("Superclass ennemi created");
 	}
 
@@ -75,12 +75,22 @@ public class Ennemi extends Personnage{
 	public void seDeplacer() {
 		switch(this.orientation) {
 		case 0: haut();
+		if(this.collision.collisionPerso(this.jeu.getJeanMichel(), this, 0, 1)) {
+			this.attaquer(this.jeu.getJeanMichel());
+			
+		}
 		break;
 		case 1: bas();
+		if(this.collision.collisionPerso(this.jeu.getJeanMichel(), this, 1, 1))
+			this.attaquer(this.jeu.getJeanMichel());
 		break;
 		case 2: gauche();
+		if(this.collision.collisionPerso(this.jeu.getJeanMichel(), this, 2, 1))
+			this.attaquer(this.jeu.getJeanMichel());
 		break;
 		case 3: droite();
+		if(this.collision.collisionPerso(this.jeu.getJeanMichel(), this, 3, 1))
+			this.attaquer(this.jeu.getJeanMichel());
 		break;
 		}
 	}
