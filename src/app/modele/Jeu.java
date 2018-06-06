@@ -5,13 +5,18 @@ import java.util.ArrayList;
 public class Jeu {
 
 	private ArrayList<Ennemi> ennemis;
+	
 	private ArrayList<PNJ> pnjs;
+	
 	private JeanMichel jeanMichel;
+	
+	private BFS bfs;
 
 	public Jeu() {
 		this.ennemis = new ArrayList<Ennemi>();
 		this.pnjs = new ArrayList<PNJ>();
 		this.jeanMichel = new JeanMichel(null, 0, 0);
+		this.bfs = new BFS(this.jeanMichel);
 		
 		init(); //s'oocupe d'ajouter les ennemis/pnj aux listes
 	}

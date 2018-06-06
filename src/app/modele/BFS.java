@@ -2,7 +2,6 @@ package app.modele;
 
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Map;
 import java.util.Queue;
 
 public class BFS {
@@ -13,22 +12,85 @@ public class BFS {
 	
 	private HashMap<Tile, Tile> tiles;
 	
-	private Queue<Tile> queue;
+	private Queue<Tile> file;
 	
 	public BFS(JeanMichel jm) {
 		
 		this.terrain = new Terrain();
-		this.queue = new LinkedList<Tile>();
+		this.file = new LinkedList<Tile>();
 		this.sommetZero = new Tile(jm.getX()/16, jm.getY()/16);
 		this.tiles = new HashMap<Tile, Tile>();
 		
 		this.tiles.put(sommetZero, null);
-		this.queue.add(sommetZero);
+		this.file.add(sommetZero);
 		
-		algorithme();
+		while(!this.file.isEmpty()) {
+			this.file.peek().setEstMarque();
+			sommetsAdjacents(this.file.poll());
+		}
+	}
+
+	private void sommetsAdjacents(Tile t) {
+		
+		// sommet du haut
+		if(!estObstacle(new Tile(t.getX(), t.getY() + 1))) {
+			if(t.getEstMarque())
+				this.file.add(new Tile(t.getX(), t.getY() + 1));
+			this.tiles.put(t, new Tile(t.getX(), t.getY() + 1));
+		}
+		
+		// sommet du bas
+		if(!estObstacle(new Tile(t.getX(), t.getY() - 1))) {
+			if(t.getEstMarque())
+				this.file.add(new Tile(t.getX(), t.getY() - 1));
+			this.tiles.put(t, new Tile(t.getX(), t.getY() - 1));
+		}
+		
+		// sommet de gauche
+		if(!estObstacle(new Tile(t.getX() - 1, t.getY() + 1))) {
+			if(t.getEstMarque())
+				this.file.add(new Tile(t.getX() - 1, t.getY() + 1));
+			this.tiles.put(t, new Tile(t.getX() - 1, t.getY() + 1));
+		}
+		
+		// sommet de droite
+		if(!estObstacle(new Tile(t.getX() + 1, t.getY()))) {
+			if(t.getEstMarque())
+				this.file.add(new Tile(t.getX() + 1, t.getY()));
+			this.tiles.put(t, new Tile(t.getX() + 1, t.getY()));
+		}
 	}
 	
-	@SuppressWarnings("unlikely-arg-type")
+	private boolean estObstacle(Tile t) {
+		
+		for(int x = 0; x < this.terrain.getTab2dObs().length; x++) {
+			for(int y = 0; y < this.terrain.getTab2dObs()[x].length; y++) {
+				if(t.getX() == x && t.getY() == y)
+					return true;	
+			}
+		}
+		return false;
+	}
+	
+	public void demarque() {
+		
+	}
+
+	public void marque() {
+		
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+/*@SuppressWarnings("unlikely-arg-type")
 	public void algorithme() {
 		
 		this.queue.clear();
@@ -74,11 +136,13 @@ public class BFS {
 		return true;
 	}
 	
-	/*public Tile positionToTile(int x, int y) {
+	public Tile positionToTile(int x, int y) {
 	 	prend en parametre des coordonnees et renvoie la tile a laquelle ils correspondent
 		
 		return new Tile(x ,y);
 		
 	}*/
-	
-}
+
+
+
+
