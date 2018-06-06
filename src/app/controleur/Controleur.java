@@ -89,7 +89,6 @@ public class Controleur implements Initializable {
 								|| this.jeu.getJeanMichel().getX()+this.jeu.getJeanMichel().getTailleX() == this.jeu.getListeItems().get(0).getX() && this.jeu.getJeanMichel().getY()+this.jeu.getJeanMichel().getTailleY() == this.jeu.getListeItems().get(0).getY()) {
 							//TODO le faire dans le modèle
 							this.pane.getChildren().remove(vueitem.getSprite());
-
 							this.jeu.getListeItems().remove(0);
 							//System.out.println("Coeur récupéré");
 						}
