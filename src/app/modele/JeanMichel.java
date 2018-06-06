@@ -60,9 +60,10 @@ public class JeanMichel extends Personnage{
 				&& !this.collision.collisionPerso(this.jeu.getEnnemis().get(0), this, 3, 4))
 			droite();
 		break;
-		case E: System.out.println("Button E pressed"); //attaquer
-		jeu.getEnnemis().get(0).attaquer(this);
-		break;
+		case E: //System.out.println("Button E pressed"); //attaquer
+		if(this.collision.collisionPerso(this.jeu.getEnnemis().get(0), this, 0, 4) || this.collision.collisionPerso(this.jeu.getEnnemis().get(0), this, 1, 4)||this.collision.collisionPerso(this.jeu.getEnnemis().get(0), this, 2, 4)||this.collision.collisionPerso(this.jeu.getEnnemis().get(0), this, 3, 4))
+			this.attaquer(this.jeu.getEnnemis().get(0));
+			break;
 		case F: System.out.println("Button F pressed");//pousser/tirer
 				pousser(e);
 		break;

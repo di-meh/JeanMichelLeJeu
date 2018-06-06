@@ -91,7 +91,7 @@ public class Controleur implements Initializable {
 
 		setGameLoop(new Timeline());
 		getGameLoop().setCycleCount(Timeline.INDEFINITE);
-
+		
 		KeyFrame kf = new KeyFrame(
 				Duration.seconds(0.018), //environ 60 FPS
 				// on définit ce qui se passe à chaque frame 
@@ -107,7 +107,12 @@ public class Controleur implements Initializable {
 					}
 					else {
 						this.jeu.update();
+						if (Jeu.ennemiRetiré) {
+							pane.getChildren().remove(5);
+							Jeu.ennemiRetiré=false;
+						}
 						verifVie();
+						
 					}
 				})
 				);

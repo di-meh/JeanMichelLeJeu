@@ -1,15 +1,20 @@
 package app.modele;
 
 import java.util.ArrayList;
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
+
 
 public class Jeu {
 
-	private ArrayList<Ennemi> ennemis;
+	private ObservableList<Ennemi> ennemis;
 	private ArrayList<PNJ> pnjs;
 	private JeanMichel jeanMichel;
+	public static boolean ennemiRetiré=false;
 
 	public Jeu() {
-		this.ennemis = new ArrayList<Ennemi>();
+		this.ennemis = FXCollections.observableArrayList();
 		this.pnjs = new ArrayList<PNJ>();
 		this.jeanMichel = new JeanMichel(null, 0, 0);
 		init();
@@ -18,8 +23,8 @@ public class Jeu {
 	public void init() {
 		//ajouter les ennemis
 		//zone1
-		addEnnemi(new Ennemi("testEnnemi1",50, 0, 80));
-		addEnnemi(new Ennemi("testEnnemi2",50, 80, 0));
+		addEnnemi(new Ennemi("testEnnemi1",5, 0, 80));
+		addEnnemi(new Ennemi("testEnnemi2",5, 80, 0));
 
 		//zone2
 
@@ -34,11 +39,38 @@ public class Jeu {
 		addPNJ(new PNJArme("testPNJArme", 10, 200));
 		addPNJ(new PNJItem("testPNJItem", 125, 40));
 		addPNJ(new PNJVie("testPNJVie", 20, 40));
+		
+		ennemis.addListener(new ListChangeListener<Ennemi>() {
+			@Override
+			public void onChanged(Change<? extends Ennemi> c) {
+				while (c.next()) {
+		             if (c.wasPermutated()) {
+		                     for (int i = c.getFrom(); i < c.getTo(); ++i) {
+		                          //permutate
+		                     }
+		                 } else if (c.wasUpdated()) {
+		                          //update item
+		                 } else {
+		                     for (Ennemi remitem : c.getRemoved()) {
+		                         ennemis.remove(remitem);
+		                     }
+		                 }
+		             }
+			}
+			
+			
+		     });
+
+		 
 	}
 
 	public void update() {
 		this.ennemis.get(0).seDeplacer();
-		System.out.println(this.jeanMichel.getPointsVie());
+		for (Ennemi ennemi : ennemis) {
+			if(ennemi.getPointsVie()==0) {
+				ennemiRetiré=ennemis.remove(ennemi);
+			}
+		}
 
 	}
 
@@ -46,7 +78,7 @@ public class Jeu {
 		this.ennemis.add(e);
 	}
 
-	public ArrayList<Ennemi> getEnnemis() {
+	public ObservableList<Ennemi> getEnnemis() {
 		return this.ennemis;
 	}
 
