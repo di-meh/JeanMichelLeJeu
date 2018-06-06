@@ -1,7 +1,6 @@
 package app.vue;
 
 import app.modele.Coeur;
-import app.modele.Item;
 
 public class VueCoeur extends VueItem {
 	
