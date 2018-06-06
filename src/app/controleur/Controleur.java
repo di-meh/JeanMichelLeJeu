@@ -90,8 +90,7 @@ public class Controleur implements Initializable {
 							//TODO le faire dans le modèle
 							this.pane.getChildren().remove(vueitem.getSprite());
 
-							//this.jeu.getListeItems().remove(0); TODO
-
+							this.jeu.getListeItems().remove(0);
 							//System.out.println("Coeur récupéré");
 						}
 						if(this.jeu.getJeanMichel().getPointsVie() == 0){

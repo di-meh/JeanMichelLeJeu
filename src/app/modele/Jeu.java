@@ -2,17 +2,20 @@ package app.modele;
 
 import java.util.ArrayList;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+
 public class Jeu {
 
 	private ArrayList<Ennemi> ennemis;
 	private ArrayList<PNJ> pnjs;
 	private JeanMichel jeanMichel;
-	private ArrayList<Item> listeItems;
+	private ObservableList<Item> listeItems;
 
 	public Jeu() {
 		this.ennemis = new ArrayList<Ennemi>();
 		this.pnjs = new ArrayList<PNJ>();
-		this.listeItems = new ArrayList<>();
+		this.listeItems = FXCollections.observableArrayList();
 		this.jeanMichel = new JeanMichel(null, 0, 0);
 		this.listeItems.add(new Coeur(20,40));
 		init();
@@ -62,7 +65,7 @@ public class Jeu {
 		return jeanMichel;
 	}
 	
-	public ArrayList<Item> getListeItems() {
+	public ObservableList<Item> getListeItems() {
 		return listeItems;
 	}
 
