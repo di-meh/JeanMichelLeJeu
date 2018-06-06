@@ -9,29 +9,24 @@ public class GestionCollision {
 	private ArrayList<Integer> obstacles, obstacles_mov;
 	
 	public GestionCollision() {
-		this.obstacles = new ArrayList<Integer>();
-		this.obstacles_mov = new ArrayList<Integer>();
 		this.terrain = new Terrain();
-		
-		// Les commentaires dessous sont un test d'ajout des obstacles directement dans l'arraylist au lieu de les ajouter à la main
-		// Cependant un "problème" à soulever, est qu'il crée des doublons, mais dans le cas de notre utilisation, cela importe peu
 		int[][] tabObs = this.terrain.initMap(this.terrain.getUrlObs());
 		int [][] tabMov = this.terrain.initMap(this.terrain.getUrlMov());
-
-		for (int x = 0; x< tabObs.length; x++) {
-			for (int y = 0; y<tabObs[x].length; y++) {
-				if (tabObs[x][y] !=0) 
-					this.obstacles.add(tabObs[x][y]);
-			}
-			
-		}
-
-		for (int x = 0; x<tabMov.length; x++) {
-			for (int y = 0; y<tabMov[x].length; y++) {
-				if (tabMov[x][y] != 0)
-					this.obstacles_mov.add(tabMov[x][y]);
+		this.obstacles = remplissageTableau(tabObs);
+		this.obstacles_mov = remplissageTableau(tabMov);
+	}
+	
+	private ArrayList<Integer> remplissageTableau(int [][] tab) {
+		ArrayList<Integer> liste = new ArrayList<>();
+		
+		for (int x =0 ; x<tab.length; x++) {
+			for (int y = 0; y< tab[x].length; y++) {
+				if (tab[x][y] !=0)
+					liste.add(tab[x][y]);
 			}
 		}
+		return liste;
+		
 	}
 
 	public boolean collisionneObstacle(int x, int y) {
@@ -40,7 +35,7 @@ public class GestionCollision {
 	
 	
 
-	public int caseDe(int x, int y) {
+	private int caseDe(int x, int y) {
 		try {
 			int cas = this.terrain.getTab2dObs()[y/16][x/16];
 			if (cas == 0)
@@ -53,7 +48,7 @@ public class GestionCollision {
 		
 	}
 
-	public boolean estObstacle(int i) {
+	private boolean estObstacle(int i) {
 		for(int o : obstacles)
 			if(i == o)
 				return true;
