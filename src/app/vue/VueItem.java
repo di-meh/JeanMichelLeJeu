@@ -3,7 +3,7 @@ package app.vue;
 import app.modele.Item;
 import javafx.scene.image.ImageView;
 
-public class VueItem {
+public abstract class VueItem {
 	
 	protected Item item;
 	private ImageView sprite;

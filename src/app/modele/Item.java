@@ -2,7 +2,7 @@ package app.modele;
 
 import javafx.beans.property.SimpleIntegerProperty;
 
-public class Item {
+public abstract class Item {
 //	private ImageView img;
 //	private String lienIMG;
 	

@@ -66,6 +66,7 @@ public class Jeu {
 		return item;
 	}
 	
+	
 	public void setItem(Item e) {
 		this.item = e;
 	}

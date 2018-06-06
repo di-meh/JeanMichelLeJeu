@@ -3,6 +3,7 @@ package app.controleur;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import app.modele.Coeur;
 import app.modele.JeanMichel;
 import app.modele.Jeu;
 import app.modele.Terrain;
@@ -37,10 +38,8 @@ public class Controleur implements Initializable {
 	//FXML
 	@FXML
 	private BorderPane borderpane;
-
 	@FXML
 	private Pane pane;
-
 	@FXML
 	private TilePane tilemap;
 
@@ -55,7 +54,7 @@ public class Controleur implements Initializable {
 		this.vueEnnemi = new VueEnnemi(this.jeu.getEnnemis().get(0));
 		this.vueMap = new VueTerrain(this.map);
 		this.vueHeros = new VueJeanMichel(this.jeu.getJeanMichel());
-		this.vueitem = new VueCoeur(this.jeu.getItem());
+		this.vueitem = new VueCoeur((Coeur)this.jeu.getItem());
 
 		//Ajout des élements dans le Scene Builder
 		
@@ -67,6 +66,7 @@ public class Controleur implements Initializable {
 		this.pane.getChildren().add(vueitem.getSprite());
 		this.pane.getChildren().add(vueHeros.getSprite());
 		this.pane.getChildren().add(vueEnnemi.getSprite());
+		
 		init();
 		getGameLoop().play();
 	}
