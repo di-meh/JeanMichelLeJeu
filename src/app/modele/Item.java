@@ -3,8 +3,6 @@ package app.modele;
 import javafx.beans.property.SimpleIntegerProperty;
 
 public class Item {
-//	private ImageView img;
-//	private String lienIMG;
 	
 	private String nom;
 	private SimpleIntegerProperty x;
@@ -41,13 +39,6 @@ public class Item {
 	public String getNom() {
 		return nom;
 	}
-	
-//	public final ImageView getImg() {
-//		return img;
-//	}
-//	public final String getLienIMG() {
-//		return lienIMG;
-//	}
 //	public final boolean isDeplacable() {
 //		return deplacable;
 //	}
