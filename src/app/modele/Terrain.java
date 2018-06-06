@@ -19,8 +19,8 @@ public class Terrain {
 		this.tab_2d_obs = initMap(urlMapObs);
 		this.tab_2d_obs_mov = initMap(urlMapObsMov);
 	}
-	
-	
+
+
 	public int[][] getTab2dBase() {
 		return this.tab_2d;
 	}
@@ -67,15 +67,15 @@ public class Terrain {
 	public int[][] getTab2dObsMov() {
 		return tab_2d_obs_mov;
 	}
-	
+
 	public String getUrlBase() {
 		return urlMapBase;
 	}
-	
+
 	public String getUrlObs() {
 		return urlMapObs;
 	}
-	
+
 	public String getUrlMov() {
 		return urlMapObsMov;
 	}

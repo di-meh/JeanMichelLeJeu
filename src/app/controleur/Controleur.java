@@ -32,7 +32,6 @@ public class Controleur implements Initializable {
 	private VueEnnemi vueEnnemi;
 	private VueItem vueitem;
 
-
 	private Timeline gameLoop;
 
 	//FXML
@@ -47,17 +46,17 @@ public class Controleur implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		this.map = new Terrain();
 		this.jeu = new Jeu();
-		
+
 		this.jeu.getJeanMichel().setJeu(this.jeu);
 		this.jeu.getEnnemis().get(0).setJeu(this.jeu);
 
 		this.vueEnnemi = new VueEnnemi(this.jeu.getEnnemis().get(0));
 		this.vueMap = new VueTerrain(this.map);
 		this.vueHeros = new VueJeanMichel(this.jeu.getJeanMichel());
-		this.vueitem = new VueCoeur((Coeur)this.jeu.getItem());
+		this.vueitem = new VueCoeur((Coeur)this.jeu.getListeItems().get(0));
 
 		//Ajout des élements dans le Scene Builder
-		
+
 		this.tilemap.getChildren().add(this.vueMap.getTileMap());
 		this.pane.getChildren().add(this.vueMap.getTileMapObs());
 		this.pane.getChildren().add(this.vueMap.getTileMapMov());
@@ -66,7 +65,7 @@ public class Controleur implements Initializable {
 		this.pane.getChildren().add(vueitem.getSprite());
 		this.pane.getChildren().add(vueHeros.getSprite());
 		this.pane.getChildren().add(vueEnnemi.getSprite());
-		
+
 		init();
 		getGameLoop().play();
 	}
@@ -83,18 +82,27 @@ public class Controleur implements Initializable {
 				// c'est un eventHandler d'ou le lambda
 
 				(ev ->{
-					if (this.jeu.getJeanMichel().getX() == this.jeu.getItem().getX() && this.jeu.getJeanMichel().getY() == this.jeu.getItem().getY()
-					|| this.jeu.getJeanMichel().getX()+this.jeu.getJeanMichel().getTailleX() == this.jeu.getItem().getX() && this.jeu.getJeanMichel().getY() == this.jeu.getItem().getY()
-					|| this.jeu.getJeanMichel().getX() == this.jeu.getItem().getX() && this.jeu.getJeanMichel().getY()+this.jeu.getJeanMichel().getTailleY() == this.jeu.getItem().getY()
-					|| this.jeu.getJeanMichel().getX()+this.jeu.getJeanMichel().getTailleX() == this.jeu.getItem().getX() && this.jeu.getJeanMichel().getY()+this.jeu.getJeanMichel().getTailleY() == this.jeu.getItem().getY()) { //TODO le faire dans le modèle
-						this.pane.getChildren().remove(vueitem.getSprite());
+					try {
+						if (this.jeu.getJeanMichel().getX() == this.jeu.getListeItems().get(0).getX() && this.jeu.getJeanMichel().getY() == this.jeu.getListeItems().get(0).getY()
+								|| this.jeu.getJeanMichel().getX()+this.jeu.getJeanMichel().getTailleX() == this.jeu.getListeItems().get(0).getX() && this.jeu.getJeanMichel().getY() == this.jeu.getListeItems().get(0).getY()
+								|| this.jeu.getJeanMichel().getX() == this.jeu.getListeItems().get(0).getX() && this.jeu.getJeanMichel().getY()+this.jeu.getJeanMichel().getTailleY() == this.jeu.getListeItems().get(0).getY()
+								|| this.jeu.getJeanMichel().getX()+this.jeu.getJeanMichel().getTailleX() == this.jeu.getListeItems().get(0).getX() && this.jeu.getJeanMichel().getY()+this.jeu.getJeanMichel().getTailleY() == this.jeu.getListeItems().get(0).getY()) {
+							//TODO le faire dans le modèle
+							this.pane.getChildren().remove(vueitem.getSprite());
+
+							//this.jeu.getListeItems().remove(0); TODO
+
+							//System.out.println("Coeur récupéré");
+						}
+						if(this.jeu.getJeanMichel().getPointsVie() == 0){
+							System.out.println("Vous êtes mort");
+							getGameLoop().stop();
+						}
+						else
+							this.jeu.update();
+					}catch (Exception e) {
+						//L'ennemi s'arrête de bouger, ce qui signifie que la gameloop s'arrêtes
 					}
-					if(this.jeu.getJeanMichel().getPointsVie() == 0){
-						System.out.println("Vous êtes mort");
-						getGameLoop().stop();
-					}
-					else
-						this.jeu.update();
 				})
 				);
 		getGameLoop().getKeyFrames().add(kf);

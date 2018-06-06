@@ -7,13 +7,14 @@ public class Jeu {
 	private ArrayList<Ennemi> ennemis;
 	private ArrayList<PNJ> pnjs;
 	private JeanMichel jeanMichel;
-	private Item item;
+	private ArrayList<Item> listeItems;
 
 	public Jeu() {
 		this.ennemis = new ArrayList<Ennemi>();
 		this.pnjs = new ArrayList<PNJ>();
+		this.listeItems = new ArrayList<>();
 		this.jeanMichel = new JeanMichel(null, 0, 0);
-		this.item = new Coeur(20,40);
+		this.listeItems.add(new Coeur(20,40));
 		init();
 	}
 
@@ -60,15 +61,9 @@ public class Jeu {
 	public JeanMichel getJeanMichel() {
 		return jeanMichel;
 	}
-
 	
-	public Item getItem() {
-		return item;
-	}
-	
-	
-	public void setItem(Item e) {
-		this.item = e;
+	public ArrayList<Item> getListeItems() {
+		return listeItems;
 	}
 
 

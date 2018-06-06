@@ -7,7 +7,7 @@ public class GestionCollision {
 	private Terrain terrain;
 
 	private ArrayList<Integer> obstacles, obstacles_mov;
-	
+
 	public GestionCollision() {
 		this.terrain = new Terrain();
 		int[][] tabObs = this.terrain.initMap(this.terrain.getUrlObs());
@@ -15,10 +15,10 @@ public class GestionCollision {
 		this.obstacles = remplissageTableau(tabObs);
 		this.obstacles_mov = remplissageTableau(tabMov);
 	}
-	
+
 	private ArrayList<Integer> remplissageTableau(int [][] tab) {
 		ArrayList<Integer> liste = new ArrayList<>();
-		
+
 		for (int x =0 ; x<tab.length; x++) {
 			for (int y = 0; y< tab[x].length; y++) {
 				if (tab[x][y] !=0)
@@ -26,14 +26,14 @@ public class GestionCollision {
 			}
 		}
 		return liste;
-		
+
 	}
 
 	public boolean collisionneObstacle(int x, int y) {
 		return estObstacle(caseDe(x, y));
 	}
-	
-	
+
+
 
 	private int caseDe(int x, int y) {
 		try {
@@ -41,11 +41,11 @@ public class GestionCollision {
 			if (cas == 0)
 				cas = this.terrain.getTab2dObsMov()[y/16][x/16];
 			return cas;
-			
+
 		} catch(Exception e) {
 			return this.obstacles.get(0);
 		}
-		
+
 	}
 
 	private boolean estObstacle(int i) {
@@ -55,11 +55,11 @@ public class GestionCollision {
 		for (int o : obstacles_mov)
 			if (i == o) 
 				return true;
-			
-				
+
+
 		return false;
 	}
-	
+
 
 	public boolean collisionPerso(Personnage p, Personnage p1, int d, int pas) {
 		switch(d) {
@@ -72,11 +72,11 @@ public class GestionCollision {
 	}
 
 	private boolean verifie(Personnage p, Personnage p1, int x, int y) {
-		
+
 		if(pointdansCarre(p, p1.getX() + x, p1.getY() + y)
-		|| pointdansCarre(p, p1.getX() + x + p.getTailleX(), p1.getY() + y)
-		|| pointdansCarre(p, p1.getX() + x, p1.getY() + y + p1.getTailleY())
-		|| pointdansCarre(p, p1.getX() + x + p1.getTailleX(), p1.getY() + y + p1.getTailleY()))
+				|| pointdansCarre(p, p1.getX() + x + p.getTailleX(), p1.getY() + y)
+				|| pointdansCarre(p, p1.getX() + x, p1.getY() + y + p1.getTailleY())
+				|| pointdansCarre(p, p1.getX() + x + p1.getTailleX(), p1.getY() + y + p1.getTailleY()))
 			return true;
 
 		return false;
@@ -86,9 +86,9 @@ public class GestionCollision {
 		if(x >= p.getX() && x <= p.getX() + p.getTailleX() && y >= p.getY() && y <= p.getY() + p.getTailleY()
 		|| x >= p.getX() && x <= p.getX() + p.getTailleX() && y >= p.getY() && y <= p.getY() + p.getTailleY())
 			return true;
-		
+
 		return false;
-		
+
 	}
-	
+
 }

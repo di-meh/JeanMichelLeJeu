@@ -15,7 +15,6 @@ public class JeanMichel extends Personnage{
 	private GestionCollision collision;
 
 	private Jeu jeu;
-
 	public JeanMichel(Arme e, int x, int y) {
 		super("Jean-Michel", 100, x, y, 17, 23);
 		this.inventaireArmes = new ArrayList<>();
@@ -33,7 +32,7 @@ public class JeanMichel extends Personnage{
 	}
 
 	public void action(KeyEvent e) {
-		
+
 		KeyCode value = e.getCode();
 
 		switch(value) {
@@ -41,7 +40,7 @@ public class JeanMichel extends Personnage{
 				&& !this.collision.collisionneObstacle(getX() + getTailleX(), getY()-4) 
 				&& !this.collision.collisionPerso(this.jeu.getEnnemis().get(0), this, 0, 4))
 			haut();
-			
+
 		break;
 		case Q: if(!this.collision.collisionneObstacle(getX() - 4, getY()) 
 				&& !this.collision.collisionneObstacle(getX() - 4, getY()+getTailleY()) 
@@ -63,7 +62,7 @@ public class JeanMichel extends Personnage{
 		case E: System.out.println("Button E pressed"); //attaquer
 		break;
 		case F: System.out.println("Button F pressed");//pousser/tirer
-				pousser(e);
+		pousser(e);
 		break;
 		case K: System.out.println("Button K pressed"); //changer d'arme
 		break;
@@ -78,7 +77,7 @@ public class JeanMichel extends Personnage{
 ////		|| this.getX()+this.getTailleX() == this.jeu.getItem().getX() && this.getY()+this.getTailleY() == this.jeu.getItem().getY()
 ////		|| this.getX() == this.jeu.getItem().getX() && this.getY()+this.getTailleY() == this.jeu.getItem().getY()
 ////		|| this.getX()+this.getTailleX() == this.jeu.getItem().getX() && this.getY() == this.jeu.getItem().getY()
-//		)
+//				)
 //			ramasserItem();
 	}
 
@@ -139,7 +138,7 @@ public class JeanMichel extends Personnage{
 
 	public void pousser(KeyEvent c) { //TODO gérer le cas de tirer
 		// Impossible de gérer deux keypress à la suite à travers deux méthodes différentes 
-		
+
 		KeyCode value = c.getCode();
 		switch (value) {
 		case Z:if(!this.collision.collisionneObstacle(getX(), getY() - 4) 
@@ -164,14 +163,14 @@ public class JeanMichel extends Personnage{
 		return this.jeu;
 
 	}
-	
+
 	public void setJeu(Jeu e) {
 		this.jeu = e;
 	}
-	
-	
+
+
 	public void ramasserItem() {
-		this.jeu.setItem(null);
+		//this.jeu.setItem(null);
 	}
 
 }
