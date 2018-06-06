@@ -3,6 +3,7 @@ package app.modele;
 import java.util.ArrayList;
 
 public class GestionCollision {
+	
 
 	private Terrain terrain;
 
@@ -10,6 +11,7 @@ public class GestionCollision {
 
 	public GestionCollision() {
 		this.terrain = new Terrain();
+		
 		int[][] tabObs = this.terrain.initMap(this.terrain.getUrlObs());
 		int [][] tabMov = this.terrain.initMap(this.terrain.getUrlMov());
 		this.obstacles = remplissageTableau(tabObs);
@@ -33,7 +35,6 @@ public class GestionCollision {
 		if (x < 0 || y <0) return true;
 		return estObstacle(caseDe(x, y));
 	}
-
 
 
 	private int caseDe(int x, int y) {
@@ -90,5 +91,4 @@ public class GestionCollision {
 		return false;
 
 	}
-
 }

@@ -15,6 +15,7 @@ public class JeanMichel extends Personnage{
 	private GestionCollision collision;
 
 	private Jeu jeu;
+	
 	public JeanMichel(Arme e, int x, int y) {
 		super("Jean-Michel", 100, x, y, 17, 23);
 		this.inventaireArmes = new ArrayList<>();

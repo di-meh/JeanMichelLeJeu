@@ -3,6 +3,7 @@ package app.modele;
 import java.util.ArrayList;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 
 public class Jeu {
@@ -26,7 +27,7 @@ public class Jeu {
 		//zone1
 		addEnnemi(new Ennemi("testEnnemi1",50, 0, 80));
 		addEnnemi(new Ennemi("testEnnemi2",50, 80, 0));
-
+		
 		//zone2
 
 		//ajouter les pnjs
@@ -38,6 +39,17 @@ public class Jeu {
 		addPNJ(new PNJArme("testPNJArme", 10, 200));
 		addPNJ(new PNJItem("testPNJItem", 125, 40));
 		addPNJ(new PNJVie("testPNJVie", 20, 40));
+
+		this.listeItems.addListener(new ListChangeListener<Item>() {
+			@Override
+			public void onChanged(Change<? extends Item> c) {
+				while(c.next()) {
+					for (Item remitem: c.getRemoved()) {
+						listeItems.remove(remitem);
+					}
+				}
+			}
+		});
 	}
 
 	public void update() {
@@ -64,10 +76,9 @@ public class Jeu {
 	public JeanMichel getJeanMichel() {
 		return jeanMichel;
 	}
-	
+
 	public ObservableList<Item> getListeItems() {
 		return listeItems;
 	}
-
 
 }
