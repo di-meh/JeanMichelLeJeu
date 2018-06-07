@@ -12,7 +12,6 @@ public class Jeu {
 	private ArrayList<PNJ> pnjs;
 	private JeanMichel jeanMichel;
 	public static Ennemi ennemiRetiré=null;
-private ListChangeListener<Ennemi> liste;
 	public Jeu() {
 		this.ennemis = FXCollections.observableArrayList();
 		this.pnjs = new ArrayList<PNJ>();
@@ -24,7 +23,7 @@ private ListChangeListener<Ennemi> liste;
 		//ajouter les ennemis
 		//zone1
 		addEnnemi(new Ennemi("testEnnemi1",5, 0, 80));
-	//	addEnnemi(new Ennemi("testEnnemi2",5, 80, 0));
+		addEnnemi(new Ennemi("testEnnemi2",5, 80, 0));
 
 		//zone2
 
@@ -39,34 +38,30 @@ private ListChangeListener<Ennemi> liste;
 		addPNJ(new PNJArme("testPNJArme", 10, 200));
 		addPNJ(new PNJItem("testPNJItem", 125, 40));
 		addPNJ(new PNJVie("testPNJVie", 20, 40));
-		liste = new ListChangeListener<Ennemi>() {
+
+		ennemis.addListener(new ListChangeListener<Ennemi>() {
 			@Override
 			public void onChanged(Change<? extends Ennemi> c) {
 				while (c.next()) {
-		             if (c.wasPermutated()) {
-		                     for (int i = c.getFrom(); i < c.getTo(); ++i) {
-		                          //permutate
-		                     }
-		                 } else if (c.wasUpdated()) {
-		                          //update item
-		                 } else {
-		                     for (Ennemi remitem : c.getRemoved()) {
-		                    	 ennemiRetiré=remitem;
-		                     }
-		                 }
-		             }
-			}};
-		ennemis.addListener(liste);
+					if (c.wasRemoved()) {
+						for (Ennemi remitem : c.getRemoved()) {
+							ennemiRetiré=remitem;
+						}
+					}
+				}
+			}});
 	}
 
 	public void update() {
 		for (Ennemi ennemi : ennemis) {
-			if(!ennemis.isEmpty())
-			ennemi.seDeplacer();
-			if(ennemi.getPointsVie() == 0)
+			if(ennemi.getPointsVie() != 0) {
+					ennemi.seDeplacer();
+			}else {
 				ennemis.remove(ennemi);
-		}
-	}
+			}
+		} 
+		
+	} 
 
 	public void addEnnemi(Ennemi e) {
 		this.ennemis.add(e);

@@ -91,7 +91,7 @@ public class Controleur implements Initializable {
 
 		setGameLoop(new Timeline());
 		getGameLoop().setCycleCount(Timeline.INDEFINITE);
-		
+
 		KeyFrame kf = new KeyFrame(
 				Duration.seconds(0.018), //environ 60 FPS
 				// on définit ce qui se passe à chaque frame 
@@ -103,16 +103,15 @@ public class Controleur implements Initializable {
 						heart0.setImage(new Image("file:./src/app/img/heartempty.png"));
 						this.pane.getChildren().remove(4);
 						getGameLoop().stop();
-						
 					}
 					else {
 						this.jeu.update();
 						if (Jeu.ennemiRetiré != null) {
-							pane.getChildren().remove(Jeu.ennemiRetiré);
+							pane.getChildren().remove(Jeu.ennemiRetiré.getVue().getSprite());
 							Jeu.ennemiRetiré=null;
 						}
 						verifVie();
-						
+
 					}
 				})
 				);
@@ -137,7 +136,7 @@ public class Controleur implements Initializable {
 	}
 	public void verifVie() {
 		int vieJM = jeu.getJeanMichel().getPointsVie();
-		if (vieJM/2 == 5) {
+		if (vieJM/2 >= 5) {
 			heart4.setImage(heart0.getImage());
 		}else {
 			heart4.setImage(new Image("file:./src/app/img/heartempty.png"));
@@ -161,6 +160,6 @@ public class Controleur implements Initializable {
 			heart0.setImage(heart0.getImage());
 		}
 	}
-	
+
 }
 

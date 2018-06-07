@@ -1,5 +1,6 @@
 package app.modele;
 
+import app.vue.VueEnnemi;
 
 public class Ennemi extends Personnage{
 
@@ -8,6 +9,8 @@ public class Ennemi extends Personnage{
 	private int orientation;
 
 	private Jeu jeu;
+	
+	private VueEnnemi vue;
 	
 	
 	public Ennemi(String n, int pv, int x, int y) {
@@ -73,6 +76,7 @@ public class Ennemi extends Personnage{
 	}
 
 	public void seDeplacer() {
+		try {
 		switch(this.orientation) {
 		case 0: haut();
 		if(this.collision.collisionPerso(this.jeu.getJeanMichel(), this, 0, 1)) {
@@ -93,10 +97,21 @@ public class Ennemi extends Personnage{
 			this.attaquer(this.jeu.getJeanMichel());
 		break;
 		}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 	
 	public void setJeu(Jeu j) {
 		this.jeu = j;
+	}
+
+	public VueEnnemi getVue() {
+		return vue;
+	}
+
+	public void setVue(VueEnnemi vue) {
+		this.vue = vue;
 	}
 	
 }
