@@ -1,6 +1,7 @@
 package app.modele;
 
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.geometry.Rectangle2D;
 
 public abstract class Personnage { //contient tous les getters et les setters necessaires a tous les personnages (ennemis, pnjs, Jean Michel)
 
@@ -9,7 +10,7 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 	protected SimpleIntegerProperty positionX, positionY;
 
 	protected SimpleIntegerProperty pointsVie;
-
+	private Rectangle2D rectangle;
 	private int tailleX, tailleY;
 
 	public Personnage(String n, int px, int py, int tx, int ty) {
@@ -19,6 +20,7 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 		this.positionY = new SimpleIntegerProperty(py);
 		this.tailleX = tx;
 		this.tailleY = ty;
+		this.rectangle = new Rectangle2D(px, py, tx, ty);
 	}
 
 	public Personnage(String n, int pv, int px, int py, int tx, int ty) {
@@ -80,16 +82,13 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 		return tailleX;
 	}
 
-	public void setTailleX(int tailleX) {
-		this.tailleX = tailleX;
-	}
-
 	public int getTailleY() {
 		return tailleY;
 	}
-
-	public void setTailleY(int tailleY) {
-		this.tailleY = tailleY;
+	
+	public Rectangle2D getRectangle() {
+		return rectangle;
 	}
+	
 
 }
