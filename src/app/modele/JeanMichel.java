@@ -34,7 +34,7 @@ public class JeanMichel extends Personnage{
 	}
 
 	public void action(KeyEvent e) {
-		
+
 		KeyCode value = e.getCode();
 
 		switch(value) {
@@ -61,16 +61,16 @@ public class JeanMichel extends Personnage{
 			droite();
 		break;
 		case E: //System.out.println("Button E pressed"); //attaquer
-		if(this.collision.collisionPerso(this.jeu.getEnnemis().get(0), this, 0, 4) || this.collision.collisionPerso(this.jeu.getEnnemis().get(0), this, 1, 4)||this.collision.collisionPerso(this.jeu.getEnnemis().get(0), this, 2, 4)||this.collision.collisionPerso(this.jeu.getEnnemis().get(0), this, 3, 4))
-			this.attaquer(this.jeu.getEnnemis().get(0));
-		System.out.println(this.jeu.getEnnemis().get(0).getPointsVie());
+			if(this.collision.collisionPerso(this.jeu.getEnnemis().get(0), this, 0, 4) || this.collision.collisionPerso(this.jeu.getEnnemis().get(0), this, 1, 4)||this.collision.collisionPerso(this.jeu.getEnnemis().get(0), this, 2, 4)||this.collision.collisionPerso(this.jeu.getEnnemis().get(0), this, 3, 4))
+				this.attaquer(this.jeu.getEnnemis().get(0));
+			System.out.println(this.jeu.getEnnemis().get(0).getPointsVie());
 			break;
 		case F: System.out.println("Button F pressed");//pousser/tirer
-				pousser(e);
+		pousser(e);
 		break;
 		case K: //System.out.println("Button K pressed"); //changer d'arme
-		this.setPointsVie(getPointsVie()+1);
-		break;
+			this.setPointsVie(getPointsVie()+1);
+			break;
 		case L: parler();
 		break;
 		case M: System.out.println("Button M pressed"); //afficher map
@@ -140,7 +140,7 @@ public class JeanMichel extends Personnage{
 
 	public void pousser(KeyEvent c) { //TODO gérer le cas de tirer
 		// Impossible de gérer deux keypress à la suite à travers deux méthodes différentes 
-		
+
 		KeyCode value = c.getCode();
 		switch (value) {
 		case Z:if(!this.collision.collisionne(getX(), getY() - 4) 
@@ -168,7 +168,7 @@ public class JeanMichel extends Personnage{
 
 	public void setJeu(Jeu j) {
 		this.jeu = j;
-		
+
 	}
 
 }

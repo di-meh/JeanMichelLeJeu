@@ -9,10 +9,10 @@ public class Ennemi extends Personnage{
 	private int orientation;
 
 	private Jeu jeu;
-	
+
 	private VueEnnemi vue;
-	
-	
+
+
 	public Ennemi(String n, int pv, int x, int y) {
 		super(n, pv, x, y, 12, 29);
 		this.collision = new GestionCollision();
@@ -77,31 +77,29 @@ public class Ennemi extends Personnage{
 
 	public void seDeplacer() {
 		try {
-		switch(this.orientation) {
-		case 0: haut();
-		if(this.collision.collisionPerso(this.jeu.getJeanMichel(), this, 0, 1)) {
-			this.attaquer(this.jeu.getJeanMichel());
-			
-		}
-		break;
-		case 1: bas();
-		if(this.collision.collisionPerso(this.jeu.getJeanMichel(), this, 1, 1))
-			this.attaquer(this.jeu.getJeanMichel());
-		break;
-		case 2: gauche();
-		if(this.collision.collisionPerso(this.jeu.getJeanMichel(), this, 2, 1))
-			this.attaquer(this.jeu.getJeanMichel());
-		break;
-		case 3: droite();
-		if(this.collision.collisionPerso(this.jeu.getJeanMichel(), this, 3, 1))
-			this.attaquer(this.jeu.getJeanMichel());
-		break;
-		}
+			switch(this.orientation) {
+			case 0: haut();
+			if(this.collision.collisionPerso(this.jeu.getJeanMichel(), this, 0, 1))
+				this.attaquer(this.jeu.getJeanMichel());
+			break;
+			case 1: bas();
+			if(this.collision.collisionPerso(this.jeu.getJeanMichel(), this, 1, 1))
+				this.attaquer(this.jeu.getJeanMichel());
+			break;
+			case 2: gauche();
+			if(this.collision.collisionPerso(this.jeu.getJeanMichel(), this, 2, 1))
+				this.attaquer(this.jeu.getJeanMichel());
+			break;
+			case 3: droite();
+			if(this.collision.collisionPerso(this.jeu.getJeanMichel(), this, 3, 1))
+				this.attaquer(this.jeu.getJeanMichel());
+			break;
+			}
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
 	}
-	
+
 	public void setJeu(Jeu j) {
 		this.jeu = j;
 	}
@@ -113,5 +111,5 @@ public class Ennemi extends Personnage{
 	public void setVue(VueEnnemi vue) {
 		this.vue = vue;
 	}
-	
+
 }

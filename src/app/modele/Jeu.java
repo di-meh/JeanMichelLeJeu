@@ -55,12 +55,12 @@ public class Jeu {
 	public void update() {
 		for (Ennemi ennemi : ennemis) {
 			if(ennemi.getPointsVie() != 0) {
-					ennemi.seDeplacer();
+				ennemi.seDeplacer();
 			}else {
 				ennemis.remove(ennemi);
 			}
 		} 
-		
+
 	} 
 
 	public void addEnnemi(Ennemi e) {
