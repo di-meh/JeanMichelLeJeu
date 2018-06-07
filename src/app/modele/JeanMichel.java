@@ -174,17 +174,15 @@ public class JeanMichel extends Personnage{
 		//this.jeu.setItem(null);
 	}
 
-}
-
-/*
- * 
- * personnageCible.recevoirDegats(arme.getDegatArme());
+	/*
+	 * 
+	 * personnageCible.recevoirDegats(arme.getDegatArme());
 
                 if(personnageCible.getHp() <= 0)
                 {
                         this.lvl += 1;
                 }
- * 
- * 
- */
-
+	 * 
+	 * 
+	 */
+}
