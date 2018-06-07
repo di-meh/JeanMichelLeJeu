@@ -16,7 +16,7 @@ public class Jeu {
 		this.ennemis = new ArrayList<Ennemi>();
 		this.pnjs = new ArrayList<PNJ>();
 		this.jeanMichel = new JeanMichel(null, 0, 0);
-		this.bfs = new BFS(this.jeanMichel);
+		this.bfs = new BFS();
 		
 		init(); //s'oocupe d'ajouter les ennemis/pnj aux listes
 	}
@@ -24,12 +24,12 @@ public class Jeu {
 	public void init() {
 		//ajouter les ennemis
 		//zone1
-		addEnnemi(new Ennemi("testEnnemi1",50, 0, 80));
-		addEnnemi(new Ennemi("testEnnemi2",50, 80, 0));
+		addEnnemi(new Cactus("testEnnemi1",50, 0, 80));
+		addEnnemi(new Cactus("testEnnemi2",50, 80, 0));
 
 		//zone2
-		addEnnemi(new Ennemi("testEnnemi1",50, 0, 80));
-		addEnnemi(new Ennemi("testEnnemi2",50, 80, 0));
+		addEnnemi(new Cactus("testEnnemi1",50, 0, 80));
+		addEnnemi(new Cactus("testEnnemi2",50, 80, 0));
 
 		//ajouter les pnjs
 		//zone1
@@ -44,6 +44,9 @@ public class Jeu {
 
 	public void update() {
 		this.ennemis.get(0).seDeplacer();
+		
+		this.bfs.lancerBFS(this.jeanMichel);
+		
 
 	}
 
@@ -71,13 +74,8 @@ public class Jeu {
 		return this;
 	}
 
-	/*public Tile getPositionEnnemi() {
-		return null;
-	
-	}
-	
 	public void setPositionEnnemi(Ennemi e) {
 		
-	}*/
+	}
 
 }

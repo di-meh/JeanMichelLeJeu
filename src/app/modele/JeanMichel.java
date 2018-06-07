@@ -66,8 +66,7 @@ public class JeanMichel extends Personnage{
 		break;
 		case K: System.out.println("Button K pressed"); //changer d'arme
 		break;
-		case L: 
-			this.jeu.getPNJ().get(0).parler(parler());
+		case L: parler();
 		break;
 		case M: System.out.println("Button M pressed"); //afficher map
 		break;

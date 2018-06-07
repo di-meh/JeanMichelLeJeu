@@ -1,12 +1,11 @@
 package app.modele;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class BFS {
-
-	private Tile sommetZero;
 	
 	private Terrain terrain;
 	
@@ -14,70 +13,91 @@ public class BFS {
 	
 	private Queue<Tile> file;
 	
-	public BFS(JeanMichel jm) {
+	private ArrayList<Tile> tilesMarquees;
+	
+	public BFS() {
 		
 		this.terrain = new Terrain();
 		this.file = new LinkedList<Tile>();
-		this.sommetZero = new Tile(jm.getX()/16, jm.getY()/16);
 		this.tiles = new HashMap<Tile, Tile>();
+		this.tilesMarquees = new ArrayList<Tile>();
 		
+	}
+
+	public void lancerBFS(JeanMichel jm) {
+		
+		Tile sommetZero = new Tile(jm.getX(), jm.getY());
 		this.tiles.put(sommetZero, null);
 		this.file.add(sommetZero);
 		
 		while(!this.file.isEmpty()) {
-			this.file.peek().setEstMarque();
+			
+			System.out.println("tile 0 :" + this.file.peek().toString());
+			
+			this.tilesMarquees.add(this.file.peek());
 			sommetsAdjacents(this.file.poll());
 		}
 	}
-
+	
 	private void sommetsAdjacents(Tile t) {
 		
+		
 		// sommet du haut
-		if(!estObstacle(new Tile(t.getX(), t.getY() + 1))) {
-			if(t.getEstMarque())
-				this.file.add(new Tile(t.getX(), t.getY() + 1));
-			this.tiles.put(t, new Tile(t.getX(), t.getY() + 1));
-		}
+		Tile t2 = new Tile(t.getX(), t.getY() + 1);
+		ajouterTile(t, t2);
 		
 		// sommet du bas
-		if(!estObstacle(new Tile(t.getX(), t.getY() - 1))) {
-			if(t.getEstMarque())
-				this.file.add(new Tile(t.getX(), t.getY() - 1));
-			this.tiles.put(t, new Tile(t.getX(), t.getY() - 1));
-		}
+		Tile t3 = new Tile(t.getX(), t.getY() - 1);
+		ajouterTile(t, t3);
 		
 		// sommet de gauche
-		if(!estObstacle(new Tile(t.getX() - 1, t.getY() + 1))) {
-			if(t.getEstMarque())
-				this.file.add(new Tile(t.getX() - 1, t.getY() + 1));
-			this.tiles.put(t, new Tile(t.getX() - 1, t.getY() + 1));
-		}
+		Tile t4 = new Tile(t.getX() - 1, t.getY() + 1);
+		ajouterTile(t, t4);
 		
 		// sommet de droite
-		if(!estObstacle(new Tile(t.getX() + 1, t.getY()))) {
-			if(t.getEstMarque())
-				this.file.add(new Tile(t.getX() + 1, t.getY()));
-			this.tiles.put(t, new Tile(t.getX() + 1, t.getY()));
+		Tile t5 = new Tile(t.getX() + 1, t.getY());
+		ajouterTile(t, t5);
+	
+	}
+	
+	private void ajouterTile(Tile t, Tile t2) {
+		if(!estObstacle(t2)) {
+			if(!estMarque(t2))
+				this.file.add(t2);
+			this.tiles.put(t2, t);
 		}
 	}
 	
 	private boolean estObstacle(Tile t) {
-		
-		for(int x = 0; x < this.terrain.getTab2dObs().length; x++) {
-			for(int y = 0; y < this.terrain.getTab2dObs()[x].length; y++) {
-				if(t.getX() == x && t.getY() == y)
-					return true;	
-			}
+		if(t.getX() < 0 || t.getX() >= 32
+		|| t.getY() < 0 || t.getY() >= 32)
+			return true;
+		return this.terrain.getTab2dObs()[t.getY()][t.getX()] != 0;
+	}
+	
+	private boolean estMarque(Tile t) {
+		for(Tile tm : this.tilesMarquees) {
+			if(tm.equals(t))
+				return true;
 		}
 		return false;
 	}
 	
-	public void demarque() {
+	public int deplacementEnnemi(Ennemi e) {
+		Tile te = new Tile(e.getX(), e.getTailleY());
 		
-	}
-
-	public void marque() {
+		int x = te.getX() - this.tiles.get(te).getX();
+		int y = te.getY() - this.tiles.get(te).getY();
 		
+		if(x == 0 && y == 0)
+			return 0;
+		if(x == 0 && y == 1)
+			return 1;
+		if(x == 1 && y == 0)
+			return 2;
+		if(x == 1 && y == 1)
+			return 3;
+		return 2;
 	}
 	
 }
@@ -92,8 +112,6 @@ public class BFS {
 
 /*@SuppressWarnings("unlikely-arg-type")
 	public void algorithme() {
-		
-		this.queue.clear();
 		
 		while(!this.queue.isEmpty()) {
 			ajouterVoisinsMap(this.queue.peek());
