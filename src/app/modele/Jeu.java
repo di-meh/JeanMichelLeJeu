@@ -8,14 +8,14 @@ import javafx.collections.ObservableList;
 
 public class Jeu {
 
-	private ArrayList<Ennemi> ennemis;
-	private ArrayList<PNJ> pnjs;
+	private ArrayList<Ennemi> listeEnnemis;
+	private ArrayList<PNJ> listePNJs;
 	private JeanMichel jeanMichel;
 	private ObservableList<Item> listeItems;
 
 	public Jeu() {
-		this.ennemis = new ArrayList<Ennemi>();
-		this.pnjs = new ArrayList<PNJ>();
+		this.listeEnnemis = new ArrayList<Ennemi>();
+		this.listePNJs = new ArrayList<PNJ>();
 		this.listeItems = FXCollections.observableArrayList();
 		this.jeanMichel = new JeanMichel(null, 0, 0);
 		this.listeItems.add(new Coeur(20,40));
@@ -53,24 +53,24 @@ public class Jeu {
 	}
 
 	public void update() {
-		this.ennemis.get(0).seDeplacer();
+		this.listeEnnemis.get(0).seDeplacer();
 
 	}
 
 	public void addEnnemi(Ennemi e) {
-		this.ennemis.add(e);
+		this.listeEnnemis.add(e);
 	}
 
 	public ArrayList<Ennemi> getEnnemis() {
-		return this.ennemis;
+		return this.listeEnnemis;
 	}
 
 	public void addPNJ(PNJ p) {
-		this.pnjs.add(p);
+		this.listePNJs.add(p);
 	}
 
 	public ArrayList<PNJ> getPNJ() {
-		return this.pnjs;
+		return this.listePNJs;
 	}
 
 	public JeanMichel getJeanMichel() {

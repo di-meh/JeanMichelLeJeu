@@ -4,6 +4,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import app.modele.Coeur;
+//import app.modele.Ennemi;
+//import app.modele.Item;
 import app.modele.JeanMichel;
 import app.modele.Jeu;
 import app.modele.Terrain;
@@ -14,6 +16,8 @@ import app.vue.VueJeanMichel;
 import app.vue.VueTerrain;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+//import javafx.collections.FXCollections;
+//import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.BorderPane;
@@ -33,6 +37,9 @@ public class Controleur implements Initializable {
 	private VueItem vueitem;
 
 	private Timeline gameLoop;
+	
+	//private ObservableList<Item> listeItems;
+	//private ObservableList<Ennemi> listeEnnemis;
 
 	//FXML
 	@FXML
@@ -65,6 +72,7 @@ public class Controleur implements Initializable {
 		this.pane.getChildren().add(vueitem.getSprite());
 		this.pane.getChildren().add(vueHeros.getSprite());
 		this.pane.getChildren().add(vueEnnemi.getSprite());
+		
 
 		init();
 		getGameLoop().play();
@@ -83,10 +91,7 @@ public class Controleur implements Initializable {
 
 				(ev ->{
 					try {
-						if (this.jeu.getJeanMichel().getX() == this.jeu.getListeItems().get(0).getX() && this.jeu.getJeanMichel().getY() == this.jeu.getListeItems().get(0).getY()
-								|| this.jeu.getJeanMichel().getX()+this.jeu.getJeanMichel().getTailleX() == this.jeu.getListeItems().get(0).getX() && this.jeu.getJeanMichel().getY() == this.jeu.getListeItems().get(0).getY()
-								|| this.jeu.getJeanMichel().getX() == this.jeu.getListeItems().get(0).getX() && this.jeu.getJeanMichel().getY()+this.jeu.getJeanMichel().getTailleY() == this.jeu.getListeItems().get(0).getY()
-								|| this.jeu.getJeanMichel().getX()+this.jeu.getJeanMichel().getTailleX() == this.jeu.getListeItems().get(0).getX() && this.jeu.getJeanMichel().getY()+this.jeu.getJeanMichel().getTailleY() == this.jeu.getListeItems().get(0).getY()) {
+						if (collisionObjet()) {
 							//TODO le faire dans le modèle
 							this.pane.getChildren().remove(vueitem.getSprite());
 							this.jeu.getListeItems().remove(0);
@@ -99,7 +104,7 @@ public class Controleur implements Initializable {
 						else
 							this.jeu.update();
 					}catch (Exception e) {
-						//L'ennemi s'arrête de bouger, ce qui signifie que la gameloop s'arrêtes
+						//L'ennemi s'arrête de bouger, ce qui signifie que la gameloop s'arrête
 					}
 				})
 				);
@@ -107,11 +112,11 @@ public class Controleur implements Initializable {
 
 	}
 
-	public Timeline getGameLoop() {
+	private Timeline getGameLoop() {
 		return gameLoop;
 	}
 
-	public void setGameLoop(Timeline gameLoop) {
+	private void setGameLoop(Timeline gameLoop) {
 		this.gameLoop = gameLoop;
 	}
 
@@ -122,5 +127,18 @@ public class Controleur implements Initializable {
 	public JeanMichel getJeanMichel() {
 		return this.jeu.getJeanMichel();
 	}
+	
+	private boolean collisionObjet() {
+		return this.jeu.getJeanMichel().getX() == this.jeu.getListeItems().get(0).getX() 
+				&& this.jeu.getJeanMichel().getY() == this.jeu.getListeItems().get(0).getY()
+//				|| this.jeu.getJeanMichel().getX()+this.jeu.getJeanMichel().getTailleX() == this.jeu.getListeItems().get(0).getX() 
+//				&& this.jeu.getJeanMichel().getY() == this.jeu.getListeItems().get(0).getY()
+//				|| this.jeu.getJeanMichel().getX() == this.jeu.getListeItems().get(0).getX() 
+//				&& this.jeu.getJeanMichel().getY()+this.jeu.getJeanMichel().getTailleY() == this.jeu.getListeItems().get(0).getY()
+//				|| this.jeu.getJeanMichel().getX()+this.jeu.getJeanMichel().getTailleX() == this.jeu.getListeItems().get(0).getX() 
+//				&& this.jeu.getJeanMichel().getY()+this.jeu.getJeanMichel().getTailleY() == this.jeu.getListeItems().get(0).getY()
+				;
+	}
+	
 }
 

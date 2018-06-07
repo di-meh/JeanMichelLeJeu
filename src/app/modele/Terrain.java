@@ -21,9 +21,6 @@ public class Terrain {
 	}
 
 
-	public int[][] getTab2dBase() {
-		return this.tab_2d;
-	}
 	public int[][] initMap(String url) { //Méthode permettant de générer une map via un text file
 
 		//Première version, à améliorer
@@ -59,7 +56,10 @@ public class Terrain {
 	public int getTailleTab() {
 		return tailleTab;
 	}
-
+	
+	public int[][] getTab2dBase() {
+		return this.tab_2d;
+	}
 
 	public int[][] getTab2dObs() {
 		return tab_2d_obs;
