@@ -90,11 +90,12 @@ public class Controleur implements Initializable {
 				// c'est un eventHandler d'ou le lambda
 
 				(ev ->{
-					try {
 						if (collisionObjet()) {
 							//TODO le faire dans le modèle
-							this.pane.getChildren().remove(vueitem.getSprite());
-							this.jeu.getListeItems().remove(0);
+								this.pane.getChildren().remove(vueitem.getSprite());
+								this.jeu.getListeItems().remove(0);
+								
+								
 							//System.out.println("Coeur récupéré");
 						}
 						if(this.jeu.getJeanMichel().getPointsVie() == 0){
@@ -103,9 +104,7 @@ public class Controleur implements Initializable {
 						}
 						else
 							this.jeu.update();
-					}catch (Exception e) {
 						//L'ennemi s'arrête de bouger, ce qui signifie que la gameloop s'arrête
-					}
 				})
 				);
 		getGameLoop().getKeyFrames().add(kf);
@@ -129,8 +128,9 @@ public class Controleur implements Initializable {
 	}
 	
 	private boolean collisionObjet() {
-		return this.jeu.getJeanMichel().getX() == this.jeu.getListeItems().get(0).getX() 
-				&& this.jeu.getJeanMichel().getY() == this.jeu.getListeItems().get(0).getY()
+		try {
+			return this.jeu.getJeanMichel().getX() == this.jeu.getListeItems().get(0).getX() 
+					&& this.jeu.getJeanMichel().getY() == this.jeu.getListeItems().get(0).getY()
 //				|| this.jeu.getJeanMichel().getX()+this.jeu.getJeanMichel().getTailleX() == this.jeu.getListeItems().get(0).getX() 
 //				&& this.jeu.getJeanMichel().getY() == this.jeu.getListeItems().get(0).getY()
 //				|| this.jeu.getJeanMichel().getX() == this.jeu.getListeItems().get(0).getX() 
@@ -138,6 +138,10 @@ public class Controleur implements Initializable {
 //				|| this.jeu.getJeanMichel().getX()+this.jeu.getJeanMichel().getTailleX() == this.jeu.getListeItems().get(0).getX() 
 //				&& this.jeu.getJeanMichel().getY()+this.jeu.getJeanMichel().getTailleY() == this.jeu.getListeItems().get(0).getY()
 				;
+			
+		}catch (Exception e) {
+			return false;
+		}
 	}
 	
 }
