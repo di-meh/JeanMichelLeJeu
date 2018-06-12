@@ -11,6 +11,7 @@ public class Ennemi extends Personnage{
 	private Jeu jeu;
 
 	private VueEnnemi vue;
+	
 
 
 	public Ennemi(String n, int pv, int x, int y) {
@@ -108,5 +109,6 @@ public class Ennemi extends Personnage{
 	public void setVue(VueEnnemi vue) {
 		this.vue = vue;
 	}
+	
 
 }

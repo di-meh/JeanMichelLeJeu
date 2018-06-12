@@ -97,13 +97,14 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 		//						en.estAttaque(equipee.getDgtZone());
 		//					}
 		//					else {
-		//						en.estAttaque(equipee.getDgtPasZone());
+		//				task		en.estAttaque(equipee.getDgtPasZone());
 		//					}
 		//		} catch (Exception e) {
 		//			// TODO: handle exception
 		//		}
-		if (en != null && System.currentTimeMillis()%250==0) {
+		if (en != null && System.currentTimeMillis()%9==0) {
 			en.estAttaque(1);
+			
 		}
 	}
 	public void estAttaque(int atq) {
