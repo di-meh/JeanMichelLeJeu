@@ -2,7 +2,6 @@ package app.controleur;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-
 import app.modele.Ennemi;
 import app.modele.JeanMichel;
 import app.modele.Jeu;
@@ -34,7 +33,6 @@ public class Controleur implements Initializable {
 	private VueTerrain vueMap;
 	private VueJeanMichel vueHeros;
 	private Timeline gameLoop;
-
 	//FXML
 	@FXML
 	private BorderPane borderpane;
@@ -65,7 +63,7 @@ public class Controleur implements Initializable {
 
 	@FXML
 	private DialogPane dialog;
-
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		this.map = new Terrain();
@@ -78,7 +76,6 @@ public class Controleur implements Initializable {
 				verifVie();
 			}
 		});
-
 		this.vueMap = new VueTerrain(this.map);
 		this.vueHeros = new VueJeanMichel(this.jeu.getJeanMichel());
 
@@ -118,6 +115,7 @@ public class Controleur implements Initializable {
 						System.out.println("Vous êtes mort");
 						heart0.setImage(new Image("file:./src/app/img/heartempty.png"));
 						this.pane.getChildren().remove(4);
+						
 						dialog.setContentText("GAME OVER");
 						dialog.setPrefWidth(110);
 						dialog.setPrefHeight(20);
@@ -133,6 +131,7 @@ public class Controleur implements Initializable {
 						if (Jeu.ennemiRetiré != null) {
 							pane.getChildren().remove(Jeu.ennemiRetiré.getVue().getSprite());
 							Jeu.ennemiRetiré=null;
+							if(jeu.getEnnemis().size() == 4) {					  
 							dialog.setContentText("Bravo, tu as tué\nton premier cactus");
 							dialog.setPrefWidth(170);
 							dialog.setPrefHeight(72);
@@ -140,6 +139,8 @@ public class Controleur implements Initializable {
 							dialog.setLayoutX(500-dialog.getPrefWidth());
 							dialog.setOpacity(.59);
 							dialog.setVisible(true);
+							}else
+								dialog.setVisible(false);
 						}
 
 					}

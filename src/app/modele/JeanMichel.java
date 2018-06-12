@@ -114,6 +114,11 @@ public class JeanMichel extends Personnage{
 	//
 	//	}
 
+	public void attaquer(Personnage en) { 
+		if (en != null ) {
+			en.estAttaque(1);
+		}
+	}
 	public Arme getArmeEquipee() {
 		return equipee;
 	}
