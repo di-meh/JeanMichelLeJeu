@@ -37,7 +37,7 @@ public class JeanMichel extends Personnage{
 
 		KeyCode value = e.getCode();
 		try {
-			
+
 			switch(value) {
 			case Z: if(!this.collision.collisionne(getX(), getY() - 4) 
 					&& !this.collision.collisionne(getX() + getTailleX(), getY()-4) 
@@ -173,7 +173,7 @@ public class JeanMichel extends Personnage{
 	public void setJeu(Jeu j) {
 		this.jeu = j;
 	}
-	
+
 	public Ennemi ennemiACote() {
 		for (Ennemi e : jeu.getEnnemis()) {
 			if((int)e.getX()/16 == (int)((this.getX())/16) && (int)e.getY()/16 == (int)((this.getY())/16) || (int)e.getX()/16 == (int)((this.getX()+4)/16) && (int)e.getY()/16 == (int)((this.getY()+4)/16) || (int)e.getX()/16 == (int)((this.getX()-4)/16) && (int)e.getY()/16 == (int)((this.getY()-4)/16) || (int)e.getX()/16 == (int)((this.getX())/16) && (int)e.getY()/16 == (int)((this.getY()-4)/16) || (int)e.getX()/16 == (int)((this.getX()+4)/16) && (int)e.getY()/16 == (int)((this.getY())/16) || (int)e.getX()/16 == (int)((this.getX())/16) && (int)e.getY()/16 == (int)((this.getY()+4)/16) || (int)e.getX()/16 == (int)((this.getX()+4)/16) && (int)e.getY()/16 == (int)((this.getY()-4)/16) || (int)e.getX()/16 == (int)((this.getX()-4)/16) && (int)e.getY()/16 == (int)((this.getY()+4)/16) || (int)e.getX()/16 == (int)((this.getX()-4)/16) && (int)e.getY()/16 == (int)((this.getY())/16)) 

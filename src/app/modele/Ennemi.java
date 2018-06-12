@@ -11,7 +11,7 @@ public class Ennemi extends Personnage{
 	private Jeu jeu;
 
 	private VueEnnemi vue;
-	
+
 
 	public Ennemi(String n, int pv, int x, int y) {
 		super(n, pv, x, y, 12, 29);

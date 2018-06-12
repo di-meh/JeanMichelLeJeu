@@ -62,7 +62,7 @@ public class Controleur implements Initializable {
 
 	@FXML
 	private ImageView heart4;
-	
+
 	@FXML
 	private DialogPane dialog;
 
@@ -75,12 +75,10 @@ public class Controleur implements Initializable {
 		jeu.getJeanMichel().pointsVieProperty().addListener(new ChangeListener<Number>() {
 			@Override
 			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-				// TODO Auto-generated method stub
 				verifVie();
-				
 			}
 		});
-		
+
 		this.vueMap = new VueTerrain(this.map);
 		this.vueHeros = new VueJeanMichel(this.jeu.getJeanMichel());
 
@@ -96,8 +94,8 @@ public class Controleur implements Initializable {
 			new VueEnnemi(en);
 			this.pane.getChildren().add(en.getVue().getSprite());
 		}
-		
-		
+
+
 		pane.getChildren().add(dialog);
 		dialog.setVisible(false);
 		init();

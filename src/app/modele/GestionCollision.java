@@ -12,7 +12,7 @@ public class GestionCollision {
 		this.obstacles = new ArrayList<Integer>();
 		this.obstacles_mov = new ArrayList<Integer>();
 		this.terrain = new Terrain();
-		
+
 		// Les commentaires dessous sont un test d'ajout des obstacles directement dans l'arraylist au lieu de les ajouter à la main
 		// Cependant un "problème" à soulever, est qu'il crée des doublons, mais dans le cas de notre utilisation, cela importe peu
 		int[][] tabObs = this.terrain.initMap(this.terrain.getUrlObs());
@@ -23,7 +23,7 @@ public class GestionCollision {
 				if (tabObs[x][y] !=0) 
 					this.obstacles.add(tabObs[x][y]);
 			}
-			
+
 		}
 
 		for (int x = 0; x<tabMov.length; x++) {
@@ -46,11 +46,11 @@ public class GestionCollision {
 			if (cas == 0)
 				cas = this.terrain.getTab2dObsMov()[y/16][x/16];
 			return cas;
-			
+
 		} catch(Exception e) {
 			return this.obstacles.get(0);
 		}
-		
+
 	}
 
 	public boolean estObstacle(int i) {
@@ -61,7 +61,7 @@ public class GestionCollision {
 			if (i == o) {
 				return true;
 			}
-				
+
 		return false;
 	}
 
@@ -77,11 +77,11 @@ public class GestionCollision {
 	}
 
 	public boolean verifie(Personnage p, Personnage p1, int x, int y) {
-		
+
 		if(pointdansCarre(p, p1.getX() + x, p1.getY() + y)
-		|| pointdansCarre(p, p1.getX() + x + p.getTailleX(), p1.getY() + y)
-		|| pointdansCarre(p, p1.getX() + x, p1.getY() + y + p1.getTailleY())
-		|| pointdansCarre(p, p1.getX() + x + p1.getTailleX(), p1.getY() + y + p1.getTailleY()))
+				|| pointdansCarre(p, p1.getX() + x + p.getTailleX(), p1.getY() + y)
+				|| pointdansCarre(p, p1.getX() + x, p1.getY() + y + p1.getTailleY())
+				|| pointdansCarre(p, p1.getX() + x + p1.getTailleX(), p1.getY() + y + p1.getTailleY()))
 			return true;
 
 		return false;
@@ -91,9 +91,9 @@ public class GestionCollision {
 		if(x >= p.getX() && x <= p.getX() + p.getTailleX() && y >= p.getY() && y <= p.getY() + p.getTailleY()
 		|| x >= p.getX() && x <= p.getX() + p.getTailleX() && y >= p.getY() && y <= p.getY() + p.getTailleY())
 			return true;
-		
+
 		return false;
-		
+
 	}
-	
+
 }
