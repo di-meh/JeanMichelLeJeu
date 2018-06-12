@@ -5,16 +5,16 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class GestionCollision {
-	
+
 
 	private Terrain terrain;
 
 	private ArrayList<Integer> obstacles, obstacles_mov;
-	
+
 
 	public GestionCollision() {
 		this.terrain = new Terrain();
-		
+
 		int[][] tabObs = this.terrain.initMap(this.terrain.getUrlObs());
 		int [][] tabMov = this.terrain.initMap(this.terrain.getUrlMov());
 		this.obstacles = remplissageTableau(tabObs);
@@ -67,8 +67,6 @@ public class GestionCollision {
 
 		return false;
 	}
-	
-
 
 	public boolean collisionnePerso(Personnage p, Personnage p1, int d, int pas) {
 		switch(d) {
@@ -99,8 +97,8 @@ public class GestionCollision {
 		return false;
 
 	}
-	
-	
+
+
 	public boolean collisionneObjet(JeanMichel j, Jeu e) {
 		for (Item i: e.getListeItems()) 
 			if (j.getX() == i.getX() && j.getY() == i.getY()) {

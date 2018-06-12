@@ -73,7 +73,7 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 		this.positionX = x;
 	}
 	public final void setPV(int p) {
-		
+
 	}
 
 	public final SimpleIntegerProperty YProperty() {
@@ -91,7 +91,7 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 	public int getTailleY() {
 		return tailleY;
 	}
-	
+
 	public Rectangle2D getRectangle() {
 		return rectangle;
 	}
@@ -103,6 +103,6 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 	public void setOrientation(int orientation) {
 		this.orientation = orientation;
 	}
-	
+
 
 }

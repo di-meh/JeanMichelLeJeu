@@ -29,7 +29,7 @@ public class Jeu {
 		//zone1
 		addEnnemi(new Ennemi("testEnnemi1",50, 0, 80));
 		addEnnemi(new Ennemi("testEnnemi2",50, 80, 0));
-		
+
 		//zone2
 
 		//ajouter les pnjs
@@ -82,10 +82,10 @@ public class Jeu {
 	public ObservableList<Item> getListeItems() {
 		return listeItems;
 	}
-	
+
 	public boolean peutSeDeplacer(int orientation) {
 		for (Ennemi e: this.listeEnnemis) {
-			
+
 			switch(orientation) {
 			case 0: 
 				if (!this.collision.collisionneObstacle(jeanMichel.getX(), jeanMichel.getY() - 4) 
@@ -117,18 +117,18 @@ public class Jeu {
 		}
 		return false;
 	}
-	
+
 	public boolean collisionObjet() {
 		for (Item i: listeItems) {
 			if (this.getJeanMichel().getX() == i.getX() 
-						&& this.getJeanMichel().getY() == i.getY())
+					&& this.getJeanMichel().getY() == i.getY())
 				return true;
-						//				|| this.jeu.getJeanMichel().getX()+this.jeu.getJeanMichel().getTailleX() == this.jeu.getListeItems().get(0).getX() 
-						//				&& this.jeu.getJeanMichel().getY() == this.jeu.getListeItems().get(0).getY()
-						//				|| this.jeu.getJeanMichel().getX() == this.jeu.getListeItems().get(0).getX() 
-						//				&& this.jeu.getJeanMichel().getY()+this.jeu.getJeanMichel().getTailleY() == this.jeu.getListeItems().get(0).getY()
-						//				|| this.jeu.getJeanMichel().getX()+this.jeu.getJeanMichel().getTailleX() == this.jeu.getListeItems().get(0).getX() 
-						//				&& this.jeu.getJeanMichel().getY()+this.jeu.getJeanMichel().getTailleY() == this.jeu.getListeItems().get(0).getY()
+			//				|| this.jeu.getJeanMichel().getX()+this.jeu.getJeanMichel().getTailleX() == this.jeu.getListeItems().get(0).getX() 
+			//				&& this.jeu.getJeanMichel().getY() == this.jeu.getListeItems().get(0).getY()
+			//				|| this.jeu.getJeanMichel().getX() == this.jeu.getListeItems().get(0).getX() 
+			//				&& this.jeu.getJeanMichel().getY()+this.jeu.getJeanMichel().getTailleY() == this.jeu.getListeItems().get(0).getY()
+			//				|| this.jeu.getJeanMichel().getX()+this.jeu.getJeanMichel().getTailleX() == this.jeu.getListeItems().get(0).getX() 
+			//				&& this.jeu.getJeanMichel().getY()+this.jeu.getJeanMichel().getTailleY() == this.jeu.getListeItems().get(0).getY()
 		}
 		return false;
 	}

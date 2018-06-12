@@ -9,7 +9,7 @@ import javafx.scene.input.KeyEvent;
 public class JeanMichel extends Personnage{
 
 	private ArrayList<Arme> inventaireArmes;
-	
+
 	private ArrayList<Item> inventaire;
 
 	private Arme equipee;
@@ -18,7 +18,7 @@ public class JeanMichel extends Personnage{
 	private Jeu jeu;
 
 	private int orientation;
-	
+
 	public JeanMichel(Arme e, int x, int y) {
 		super("Jean-Michel", 100, x, y, 17, 23);
 		this.inventaire = new ArrayList<>();
@@ -41,14 +41,14 @@ public class JeanMichel extends Personnage{
 
 		switch(value) {
 		case Z: this.orientation =0;
-				if(jeu.peutSeDeplacer(orientation)) haut();
+		if(jeu.peutSeDeplacer(orientation)) haut();
 		break;
 		case Q: this.orientation = 1;
 		if(jeu.peutSeDeplacer(orientation))
 			gauche();
 		break;
 		case S: this.orientation = 2;
-			if(jeu.peutSeDeplacer(orientation))
+		if(jeu.peutSeDeplacer(orientation))
 			bas();
 		break;
 		case D: this.orientation = 3;
@@ -69,12 +69,12 @@ public class JeanMichel extends Personnage{
 		default:
 			break;
 		}
-//		if (this.getX() == this.jeu.getItem().getX() && this.getY() == this.jeu.getItem().getY()
-////		|| this.getX()+this.getTailleX() == this.jeu.getItem().getX() && this.getY()+this.getTailleY() == this.jeu.getItem().getY()
-////		|| this.getX() == this.jeu.getItem().getX() && this.getY()+this.getTailleY() == this.jeu.getItem().getY()
-////		|| this.getX()+this.getTailleX() == this.jeu.getItem().getX() && this.getY() == this.jeu.getItem().getY()
-//				)
-//			ramasserItem();
+		//		if (this.getX() == this.jeu.getItem().getX() && this.getY() == this.jeu.getItem().getY()
+		////		|| this.getX()+this.getTailleX() == this.jeu.getItem().getX() && this.getY()+this.getTailleY() == this.jeu.getItem().getY()
+		////		|| this.getX() == this.jeu.getItem().getX() && this.getY()+this.getTailleY() == this.jeu.getItem().getY()
+		////		|| this.getX()+this.getTailleX() == this.jeu.getItem().getX() && this.getY() == this.jeu.getItem().getY()
+		//				)
+		//			ramasserItem();
 	}
 
 	public void haut() {
@@ -132,28 +132,28 @@ public class JeanMichel extends Personnage{
 
 	}
 
-//	public void pousser(KeyEvent c) { //TODO gérer le cas de tirer
-//		// Impossible de gérer deux keypress à la suite à travers deux méthodes différentes 
-//
-//		KeyCode value = c.getCode();
-//		switch (value) {
-//		case Z:if(!this.collision.collisionneObstacle(getX(), getY() - 4) 
-//				&& !this.collision.collisionneObstacle(getX() + getTailleX(), getY()-4)) System.out.println("Bouton Z presséééééééééééééééééééééééééééééé");
-//		break;
-//		case S:if(!this.collision.collisionneObstacle(getX(), getY() + 4 + getTailleY()) 
-//				&& !this.collision.collisionneObstacle(getX() + getTailleX(), getY() + 4 + getTailleY())) System.out.println("Bouton S presséééééééééééééééééééééééééééééé");
-//		break;
-//		case Q:if(!this.collision.collisionneObstacle(getX() - 4, getY()) 
-//				&& !this.collision.collisionneObstacle(getX() - 4, getY()+getTailleY()) 
-//				&& !this.collision.collisionneObstacle(getX() - 4, getY()+getTailleY()/2)) System.out.println("Bouton Q presséééééééééééééééééééééééééééééé");
-//		break;
-//		case D: if(!this.collision.collisionneObstacle(getX() + 4 + getTailleX(), getY()) 
-//				&& !this.collision.collisionneObstacle(getX() + getTailleX() + 4, getY() + getTailleY()) 
-//				&& !this.collision.collisionneObstacle(getX() + getTailleX() + 4, getY() + getTailleY()/2)) System.out.println("Bouton D presséééééééééééééééééééééééééééééé");
-//		break;
-//		default: break;
-//		}
-//	}
+	//	public void pousser(KeyEvent c) { //TODO gérer le cas de tirer
+	//		// Impossible de gérer deux keypress à la suite à travers deux méthodes différentes 
+	//
+	//		KeyCode value = c.getCode();
+	//		switch (value) {
+	//		case Z:if(!this.collision.collisionneObstacle(getX(), getY() - 4) 
+	//				&& !this.collision.collisionneObstacle(getX() + getTailleX(), getY()-4)) System.out.println("Bouton Z presséééééééééééééééééééééééééééééé");
+	//		break;
+	//		case S:if(!this.collision.collisionneObstacle(getX(), getY() + 4 + getTailleY()) 
+	//				&& !this.collision.collisionneObstacle(getX() + getTailleX(), getY() + 4 + getTailleY())) System.out.println("Bouton S presséééééééééééééééééééééééééééééé");
+	//		break;
+	//		case Q:if(!this.collision.collisionneObstacle(getX() - 4, getY()) 
+	//				&& !this.collision.collisionneObstacle(getX() - 4, getY()+getTailleY()) 
+	//				&& !this.collision.collisionneObstacle(getX() - 4, getY()+getTailleY()/2)) System.out.println("Bouton Q presséééééééééééééééééééééééééééééé");
+	//		break;
+	//		case D: if(!this.collision.collisionneObstacle(getX() + 4 + getTailleX(), getY()) 
+	//				&& !this.collision.collisionneObstacle(getX() + getTailleX() + 4, getY() + getTailleY()) 
+	//				&& !this.collision.collisionneObstacle(getX() + getTailleX() + 4, getY() + getTailleY()/2)) System.out.println("Bouton D presséééééééééééééééééééééééééééééé");
+	//		break;
+	//		default: break;
+	//		}
+	//	}
 
 	public Jeu getJeu() {
 		return this.jeu;
@@ -163,7 +163,7 @@ public class JeanMichel extends Personnage{
 	public void setJeu(Jeu e) {
 		this.jeu = e;
 	}
-	
+
 	public ArrayList<Item> getInventaire() {
 		return this.inventaire;
 	}

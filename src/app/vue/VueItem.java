@@ -5,11 +5,11 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.image.ImageView;
 
 public abstract class VueItem {
-	
+
 	protected Item item;
 	private ImageView sprite;
 	private Rectangle2D rectangle;
-	
+
 	public VueItem(Item i, String url) {
 		this.item = i;
 		this.sprite = new ImageView(url);
@@ -17,11 +17,11 @@ public abstract class VueItem {
 		this.sprite.translateXProperty().bind(this.item.XProperty());
 		this.sprite.translateYProperty().bind(this.item.YProperty());
 	}
-	
+
 	public ImageView getSprite() {
 		return sprite;
 	}
-	
+
 	public Rectangle2D getRectangle() {
 		return rectangle;
 	}

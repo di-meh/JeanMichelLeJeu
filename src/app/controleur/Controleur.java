@@ -91,16 +91,16 @@ public class Controleur implements Initializable {
 				// c'est un eventHandler d'ou le lambda
 
 				(ev ->{
-					//TODO gérer le changement de sprite
+//					TODO gérer le changement de sprite
 //					switch (this.getJeanMichel().getOrientation()) {
 //					case 0:
-//						break;
+//					break;
 //					case 1: 
-//						break;
+//					break;
 //					case 2: 
-//						break;
+//					break;
 //					case 3: 
-//						break;
+//					break;
 //					}
 					if (jeu.collisionObjet()) {
 						//TODO le faire dans le modèle
