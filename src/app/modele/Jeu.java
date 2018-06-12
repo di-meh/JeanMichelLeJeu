@@ -23,7 +23,10 @@ public class Jeu {
 		//ajouter les ennemis
 		//zone1
 		addEnnemi(new Ennemi("testEnnemi1",5, 0, 80));
-//		addEnnemi(new Ennemi("testEnnemi2",5, 80, 0));
+		addEnnemi(new Ennemi("testEnnemi2",5, 80, 0));
+		addEnnemi(new Ennemi("testEnnemi3",5, 50, 0));
+		addEnnemi(new Ennemi("testEnnemi4",5, 80, 60));
+		addEnnemi(new Ennemi("testEnnemi5",5, 400, 0));
 
 		//zone2
 

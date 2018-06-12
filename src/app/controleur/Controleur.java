@@ -2,6 +2,8 @@ package app.controleur;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import app.modele.Ennemi;
 import app.modele.JeanMichel;
 import app.modele.Jeu;
 import app.modele.Terrain;
@@ -10,6 +12,8 @@ import app.vue.VueJeanMichel;
 import app.vue.VueTerrain;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.DialogPane;
@@ -29,9 +33,6 @@ public class Controleur implements Initializable {
 	//vues
 	private VueTerrain vueMap;
 	private VueJeanMichel vueHeros;
-	private VueEnnemi vueEnnemi;
-
-
 	private Timeline gameLoop;
 
 	//FXML
@@ -71,9 +72,15 @@ public class Controleur implements Initializable {
 		this.jeu = new Jeu();
 		this.dialog = new DialogPane();
 		this.jeu.getJeanMichel().setJeu(this.jeu);
-		this.jeu.getEnnemis().get(0).setJeu(this.jeu);
-
-		this.vueEnnemi = new VueEnnemi(this.jeu.getEnnemis().get(0));
+		jeu.getJeanMichel().pointsVieProperty().addListener(new ChangeListener<Number>() {
+			@Override
+			public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+				// TODO Auto-generated method stub
+				verifVie();
+				
+			}
+		});
+		
 		this.vueMap = new VueTerrain(this.map);
 		this.vueHeros = new VueJeanMichel(this.jeu.getJeanMichel());
 
@@ -84,7 +91,12 @@ public class Controleur implements Initializable {
 
 		//affichage des persos
 		this.pane.getChildren().add(vueHeros.getSprite());
-		this.pane.getChildren().add(vueEnnemi.getSprite());
+		for (Ennemi en : jeu.getEnnemis()) {
+			en.setJeu(jeu);
+			new VueEnnemi(en);
+			this.pane.getChildren().add(en.getVue().getSprite());
+		}
+		
 		
 		pane.getChildren().add(dialog);
 		dialog.setVisible(false);
@@ -125,13 +137,12 @@ public class Controleur implements Initializable {
 							Jeu.ennemiRetiré=null;
 							dialog.setContentText("Bravo, tu as tué\nton premier cactus");
 							dialog.setPrefWidth(170);
-							dialog.setPrefHeight(70);
+							dialog.setPrefHeight(72);
 							dialog.setLayoutY(400);
 							dialog.setLayoutX(500-dialog.getPrefWidth());
 							dialog.setOpacity(.59);
 							dialog.setVisible(true);
 						}
-						verifVie();
 
 					}
 				})
@@ -157,27 +168,27 @@ public class Controleur implements Initializable {
 	}
 	public void verifVie() {
 		int vieJM = jeu.getJeanMichel().getPointsVie();
-		if (vieJM/2 >= 5) {
+		if (vieJM >= 5) {
 			heart4.setImage(heart0.getImage());
 		}else {
 			heart4.setImage(new Image("file:./src/app/img/heartempty.png"));
 		}
-		if (vieJM/2 >= 4) {
+		if (vieJM >= 4) {
 			heart3.setImage(heart0.getImage());
 		}else {
 			heart3.setImage(new Image("file:./src/app/img/heartempty.png"));
 		}
-		if (vieJM/2 >= 3) {
+		if (vieJM >= 3) {
 			heart2.setImage(heart0.getImage());
 		}else {
 			heart2.setImage(new Image("file:./src/app/img/heartempty.png"));
 		}
-		if (vieJM/2 >= 2) {
+		if (vieJM >= 2) {
 			heart1.setImage(heart0.getImage());
 		}else {
 			heart1.setImage(new Image("file:./src/app/img/heartempty.png"));
 		}
-		if (vieJM/2 >= 1) {
+		if (vieJM >= 1) {
 			heart0.setImage(heart0.getImage());
 		}
 	}
