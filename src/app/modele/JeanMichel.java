@@ -36,47 +36,51 @@ public class JeanMichel extends Personnage{
 	public void action(KeyEvent e) {
 
 		KeyCode value = e.getCode();
-
-		switch(value) {
-		case Z: if(!this.collision.collisionne(getX(), getY() - 4) 
-				&& !this.collision.collisionne(getX() + getTailleX(), getY()-4) 
-				&& !this.collision.collisionPerso(this.jeu.getEnnemis().get(0), this, 0, 4))
-			haut();
-		break;
-		case Q: if(!this.collision.collisionne(getX() - 4, getY()) 
-				&& !this.collision.collisionne(getX() - 4, getY()+getTailleY()) 
-				&& !this.collision.collisionne(getX() - 4, getY()+getTailleY()/2) 
-				&& !this.collision.collisionPerso(this.jeu.getEnnemis().get(0), this, 1, 4))
-			gauche();
-		break;
-		case S: if(!this.collision.collisionne(getX(), getY() + 4 + getTailleY()) 
-				&& !this.collision.collisionne(getX() + getTailleX(), getY() + 4 + getTailleY()) 
-				&& !this.collision.collisionPerso(this.jeu.getEnnemis().get(0), this, 2, 4))
-			bas();
-		break;
-		case D: if(!this.collision.collisionne(getX() + 4 + getTailleX(), getY()) 
-				&& !this.collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()) 
-				&& !this.collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()/2) 
-				&& !this.collision.collisionPerso(this.jeu.getEnnemis().get(0), this, 3, 4))
-			droite();
-		break;
-		case E: //System.out.println("Button E pressed"); //attaquer
-			if(this.collision.collisionPerso(this.jeu.getEnnemis().get(0), this, 0, 4) || this.collision.collisionPerso(this.jeu.getEnnemis().get(0), this, 1, 4)||this.collision.collisionPerso(this.jeu.getEnnemis().get(0), this, 2, 4)||this.collision.collisionPerso(this.jeu.getEnnemis().get(0), this, 3, 4))
-				this.attaquer(this.jeu.getEnnemis().get(0));
-			System.out.println(this.jeu.getEnnemis().get(0).getPointsVie());
+		try {
+			
+			switch(value) {
+			case Z: if(!this.collision.collisionne(getX(), getY() - 4) 
+					&& !this.collision.collisionne(getX() + getTailleX(), getY()-4) 
+					&& !this.collision.collisionPerso(ennemiACote(), this, 0, 4))
+				haut();
 			break;
-		case F: System.out.println("Button F pressed");//pousser/tirer
-		pousser(e);
-		break;
-		case K: //System.out.println("Button K pressed"); //changer d'arme
-			this.setPointsVie(getPointsVie()+1);
+			case Q: if(!this.collision.collisionne(getX() - 4, getY()) 
+					&& !this.collision.collisionne(getX() - 4, getY()+getTailleY()) 
+					&& !this.collision.collisionne(getX() - 4, getY()+getTailleY()/2) 
+					&& !this.collision.collisionPerso(ennemiACote(), this, 1, 4))
+				gauche();
 			break;
-		case L: parler();
-		break;
-		case M: System.out.println("Button M pressed"); //afficher map
-		break;
-		default:
+			case S: if(!this.collision.collisionne(getX(), getY() + 4 + getTailleY()) 
+					&& !this.collision.collisionne(getX() + getTailleX(), getY() + 4 + getTailleY()) 
+					&& !this.collision.collisionPerso(ennemiACote(), this, 2, 4))
+				bas();
 			break;
+			case D: if(!this.collision.collisionne(getX() + 4 + getTailleX(), getY()) 
+					&& !this.collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()) 
+					&& !this.collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()/2) 
+					&& !this.collision.collisionPerso(ennemiACote(), this, 3, 4))
+				droite();
+			break;
+			case E: //System.out.println("Button E pressed"); //attaquer
+				if(this.collision.collisionPerso(ennemiACote(), this, 0, 4) || this.collision.collisionPerso(ennemiACote(), this, 1, 4)||this.collision.collisionPerso(ennemiACote(), this, 2, 4)||this.collision.collisionPerso(ennemiACote(), this, 3, 4))
+					this.attaquer(ennemiACote());
+				System.out.println(ennemiACote().getPointsVie());
+				break;
+			case F: System.out.println("Button F pressed");//pousser/tirer
+			pousser(e);
+			break;
+			case K: //System.out.println("Button K pressed"); //changer d'arme
+				this.setPointsVie(getPointsVie()+1);
+				break;
+			case L: parler();
+			break;
+			case M: System.out.println("Button M pressed"); //afficher map
+			break;
+			default:
+				break;
+			}
+		} catch (Exception e2) {
+			// TODO: handle exception
 		}
 	}
 
@@ -168,7 +172,14 @@ public class JeanMichel extends Personnage{
 
 	public void setJeu(Jeu j) {
 		this.jeu = j;
-
+	}
+	
+	public Ennemi ennemiACote() {
+		for (Ennemi e : jeu.getEnnemis()) {
+			if((int)e.getX()/16 == (int)((this.getX())/16) && (int)e.getY()/16 == (int)((this.getY())/16) || (int)e.getX()/16 == (int)((this.getX()+4)/16) && (int)e.getY()/16 == (int)((this.getY()+4)/16) || (int)e.getX()/16 == (int)((this.getX()-4)/16) && (int)e.getY()/16 == (int)((this.getY()-4)/16) || (int)e.getX()/16 == (int)((this.getX())/16) && (int)e.getY()/16 == (int)((this.getY()-4)/16) || (int)e.getX()/16 == (int)((this.getX()+4)/16) && (int)e.getY()/16 == (int)((this.getY())/16) || (int)e.getX()/16 == (int)((this.getX())/16) && (int)e.getY()/16 == (int)((this.getY()+4)/16) || (int)e.getX()/16 == (int)((this.getX()+4)/16) && (int)e.getY()/16 == (int)((this.getY()-4)/16) || (int)e.getX()/16 == (int)((this.getX()-4)/16) && (int)e.getY()/16 == (int)((this.getY()+4)/16) || (int)e.getX()/16 == (int)((this.getX()-4)/16) && (int)e.getY()/16 == (int)((this.getY())/16)) 
+				return e;			
+		}
+		return null;
 	}
 
 }

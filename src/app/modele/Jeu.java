@@ -23,7 +23,7 @@ public class Jeu {
 		//ajouter les ennemis
 		//zone1
 		addEnnemi(new Ennemi("testEnnemi1",5, 0, 80));
-		addEnnemi(new Ennemi("testEnnemi2",5, 80, 0));
+//		addEnnemi(new Ennemi("testEnnemi2",5, 80, 0));
 
 		//zone2
 
@@ -53,14 +53,17 @@ public class Jeu {
 	}
 
 	public void update() {
-		for (Ennemi ennemi : ennemis) {
-			if(ennemi.getPointsVie() != 0) {
-				ennemi.seDeplacer();
-			}else {
-				ennemis.remove(ennemi);
-			}
-		} 
-
+		try {
+			for (Ennemi ennemi : ennemis) {
+				if(ennemi.getPointsVie() != 0) {
+					ennemi.seDeplacer();
+				}else {
+					ennemis.remove(ennemi);
+				}
+			} 
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	} 
 
 	public void addEnnemi(Ennemi e) {

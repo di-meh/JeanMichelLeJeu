@@ -12,6 +12,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.DialogPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -60,12 +61,15 @@ public class Controleur implements Initializable {
 
 	@FXML
 	private ImageView heart4;
+	
+	@FXML
+	private DialogPane dialog;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		this.map = new Terrain();
 		this.jeu = new Jeu();
-
+		this.dialog = new DialogPane();
 		this.jeu.getJeanMichel().setJeu(this.jeu);
 		this.jeu.getEnnemis().get(0).setJeu(this.jeu);
 
@@ -81,7 +85,9 @@ public class Controleur implements Initializable {
 		//affichage des persos
 		this.pane.getChildren().add(vueHeros.getSprite());
 		this.pane.getChildren().add(vueEnnemi.getSprite());
-
+		
+		pane.getChildren().add(dialog);
+		dialog.setVisible(false);
 		init();
 		getGameLoop().play();
 	}
@@ -102,13 +108,28 @@ public class Controleur implements Initializable {
 						System.out.println("Vous êtes mort");
 						heart0.setImage(new Image("file:./src/app/img/heartempty.png"));
 						this.pane.getChildren().remove(4);
+						dialog.setContentText("GAME OVER");
+						dialog.setPrefWidth(110);
+						dialog.setPrefHeight(20);
+						dialog.setLayoutY(510/2 - dialog.getPrefHeight()/2);
+						dialog.setLayoutX(510/2 - dialog.getPrefWidth()/2);
+						dialog.setOpacity(.75);
+						dialog.setVisible(true);
 						getGameLoop().stop();
+
 					}
 					else {
 						this.jeu.update();
 						if (Jeu.ennemiRetiré != null) {
 							pane.getChildren().remove(Jeu.ennemiRetiré.getVue().getSprite());
 							Jeu.ennemiRetiré=null;
+							dialog.setContentText("Bravo, tu as tué\nton premier cactus");
+							dialog.setPrefWidth(170);
+							dialog.setPrefHeight(70);
+							dialog.setLayoutY(400);
+							dialog.setLayoutX(500-dialog.getPrefWidth());
+							dialog.setOpacity(.59);
+							dialog.setVisible(true);
 						}
 						verifVie();
 

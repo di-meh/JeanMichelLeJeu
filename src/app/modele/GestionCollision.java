@@ -66,6 +66,7 @@ public class GestionCollision {
 	}
 
 	public boolean collisionPerso(Personnage p, Personnage p1, int d, int pas) {
+		if (p==null) return false;
 		switch(d) {
 		case 0: return verifie(p, p1, 0, -pas);
 		case 1: return verifie(p, p1, -pas, 0);
