@@ -4,6 +4,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import app.modele.Coeur;
+import app.modele.Ennemi;
+import app.modele.Item;
 //import app.modele.Ennemi;
 //import app.modele.Item;
 import app.modele.JeanMichel;
@@ -16,6 +18,7 @@ import app.vue.VueJeanMichel;
 import app.vue.VueTerrain;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.collections.ObservableList;
 //import javafx.collections.FXCollections;
 //import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -37,9 +40,9 @@ public class Controleur implements Initializable {
 	private VueItem vueitem;
 
 	private Timeline gameLoop;
-	
+
 	//private ObservableList<Item> listeItems;
-	//private ObservableList<Ennemi> listeEnnemis;
+	private ObservableList<Ennemi> listeEnnemis;
 
 	//FXML
 	@FXML
@@ -72,8 +75,6 @@ public class Controleur implements Initializable {
 		this.pane.getChildren().add(vueitem.getSprite());
 		this.pane.getChildren().add(vueHeros.getSprite());
 		this.pane.getChildren().add(vueEnnemi.getSprite());
-		
-
 		init();
 		getGameLoop().play();
 	}
@@ -90,21 +91,31 @@ public class Controleur implements Initializable {
 				// c'est un eventHandler d'ou le lambda
 
 				(ev ->{
-						if (collisionObjet()) {
-							//TODO le faire dans le modèle
-								this.pane.getChildren().remove(vueitem.getSprite());
-								this.jeu.getListeItems().remove(0);
-								
-								
-							//System.out.println("Coeur récupéré");
-						}
-						if(this.jeu.getJeanMichel().getPointsVie() == 0){
-							System.out.println("Vous êtes mort");
-							getGameLoop().stop();
-						}
-						else
-							this.jeu.update();
-						//L'ennemi s'arrête de bouger, ce qui signifie que la gameloop s'arrête
+					//TODO gérer le changement de sprite
+//					switch (this.getJeanMichel().getOrientation()) {
+//					case 0:
+//						break;
+//					case 1: 
+//						break;
+//					case 2: 
+//						break;
+//					case 3: 
+//						break;
+//					}
+					if (jeu.collisionObjet()) {
+						//TODO le faire dans le modèle
+						this.pane.getChildren().remove(vueitem.getSprite());
+						this.jeu.getListeItems().remove(0);
+						this.getJeanMichel().pointsVieProperty().set(this.getJeanMichel().getPointsVie()+5);
+						if (this.getJeanMichel().getPointsVie() > 100) this.getJeanMichel().pointsVieProperty().set(100);
+
+					}
+					if(this.jeu.getJeanMichel().getPointsVie() == 0){
+						System.out.println("Vous êtes mort");
+						getGameLoop().stop();
+					}
+					else
+						this.jeu.update();
 				})
 				);
 		getGameLoop().getKeyFrames().add(kf);
@@ -126,22 +137,5 @@ public class Controleur implements Initializable {
 	public JeanMichel getJeanMichel() {
 		return this.jeu.getJeanMichel();
 	}
-	
-	private boolean collisionObjet() {
-		try {
-			return this.jeu.getJeanMichel().getX() == this.jeu.getListeItems().get(0).getX() 
-					&& this.jeu.getJeanMichel().getY() == this.jeu.getListeItems().get(0).getY()
-//				|| this.jeu.getJeanMichel().getX()+this.jeu.getJeanMichel().getTailleX() == this.jeu.getListeItems().get(0).getX() 
-//				&& this.jeu.getJeanMichel().getY() == this.jeu.getListeItems().get(0).getY()
-//				|| this.jeu.getJeanMichel().getX() == this.jeu.getListeItems().get(0).getX() 
-//				&& this.jeu.getJeanMichel().getY()+this.jeu.getJeanMichel().getTailleY() == this.jeu.getListeItems().get(0).getY()
-//				|| this.jeu.getJeanMichel().getX()+this.jeu.getJeanMichel().getTailleX() == this.jeu.getListeItems().get(0).getX() 
-//				&& this.jeu.getJeanMichel().getY()+this.jeu.getJeanMichel().getTailleY() == this.jeu.getListeItems().get(0).getY()
-				;
-			
-		}catch (Exception e) {
-			return false;
-		}
-	}
-	
+
 }

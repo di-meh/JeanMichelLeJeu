@@ -1,5 +1,7 @@
 package app.vue;
 
+import java.util.ArrayList;
+
 //import java.util.ArrayList;
 
 import app.modele.Personnage;
@@ -12,11 +14,13 @@ public class VuePersonnage {
 	private ImageView sprite;
 	private Rectangle2D rectangle;
 	
-	//protected ArrayList<ImageView> sprites;
+	private ArrayList<ImageView> sprites;
 	
 	public VuePersonnage(Personnage p, String url) {
 		this.personnage = p;
 		this.sprite = new ImageView(url);
+		this.sprites = new ArrayList<>();
+		sprites.add(sprite);
 		rectangle = new Rectangle2D(sprite.getX(), sprite.getY(), sprite.getFitWidth(), sprite.getFitHeight());
 		this.sprite.translateXProperty().bind(this.personnage.XProperty());
 		this.sprite.translateYProperty().bind(this.personnage.YProperty());

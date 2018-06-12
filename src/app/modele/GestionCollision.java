@@ -1,6 +1,8 @@
 package app.modele;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class GestionCollision {
 	
@@ -8,6 +10,7 @@ public class GestionCollision {
 	private Terrain terrain;
 
 	private ArrayList<Integer> obstacles, obstacles_mov;
+	
 
 	public GestionCollision() {
 		this.terrain = new Terrain();
@@ -27,6 +30,10 @@ public class GestionCollision {
 					liste.add(tab[x][y]);
 			}
 		}
+		Set<Integer> pivot = new HashSet<>();
+		pivot.addAll(liste);
+		liste.clear();
+		liste.addAll(pivot);
 		return liste;
 
 	}
@@ -91,5 +98,15 @@ public class GestionCollision {
 
 		return false;
 
+	}
+	
+	
+	public boolean collisionneObjet(JeanMichel j, Jeu e) {
+		for (Item i: e.getListeItems()) 
+			if (j.getX() == i.getX() && j.getY() == i.getY()) {
+				e.getListeItems().remove(i);
+				return true;
+			}
+		return false;
 	}
 }

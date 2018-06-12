@@ -12,6 +12,7 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 	protected SimpleIntegerProperty pointsVie;
 	private Rectangle2D rectangle;
 	private int tailleX, tailleY;
+	private int orientation;
 
 	public Personnage(String n, int px, int py, int tx, int ty) {
 
@@ -21,6 +22,7 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 		this.tailleX = tx;
 		this.tailleY = ty;
 		this.rectangle = new Rectangle2D(px, py, tx, ty);
+		this.setOrientation(0);
 	}
 
 	public Personnage(String n, int pv, int px, int py, int tx, int ty) {
@@ -31,6 +33,7 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 		this.positionY = new SimpleIntegerProperty(py);
 		this.tailleX = tx;
 		this.tailleY = ty;
+		this.setOrientation(0);
 
 	}
 
@@ -69,6 +72,9 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 	public final void setX(SimpleIntegerProperty x) {
 		this.positionX = x;
 	}
+	public final void setPV(int p) {
+		
+	}
 
 	public final SimpleIntegerProperty YProperty() {
 		return this.positionY;
@@ -88,6 +94,14 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 	
 	public Rectangle2D getRectangle() {
 		return rectangle;
+	}
+
+	public int getOrientation() {
+		return orientation;
+	}
+
+	public void setOrientation(int orientation) {
+		this.orientation = orientation;
 	}
 	
 

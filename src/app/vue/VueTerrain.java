@@ -52,17 +52,6 @@ public class VueTerrain {
 	public TilePane getTileMapMov() {
 		return tilemap_obs_mov;
 	}
-	
-	public void construcTilePane(int[][] tab) {
-		for (int x = 0; x< tab.length; x++) {
-			for (int y = 0; y<tab[x].length; y++) {
-				Image img = new Image("file:" + imageDe(tab[x][y]));
-				ImageView imgVw = new ImageView();
-				imgVw.setImage(img);
-				this.tilemap_obs.getChildren().add(imgVw);
-			}
-		}
-	}
 
 	public String imageDe(int i) {
 		try {
