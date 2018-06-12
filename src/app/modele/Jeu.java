@@ -24,7 +24,7 @@ public class Jeu {
 	public void init() {
 		//ajouter les ennemis
 		//zone1
-		addEnnemi(new Cactus("testEnnemi1",50, 0, 80));
+		addEnnemi(new Ennemi2("testEnnemi1",50, 120, 80));
 		addEnnemi(new Cactus("testEnnemi2",50, 80, 0));
 
 		//zone2
@@ -43,11 +43,14 @@ public class Jeu {
 	}
 
 	public void update() {
+		this.bfs.lancerBFS(this.jeanMichel);
 		this.ennemis.get(0).seDeplacer();
 		
-		this.bfs.lancerBFS(this.jeanMichel);
-		
 
+	}
+	
+	public BFS getBFS() {
+		return this.bfs;
 	}
 
 	public void addEnnemi(Ennemi e) {
@@ -72,10 +75,6 @@ public class Jeu {
 
 	public Jeu getJeu() {
 		return this;
-	}
-
-	public void setPositionEnnemi(Ennemi e) {
-		
 	}
 
 }

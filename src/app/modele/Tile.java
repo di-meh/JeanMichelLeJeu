@@ -11,6 +11,12 @@ public class Tile {
 		this.y = ny/16;
 	}
 	
+	public Tile(int nx, int ny, String bla) {
+		this.x = nx;
+		this.y = ny;
+		
+	}
+	
 	public int getX() {
 		return this.x;
 	}
