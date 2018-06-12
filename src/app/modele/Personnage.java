@@ -33,6 +33,7 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 		this.positionY = new SimpleIntegerProperty(py);
 		this.tailleX = tx;
 		this.tailleY = ty;
+		this.rectangle = new Rectangle2D(px, py, tx, ty);
 		this.setOrientation(0);
 
 	}

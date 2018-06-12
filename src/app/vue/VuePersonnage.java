@@ -21,9 +21,9 @@ public class VuePersonnage {
 		this.sprite = new ImageView(url);
 		this.sprites = new ArrayList<>();
 		sprites.add(sprite);
-		rectangle = new Rectangle2D(sprite.getX(), sprite.getY(), sprite.getFitWidth(), sprite.getFitHeight());
 		this.sprite.translateXProperty().bind(this.personnage.XProperty());
 		this.sprite.translateYProperty().bind(this.personnage.YProperty());
+		rectangle = new Rectangle2D(sprite.getX(), sprite.getY(), sprite.getFitWidth(), sprite.getFitHeight());
 	}
 
 	//	public ImageView getSprite() {

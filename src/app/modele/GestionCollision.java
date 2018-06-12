@@ -101,7 +101,7 @@ public class GestionCollision {
 
 	public boolean collisionneObjet(JeanMichel j, Jeu e) {
 		for (Item i: e.getListeItems()) 
-			if (j.getX() == i.getX() && j.getY() == i.getY()) {
+			if (j.getRectangle().intersects(i.getRectangle())) {
 				e.getListeItems().remove(i);
 				return true;
 			}

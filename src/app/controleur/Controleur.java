@@ -4,8 +4,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import app.modele.Coeur;
-import app.modele.Ennemi;
-import app.modele.Item;
+//import app.modele.Ennemi;
+//import app.modele.Item;
 //import app.modele.Ennemi;
 //import app.modele.Item;
 import app.modele.JeanMichel;
@@ -18,7 +18,7 @@ import app.vue.VueJeanMichel;
 import app.vue.VueTerrain;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.collections.ObservableList;
+//import javafx.collections.ObservableList;
 //import javafx.collections.FXCollections;
 //import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -42,7 +42,7 @@ public class Controleur implements Initializable {
 	private Timeline gameLoop;
 
 	//private ObservableList<Item> listeItems;
-	private ObservableList<Ennemi> listeEnnemis;
+	//private ObservableList<Ennemi> listeEnnemis;
 
 	//FXML
 	@FXML
@@ -105,7 +105,6 @@ public class Controleur implements Initializable {
 					if (jeu.collisionObjet()) {
 						//TODO le faire dans le modèle
 						this.pane.getChildren().remove(vueitem.getSprite());
-						this.jeu.getListeItems().remove(0);
 						this.getJeanMichel().pointsVieProperty().set(this.getJeanMichel().getPointsVie()+5);
 						if (this.getJeanMichel().getPointsVie() > 100) this.getJeanMichel().pointsVieProperty().set(100);
 

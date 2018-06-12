@@ -90,27 +90,34 @@ public class Jeu {
 			case 0: 
 				if (!this.collision.collisionneObstacle(jeanMichel.getX(), jeanMichel.getY() - 4) 
 						&& !this.collision.collisionneObstacle(jeanMichel.getX() + jeanMichel.getTailleX(), jeanMichel.getY()-4) 
-						&& !this.collision.collisionnePerso(e,jeanMichel, 0, 4))
+						&& !this.collision.collisionnePerso(e,jeanMichel, 0, 4)
+						//&& !this.jeanMichel.getRectangle().intersects(e.getRectangle())
+						)
 					return true;
 				break;
 			case 1:
 				if (!this.collision.collisionneObstacle(jeanMichel.getX()-4, jeanMichel.getY()) 
 						&& !this.collision.collisionneObstacle(jeanMichel.getX() -4, jeanMichel.getY() + jeanMichel.getTailleY()) 
-						&& !this.collision.collisionneObstacle(jeanMichel.getX() - 4, jeanMichel.getY()+jeanMichel.getTailleY()/2) 
-						&& !this.collision.collisionnePerso(e, jeanMichel, 1, 4))
+						&& !this.collision.collisionnePerso(e, jeanMichel, 1, 4)
+						//&& !this.jeanMichel.getRectangle().intersects(e.getRectangle())
+						)
 					return true;
 				break;
 			case 2:
 				if (!this.collision.collisionneObstacle(jeanMichel.getX(), jeanMichel.getY() + 4 + jeanMichel.getTailleY()) 
 						&& !this.collision.collisionneObstacle(jeanMichel.getX() + jeanMichel.getTailleX(), jeanMichel.getY() + 4 + jeanMichel.getTailleY()) 
-						&& !this.collision.collisionnePerso(e, jeanMichel, 2, 4))
+						&& !this.collision.collisionnePerso(e, jeanMichel, 2, 4)
+						//&& !this.jeanMichel.getRectangle().intersects(e.getRectangle())
+						)
 					return true;
 				break;
 			case 3:
 				if (!this.collision.collisionneObstacle(jeanMichel.getX() + 4 + jeanMichel.getTailleX(), jeanMichel.getY()) 
 						&& !this.collision.collisionneObstacle(jeanMichel.getX() + jeanMichel.getTailleX() + 4, jeanMichel.getY() + jeanMichel.getTailleY()) 
 						&& !this.collision.collisionneObstacle(jeanMichel.getX() + jeanMichel.getTailleX() + 4, jeanMichel.getY() + jeanMichel.getTailleY()/2) 
-						&& !this.collision.collisionnePerso(e, jeanMichel, 3, 4))
+						&& !this.collision.collisionnePerso(e, jeanMichel, 3, 4)
+						//&& !this.jeanMichel.getRectangle().intersects(e.getRectangle())
+						)
 					return true;
 				break;
 			}

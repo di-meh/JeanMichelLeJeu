@@ -23,13 +23,13 @@ public class Terrain {
 
 	public int[][] initMap(String url) { //Méthode permettant de générer une map via un text file
 
-		//Première version, à améliorer
+		//Première version, améliorable mais fonctionnelle
 
 		int[][] tab2d = new int[tailleTab][tailleTab];
 		String ligne = "";
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(url));
-			int x = 0; // Je pense qu'on peut remplacer les initialisations de x et y par des for
+			int x = 0; 
 			do {
 				int y = 0;
 				ligne = br.readLine();
