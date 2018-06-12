@@ -3,7 +3,6 @@ package app.modele;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Map.Entry;
 import java.util.Queue;
 
 public class BFS {
@@ -34,21 +33,9 @@ public class BFS {
 		
 		while(!this.file.isEmpty()) {
 			
-			/*System.out.println(" x = " + this.file.peek().getX() + " y = " + this.file.peek().getY());
-			System.out.println(this.tiles.toString());*/
-			
-			//affichage();
 			sommetsAdjacents(this.file.poll());
 		}
 		this.tilesMarquees.clear();
-	}
-	
-	public void affichage() {
-		for(Entry<Tile, Tile> entry : this.tiles.entrySet()){
-			Tile cle = entry.getKey();
-			Tile valeur = entry.getValue();
-			System.out.println("x = " + cle.getX() + " y = " + cle.getY() + " -> x = " + valeur.getX() + " y = " + valeur.getY()); //affichage console
-		}
 	}
 	
 	private void sommetsAdjacents(Tile t) {
