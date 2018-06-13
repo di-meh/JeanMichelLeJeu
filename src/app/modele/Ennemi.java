@@ -9,7 +9,7 @@ public class Ennemi extends Personnage{
 	protected Jeu jeu;
 
 	private VueEnnemi vue;
-	
+
 
 
 	public Ennemi(String n, int pv, int x, int y) {
@@ -24,11 +24,11 @@ public class Ennemi extends Personnage{
 				&& !this.collision.collisionnePerso(this.jeu.getJeanMichel(), this, 0, 1)
 				//&& !this.getRectangle().intersects(jeu.getJeanMichel().getRectangle())
 				) 
-		//if (jeu.peutSeDeplacer(orientation))
+			//if (jeu.peutSeDeplacer(orientation))
 		{
 			this.orientation = 0;
 			this.positionY.set(getY() - 1);
-			
+
 		}
 		else
 			this.orientation = 3;
@@ -40,11 +40,11 @@ public class Ennemi extends Personnage{
 				&& !this.collision.collisionnePerso(this.jeu.getJeanMichel(), this, 1, 1)
 				//&& !this.getRectangle().intersects(jeu.getJeanMichel().getRectangle())
 				) 
-		//if (jeu.peutSeDeplacer(orientation))
+			//if (jeu.peutSeDeplacer(orientation))
 		{
 			this.orientation = 1;
 			this.positionY.set(getY() + 1);
-			
+
 		}
 		else
 			this.orientation = 2;
@@ -57,11 +57,11 @@ public class Ennemi extends Personnage{
 				&& !this.collision.collisionnePerso(this.jeu.getJeanMichel(), this, 2, 1)
 				//&& !this.getRectangle().intersects(jeu.getJeanMichel().getRectangle())
 				) 
-		//if (jeu.peutSeDeplacer(orientation))
+			//if (jeu.peutSeDeplacer(orientation))
 		{
 			this.orientation = 2;
 			this.positionX.set(getX() - 1);
-			
+
 		}
 		else
 			this.orientation = 0;
@@ -74,11 +74,11 @@ public class Ennemi extends Personnage{
 				&& !this.collision.collisionnePerso(this.jeu.getJeanMichel(), this, 3, 1)
 				//&& !this.getRectangle().intersects(jeu.getJeanMichel().getRectangle())
 				) 
-		//if (jeu.peutSeDeplacer(orientation))
+			//if (jeu.peutSeDeplacer(orientation))
 		{    
 			this.orientation = 3;
 			this.positionX.set(getX() + 1);
-			
+
 		}
 		else
 			this.orientation = 1;
@@ -113,9 +113,9 @@ public class Ennemi extends Personnage{
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-}
-	
-	
+	}
+
+
 
 	public void setJeu(Jeu j) {
 		this.jeu = j;
@@ -128,6 +128,6 @@ public class Ennemi extends Personnage{
 	public void setVue(VueEnnemi vue) {
 		this.vue = vue;
 	}
-	
+
 
 }

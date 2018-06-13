@@ -2,14 +2,6 @@ package app.controleur;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import app.modele.Coeur;
-import app.modele.Ennemi;
-import app.modele.Item;
-//import app.modele.Ennemi;
-//import app.modele.Item;
-//import app.modele.Ennemi;
-//import app.modele.Item;
-
 import app.modele.*;
 import app.vue.*;
 import javafx.animation.KeyFrame;
@@ -17,9 +9,6 @@ import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
-//import javafx.collections.ObservableList;
-//import javafx.collections.FXCollections;
-//import javafx.collections.ObservableList;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -76,7 +65,7 @@ public class Controleur implements Initializable {
 
 	@FXML
 	private DialogPane dialog;
-	
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		this.map = new Terrain();
@@ -109,7 +98,7 @@ public class Controleur implements Initializable {
 			new VueEnnemi(en);
 			this.pane.getChildren().add(en.getVue().getSprite());
 		}
-		
+
 		this.jeu.getListeItems().addListener(new ListChangeListener<Item>() {
 
 			@Override
@@ -119,9 +108,9 @@ public class Controleur implements Initializable {
 						listeItems.remove(remitem);
 					}
 				}
-				
+
 			}
-			
+
 		});
 
 
@@ -143,17 +132,17 @@ public class Controleur implements Initializable {
 				// c'est un eventHandler d'ou le lambda
 
 				(ev ->{
-//					TODO gérer le changement de sprite
-//					switch (this.getJeanMichel().getOrientation()) {
-//					case 0:
-//					break;
-//					case 1: 
-//					break;
-//					case 2: 
-//					break;
-//					case 3: 
-//					break;
-//					}
+					//					TODO gérer le changement de sprite
+					//					switch (this.getJeanMichel().getOrientation()) {
+					//					case 0:
+					//					break;
+					//					case 1: 
+					//					break;
+					//					case 2: 
+					//					break;
+					//					case 3: 
+					//					break;
+					//					}
 					if (jeu.collisionObjet()) {
 						//TODO le faire dans le modèle
 						this.pane.getChildren().remove(vueitem.getSprite());
@@ -165,7 +154,7 @@ public class Controleur implements Initializable {
 						System.out.println("Vous êtes mort");
 						heart0.setImage(new Image("file:./src/app/img/heartempty.png"));
 						this.pane.getChildren().remove(vueHeros.getSprite());
-						
+
 						dialog.setContentText("GAME OVER");
 						dialog.setPrefWidth(110);
 						dialog.setPrefHeight(20);
@@ -178,10 +167,10 @@ public class Controleur implements Initializable {
 					}
 					else
 						this.jeu.update();
-						if (Jeu.ennemiRetiré != null) {
-							pane.getChildren().remove(Jeu.ennemiRetiré.getVue().getSprite());
-							Jeu.ennemiRetiré=null;
-							if(jeu.getEnnemis().size() == 4) {					  
+					if (Jeu.ennemiRetiré != null) {
+						pane.getChildren().remove(Jeu.ennemiRetiré.getVue().getSprite());
+						Jeu.ennemiRetiré=null;
+						if(jeu.getEnnemis().size() == 4) {					  
 							dialog.setContentText("Bravo, tu as tué\nton premier cactus");
 							dialog.setPrefWidth(170);
 							dialog.setPrefHeight(72);
@@ -189,11 +178,11 @@ public class Controleur implements Initializable {
 							dialog.setLayoutX(500-dialog.getPrefWidth());
 							dialog.setOpacity(.59);
 							dialog.setVisible(true);
-							}else
-								dialog.setVisible(false);
-						}
+						}else
+							dialog.setVisible(false);
+					}
 
-					
+
 				})
 				);
 		getGameLoop().getKeyFrames().add(kf);

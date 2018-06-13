@@ -9,7 +9,7 @@ public class Jeu {
 
 	private ObservableList<Ennemi> listeEnnemis;
 	private JeanMichel jeanMichel;
-	
+
 	private BFS bfs;
 	private ObservableList<Item> listeItems;
 	private GestionCollision collision;
@@ -36,23 +36,23 @@ public class Jeu {
 
 		//zone2
 
-//		addPNJ(new PNJArme("testPNJArme", 20, 40));
-//		addPNJ(new PNJItem("testPNJItem", 125, 40));
-//		addPNJ(new PNJVie("testPNJVie", 10, 200));
-//		//zone2
-//		addPNJ(new PNJArme("testPNJArme", 10, 200));
-//		addPNJ(new PNJItem("testPNJItem", 125, 40));
-//		addPNJ(new PNJVie("testPNJVie", 20, 40));
-//		this.listeItems.addListener(new ListChangeListener<Item>() {
-//			@Override
-//			public void onChanged(Change<? extends Item> c) {
-//				while(c.next()) {
-//					for (Item remitem: c.getRemoved()) {
-//						listeItems.remove(remitem);
-//					}
-//				}
-//			}
-//		});
+		//		addPNJ(new PNJArme("testPNJArme", 20, 40));
+		//		addPNJ(new PNJItem("testPNJItem", 125, 40));
+		//		addPNJ(new PNJVie("testPNJVie", 10, 200));
+		//		//zone2
+		//		addPNJ(new PNJArme("testPNJArme", 10, 200));
+		//		addPNJ(new PNJItem("testPNJItem", 125, 40));
+		//		addPNJ(new PNJVie("testPNJVie", 20, 40));
+		//		this.listeItems.addListener(new ListChangeListener<Item>() {
+		//			@Override
+		//			public void onChanged(Change<? extends Item> c) {
+		//				while(c.next()) {
+		//					for (Item remitem: c.getRemoved()) {
+		//						listeItems.remove(remitem);
+		//					}
+		//				}
+		//			}
+		//		});
 		listeEnnemis.addListener(new ListChangeListener<Ennemi>() {
 			@Override
 			public void onChanged(Change<? extends Ennemi> c) {
@@ -72,15 +72,15 @@ public class Jeu {
 
 	public void update() {
 		this.bfs.lancerBFS(this.jeanMichel);
-			for (Ennemi ennemi : listeEnnemis) {
-				if(ennemi.getPointsVie() != 0) {
-					ennemi.seDeplacer();
-				}else {
-					listeEnnemis.remove(ennemi);
-				}
-			} 
+		for (Ennemi ennemi : listeEnnemis) {
+			if(ennemi.getPointsVie() != 0) {
+				ennemi.seDeplacer();
+			}else {
+				listeEnnemis.remove(ennemi);
+			}
+		} 
 	}
-	
+
 	public BFS getBFS() {
 		return this.bfs;
 	}
@@ -142,9 +142,9 @@ public class Jeu {
 	public boolean collisionObjet() { //TODO gérer les collisions
 		for (Item i: listeItems) {
 			if (this.getJeanMichel().getX() == i.getX() && this.getJeanMichel().getY() == i.getY()
-				|| this.getJeanMichel().getX()+this.getJeanMichel().getTailleX() == i.getX() && this.getJeanMichel().getY() == i.getY()
-				|| this.getJeanMichel().getX() == i.getX() && this.getJeanMichel().getY()+this.getJeanMichel().getTailleY() == i.getY()
-				|| this.getJeanMichel().getX()+this.getJeanMichel().getTailleX() == i.getX() && this.getJeanMichel().getY()+this.getJeanMichel().getTailleY() == i.getY())
+					|| this.getJeanMichel().getX()+this.getJeanMichel().getTailleX() == i.getX() && this.getJeanMichel().getY() == i.getY()
+					|| this.getJeanMichel().getX() == i.getX() && this.getJeanMichel().getY()+this.getJeanMichel().getTailleY() == i.getY()
+					|| this.getJeanMichel().getX()+this.getJeanMichel().getTailleX() == i.getX() && this.getJeanMichel().getY()+this.getJeanMichel().getTailleY() == i.getY())
 				return true;
 			//				|| this.jeu.getJeanMichel().getX()+this.jeu.getJeanMichel().getTailleX() == this.jeu.getListeItems().get(0).getX() 
 			//				&& this.jeu.getJeanMichel().getY() == this.jeu.getListeItems().get(0).getY()

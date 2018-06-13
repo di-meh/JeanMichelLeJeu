@@ -57,7 +57,7 @@ public class JeanMichel extends Personnage{
 		case E:
 			if(this.collision.collisionnePerso(ennemiACote(), this, 0, 4) || this.collision.collisionnePerso(ennemiACote(), this, 1, 4)||this.collision.collisionnePerso(ennemiACote(), this, 2, 4)||this.collision.collisionnePerso(ennemiACote(), this, 3, 4))
 				this.attaquer(ennemiACote());
-		break;
+			break;
 		case F: System.out.println("Button F pressed");//pousser/tirer
 		//pousser(e);
 		break;
@@ -77,7 +77,7 @@ public class JeanMichel extends Personnage{
 		//				)
 		//			ramasserItem();
 	}
-	
+
 	public void haut() {
 		this.positionY.set(getY() - 4);
 	}

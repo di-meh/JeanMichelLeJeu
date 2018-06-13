@@ -12,7 +12,7 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 	protected SimpleIntegerProperty pointsVie;
 	private Rectangle2D rectangle;
 	private int tailleX, tailleY;
-	
+
 
 	private int orientation;
 
@@ -122,7 +122,7 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 		//		}
 		if (en != null && System.currentTimeMillis()%99==0) {
 			en.estAttaque(1);
-			
+
 		}
 	}
 	public void estAttaque(int atq) {
