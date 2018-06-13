@@ -50,7 +50,7 @@ public class Ennemi2 extends Ennemi{
 		if(!this.collision.collisionne(getX() + 1 + getTailleX(), getY()) 
 				&& !this.collision.collisionne(getX() + getTailleX() + 1, getY() + getTailleY()) 
 				&& !this.collision.collisionne(getX() + getTailleX() + 1, getY() + getTailleY()/2)
-				&& !this.collision.collisionPerso(this.jeu.getJeanMichel(), this, 3, 1)) {    
+				&& !this.collision.collisionPerso(this.jeu.getJeanMichel(), this, 3, 1)) {
 			this.positionX.set(getX() + 1);
 		}
 	}

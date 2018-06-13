@@ -20,7 +20,6 @@ public class Jeu {
 
 	public void init() {
 		//ajouter les ennemis
-		//zone1
 		addEnnemi(new Ennemi2("testEnnemi1",50, 120, 80));
 		addEnnemi(new Ennemi2("testEnnemi2",50, 80, 0));
 
