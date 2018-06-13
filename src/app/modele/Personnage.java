@@ -102,7 +102,7 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 		//		} catch (Exception e) {
 		//			// TODO: handle exception
 		//		}
-		if (en != null && System.currentTimeMillis()%9==0) {
+		if (en != null && System.currentTimeMillis()%99==0) {
 			en.estAttaque(1);
 			
 		}
