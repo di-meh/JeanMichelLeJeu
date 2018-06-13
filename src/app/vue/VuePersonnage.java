@@ -5,6 +5,7 @@ import java.util.ArrayList;
 //import java.util.ArrayList;
 
 import app.modele.Personnage;
+import javafx.beans.value.ObservableValue;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.image.ImageView;
 
@@ -24,6 +25,7 @@ public class VuePersonnage {
 		this.sprite.translateXProperty().bind(this.personnage.XProperty());
 		this.sprite.translateYProperty().bind(this.personnage.YProperty());
 		rectangle = new Rectangle2D(sprite.getX(), sprite.getY(), sprite.getFitWidth(), sprite.getFitHeight());
+		//sprite.viewportProperty().bind(personnage.getRectangle());
 	}
 
 	//	public ImageView getSprite() {
