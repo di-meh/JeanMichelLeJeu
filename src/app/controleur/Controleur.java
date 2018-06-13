@@ -3,10 +3,20 @@ package app.controleur;
 import java.net.URL;
 import java.util.ResourceBundle;
 import app.modele.Coeur;
+import app.modele.Ennemi;
+import app.modele.Item;
+//import app.modele.Ennemi;
+//import app.modele.Item;
+//import app.modele.Ennemi;
+//import app.modele.Item;
+
 import app.modele.*;
 import app.vue.*;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 //import javafx.collections.ObservableList;
 //import javafx.collections.FXCollections;
 //import javafx.collections.ObservableList;
@@ -36,8 +46,7 @@ public class Controleur implements Initializable {
 
 	private Timeline gameLoop;
 
-	//private ObservableList<Item> listeItems;
-	//private ObservableList<Ennemi> listeEnnemis;
+	private ObservableList<Item> listeItems;
 
 	//FXML
 	@FXML
@@ -72,6 +81,7 @@ public class Controleur implements Initializable {
 	public void initialize(URL location, ResourceBundle resources) {
 		this.map = new Terrain();
 		this.jeu = new Jeu();
+		listeItems = FXCollections.observableArrayList();
 		this.dialog = new DialogPane();
 		this.jeu.getJeanMichel().setJeu(this.jeu);
 		jeu.getJeanMichel().pointsVieProperty().addListener(new ChangeListener<Number>() {
@@ -99,6 +109,20 @@ public class Controleur implements Initializable {
 			new VueEnnemi(en);
 			this.pane.getChildren().add(en.getVue().getSprite());
 		}
+		
+		this.jeu.getListeItems().addListener(new ListChangeListener<Item>() {
+
+			@Override
+			public void onChanged(Change<? extends Item> c) {
+				while(c.next()) {
+					for (Item remitem: c.getRemoved()) {
+						listeItems.remove(remitem);
+					}
+				}
+				
+			}
+			
+		});
 
 
 		pane.getChildren().add(dialog);

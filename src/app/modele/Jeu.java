@@ -7,7 +7,7 @@ import javafx.collections.ObservableList;
 
 public class Jeu {
 
-	private ObservableList<Ennemi> ennemis;
+	private ObservableList<Ennemi> listeEnnemis;
 	private JeanMichel jeanMichel;
 	
 	private BFS bfs;
@@ -16,9 +16,9 @@ public class Jeu {
 
 	public static Ennemi ennemiRetiré=null;
 	public Jeu() {
+		this.listeEnnemis = FXCollections.observableArrayList();
 		this.collision = new GestionCollision();
 		this.listeItems = FXCollections.observableArrayList();
-		this.ennemis = FXCollections.observableArrayList();
 		this.jeanMichel = new JeanMichel(null, 0, 0);
 		this.bfs = new BFS();
 		this.listeItems.add(new Coeur(20,40));
@@ -36,8 +36,6 @@ public class Jeu {
 
 		//zone2
 
-		//ajouter les pnjs
-		//zone1
 //		addPNJ(new PNJArme("testPNJArme", 20, 40));
 //		addPNJ(new PNJItem("testPNJItem", 125, 40));
 //		addPNJ(new PNJVie("testPNJVie", 10, 200));
@@ -55,7 +53,7 @@ public class Jeu {
 //				}
 //			}
 //		});
-		ennemis.addListener(new ListChangeListener<Ennemi>() {
+		listeEnnemis.addListener(new ListChangeListener<Ennemi>() {
 			@Override
 			public void onChanged(Change<? extends Ennemi> c) {
 				while (c.next()) {
@@ -69,16 +67,16 @@ public class Jeu {
 	}
 
 	private void addEnnemi(Ennemi e) {
-		this.ennemis.add(e);
+		this.listeEnnemis.add(e);
 	}
 
 	public void update() {
 		this.bfs.lancerBFS(this.jeanMichel);
-			for (Ennemi ennemi : ennemis) {
+			for (Ennemi ennemi : listeEnnemis) {
 				if(ennemi.getPointsVie() != 0) {
 					ennemi.seDeplacer();
 				}else {
-					ennemis.remove(ennemi);
+					listeEnnemis.remove(ennemi);
 				}
 			} 
 	}
@@ -88,7 +86,7 @@ public class Jeu {
 	}
 
 	public ObservableList<Ennemi> getEnnemis() {
-		return this.ennemis;
+		return this.listeEnnemis;
 	}
 
 	public JeanMichel getJeanMichel() {
@@ -100,7 +98,7 @@ public class Jeu {
 	}
 
 	public boolean peutSeDeplacer(int orientation) {
-		for (Ennemi e: this.ennemis) {
+		for (Ennemi e: this.listeEnnemis) {
 
 			switch(orientation) {
 			case 0: 
