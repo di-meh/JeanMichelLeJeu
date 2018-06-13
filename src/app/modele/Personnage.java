@@ -38,7 +38,7 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 		this.tailleX = tx;
 		this.tailleY = ty;
 		this.rectangle = new Rectangle2D(px, py, tx, ty);
-		collision = new GestionCollision();
+		this.collision = new GestionCollision();
 
 		this.setOrientation(0);
 	}

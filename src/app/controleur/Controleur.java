@@ -47,7 +47,6 @@ public class Controleur implements Initializable {
 	private Timeline gameLoop;
 
 	private ObservableList<Item> listeItems;
-	private ObservableList<Ennemi> listeEnnemis;
 
 	//FXML
 	@FXML
@@ -83,7 +82,6 @@ public class Controleur implements Initializable {
 		this.map = new Terrain();
 		this.jeu = new Jeu();
 		listeItems = FXCollections.observableArrayList();
-		listeEnnemis = FXCollections.observableArrayList();
 		this.dialog = new DialogPane();
 		this.jeu.getJeanMichel().setJeu(this.jeu);
 		jeu.getJeanMichel().pointsVieProperty().addListener(new ChangeListener<Number>() {
