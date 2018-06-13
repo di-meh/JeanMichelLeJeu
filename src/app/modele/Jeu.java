@@ -1,10 +1,10 @@
 package app.modele;
 
 import java.util.ArrayList;
-
 import javafx.collections.FXCollections;
-//import javafx.collections.ListChangeListener;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
+//import javafx.collections.ListChangeListener;
 
 public class Jeu {
 
@@ -17,6 +17,7 @@ public class Jeu {
 	private ObservableList<Item> listeItems;
 	private GestionCollision collision;
 
+	public static Ennemi ennemiRetiré=null;
 	public Jeu() {
 		this.listeEnnemis = FXCollections.observableArrayList();
 		this.collision = new GestionCollision();
@@ -31,33 +32,62 @@ public class Jeu {
 
 	public void init() {
 		//ajouter les ennemis
-		addEnnemi(new Ennemi2("testEnnemi1",50, 120, 80));
-		addEnnemi(new Ennemi2("testEnnemi2",50, 80, 0));
-
-		//zone2
-
-		//ajouter les pnjs
 		//zone1
-		addPNJ(new PNJArme("testPNJArme", 20, 40));
-		addPNJ(new PNJItem("testPNJItem", 125, 40));
-		addPNJ(new PNJVie("testPNJVie", 10, 200));
+		addEnnemi(new Ennemi("testEnnemi1",5, 0, 80));
+		addEnnemi(new Ennemi("testEnnemi4",5, 80, 60));
+		addEnnemi(new Ennemi("testEnnemi5",5, 400, 0));
+		addEnnemi(new Ennemi2("testEnnemi1",5, 120, 80));
+		addEnnemi(new Ennemi2("testEnnemi2",5, 80, 0));
+
 		//zone2
-		addPNJ(new PNJArme("testPNJArme", 10, 200));
-		addPNJ(new PNJItem("testPNJItem", 125, 40));
-		addPNJ(new PNJVie("testPNJVie", 20, 40));
+
+//		addPNJ(new PNJArme("testPNJArme", 20, 40));
+//		addPNJ(new PNJItem("testPNJItem", 125, 40));
+//		addPNJ(new PNJVie("testPNJVie", 10, 200));
+//		//zone2
+//		addPNJ(new PNJArme("testPNJArme", 10, 200));
+//		addPNJ(new PNJItem("testPNJItem", 125, 40));
+//		addPNJ(new PNJVie("testPNJVie", 20, 40));
+//		this.listeItems.addListener(new ListChangeListener<Item>() {
+//			@Override
+//			public void onChanged(Change<? extends Item> c) {
+//				while(c.next()) {
+//					for (Item remitem: c.getRemoved()) {
+//						listeItems.remove(remitem);
+//					}
+//				}
+//			}
+//		});
+		listeEnnemis.addListener(new ListChangeListener<Ennemi>() {
+			@Override
+			public void onChanged(Change<? extends Ennemi> c) {
+				while (c.next()) {
+					if (c.wasRemoved()) {
+						for (Ennemi remitem : c.getRemoved()) {
+							ennemiRetiré=remitem;
+						}
+					}
+				}
+			}});
+	}
+
+	private void addEnnemi(Ennemi e) {
+		this.listeEnnemis.add(e);
 	}
 
 	public void update() {
 		this.bfs.lancerBFS(this.jeanMichel);
-		this.listeEnnemis.get(0).seDeplacer();
+			for (Ennemi ennemi : listeEnnemis) {
+				if(ennemi.getPointsVie() != 0) {
+					ennemi.seDeplacer();
+				}else {
+					listeEnnemis.remove(ennemi);
+				}
+			} 
 	}
 	
 	public BFS getBFS() {
 		return this.bfs;
-	}
-
-	public void addEnnemi(Ennemi e) {
-		this.listeEnnemis.add(e);
 	}
 
 	public ObservableList<Ennemi> getEnnemis() {

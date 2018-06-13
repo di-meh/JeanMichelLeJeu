@@ -15,11 +15,27 @@ public class GestionCollision {
 	public GestionCollision() {
 		this.terrain = new Terrain();
 
+		// Les commentaires dessous sont un test d'ajout des obstacles directement dans l'arraylist au lieu de les ajouter à la main
+		// Cependant un "problème" à soulever, est qu'il crée des doublons, mais dans le cas de notre utilisation, cela importe peu
 		int[][] tabObs = this.terrain.initMap(this.terrain.getUrlObs());
 		int [][] tabMov = this.terrain.initMap(this.terrain.getUrlMov());
 
 		this.obstacles = remplissageTableau(tabObs);
 		this.obstacles_mov = remplissageTableau(tabMov);
+		for (int x = 0; x< tabObs.length; x++) {
+			for (int y = 0; y<tabObs[x].length; y++) {
+				if (tabObs[x][y] !=0) 
+					this.obstacles.add(tabObs[x][y]);
+			}
+
+		}
+
+		for (int x = 0; x<tabMov.length; x++) {
+			for (int y = 0; y<tabMov[x].length; y++) {
+				if (tabMov[x][y] != 0)
+					this.obstacles_mov.add(tabMov[x][y]);
+			}
+		}
 	}
 
 	private ArrayList<Integer> remplissageTableau(int [][] tab) {
@@ -65,11 +81,11 @@ public class GestionCollision {
 		for (int o : obstacles_mov)
 			if (i == o) 
 				return true;
-
 		return false;
 	}
 
 	public boolean collisionnePerso(Personnage p, Personnage p1, int d, int pas) {
+		if (p==null) return false;
 		switch(d) {
 		case 0: return verifie(p, p1, 0, -pas);
 		case 1: return verifie(p, p1, -pas, 0);
@@ -80,13 +96,11 @@ public class GestionCollision {
 	}
 
 	private boolean verifie(Personnage p, Personnage p1, int x, int y) {
-
 		if(pointdansCarre(p, p1.getX() + x, p1.getY() + y)
 		|| pointdansCarre(p, p1.getX() + x + p.getTailleX(), p1.getY() + y)
 		|| pointdansCarre(p, p1.getX() + x, p1.getY() + y + p.getTailleY())
 		|| pointdansCarre(p, p1.getX() + x + p.getTailleX(), p1.getY() + y + p.getTailleY()))
 			return true;
-
 		return false;
 	}
 
@@ -96,10 +110,7 @@ public class GestionCollision {
 			return true;
 
 		return false;
-
-
 	}
-
 
 	public boolean collisionneObjet(JeanMichel j, Jeu e) {
 		for (Item i: e.getListeItems()) 

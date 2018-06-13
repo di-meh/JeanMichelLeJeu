@@ -9,12 +9,14 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 	private String nom;
 
 	protected SimpleIntegerProperty positionX, positionY;
-
 	protected SimpleIntegerProperty pointsVie;
 	private Rectangle2D rectangle;
 	private int tailleX, tailleY;
+	
 
 	private int orientation;
+
+	protected GestionCollision collision;
 
 	public Personnage(String n, int px, int py, int tx, int ty) {
 
@@ -36,8 +38,9 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 		this.tailleX = tx;
 		this.tailleY = ty;
 		this.rectangle = new Rectangle2D(px, py, tx, ty);
-		this.setOrientation(0);
+		collision = new GestionCollision();
 
+		this.setOrientation(0);
 	}
 
 	public SimpleIntegerProperty pointsVieProperty() {
@@ -106,4 +109,23 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 	}
 
 
+	public void attaquer(Personnage en) { 
+		//		try {
+		//						if(equipee.getZoneAdapt().equals(en.getZone())) {
+		//						en.estAttaque(equipee.getDgtZone());
+		//					}
+		//					else {
+		//				task		en.estAttaque(equipee.getDgtPasZone());
+		//					}
+		//		} catch (Exception e) {
+		//			// TODO: handle exception
+		//		}
+		if (en != null && System.currentTimeMillis()%99==0) {
+			en.estAttaque(1);
+			
+		}
+	}
+	public void estAttaque(int atq) {
+		this.pointsVie.setValue(getPointsVie()-atq);	
+	}
 }
