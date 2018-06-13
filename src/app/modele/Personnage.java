@@ -1,20 +1,21 @@
 package app.modele;
 
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.geometry.Rectangle2D;
 
-//contient tous les getters et les setters necessaires a tous les personnages (ennemis, pnjs, Jean Michel)
-public abstract class Personnage { 
-	
+
+public abstract class Personnage { //contient tous les getters et les setters necessaires a tous les personnages (ennemis, pnjs, Jean Michel)
+
 	private String nom;
 
 	protected SimpleIntegerProperty positionX, positionY;
-	
-	protected SimpleIntegerProperty pointsVie;
 
+	protected SimpleIntegerProperty pointsVie;
+	private Rectangle2D rectangle;
 	private int tailleX, tailleY;
-	
-	protected Jeu jeu;
-	
+
+	private int orientation;
+
 	public Personnage(String n, int px, int py, int tx, int ty) {
 
 		this.nom = n;
@@ -22,17 +23,21 @@ public abstract class Personnage {
 		this.positionY = new SimpleIntegerProperty(py);
 		this.tailleX = tx;
 		this.tailleY = ty;
+		this.rectangle = new Rectangle2D(px, py, tx, ty);
+		this.setOrientation(0);
 	}
-	
+
 	public Personnage(String n, int pv, int px, int py, int tx, int ty) {
-		
+
 		this.nom = n;
 		this.pointsVie = new SimpleIntegerProperty(pv);
 		this.positionX = new SimpleIntegerProperty(px);
 		this.positionY = new SimpleIntegerProperty(py);
 		this.tailleX = tx;
 		this.tailleY = ty;
-		
+		this.rectangle = new Rectangle2D(px, py, tx, ty);
+		this.setOrientation(0);
+
 	}
 
 	public SimpleIntegerProperty pointsVieProperty() {
@@ -42,7 +47,7 @@ public abstract class Personnage {
 	public void setPointsVie(SimpleIntegerProperty v) {
 		this.pointsVie = v;
 	}
-	
+
 	public int getPointsVie() {
 		return this.pointsVie.getValue();
 	}
@@ -62,7 +67,7 @@ public abstract class Personnage {
 	public int getY() {
 		return this.positionY.getValue();
 	}
-	
+
 	public final SimpleIntegerProperty XProperty() {
 		return this.positionX;
 	}
@@ -70,11 +75,14 @@ public abstract class Personnage {
 	public final void setX(SimpleIntegerProperty x) {
 		this.positionX = x;
 	}
-	
+	public final void setPV(int p) {
+
+	}
+
 	public final SimpleIntegerProperty YProperty() {
 		return this.positionY;
 	}
-	
+
 	public final void setY(SimpleIntegerProperty y) {
 		this.positionY = y;
 	}
@@ -83,24 +91,22 @@ public abstract class Personnage {
 		return tailleX;
 	}
 
-	public void setTailleX(int tailleX) {
-		this.tailleX = tailleX;
-	}
-
 	public int getTailleY() {
 		return tailleY;
 	}
 
-	public void setTailleY(int tailleY) {
-		this.tailleY = tailleY;
+	public Rectangle2D getRectangle() {
+		return rectangle;
 	}
 
-	public Jeu getJeu() {
-		return this.jeu.getJeu();
+
+	public int getOrientation() {
+		return orientation;
 	}
 
-	public void setJeu(Jeu j) {
-		this.jeu = j;
+	public void setOrientation(int orientation) {
+		this.orientation = orientation;
 	}
-	
+
+
 }

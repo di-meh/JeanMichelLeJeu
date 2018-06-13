@@ -1,69 +1,75 @@
 package app.modele;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class GestionCollision {
+
 
 	private Terrain terrain;
 
 	private ArrayList<Integer> obstacles, obstacles_mov;
 
+
 	public GestionCollision() {
-		this.obstacles = new ArrayList<Integer>();
-		this.obstacles_mov = new ArrayList<Integer>();
 		this.terrain = new Terrain();
-		
-		// Les commentaires dessous sont un test d'ajout des obstacles directement dans l'arraylist au lieu de les ajouter à la main
-		// Cependant un "problème" à soulever, est qu'il crée des doublons, mais dans le cas de notre utilisation, cela importe peu
+
 		int[][] tabObs = this.terrain.initMap(this.terrain.getUrlObs());
 		int [][] tabMov = this.terrain.initMap(this.terrain.getUrlMov());
 
-		for (int x = 0; x < tabObs.length; x++) {
-			for (int y = 0; y < tabObs[x].length; y++) {
-				if (tabObs[x][y] !=0) 
-					this.obstacles.add(tabObs[x][y]);
-			}
-			
-		}
-
-		for (int x = 0; x<tabMov.length; x++) {
-			for (int y = 0; y < tabMov[x].length; y++) {
-				if (tabMov[x][y] != 0)
-					this.obstacles_mov.add(tabMov[x][y]);
-			}
-		}
+		this.obstacles = remplissageTableau(tabObs);
+		this.obstacles_mov = remplissageTableau(tabMov);
 	}
 
-	public boolean collisionne(int x, int y) {
+	private ArrayList<Integer> remplissageTableau(int [][] tab) {
+		ArrayList<Integer> liste = new ArrayList<>();
+
+		for (int x =0 ; x<tab.length; x++) {
+			for (int y = 0; y< tab[x].length; y++) {
+				if (tab[x][y] !=0)
+					liste.add(tab[x][y]);
+			}
+		}
+		Set<Integer> pivot = new HashSet<>();
+		pivot.addAll(liste);
+		liste.clear();
+		liste.addAll(pivot);
+		return liste;
+
+	}
+
+	public boolean collisionneObstacle(int x, int y) {
+		if (x < 0 || y <0) return true;
 		return estObstacle(caseDe(x, y));
 	}
 
-	public int caseDe(int x, int y) {
+
+	private int caseDe(int x, int y) {
 		try {
 			int cas = this.terrain.getTab2dObs()[y/16][x/16];
 			if (cas == 0)
 				cas = this.terrain.getTab2dObsMov()[y/16][x/16];
 			return cas;
-			
+
 		} catch(Exception e) {
 			return this.obstacles.get(0);
 		}
-		
+
 	}
 
-	public boolean estObstacle(int i) {
+	private boolean estObstacle(int i) {
 		for(int o : obstacles)
 			if(i == o)
 				return true;
 		for (int o : obstacles_mov)
-			if (i == o) {
+			if (i == o) 
 				return true;
-			}
-				
+
 		return false;
 	}
 
-	public boolean collisionPerso(Personnage p, Personnage p1, int d, int pas) {
+	public boolean collisionnePerso(Personnage p, Personnage p1, int d, int pas) {
 		switch(d) {
 		case 0: return verifie(p, p1, 0, -pas);
 		case 1: return verifie(p, p1, -pas, 0);
@@ -73,8 +79,8 @@ public class GestionCollision {
 		return false;
 	}
 
-	public boolean verifie(Personnage p, Personnage p1, int x, int y) {
-		
+	private boolean verifie(Personnage p, Personnage p1, int x, int y) {
+
 		if(pointdansCarre(p, p1.getX() + x, p1.getY() + y)
 		|| pointdansCarre(p, p1.getX() + x + p.getTailleX(), p1.getY() + y)
 		|| pointdansCarre(p, p1.getX() + x, p1.getY() + y + p.getTailleY())
@@ -88,10 +94,20 @@ public class GestionCollision {
 		if(x >= p.getX() && x <= p.getX() + p.getTailleX() && y >= p.getY() && y <= p.getY() + p.getTailleY()
 		|| x >= p.getX() && x <= p.getX() + p.getTailleX() && y >= p.getY() && y <= p.getY() + p.getTailleY())
 			return true;
-		
+
 		return false;
-		
-}
-	
+
+
+	}
+
+
+	public boolean collisionneObjet(JeanMichel j, Jeu e) {
+		for (Item i: e.getListeItems()) 
+			if (j.getRectangle().intersects(i.getRectangle())) {
+				e.getListeItems().remove(i);
+				return true;
+			}
+		return false;
+	}
 }
 
