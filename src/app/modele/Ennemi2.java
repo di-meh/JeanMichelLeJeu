@@ -10,12 +10,20 @@ public class Ennemi2 extends Ennemi{
 	public void seDeplacer() {
 		switch(this.jeu.getBFS().deplacementEnnemi(this.getX(), this.getY())) {
 		case 0: haut();
+		if(this.collision.collisionnePerso(this.jeu.getJeanMichel(), this, 0, 1))
+			this.attaquer(this.jeu.getJeanMichel());
 		break;
 		case 1: bas();
+		if(this.collision.collisionnePerso(this.jeu.getJeanMichel(), this, 1, 1))
+			this.attaquer(this.jeu.getJeanMichel());
 		break;
 		case 2: gauche();
+		if(this.collision.collisionnePerso(this.jeu.getJeanMichel(), this, 2, 1))
+			this.attaquer(this.jeu.getJeanMichel());
 		break;
 		case 3: droite();
+		if(this.collision.collisionnePerso(this.jeu.getJeanMichel(), this, 3, 1))
+			this.attaquer(this.jeu.getJeanMichel());
 		break;
 		}
 	}

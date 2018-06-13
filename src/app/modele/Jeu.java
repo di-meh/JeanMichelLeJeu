@@ -1,6 +1,5 @@
 package app.modele;
 
-import java.util.ArrayList;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -8,7 +7,6 @@ import javafx.collections.ObservableList;
 
 public class Jeu {
 
-	private ArrayList<PNJ> listePNJs;
 	private ObservableList<Ennemi> ennemis;
 	private JeanMichel jeanMichel;
 	
@@ -19,12 +17,10 @@ public class Jeu {
 	public static Ennemi ennemiRetiré=null;
 	public Jeu() {
 		this.collision = new GestionCollision();
-		this.listePNJs = new ArrayList<PNJ>();
 		this.listeItems = FXCollections.observableArrayList();
 		this.ennemis = FXCollections.observableArrayList();
 		this.jeanMichel = new JeanMichel(null, 0, 0);
 		this.bfs = new BFS();
-		
 		this.listeItems.add(new Coeur(20,40));
 		init(); //s'oocupe d'ajouter les ennemis/pnj aux listes
 	}
@@ -93,14 +89,6 @@ public class Jeu {
 
 	public ObservableList<Ennemi> getEnnemis() {
 		return this.ennemis;
-	}
-
-	public void addPNJ(PNJ p) {
-		this.listePNJs.add(p);
-	}
-
-	public ArrayList<PNJ> getPNJ() {
-		return this.listePNJs;
 	}
 
 	public JeanMichel getJeanMichel() {
