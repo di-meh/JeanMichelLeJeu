@@ -1,27 +1,27 @@
 package app.modele;
 
 import java.util.ArrayList;
-
 import javafx.collections.FXCollections;
-//import javafx.collections.ListChangeListener;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
+//import javafx.collections.ListChangeListener;
 
 public class Jeu {
 
-
-	private ArrayList<Ennemi> listeEnnemis;
 	private ArrayList<PNJ> listePNJs;
+	private ObservableList<Ennemi> ennemis;
 	private JeanMichel jeanMichel;
 	
 	private BFS bfs;
 	private ObservableList<Item> listeItems;
 	private GestionCollision collision;
 
+	public static Ennemi ennemiRetiré=null;
 	public Jeu() {
-		this.listeEnnemis = new ArrayList<Ennemi>();
 		this.collision = new GestionCollision();
 		this.listePNJs = new ArrayList<PNJ>();
 		this.listeItems = FXCollections.observableArrayList();
+		this.ennemis = FXCollections.observableArrayList();
 		this.jeanMichel = new JeanMichel(null, 0, 0);
 		this.bfs = new BFS();
 		
@@ -32,21 +32,23 @@ public class Jeu {
 	public void init() {
 		//ajouter les ennemis
 		//zone1
-		addEnnemi(new Ennemi2("testEnnemi1",50, 120, 80));
-		addEnnemi(new Ennemi2("testEnnemi2",50, 80, 0));
+		addEnnemi(new Ennemi("testEnnemi1",5, 0, 80));
+		addEnnemi(new Ennemi("testEnnemi4",5, 80, 60));
+		addEnnemi(new Ennemi("testEnnemi5",5, 400, 0));
+		addEnnemi(new Ennemi2("testEnnemi1",5, 120, 80));
+		addEnnemi(new Ennemi2("testEnnemi2",5, 80, 0));
 
 		//zone2
 
 		//ajouter les pnjs
 		//zone1
-		addPNJ(new PNJArme("testPNJArme", 20, 40));
-		addPNJ(new PNJItem("testPNJItem", 125, 40));
-		addPNJ(new PNJVie("testPNJVie", 10, 200));
-		//zone2
-		addPNJ(new PNJArme("testPNJArme", 10, 200));
-		addPNJ(new PNJItem("testPNJItem", 125, 40));
-		addPNJ(new PNJVie("testPNJVie", 20, 40));
-
+//		addPNJ(new PNJArme("testPNJArme", 20, 40));
+//		addPNJ(new PNJItem("testPNJItem", 125, 40));
+//		addPNJ(new PNJVie("testPNJVie", 10, 200));
+//		//zone2
+//		addPNJ(new PNJArme("testPNJArme", 10, 200));
+//		addPNJ(new PNJItem("testPNJItem", 125, 40));
+//		addPNJ(new PNJVie("testPNJVie", 20, 40));
 //		this.listeItems.addListener(new ListChangeListener<Item>() {
 //			@Override
 //			public void onChanged(Change<? extends Item> c) {
@@ -57,23 +59,40 @@ public class Jeu {
 //				}
 //			}
 //		});
+		ennemis.addListener(new ListChangeListener<Ennemi>() {
+			@Override
+			public void onChanged(Change<? extends Ennemi> c) {
+				while (c.next()) {
+					if (c.wasRemoved()) {
+						for (Ennemi remitem : c.getRemoved()) {
+							ennemiRetiré=remitem;
+						}
+					}
+				}
+			}});
+	}
+
+	private void addEnnemi(Ennemi e) {
+		this.ennemis.add(e);
 	}
 
 	public void update() {
 		this.bfs.lancerBFS(this.jeanMichel);
-		this.listeEnnemis.get(0).seDeplacer();
+			for (Ennemi ennemi : ennemis) {
+				if(ennemi.getPointsVie() != 0) {
+					ennemi.seDeplacer();
+				}else {
+					ennemis.remove(ennemi);
+				}
+			} 
 	}
 	
 	public BFS getBFS() {
 		return this.bfs;
 	}
 
-	public void addEnnemi(Ennemi e) {
-		this.listeEnnemis.add(e);
-	}
-
-	public ArrayList<Ennemi> getEnnemis() {
-		return this.listeEnnemis;
+	public ObservableList<Ennemi> getEnnemis() {
+		return this.ennemis;
 	}
 
 	public void addPNJ(PNJ p) {
@@ -93,7 +112,7 @@ public class Jeu {
 	}
 
 	public boolean peutSeDeplacer(int orientation) {
-		for (Ennemi e: this.listeEnnemis) {
+		for (Ennemi e: this.ennemis) {
 
 			switch(orientation) {
 			case 0: 
