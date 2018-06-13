@@ -1,3 +1,4 @@
+package app.modele;
 import org.junit.Test;
 
 
