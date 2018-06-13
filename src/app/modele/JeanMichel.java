@@ -1,7 +1,6 @@
 package app.modele;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -15,14 +14,13 @@ public class JeanMichel extends Personnage{
 
 	private GestionCollision collision;
 
-	private Jeu jeu;
-
 	public JeanMichel(Arme e, int x, int y) {
 		super("Jean-Michel", 100, x, y, 17, 23);
 		this.inventaireArmes = new ArrayList<>();
 		this.setArme(e);
 		this.collision = new GestionCollision();
 		//listeItem = new ArrayList<>();
+		System.out.println("Jean-Michel is ready");
 	}
 
 	public ArrayList<Arme> getListeArmes() {
@@ -64,17 +62,11 @@ public class JeanMichel extends Personnage{
 		break;
 		case F: System.out.println("Button F pressed");//pousser/tirer
 		break;
-		case K: System.out.println("Button K pressed"); //changer d'arme
-		break;
-		case L: parler();
-		break;
-		case M: System.out.println("Button M pressed"); //afficher map
-		break;
 		default:
 			break;
 		}
 	}
-
+	
 	public void haut() {
 		this.positionY.set(getY() - 4);
 	}
@@ -103,53 +95,6 @@ public class JeanMichel extends Personnage{
 		this.pointsVie.setValue(getPointsVie() - atq);
 	}
 
-
-	public Jeu getJeu() {
-		return this.jeu.getJeu();
-
-	}
-
-	public void setJeu(Jeu j) {
-		this.jeu = j;
-		
-	}
-
-	public int parler() {
-		Scanner sc = new Scanner(System.in);
-		
-		int menu = 0;
-		
-		String menuParler = "1. Oui \n"
-				+ "2. Non \n"
-				+ "3. J'ai pas compris \n"
-				+ "4. Au revoir";
-		
-		while (menu < 5) {
-			
-			System.out.println(menuParler);
-			System.out.println();
-			
-			menu = Integer.parseInt(sc.nextLine());
-			
-			switch (menu) {
-			case 1: System.out.println("Oui");
-			return 1;
-			case 2: System.out.println("Non");
-			return 2;
-			case 3: System.out.println("Pas compris");
-			return 3;
-			case 4: System.out.println("Au revouir");
-			return 4;
-			}
-		}
-		sc.close();
-		return 5;
-	}
 	
 }
-
-
-
-
-
 

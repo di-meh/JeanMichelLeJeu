@@ -25,7 +25,7 @@ public class Jeu {
 		//ajouter les ennemis
 		//zone1
 		addEnnemi(new Ennemi2("testEnnemi1",50, 120, 80));
-		addEnnemi(new Cactus("testEnnemi2",50, 80, 0));
+		addEnnemi(new Ennemi2("testEnnemi2",50, 80, 0));
 
 		//zone2
 		addEnnemi(new Cactus("testEnnemi1",50, 0, 80));
@@ -35,18 +35,13 @@ public class Jeu {
 		//zone1
 		addPNJ(new PNJArme("testPNJArme", 20, 40));
 		addPNJ(new PNJItem("testPNJItem", 125, 40));
-		addPNJ(new PNJVie("testPNJVie", 10, 200));
-		//zone2
-		addPNJ(new PNJArme("testPNJArme", 10, 200));
-		addPNJ(new PNJItem("testPNJItem", 125, 40));
-		addPNJ(new PNJVie("testPNJVie", 20, 40));
+		addPNJ(new PNJVie("testPNJVie", 100, 2000));
+
 	}
 
 	public void update() {
 		this.bfs.lancerBFS(this.jeanMichel);
 		this.ennemis.get(0).seDeplacer();
-		
-
 	}
 	
 	public BFS getBFS() {

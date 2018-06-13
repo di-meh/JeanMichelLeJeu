@@ -11,7 +11,7 @@ public class PNJItem  extends PNJ{
 		
 		while(i != 4) {
 			switch(i){
-			case 0: System.out.println("Hey ! Tu veux des infos sur les items d'la region ?");//inserer objet region
+			case 0: System.out.println("Hey ! Tu veux des infos sur les items d'la region ?");
 			case 1: System.out.println("Ok salut !");
 			case 2: System.out.println("Alors, voila c'que j'sais : ");
 			}
