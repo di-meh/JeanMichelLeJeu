@@ -134,10 +134,12 @@ public class Jeu {
 		return false;
 	}
 
-	public boolean collisionObjet() {
+	public boolean collisionObjet() { //TODO gérer les collisions
 		for (Item i: listeItems) {
-			if (this.getJeanMichel().getX() == i.getX() 
-					&& this.getJeanMichel().getY() == i.getY())
+			if (this.getJeanMichel().getX() == i.getX() && this.getJeanMichel().getY() == i.getY()
+				|| this.getJeanMichel().getX()+this.getJeanMichel().getTailleX() == i.getX() && this.getJeanMichel().getY() == i.getY()
+				|| this.getJeanMichel().getX() == i.getX() && this.getJeanMichel().getY()+this.getJeanMichel().getTailleY() == i.getY()
+				|| this.getJeanMichel().getX()+this.getJeanMichel().getTailleX() == i.getX() && this.getJeanMichel().getY()+this.getJeanMichel().getTailleY() == i.getY())
 				return true;
 			//				|| this.jeu.getJeanMichel().getX()+this.jeu.getJeanMichel().getTailleX() == this.jeu.getListeItems().get(0).getX() 
 			//				&& this.jeu.getJeanMichel().getY() == this.jeu.getListeItems().get(0).getY()

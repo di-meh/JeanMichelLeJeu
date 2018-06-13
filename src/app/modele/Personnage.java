@@ -75,9 +75,6 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 	public final void setX(SimpleIntegerProperty x) {
 		this.positionX = x;
 	}
-	public final void setPV(int p) {
-
-	}
 
 	public final SimpleIntegerProperty YProperty() {
 		return this.positionY;
