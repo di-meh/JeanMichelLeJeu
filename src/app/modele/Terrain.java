@@ -19,18 +19,17 @@ public class Terrain {
 		this.tab_2d_obs = initMap(urlMapObs);
 		this.tab_2d_obs_mov = initMap(urlMapObsMov);
 	}
-	public int[][] getTab2dBase() {
-		return this.tab_2d;
-	}
+
+
 	public int[][] initMap(String url) { //Méthode permettant de générer une map via un text file
 
-		//Première version, à améliorer
+		//Première version, améliorable mais fonctionnelle
 
 		int[][] tab2d = new int[tailleTab][tailleTab];
 		String ligne = "";
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(url));
-			int x = 0; // Je pense qu'on peut remplacer les initialisations de x et y par des for
+			int x = 0; 
 			do {
 				int y = 0;
 				ligne = br.readLine();
@@ -57,7 +56,10 @@ public class Terrain {
 	public int getTailleTab() {
 		return tailleTab;
 	}
-
+	
+	public int[][] getTab2dBase() {
+		return this.tab_2d;
+	}
 
 	public int[][] getTab2dObs() {
 		return tab_2d_obs;
@@ -65,15 +67,15 @@ public class Terrain {
 	public int[][] getTab2dObsMov() {
 		return tab_2d_obs_mov;
 	}
-	
+
 	public String getUrlBase() {
 		return urlMapBase;
 	}
-	
+
 	public String getUrlObs() {
 		return urlMapObs;
 	}
-	
+
 	public String getUrlMov() {
 		return urlMapObsMov;
 	}
@@ -84,4 +86,3 @@ public class Terrain {
 	}
 
 }
-

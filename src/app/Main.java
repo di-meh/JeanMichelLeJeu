@@ -25,7 +25,6 @@ public class Main extends Application {
 			FXMLLoader loader = new FXMLLoader();
 			URL url = new File("src/app/vue/Map.fxml").toURI().toURL();
 			loader.setLocation(url);
-			System.out.println(loader.getLocation());
 			BorderPane root = loader.load();	
 			Scene scene = new Scene(root, root.getPrefWidth(), root.getPrefHeight());
 			Controleur c = loader.getController();

@@ -8,7 +8,6 @@ public class VueJeanMichel extends VuePersonnage{
 
 	public VueJeanMichel(JeanMichel heros) {
 		super(heros, "file:./src/app/img/jeanMi.png");
-
 	}
 }
 
