@@ -5,10 +5,6 @@ import java.util.ResourceBundle;
 import app.modele.Coeur;
 import app.modele.Ennemi;
 import app.modele.Item;
-//import app.modele.Ennemi;
-//import app.modele.Item;
-//import app.modele.Ennemi;
-//import app.modele.Item;
 import app.modele.JeanMichel;
 import app.modele.Jeu;
 import app.modele.Terrain;
@@ -24,9 +20,6 @@ import javafx.animation.Timeline;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
-//import javafx.collections.ObservableList;
-//import javafx.collections.FXCollections;
-//import javafx.collections.ObservableList;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -119,21 +112,6 @@ public class Controleur implements Initializable {
 			this.pane.getChildren().add(en.getVue().getSprite());
 		}
 		
-		this.jeu.getListeItems().addListener(new ListChangeListener<Item>() {
-
-			@Override
-			public void onChanged(Change<? extends Item> c) {
-				while(c.next()) {
-					for (Item remitem: c.getRemoved()) {
-						listeItems.remove(remitem);
-					}
-				}
-				
-			}
-			
-		});
-
-
 		pane.getChildren().add(dialog);
 		dialog.setVisible(false);
 		init();

@@ -5,6 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 //import javafx.collections.ListChangeListener;
+import javafx.collections.ListChangeListener.Change;
 
 public class Jeu {
 
@@ -69,6 +70,19 @@ public class Jeu {
 					}
 				}
 			}});
+		listeItems.addListener(new ListChangeListener<Item>() {
+
+			@Override
+			public void onChanged(Change<? extends Item> c) {
+				while(c.next()) {
+					for (Item remitem: c.getRemoved()) {
+						listeItems.remove(remitem);
+					}
+				}
+				
+			}
+			
+		});
 	}
 
 	private void addEnnemi(Ennemi e) {
