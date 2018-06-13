@@ -91,7 +91,7 @@ public class Ennemi extends Personnage{
 
 
 	public void seDeplacer() {
-		try {
+//		try {
 			switch(this.orientation) {
 			case 0: haut();
 			if(this.collision.collisionnePerso(this.jeu.getJeanMichel(), this, 0, 1))
@@ -110,9 +110,9 @@ public class Ennemi extends Personnage{
 				this.attaquer(this.jeu.getJeanMichel());
 			break;
 			}
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
+//		} catch (Exception e) {
+//			// TODO: handle exception
+//		}
 	}
 
 
