@@ -9,7 +9,7 @@ import javafx.collections.ObservableList;
 public class Jeu {
 
 
-	private ArrayList<Ennemi> listeEnnemis;
+	private ObservableList<Ennemi> listeEnnemis;
 	private ArrayList<PNJ> listePNJs;
 	private JeanMichel jeanMichel;
 	
@@ -18,7 +18,7 @@ public class Jeu {
 	private GestionCollision collision;
 
 	public Jeu() {
-		this.listeEnnemis = new ArrayList<Ennemi>();
+		this.listeEnnemis = FXCollections.observableArrayList();
 		this.collision = new GestionCollision();
 		this.listePNJs = new ArrayList<PNJ>();
 		this.listeItems = FXCollections.observableArrayList();
@@ -45,17 +45,6 @@ public class Jeu {
 		addPNJ(new PNJArme("testPNJArme", 10, 200));
 		addPNJ(new PNJItem("testPNJItem", 125, 40));
 		addPNJ(new PNJVie("testPNJVie", 20, 40));
-
-//		this.listeItems.addListener(new ListChangeListener<Item>() {
-//			@Override
-//			public void onChanged(Change<? extends Item> c) {
-//				while(c.next()) {
-//					for (Item remitem: c.getRemoved()) {
-//						listeItems.remove(remitem);
-//					}
-//				}
-//			}
-//		});
 	}
 
 	public void update() {
@@ -71,7 +60,7 @@ public class Jeu {
 		this.listeEnnemis.add(e);
 	}
 
-	public ArrayList<Ennemi> getEnnemis() {
+	public ObservableList<Ennemi> getEnnemis() {
 		return this.listeEnnemis;
 	}
 
