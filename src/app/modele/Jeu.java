@@ -31,12 +31,6 @@ public class Jeu {
 		addEnnemi(new Cactus("testEnnemi1",50, 0, 80));
 		addEnnemi(new Cactus("testEnnemi2",50, 80, 0));
 
-		//ajouter les pnjs
-		//zone1
-		addPNJ(new PNJArme("testPNJArme", 20, 40));
-		addPNJ(new PNJItem("testPNJItem", 125, 40));
-		addPNJ(new PNJVie("testPNJVie", 100, 2000));
-
 	}
 
 	public void update() {
