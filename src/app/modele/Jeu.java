@@ -28,8 +28,8 @@ public class Jeu {
 		addEnnemi(new Ennemi("testEnnemi1",5, 0, 80));
 		addEnnemi(new Ennemi("testEnnemi4",5, 80, 60));
 		addEnnemi(new Ennemi("testEnnemi5",5, 400, 0));
-		addEnnemi(new Ennemi2("testEnnemi1",5, 120, 80));
-		addEnnemi(new Ennemi2("testEnnemi2",5, 80, 0));
+		addEnnemi(new Ennemi2("testEnnemi1",3, 120, 80));
+		addEnnemi(new Ennemi2("testEnnemi2",3, 80, 0));
 
 		listeEnnemis.addListener(new ListChangeListener<Ennemi>() {
 			@Override
@@ -62,6 +62,8 @@ public class Jeu {
 
 	public void update() {
 		this.bfs.lancerBFS(this.jeanMichel);
+		try {
+			
 			for (Ennemi ennemi : listeEnnemis) {
 				if(ennemi.getPointsVie() != 0) {
 					ennemi.seDeplacer();
@@ -69,6 +71,9 @@ public class Jeu {
 					listeEnnemis.remove(ennemi);
 				}
 			} 
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 	
 	public BFS getBFS() {

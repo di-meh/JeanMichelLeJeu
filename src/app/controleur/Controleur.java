@@ -122,12 +122,11 @@ public class Controleur implements Initializable {
 
 				(ev ->{
 
-					if (jeu.collisionObjet()) {
+					if (jeu.collisionObjet() && this.jeu.getJeanMichel().getPointsVie()!=5) {
 						//TODO le faire dans le modèle
 						this.pane.getChildren().remove(vueitem.getSprite());
 						this.getJeanMichel().pointsVieProperty().set(this.getJeanMichel().getPointsVie()+1);
 						if (this.getJeanMichel().getPointsVie() > 5) this.getJeanMichel().pointsVieProperty().set(5);
-
 					}
 					if(this.jeu.getJeanMichel().getPointsVie() == 0){
 						System.out.println("Vous êtes mort");
