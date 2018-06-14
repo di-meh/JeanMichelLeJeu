@@ -128,4 +128,11 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 	public void estAttaque(int atq) {
 		this.pointsVie.setValue(getPointsVie()-atq);	
 	}
+	public int caseX() {
+		return getX()/16;
+	}
+	public int caseY() {
+		return getY()/16;
+	}
+	
 }

@@ -42,6 +42,7 @@ public class JeanMichel extends Personnage{
 			if(!this.collision.collisionneObstacle(getX(), getY() - 4) 
 					&& !this.collision.collisionneObstacle(getX() + getTailleX(), getY()-4) 
 					&& !this.collision.collisionnePerso(ennemiACote(), this, 0, 4)) haut();
+			break;
 		case Q: 
 			if(!this.collision.collisionneObstacle(getX()-4, getY()) 
 					&& !this.collision.collisionneObstacle(getX() -4, getY() + getTailleY()) 
@@ -118,15 +119,13 @@ public class JeanMichel extends Personnage{
 
 	public Ennemi ennemiACote() {
 		for (Ennemi e : jeu.getEnnemis()) {
-			if((int)e.getX()/16 == (int)((this.getX())/16) && (int)e.getY()/16 == (int)((this.getY())/16)
-			|| (int)e.getX()/16 == (int)((this.getX()+4)/16) && (int)e.getY()/16 == (int)((this.getY()+4)/16)
-			|| (int)e.getX()/16 == (int)((this.getX()-4)/16) && (int)e.getY()/16 == (int)((this.getY()-4)/16)
-			|| (int)e.getX()/16 == (int)((this.getX())/16) && (int)e.getY()/16 == (int)((this.getY()-4)/16)
-			|| (int)e.getX()/16 == (int)((this.getX()+4)/16) && (int)e.getY()/16 == (int)((this.getY())/16)
-			|| (int)e.getX()/16 == (int)((this.getX())/16) && (int)e.getY()/16 == (int)((this.getY()+4)/16)
-			|| (int)e.getX()/16 == (int)((this.getX()+4)/16) && (int)e.getY()/16 == (int)((this.getY()-4)/16)
-			|| (int)e.getX()/16 == (int)((this.getX()-4)/16) && (int)e.getY()/16 == (int)((this.getY()+4)/16)
-			|| (int)e.getX()/16 == (int)((this.getX()-4)/16) && (int)e.getY()/16 == (int)((this.getY())/16)) 
+				if(e.caseX()==this.caseX() && e.caseY()== this.caseY() 
+				|| e.caseX()==this.caseX()+1 && e.caseY()== this.caseY()+1 
+				|| e.caseX()==this.caseX()-1 && e.caseY()== this.caseY()-1 
+				|| e.caseX()==this.caseX()+1 && e.caseY()== this.caseY() 
+				|| e.caseX()==this.caseX() && e.caseY()== this.caseY()+1 
+				|| e.caseX()==this.caseX()-1 && e.caseY()== this.caseY() 
+				|| e.caseX()==this.caseX() && e.caseY()== this.caseY()-1)
 				return e;			
 		}
 		return null;
