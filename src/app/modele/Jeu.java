@@ -25,11 +25,9 @@ public class Jeu {
 	public void init() {
 		//ajouter les ennemis
 		//zone1
-		addEnnemi(new Ennemi("testEnnemi1",5, 0, 80));
-		addEnnemi(new Ennemi("testEnnemi4",5, 80, 60));
-		addEnnemi(new Ennemi("testEnnemi5",5, 400, 0));
-		addEnnemi(new Ennemi2("testEnnemi1",5, 120, 80));
-		addEnnemi(new Ennemi2("testEnnemi2",5, 80, 0));
+		addEnnemi(new Ennemi("testEnnemi1", 5, 0, 80));
+		addEnnemi(new Ennemi2("testEnnemi1", 5, 256, 500));
+		addEnnemi(new Ennemi2("testEnnemi2", 5, 125, 200));
 
 		listeEnnemis.addListener(new ListChangeListener<Ennemi>() {
 			@Override

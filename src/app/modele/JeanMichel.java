@@ -43,7 +43,7 @@ public class JeanMichel extends Personnage{
 					&& !this.collision.collisionneObstacle(getX() + getTailleX(), getY()-4) 
 					&& !this.collision.collisionnePerso(ennemiACote(), this, 0, 4)) haut();
 		case Q: 
-			if(!this.collision.collisionneObstacle(getX()-4, getY()) 
+			if(!this.collision.collisionneObstacle(getX() - 4, getY()) 
 					&& !this.collision.collisionneObstacle(getX() -4, getY() + getTailleY()) 
 					&& !this.collision.collisionnePerso(ennemiACote(), this, 1, 4))
 				gauche();
@@ -64,16 +64,9 @@ public class JeanMichel extends Personnage{
 		case E:
 			if(this.collision.collisionnePerso(ennemiACote(), this, 0, 4) || this.collision.collisionnePerso(ennemiACote(), this, 1, 4)||this.collision.collisionnePerso(ennemiACote(), this, 2, 4)||this.collision.collisionnePerso(ennemiACote(), this, 3, 4))
 				this.attaquer(ennemiACote());
-			break;
-		case F: System.out.println("Button F pressed");//pousser/tirer
-		//pousser(e);
 		break;
 		case K: System.out.println("Button K pressed"); //changer d'arme
 		this.setPointsVie(getPointsVie()+1);
-		break;
-		case L:
-		break;
-		case M: System.out.println("Button M pressed"); //afficher map
 		break;
 		default:break;
 
