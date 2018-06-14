@@ -1,51 +1,49 @@
 package app.modele;
 
-import java.util.ArrayList;
-
 import javafx.collections.FXCollections;
-//import javafx.collections.ListChangeListener;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
+//import javafx.collections.ListChangeListener;
+import javafx.collections.ListChangeListener.Change;
 
 public class Jeu {
 
-
-	private ArrayList<Ennemi> listeEnnemis;
-	private ArrayList<PNJ> listePNJs;
+	private ObservableList<Ennemi> listeEnnemis;
 	private JeanMichel jeanMichel;
 	
 	private BFS bfs;
 	private ObservableList<Item> listeItems;
 	private GestionCollision collision;
 
+	public static Ennemi ennemiRetiré=null;
 	public Jeu() {
-		this.listeEnnemis = new ArrayList<Ennemi>();
+		this.listeEnnemis = FXCollections.observableArrayList();
 		this.collision = new GestionCollision();
-		this.listePNJs = new ArrayList<PNJ>();
 		this.listeItems = FXCollections.observableArrayList();
 		this.jeanMichel = new JeanMichel(null, 0, 0);
 		this.bfs = new BFS();
-		
 		this.listeItems.add(new Coeur(20,40));
 		init(); //s'oocupe d'ajouter les ennemis/pnj aux listes
 	}
 
 	public void init() {
 		//ajouter les ennemis
-		addEnnemi(new Ennemi2("testEnnemi1",50, 120, 80));
-		addEnnemi(new Ennemi2("testEnnemi2",50, 80, 0));
-
-		//zone2
-
-		//ajouter les pnjs
 		//zone1
-		addPNJ(new PNJArme("testPNJArme", 20, 40));
-		addPNJ(new PNJItem("testPNJItem", 125, 40));
-		addPNJ(new PNJVie("testPNJVie", 10, 200));
-		//zone2
-		addPNJ(new PNJArme("testPNJArme", 10, 200));
-		addPNJ(new PNJItem("testPNJItem", 125, 40));
-		addPNJ(new PNJVie("testPNJVie", 20, 40));
+		addEnnemi(new Ennemi("testEnnemi1",5, 0, 80));
+		addEnnemi(new Ennemi("testEnnemi4",5, 80, 60));
+		addEnnemi(new Ennemi("testEnnemi5",5, 400, 0));
+		addEnnemi(new Ennemi2("testEnnemi1",5, 120, 80));
+		addEnnemi(new Ennemi2("testEnnemi2",5, 80, 0));
 
+		//zone2
+
+//		addPNJ(new PNJArme("testPNJArme", 20, 40));
+//		addPNJ(new PNJItem("testPNJItem", 125, 40));
+//		addPNJ(new PNJVie("testPNJVie", 10, 200));
+//		//zone2
+//		addPNJ(new PNJArme("testPNJArme", 10, 200));
+//		addPNJ(new PNJItem("testPNJItem", 125, 40));
+//		addPNJ(new PNJVie("testPNJVie", 20, 40));
 //		this.listeItems.addListener(new ListChangeListener<Item>() {
 //			@Override
 //			public void onChanged(Change<? extends Item> c) {
@@ -56,31 +54,53 @@ public class Jeu {
 //				}
 //			}
 //		});
+		listeEnnemis.addListener(new ListChangeListener<Ennemi>() {
+			@Override
+			public void onChanged(Change<? extends Ennemi> c) {
+				while (c.next()) {
+					if (c.wasRemoved()) {
+						for (Ennemi remitem : c.getRemoved()) {
+							ennemiRetiré=remitem;
+						}
+					}
+				}
+			}});
+		listeItems.addListener(new ListChangeListener<Item>() {
+
+			@Override
+			public void onChanged(Change<? extends Item> c) {
+				while(c.next()) {
+					for (Item remitem: c.getRemoved()) {
+						listeItems.remove(remitem);
+					}
+				}
+				
+			}
+			
+		});
+	}
+
+	private void addEnnemi(Ennemi e) {
+		this.listeEnnemis.add(e);
 	}
 
 	public void update() {
 		this.bfs.lancerBFS(this.jeanMichel);
-		this.listeEnnemis.get(0).seDeplacer();
+			for (Ennemi ennemi : listeEnnemis) {
+				if(ennemi.getPointsVie() != 0) {
+					ennemi.seDeplacer();
+				}else {
+					listeEnnemis.remove(ennemi);
+				}
+			} 
 	}
 	
 	public BFS getBFS() {
 		return this.bfs;
 	}
 
-	public void addEnnemi(Ennemi e) {
-		this.listeEnnemis.add(e);
-	}
-
-	public ArrayList<Ennemi> getEnnemis() {
+	public ObservableList<Ennemi> getEnnemis() {
 		return this.listeEnnemis;
-	}
-
-	public void addPNJ(PNJ p) {
-		this.listePNJs.add(p);
-	}
-
-	public ArrayList<PNJ> getPNJ() {
-		return this.listePNJs;
 	}
 
 	public JeanMichel getJeanMichel() {
@@ -133,10 +153,12 @@ public class Jeu {
 		return false;
 	}
 
-	public boolean collisionObjet() {
+	public boolean collisionObjet() { //TODO gérer les collisions
 		for (Item i: listeItems) {
-			if (this.getJeanMichel().getX() == i.getX() 
-					&& this.getJeanMichel().getY() == i.getY())
+			if (this.getJeanMichel().getX() == i.getX() && this.getJeanMichel().getY() == i.getY()
+				|| this.getJeanMichel().getX()+this.getJeanMichel().getTailleX() == i.getX() && this.getJeanMichel().getY() == i.getY()
+				|| this.getJeanMichel().getX() == i.getX() && this.getJeanMichel().getY()+this.getJeanMichel().getTailleY() == i.getY()
+				|| this.getJeanMichel().getX()+this.getJeanMichel().getTailleX() == i.getX() && this.getJeanMichel().getY()+this.getJeanMichel().getTailleY() == i.getY())
 				return true;
 			//				|| this.jeu.getJeanMichel().getX()+this.jeu.getJeanMichel().getTailleX() == this.jeu.getListeItems().get(0).getX() 
 			//				&& this.jeu.getJeanMichel().getY() == this.jeu.getListeItems().get(0).getY()

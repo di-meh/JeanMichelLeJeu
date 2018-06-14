@@ -1,5 +1,6 @@
 package app.modele;
 
+import app.vue.VueEnnemi;
 
 public class Ennemi extends Personnage{
 
@@ -7,13 +8,13 @@ public class Ennemi extends Personnage{
 
 	protected Jeu jeu;
 
-	protected GestionCollision collision;
+	private VueEnnemi vue;
 	
+
+
 	public Ennemi(String n, int pv, int x, int y) {
 		super(n, pv, x, y, 12, 29);
 		this.orientation = 0;
-		collision = new GestionCollision();
-		
 		System.out.println("Superclass ennemi created");
 	}
 
@@ -88,25 +89,45 @@ public class Ennemi extends Personnage{
 			return this.attaque;
 	}*/
 
-	public void estAttaque(int atq) {
-		this.pointsVie.setValue(getPointsVie()-atq);
-	}
 
 	public void seDeplacer() {
-		switch(this.orientation) {
-		case 0: haut();
-		break;
-		case 1: bas();
-		break;
-		case 2: gauche();
-		break;
-		case 3: droite();
-		break;
+		try {
+			switch(this.orientation) {
+			case 0: haut();
+			if(this.collision.collisionnePerso(this.jeu.getJeanMichel(), this, 0, 1))
+				this.attaquer(this.jeu.getJeanMichel());
+			break;
+			case 1: bas();
+			if(this.collision.collisionnePerso(this.jeu.getJeanMichel(), this, 1, 1))
+				this.attaquer(this.jeu.getJeanMichel());
+			break;
+			case 2: gauche();
+			if(this.collision.collisionnePerso(this.jeu.getJeanMichel(), this, 2, 1))
+				this.attaquer(this.jeu.getJeanMichel());
+			break;
+			case 3: droite();
+			if(this.collision.collisionnePerso(this.jeu.getJeanMichel(), this, 3, 1))
+				this.attaquer(this.jeu.getJeanMichel());
+			break;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
 }
 	
+	
+
 	public void setJeu(Jeu j) {
 		this.jeu = j;
 	}
+
+	public VueEnnemi getVue() {
+		return vue;
+	}
+
+	public void setVue(VueEnnemi vue) {
+		this.vue = vue;
+	}
 	
+
 }
