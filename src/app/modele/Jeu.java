@@ -37,23 +37,6 @@ public class Jeu {
 
 		//zone2
 
-//		addPNJ(new PNJArme("testPNJArme", 20, 40));
-//		addPNJ(new PNJItem("testPNJItem", 125, 40));
-//		addPNJ(new PNJVie("testPNJVie", 10, 200));
-//		//zone2
-//		addPNJ(new PNJArme("testPNJArme", 10, 200));
-//		addPNJ(new PNJItem("testPNJItem", 125, 40));
-//		addPNJ(new PNJVie("testPNJVie", 20, 40));
-//		this.listeItems.addListener(new ListChangeListener<Item>() {
-//			@Override
-//			public void onChanged(Change<? extends Item> c) {
-//				while(c.next()) {
-//					for (Item remitem: c.getRemoved()) {
-//						listeItems.remove(remitem);
-//					}
-//				}
-//			}
-//		});
 		listeEnnemis.addListener(new ListChangeListener<Ennemi>() {
 			@Override
 			public void onChanged(Change<? extends Ennemi> c) {
