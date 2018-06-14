@@ -8,7 +8,7 @@ public class Ennemi2 extends Ennemi{
 
 	@Override
 	public void seDeplacer() {
-		switch(this.jeu.getBFS().deplacementEnnemi(this.getX(), this.getY())) {
+		switch(this.jeu.getBFS().deplacementEnnemi(this)) {
 		case 0: haut();
 		break;
 		case 1: bas();

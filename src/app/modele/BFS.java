@@ -52,7 +52,7 @@ public class BFS {
 		Tile tg = new Tile(t.getX() - 1, t.getY(), "bla");
 		ajouterTile(t, tg);
 		
-		// sommet de droite		System.out.println(this.tiles.get(positionEnnemi).toString());
+		// sommet de droite
 		Tile td = new Tile(t.getX() + 1, t.getY(), "bla");
 		ajouterTile(t, td);
 	
@@ -81,22 +81,30 @@ public class BFS {
 		return false;
 	}
 	
-	public int deplacementEnnemi(int x, int y) {
-		Tile positionEnnemi = new Tile(x, y);
+	public int deplacementEnnemi(Ennemi e) {
+		Tile positionEnnemiHautGauche = new Tile(e.getX(), e.getY());
 		
-		int nx = positionEnnemi.getX() - this.tiles.get(positionEnnemi).getX();
-		int ny = positionEnnemi.getY() - this.tiles.get(positionEnnemi).getY();
-		
-
-		if(nx == 0 && ny == 1)
+		//haut
+		if(positionEnnemiHautGauche.getX() - this.tiles.get(positionEnnemiHautGauche).getX() == 0 
+		&& positionEnnemiHautGauche.getY() - this.tiles.get(positionEnnemiHautGauche).getY() == 1)
 			return 0;
-		if(nx == 0 && ny == -1)
+		
+		//bas
+		if(positionEnnemiHautGauche.getX() - this.tiles.get(positionEnnemiHautGauche).getX() == 0 
+		&& positionEnnemiHautGauche.getY() - this.tiles.get(positionEnnemiHautGauche).getY() == -1)
 			return 1;
-		if(nx == 1 && ny == 0)
+		
+		//gauche
+		if(positionEnnemiHautGauche.getX() - this.tiles.get(positionEnnemiHautGauche).getX() == 1 
+		&& positionEnnemiHautGauche.getY() - this.tiles.get(positionEnnemiHautGauche).getY() == 0)
 			return 2;
-		if(nx == -1 && ny == 0)
+		
+		//droite
+		if(positionEnnemiHautGauche.getX() - this.tiles.get(positionEnnemiHautGauche).getX() == -1 
+		&& positionEnnemiHautGauche.getY() - this.tiles.get(positionEnnemiHautGauche).getY() == 0)
 			return 3;
-		return 5;
+		
+		return 4;
 		
 	}
 	
