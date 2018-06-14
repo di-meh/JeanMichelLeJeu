@@ -11,10 +11,10 @@ public class Jeu {
 	
 	private BFS bfs;
 	private ObservableList<Item> listeItems;
+
 	public static Ennemi ennemiRetiré=null;
 	public Jeu() {
 		this.listeEnnemis = FXCollections.observableArrayList();
-		new GestionCollision();
 		this.listeItems = FXCollections.observableArrayList();
 		this.jeanMichel = new JeanMichel(null, 0, 0);
 		this.bfs = new BFS();
@@ -30,8 +30,6 @@ public class Jeu {
 		addEnnemi(new Ennemi("testEnnemi5",5, 400, 0));
 		addEnnemi(new Ennemi2("testEnnemi1",5, 120, 80));
 		addEnnemi(new Ennemi2("testEnnemi2",5, 80, 0));
-
-		//zone2
 
 		listeEnnemis.addListener(new ListChangeListener<Ennemi>() {
 			@Override
@@ -53,7 +51,6 @@ public class Jeu {
 						listeItems.remove(remitem);
 					}
 				}
-				
 			}
 			
 		});
@@ -89,8 +86,6 @@ public class Jeu {
 	public ObservableList<Item> getListeItems() {
 		return listeItems;
 	}
-
-
 	public boolean collisionObjet() { //TODO gérer les collisions
 		for (Item i: listeItems) {
 			if (this.getJeanMichel().getX() == i.getX() && this.getJeanMichel().getY() == i.getY()

@@ -34,6 +34,7 @@ public class JeanMichel extends Personnage{
 	}
 
 	public void action(KeyEvent e) {
+		
 		KeyCode value = e.getCode();
 
 		switch(value) {
@@ -41,7 +42,6 @@ public class JeanMichel extends Personnage{
 			if(!this.collision.collisionneObstacle(getX(), getY() - 4) 
 					&& !this.collision.collisionneObstacle(getX() + getTailleX(), getY()-4) 
 					&& !this.collision.collisionnePerso(ennemiACote(), this, 0, 4)) haut();
-			break;
 		case Q: 
 			if(!this.collision.collisionneObstacle(getX()-4, getY()) 
 					&& !this.collision.collisionneObstacle(getX() -4, getY() + getTailleY()) 
@@ -71,18 +71,15 @@ public class JeanMichel extends Personnage{
 		case K: System.out.println("Button K pressed"); //changer d'arme
 		this.setPointsVie(getPointsVie()+1);
 		break;
-		case L: parler();
+		case L:
 		break;
 		case M: System.out.println("Button M pressed"); //afficher map
 		break;
 		default:break;
+
+
 		}
-		//		if (this.getX() == this.jeu.getItem().getX() && this.getY() == this.jeu.getItem().getY()
-		////		|| this.getX()+this.getTailleX() == this.jeu.getItem().getX() && this.getY()+this.getTailleY() == this.jeu.getItem().getY()
-		////		|| this.getX() == this.jeu.getItem().getX() && this.getY()+this.getTailleY() == this.jeu.getItem().getY()
-		////		|| this.getX()+this.getTailleX() == this.jeu.getItem().getX() && this.getY() == this.jeu.getItem().getY()
-		//				)
-		//			ramasserItem();
+
 	}
 
 	public void haut() {
@@ -101,20 +98,6 @@ public class JeanMichel extends Personnage{
 		this.positionX.set(getX() + 4);
 	}
 
-	//	public void attaquer(/*Ennemi e*/) { TODO
-	//		try {
-	//			//			if(equipe.getZoneAdapt().equals(e.getZone())) {
-	//			//			e.setvie(equipe.getDgtZone());
-	//			//		}
-	//			//		else {
-	//			//			e.setvie(equipe.getDgtPasZone());
-	//			//		}
-	//		} catch (Exception e) {
-	//			// TODO: handle exception
-	//		}
-	//
-	//	}
-
 	public void attaquer(Personnage en) { 
 		if (en != null ) {
 			en.estAttaque(1);
@@ -122,68 +105,6 @@ public class JeanMichel extends Personnage{
 	}
 	public Arme getArmeEquipee() {
 		return equipee;
-	}
-
-
-	public void repondre() {
-		int i = 0;
-
-		while(i != 4) {
-			switch(i) {
-			case 1: System.out.println("Oui");
-			case 2: System.out.println("Non");
-			case 3: System.out.println("J'ai pas compris");
-			}
-		}
-	}
-
-	public void parler() {
-
-	}
-
-	//	public void pousser(KeyEvent c) { //TODO gérer le cas de tirer
-	//		// Impossible de gérer deux keypress à la suite à travers deux méthodes différentes 
-	//
-	//		KeyCode value = c.getCode();
-	//		switch (value) {
-	//		case Z:if(!this.collision.collisionneObstacle(getX(), getY() - 4) 
-	//				&& !this.collision.collisionneObstacle(getX() + getTailleX(), getY()-4)) System.out.println("Bouton Z presséééééééééééééééééééééééééééééé");
-	//		break;
-	//		case S:if(!this.collision.collisionneObstacle(getX(), getY() + 4 + getTailleY()) 
-	//				&& !this.collision.collisionneObstacle(getX() + getTailleX(), getY() + 4 + getTailleY())) System.out.println("Bouton S presséééééééééééééééééééééééééééééé");
-	//		break;
-	//		case Q:if(!this.collision.collisionneObstacle(getX() - 4, getY()) 
-	//				&& !this.collision.collisionneObstacle(getX() - 4, getY()+getTailleY()) 
-	//				&& !this.collision.collisionneObstacle(getX() - 4, getY()+getTailleY()/2)) System.out.println("Bouton Q presséééééééééééééééééééééééééééééé");
-	//		break;
-	//		case D: if(!this.collision.collisionneObstacle(getX() + 4 + getTailleX(), getY()) 
-	//				&& !this.collision.collisionneObstacle(getX() + getTailleX() + 4, getY() + getTailleY()) 
-	//				&& !this.collision.collisionneObstacle(getX() + getTailleX() + 4, getY() + getTailleY()/2)) System.out.println("Bouton D presséééééééééééééééééééééééééééééé");
-	//		break;
-	//		default: break;
-	//		}
-	//	}
-	public void pousser(KeyEvent c) { //TODO gérer le cas de tirer
-		// Impossible de gérer deux keypress à la suite à travers deux méthodes différentes 
-
-		KeyCode value = c.getCode();
-		switch (value) {
-		case Z:if(!this.collision.collisionneObstacle(getX(), getY() - 4) 
-				&& !this.collision.collisionneObstacle(getX() + getTailleX(), getY()-4)) System.out.println("Bouton Z presséééééééééééééééééééééééééééééé");
-		break;
-		case S:if(!this.collision.collisionneObstacle(getX(), getY() + 4 + getTailleY()) 
-				&& !this.collision.collisionneObstacle(getX() + getTailleX(), getY() + 4 + getTailleY())) System.out.println("Bouton S presséééééééééééééééééééééééééééééé");
-		break;
-		case Q:if(!this.collision.collisionneObstacle(getX() - 4, getY()) 
-				&& !this.collision.collisionneObstacle(getX() - 4, getY()+getTailleY()) 
-				&& !this.collision.collisionneObstacle(getX() - 4, getY()+getTailleY()/2)) System.out.println("Bouton Q presséééééééééééééééééééééééééééééé");
-		break;
-		case D: if(!this.collision.collisionneObstacle(getX() + 4 + getTailleX(), getY()) 
-				&& !this.collision.collisionneObstacle(getX() + getTailleX() + 4, getY() + getTailleY()) 
-				&& !this.collision.collisionneObstacle(getX() + getTailleX() + 4, getY() + getTailleY()/2)) System.out.println("Bouton D presséééééééééééééééééééééééééééééé");
-		break;
-		default: break;
-		}
 	}
 
 	public Jeu getJeu() {
@@ -197,7 +118,15 @@ public class JeanMichel extends Personnage{
 
 	public Ennemi ennemiACote() {
 		for (Ennemi e : jeu.getEnnemis()) {
-			if((int)e.getX()/16 == (int)((this.getX())/16) && (int)e.getY()/16 == (int)((this.getY())/16) || (int)e.getX()/16 == (int)((this.getX()+4)/16) && (int)e.getY()/16 == (int)((this.getY()+4)/16) || (int)e.getX()/16 == (int)((this.getX()-4)/16) && (int)e.getY()/16 == (int)((this.getY()-4)/16) || (int)e.getX()/16 == (int)((this.getX())/16) && (int)e.getY()/16 == (int)((this.getY()-4)/16) || (int)e.getX()/16 == (int)((this.getX()+4)/16) && (int)e.getY()/16 == (int)((this.getY())/16) || (int)e.getX()/16 == (int)((this.getX())/16) && (int)e.getY()/16 == (int)((this.getY()+4)/16) || (int)e.getX()/16 == (int)((this.getX()+4)/16) && (int)e.getY()/16 == (int)((this.getY()-4)/16) || (int)e.getX()/16 == (int)((this.getX()-4)/16) && (int)e.getY()/16 == (int)((this.getY()+4)/16) || (int)e.getX()/16 == (int)((this.getX()-4)/16) && (int)e.getY()/16 == (int)((this.getY())/16)) 
+			if((int)e.getX()/16 == (int)((this.getX())/16) && (int)e.getY()/16 == (int)((this.getY())/16)
+			|| (int)e.getX()/16 == (int)((this.getX()+4)/16) && (int)e.getY()/16 == (int)((this.getY()+4)/16)
+			|| (int)e.getX()/16 == (int)((this.getX()-4)/16) && (int)e.getY()/16 == (int)((this.getY()-4)/16)
+			|| (int)e.getX()/16 == (int)((this.getX())/16) && (int)e.getY()/16 == (int)((this.getY()-4)/16)
+			|| (int)e.getX()/16 == (int)((this.getX()+4)/16) && (int)e.getY()/16 == (int)((this.getY())/16)
+			|| (int)e.getX()/16 == (int)((this.getX())/16) && (int)e.getY()/16 == (int)((this.getY()+4)/16)
+			|| (int)e.getX()/16 == (int)((this.getX()+4)/16) && (int)e.getY()/16 == (int)((this.getY()-4)/16)
+			|| (int)e.getX()/16 == (int)((this.getX()-4)/16) && (int)e.getY()/16 == (int)((this.getY()+4)/16)
+			|| (int)e.getX()/16 == (int)((this.getX()-4)/16) && (int)e.getY()/16 == (int)((this.getY())/16)) 
 				return e;			
 		}
 		return null;
@@ -211,15 +140,4 @@ public class JeanMichel extends Personnage{
 		//this.jeu.setItem(null);
 	}
 
-	/*
-	 * 
-	 * personnageCible.recevoirDegats(arme.getDegatArme());
-
-                if(personnageCible.getHp() <= 0)
-                {
-                        this.lvl += 1;
-                }
-	 * 
-	 * 
-	 */
 }

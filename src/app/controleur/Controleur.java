@@ -42,9 +42,6 @@ public class Controleur implements Initializable {
 	private VueItem vueitem;
 
 	private Timeline gameLoop;
-
-	//private ObservableList<Item> listeItems;
-
 	//FXML
 	@FXML
 	private BorderPane borderpane;
@@ -74,11 +71,11 @@ public class Controleur implements Initializable {
 	@FXML
 	private DialogPane dialog;
 	
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		this.map = new Terrain();
 		this.jeu = new Jeu();
-		//listeItems = FXCollections.observableArrayList();
 		this.dialog = new DialogPane();
 		this.jeu.getJeanMichel().setJeu(this.jeu);
 		jeu.getJeanMichel().pointsVieProperty().addListener(new ChangeListener<Number>() {
@@ -124,17 +121,7 @@ public class Controleur implements Initializable {
 				// c'est un eventHandler d'ou le lambda
 
 				(ev ->{
-//					TODO gérer le changement de sprite
-//					switch (this.getJeanMichel().getOrientation()) {
-//					case 0:
-//					break;
-//					case 1: 
-//					break;
-//					case 2: 
-//					break;
-//					case 3: 
-//					break;
-//					}
+
 					if (jeu.collisionObjet()) {
 						//TODO le faire dans le modèle
 						this.pane.getChildren().remove(vueitem.getSprite());
