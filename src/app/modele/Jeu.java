@@ -28,11 +28,11 @@ public class Jeu {
 	public void init() {
 		//ajouter les ennemis
 		//zone1
-		addEnnemi(new Ennemi2("testEnnemi1",5, 0, 80));
-		addEnnemi(new Ennemi2("testEnnemi4",5, 80, 60));
-		addEnnemi(new Ennemi2("testEnnemi5",5, 400, 0));
-		addEnnemi(new Ennemi("testEnnemi1",5, 120, 80));
-		addEnnemi(new Ennemi("testEnnemi2",5, 80, 0));
+		addEnnemi(new Ennemi2("testEnnemi1",1, 0, 80));
+		addEnnemi(new Ennemi2("testEnnemi4",1, 80, 60));
+		addEnnemi(new Ennemi2("testEnnemi1",1, 400, 0));
+		addEnnemi(new Ennemi("testEnnemi1",1, 120, 80));
+		addEnnemi(new Ennemi("testEnnemi2",1, 80, 0));
 
 		//zone2
 
