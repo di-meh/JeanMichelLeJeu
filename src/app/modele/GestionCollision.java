@@ -85,7 +85,6 @@ public class GestionCollision {
 	}
 
 	public boolean collisionnePerso(Personnage p, Personnage p1, int d, int pas) {
-		if (p==null) return false;
 		switch(d) {
 		case 0: return verifie(p, p1, 0, -pas);
 		case 1: return verifie(p, p1, -pas, 0);
@@ -97,9 +96,9 @@ public class GestionCollision {
 
 	private boolean verifie(Personnage p, Personnage p1, int x, int y) {
 		if(pointdansCarre(p, p1.getX() + x, p1.getY() + y)
-		|| pointdansCarre(p, p1.getX() + x + p1.getTailleX(), p1.getY() + y)
-		|| pointdansCarre(p, p1.getX() + x, p1.getY() + y + p1.getTailleY())
-		|| pointdansCarre(p, p1.getX() + x + p1.getTailleX(), p1.getY() + y + p1.getTailleY()))
+		|| pointdansCarre(p, p1.getX() + x + p.getTailleX(), p1.getY() + y)
+		|| pointdansCarre(p, p1.getX() + x, p1.getY() + y + p.getTailleY())
+		|| pointdansCarre(p, p1.getX() + x + p.getTailleX(), p1.getY() + y + p.getTailleY()))
 			return true;
 		return false;
 	}
