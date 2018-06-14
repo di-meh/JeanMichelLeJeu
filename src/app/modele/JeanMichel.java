@@ -193,16 +193,11 @@ public class JeanMichel extends Personnage{
 	}
 
 	public Ennemi ennemiACote() {
-		try {
 			for (Ennemi e : jeu.getEnnemis()) {
 				//	if((int)e.getX()/16 == (int)((this.getX())/16) && (int)e.getY()/16 == (int)((this.getY())/16) || (int)e.getX()/16 == (int)((this.getX()+4)/16) && (int)e.getY()/16 == (int)((this.getY()+4)/16) || (int)e.getX()/16 == (int)((this.getX()-4)/16) && (int)e.getY()/16 == (int)((this.getY()-4)/16) || (int)e.getX()/16 == (int)((this.getX())/16) && (int)e.getY()/16 == (int)((this.getY()-4)/16) || (int)e.getX()/16 == (int)((this.getX()+4)/16) && (int)e.getY()/16 == (int)((this.getY())/16) || (int)e.getX()/16 == (int)((this.getX())/16) && (int)e.getY()/16 == (int)((this.getY()+4)/16) || (int)e.getX()/16 == (int)((this.getX()+4)/16) && (int)e.getY()/16 == (int)((this.getY()-4)/16) || (int)e.getX()/16 == (int)((this.getX()-4)/16) && (int)e.getY()/16 == (int)((this.getY()+4)/16) || (int)e.getX()/16 == (int)((this.getX()-4)/16) && (int)e.getY()/16 == (int)((this.getY())/16)) 
 				if(e.caseX()==this.caseX() && e.caseY()== this.caseY() || e.caseX()==this.caseX()+1 && e.caseY()== this.caseY()+1 || e.caseX()==this.caseX()-1 && e.caseY()== this.caseY()-1 || e.caseX()==this.caseX()+1 && e.caseY()== this.caseY() || e.caseX()==this.caseX() && e.caseY()== this.caseY()+1 || e.caseX()==this.caseX()-1 && e.caseY()== this.caseY() || e.caseX()==this.caseX() && e.caseY()== this.caseY()-1)	
 					return e;			
 			}
-		} catch (Exception e) {
-			// TODO: handle exception
-			return null;
-		}
 		return null;
 	}
 
