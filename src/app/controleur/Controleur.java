@@ -43,8 +43,6 @@ public class Controleur implements Initializable {
 
 	private Timeline gameLoop;
 
-	private ObservableList<Item> listeItems;
-
 	//FXML
 	@FXML
 	private BorderPane borderpane;
@@ -73,6 +71,8 @@ public class Controleur implements Initializable {
 
 	@FXML
 	private DialogPane dialog;
+	
+	private ObservableList<Items>() listeItems;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -125,17 +125,7 @@ public class Controleur implements Initializable {
 				// c'est un eventHandler d'ou le lambda
 
 				(ev ->{
-//					TODO gérer le changement de sprite
-//					switch (this.getJeanMichel().getOrientation()) {
-//					case 0:
-//					break;
-//					case 1: 
-//					break;
-//					case 2: 
-//					break;
-//					case 3: 
-//					break;
-//					}
+
 					if (jeu.collisionObjet()) {
 						//TODO le faire dans le modèle
 						this.pane.getChildren().remove(vueitem.getSprite());

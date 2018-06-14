@@ -6,7 +6,6 @@ import java.util.Set;
 
 public class GestionCollision {
 
-
 	private Terrain terrain;
 
 	private ArrayList<Integer> obstacles, obstacles_mov;

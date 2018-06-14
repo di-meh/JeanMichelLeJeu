@@ -68,6 +68,8 @@ public class JeanMichel extends Personnage{
 		break;
 		default:
 			break;
+
+
 		}
 
 	}
