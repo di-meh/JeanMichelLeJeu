@@ -86,7 +86,6 @@ public class Jeu {
 	public ObservableList<Item> getListeItems() {
 		return listeItems;
 	}
-
 	public boolean collisionObjet() { //TODO gérer les collisions
 		for (Item i: listeItems) {
 			if (this.getJeanMichel().getX() == i.getX() && this.getJeanMichel().getY() == i.getY()

@@ -4,7 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import app.modele.Coeur;
 import app.modele.Ennemi;
-import app.modele.Item;
+//import app.modele.Item;
 import app.modele.JeanMichel;
 import app.modele.Jeu;
 import app.modele.Terrain;
@@ -15,8 +15,8 @@ import app.vue.VueJeanMichel;
 import app.vue.VueTerrain;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+//import javafx.collections.FXCollections;
+//import javafx.collections.ObservableList;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -42,7 +42,6 @@ public class Controleur implements Initializable {
 	private VueItem vueitem;
 
 	private Timeline gameLoop;
-
 	//FXML
 	@FXML
 	private BorderPane borderpane;
@@ -72,13 +71,11 @@ public class Controleur implements Initializable {
 	@FXML
 	private DialogPane dialog;
 	
-	private ObservableList<Items>() listeItems;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		this.map = new Terrain();
 		this.jeu = new Jeu();
-		listeItems = FXCollections.observableArrayList();
 		this.dialog = new DialogPane();
 		this.jeu.getJeanMichel().setJeu(this.jeu);
 		jeu.getJeanMichel().pointsVieProperty().addListener(new ChangeListener<Number>() {
@@ -90,7 +87,6 @@ public class Controleur implements Initializable {
 		this.vueMap = new VueTerrain(this.map);
 		this.vueHeros = new VueJeanMichel(this.jeu.getJeanMichel());
 		this.vueitem = new VueCoeur((Coeur)this.jeu.getListeItems().get(0));
-
 		//Ajout des élements dans le Scene Builder
 
 		this.tilemap.getChildren().add(this.vueMap.getTileMap());

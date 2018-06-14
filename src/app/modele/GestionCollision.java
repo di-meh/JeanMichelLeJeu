@@ -109,14 +109,5 @@ public class GestionCollision {
 
 		return false;
 	}
-
-	public boolean collisionneObjet(JeanMichel j, Jeu e) {
-		for (Item i: e.getListeItems()) 
-			if (j.getRectangle().intersects(i.getRectangle())) {
-				e.getListeItems().remove(i);
-				return true;
-			}
-		return false;
-	}
 }
 
