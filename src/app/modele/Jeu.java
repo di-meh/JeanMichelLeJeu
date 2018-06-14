@@ -28,11 +28,11 @@ public class Jeu {
 	public void init() {
 		//ajouter les ennemis
 		//zone1
-		addEnnemi(new Ennemi("testEnnemi1",5, 0, 80));
-		addEnnemi(new Ennemi("testEnnemi4",5, 80, 60));
-		addEnnemi(new Ennemi("testEnnemi5",5, 400, 0));
-		addEnnemi(new Ennemi2("testEnnemi1",5, 120, 80));
-		addEnnemi(new Ennemi2("testEnnemi2",5, 80, 0));
+		addEnnemi(new Ennemi2("testEnnemi1",5, 0, 80));
+		addEnnemi(new Ennemi2("testEnnemi4",5, 80, 60));
+		addEnnemi(new Ennemi2("testEnnemi5",5, 400, 0));
+		addEnnemi(new Ennemi("testEnnemi1",5, 120, 80));
+		addEnnemi(new Ennemi("testEnnemi2",5, 80, 0));
 
 		//zone2
 
@@ -72,13 +72,14 @@ public class Jeu {
 
 	public void update() {
 		this.bfs.lancerBFS(this.jeanMichel);
-		for (Ennemi ennemi : listeEnnemis) {
-			if(ennemi.getPointsVie() != 0) {
-				ennemi.seDeplacer();
-			}else {
-				listeEnnemis.remove(ennemi);
-			}
-		} 
+			
+			for (Ennemi ennemi : listeEnnemis) {
+				if(ennemi.getPointsVie() != 0) {
+					ennemi.seDeplacer();
+				}else {
+					listeEnnemis.remove(ennemi);
+				}
+			} 
 	}
 
 	public BFS getBFS() {
