@@ -25,7 +25,7 @@ public class Jeu {
 	public void init() {
 		//ajouter les ennemis
 		//zone1
-		addEnnemi(new Ennemi("testEnnemi1", 5, 0, 80));
+		addEnnemi(new Cactus("testEnnemi1", 5, 0, 80));
 		addEnnemi(new Ennemi2("testEnnemi1", 5, 256, 456));
 		addEnnemi(new Ennemi2("testEnnemi2", 5, 125, 200));
 
