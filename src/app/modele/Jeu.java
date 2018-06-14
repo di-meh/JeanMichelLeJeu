@@ -90,9 +90,9 @@ public class Jeu {
 	public boolean collisionObjet() { //TODO gérer les collisions
 		for (Item i: listeItems) {
 			if (this.getJeanMichel().getX() == i.getX() && this.getJeanMichel().getY() == i.getY()
-				|| this.getJeanMichel().getX()+this.getJeanMichel().getTailleX() == i.getX() && this.getJeanMichel().getY() == i.getY()
-				|| this.getJeanMichel().getX() == i.getX() && this.getJeanMichel().getY()+this.getJeanMichel().getTailleY() == i.getY()
-				|| this.getJeanMichel().getX()+this.getJeanMichel().getTailleX() == i.getX() && this.getJeanMichel().getY()+this.getJeanMichel().getTailleY() == i.getY())
+				|| this.getJeanMichel().getX() + this.getJeanMichel().getTailleX() == i.getX() && this.getJeanMichel().getY() == i.getY()
+				|| this.getJeanMichel().getX() == i.getX() && this.getJeanMichel().getY() + this.getJeanMichel().getTailleY() == i.getY()
+				|| this.getJeanMichel().getX() + this.getJeanMichel().getTailleX() == i.getX() && this.getJeanMichel().getY() + this.getJeanMichel().getTailleY() == i.getY())
 				return true;
 		}
 		return false;
