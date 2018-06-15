@@ -10,19 +10,17 @@ public class JeanMichel extends Personnage{
 
 	private ArrayList<Arme> inventaireArmes;
 
+	private ArrayList<Item> inventaire;
+
 	private Arme equipee;
-
-	private GestionCollision collision;
-
 
 	private Jeu jeu;
 
 	public JeanMichel(Arme e, int x, int y) {
-		super("Jean-Michel", 100, x, y, 17, 23);
+		super("Jean-Michel", 5, x, y, 17, 23);
+		this.inventaire = new ArrayList<>();
 		this.inventaireArmes = new ArrayList<>();
-		this.setArme(e);
-		this.collision = new GestionCollision();
-		//listeItem = new ArrayList<>();
+		this.equipee = e;
 	}
 
 	public ArrayList<Arme> getListeArmes() {
@@ -38,42 +36,42 @@ public class JeanMichel extends Personnage{
 		KeyCode value = e.getCode();
 
 		switch(value) {
-		case Z: if(!this.collision.collisionne(getX(), getY() - 4) 
-				&& !this.collision.collisionne(getX() + getTailleX(), getY()-4) 
-				&& !this.collision.collisionPerso(this.jeu.getEnnemis().get(0), this, 0, 4))
-			haut();
-		break;
-		case Q: if(!this.collision.collisionne(getX() - 4, getY()) 
-				&& !this.collision.collisionne(getX() - 4, getY()+getTailleY()) 
-				&& !this.collision.collisionne(getX() - 4, getY()+getTailleY()/2) 
-				&& !this.collision.collisionPerso(this.jeu.getEnnemis().get(0), this, 1, 4))
-			gauche();
-		break;
-		case S: if(!this.collision.collisionne(getX(), getY() + 4 + getTailleY()) 
-				&& !this.collision.collisionne(getX() + getTailleX(), getY() + 4 + getTailleY()) 
-				&& !this.collision.collisionPerso(this.jeu.getEnnemis().get(0), this, 2, 4))
-			bas();
-		break;
-		case D: if(!this.collision.collisionne(getX() + 4 + getTailleX(), getY()) 
-				&& !this.collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()) 
-				&& !this.collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()/2) 
-				&& !this.collision.collisionPerso(this.jeu.getEnnemis().get(0), this, 3, 4))
-			droite();
-		break;
-		case E: System.out.println("Button E pressed"); //attaquer
-		break;
-		case F: System.out.println("Button F pressed");//pousser/tirer
-				pousser(e);
+		case Z: 
+			if(!this.collision.collisionneObstacle(getX(), getY() - 4) 
+					&& !this.collision.collisionneObstacle(getX() + getTailleX(), getY()-4) 
+					&& !this.collision.collisionnePerso(ennemiACote(), this, 0, 4)) haut();
+			break;
+		case Q: 
+			if(!this.collision.collisionneObstacle(getX() - 4, getY()) 
+					&& !this.collision.collisionneObstacle(getX() -4, getY() + getTailleY()) 
+					&& !this.collision.collisionnePerso(ennemiACote(), this, 1, 4))
+				gauche();
+			break;
+		case S: 
+			if(!this.collision.collisionneObstacle(getX(), getY() + 4 + getTailleY()) 
+					&& !this.collision.collisionneObstacle(getX() + getTailleX(), getY() + 4 + getTailleY()) 
+					&& !this.collision.collisionnePerso(ennemiACote(), this, 2, 4))
+				bas();
+			break;
+		case D: 
+			if(!this.collision.collisionneObstacle(getX() + 4 + getTailleX(), getY()) 
+					&& !this.collision.collisionneObstacle(getX() + getTailleX() + 4, getY() + getTailleY()) 
+					&& !this.collision.collisionneObstacle(getX() + getTailleX() + 4, getY() + getTailleY()/2) 
+					&& !this.collision.collisionnePerso(ennemiACote(), this, 3, 4))
+				droite();
+			break;
+		case E:
+			if(this.collision.collisionnePerso(ennemiACote(), this, 0, 4) || this.collision.collisionnePerso(ennemiACote(), this, 1, 4)||this.collision.collisionnePerso(ennemiACote(), this, 2, 4)||this.collision.collisionnePerso(ennemiACote(), this, 3, 4))
+				this.attaquer(ennemiACote());
 		break;
 		case K: System.out.println("Button K pressed"); //changer d'arme
+		this.setPointsVie(getPointsVie()+1);
 		break;
-		case L: parler();
-		break;
-		case M: System.out.println("Button M pressed"); //afficher map
-		break;
-		default:
-			break;
+		default:break;
+
+
 		}
+
 	}
 
 	public void haut() {
@@ -92,92 +90,44 @@ public class JeanMichel extends Personnage{
 		this.positionX.set(getX() + 4);
 	}
 
-	//	public void attaquer(/*Ennemi e*/) { TODO
-	//		try {
-	//			//			if(equipe.getZoneAdapt().equals(e.getZone())) {
-	//			//			e.setvie(equipe.getDgtZone());
-	//			//		}
-	//			//		else {
-	//			//			e.setvie(equipe.getDgtPasZone());
-	//			//		}
-	//		} catch (Exception e) {
-	//			// TODO: handle exception
-	//		}
-	//
-	//	}
-
+	public void attaquer(Personnage en) { 
+		if (en != null ) {
+			en.estAttaque(1);
+		}
+	}
 	public Arme getArmeEquipee() {
 		return equipee;
 	}
 
-	public void setArme(Arme equipee) {
-		this.equipee = equipee;
-	}
-
-	public void estAttaque(int atq) {
-		this.pointsVie.setValue(getPointsVie()-atq);
-	}
-
-	public void repondre() {
-		int i = 0;
-
-		while(i != 4) {
-			switch(i) {
-			case 1: System.out.println("Oui");
-			case 2: System.out.println("Non");
-			case 3: System.out.println("J'ai pas compris");
-			}
-		}
-	}
-
-	public void parler() {
-
-	}
-
-	public void pousser(KeyEvent c) { //TODO gérer le cas de tirer
-		// Impossible de gérer deux keypress à la suite à travers deux méthodes différentes 
-		
-		KeyCode value = c.getCode();
-		switch (value) {
-		case Z:if(!this.collision.collisionne(getX(), getY() - 4) 
-				&& !this.collision.collisionne(getX() + getTailleX(), getY()-4)) System.out.println("Bouton Z presséééééééééééééééééééééééééééééé");
-		break;
-		case S:if(!this.collision.collisionne(getX(), getY() + 4 + getTailleY()) 
-				&& !this.collision.collisionne(getX() + getTailleX(), getY() + 4 + getTailleY())) System.out.println("Bouton S presséééééééééééééééééééééééééééééé");
-		break;
-		case Q:if(!this.collision.collisionne(getX() - 4, getY()) 
-				&& !this.collision.collisionne(getX() - 4, getY()+getTailleY()) 
-				&& !this.collision.collisionne(getX() - 4, getY()+getTailleY()/2)) System.out.println("Bouton Q presséééééééééééééééééééééééééééééé");
-		break;
-		case D: if(!this.collision.collisionne(getX() + 4 + getTailleX(), getY()) 
-				&& !this.collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()) 
-				&& !this.collision.collisionne(getX() + getTailleX() + 4, getY() + getTailleY()/2)) System.out.println("Bouton D presséééééééééééééééééééééééééééééé");
-		break;
-		default: break;
-		}
-	}
-
 	public Jeu getJeu() {
-		return this.jeu.getJeu();
+		return this.jeu;
 
 	}
 
 	public void setJeu(Jeu j) {
 		this.jeu = j;
-		
+	}
+
+	public Ennemi ennemiACote() {
+		for (Ennemi e : jeu.getEnnemis()) {
+				if(e.caseX()==this.caseX() && e.caseY()== this.caseY() 
+				|| e.caseX()==this.caseX()+1 && e.caseY()== this.caseY()+1 
+				|| e.caseX()==this.caseX()-1 && e.caseY()== this.caseY()-1 
+				|| e.caseX()==this.caseX()+1 && e.caseY()== this.caseY() 
+				|| e.caseX()==this.caseX() && e.caseY()== this.caseY()+1 
+				|| e.caseX()==this.caseX()-1 && e.caseY()== this.caseY() 
+				|| e.caseX()==this.caseX() && e.caseY()== this.caseY()-1)
+				return e;			
+		}
+		return null;
+	}
+
+	public ArrayList<Item> getInventaire() {
+		return this.inventaire;
+	}
+
+	public void ramasserItem() {
+		//this.jeu.setItem(null);
 	}
 
 }
-
-/*
- * 
- * personnageCible.recevoirDegats(arme.getDegatArme());
-
-                if(personnageCible.getHp() <= 0)
-                {
-                        this.lvl += 1;
-                }
- * 
- * 
- */
-

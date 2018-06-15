@@ -1,69 +1,102 @@
 package app.modele;
 
-import java.util.ArrayList;
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 
 public class Jeu {
 
-	private ArrayList<Ennemi> ennemis;
-	private ArrayList<PNJ> pnjs;
+	private ObservableList<Ennemi> listeEnnemis;
 	private JeanMichel jeanMichel;
 
+	private BFS bfs;
+	private ObservableList<Item> listeItems;
+
+	public static Ennemi ennemiRetiré=null;
 	public Jeu() {
-		this.ennemis = new ArrayList<Ennemi>();
-		this.pnjs = new ArrayList<PNJ>();
+		this.listeEnnemis = FXCollections.observableArrayList();
+		this.listeItems = FXCollections.observableArrayList();
 		this.jeanMichel = new JeanMichel(null, 0, 0);
-		init();
+		this.bfs = new BFS();
+		this.listeItems.add(new Coeur(20,40));
+		init(); //s'oocupe d'ajouter les ennemis/pnj aux listes
 	}
 
 	public void init() {
 		//ajouter les ennemis
 		//zone1
-		addEnnemi(new Ennemi("testEnnemi1",50, 0, 80));
-		addEnnemi(new Ennemi("testEnnemi2",50, 80, 0));
+		addEnnemi(new Cactus("testEnnemi1", 5, 0, 80));
+		addEnnemi(new Tentacule("testEnnemi1", 5, 256, 456));
+		addEnnemi(new Tentacule("testEnnemi2", 5, 125, 200));
 
-		//zone2
+		listeEnnemis.addListener(new ListChangeListener<Ennemi>() {
+			@Override
+			public void onChanged(Change<? extends Ennemi> c) {
+				while (c.next()) {
+					if (c.wasRemoved()) {
+						for (Ennemi remitem : c.getRemoved()) {
+							ennemiRetiré=remitem;
+						}
+					}
+				}
+			}});
+		listeItems.addListener(new ListChangeListener<Item>() {
 
+			@Override
+			public void onChanged(Change<? extends Item> c) {
+				while(c.next()) {
+					for (Item remitem: c.getRemoved()) {
+						listeItems.remove(remitem);
+					}
+				}
+			}
 
+		});
+	}
 
-		//ajouter les pnjs
-		//zone1
-		addPNJ(new PNJArme("testPNJArme", 20, 40));
-		addPNJ(new PNJItem("testPNJItem", 125, 40));
-		addPNJ(new PNJVie("testPNJVie", 10, 200));
-		//zone2
-		addPNJ(new PNJArme("testPNJArme", 10, 200));
-		addPNJ(new PNJItem("testPNJItem", 125, 40));
-		addPNJ(new PNJVie("testPNJVie", 20, 40));
+	private void addEnnemi(Ennemi e) {
+		this.listeEnnemis.add(e);
 	}
 
 	public void update() {
-		this.ennemis.get(0).seDeplacer();
+		this.bfs.lancerBFS(this.jeanMichel);
+		try {
 
+			for (Ennemi ennemi : listeEnnemis) {
+				if(ennemi.getPointsVie() != 0) {
+					ennemi.seDeplacer();
+				}else {
+					listeEnnemis.remove(ennemi);
+				}
+			} 
+		} catch (Exception e) {
+		}
 	}
 
-	public void addEnnemi(Ennemi e) {
-		this.ennemis.add(e);
+	public BFS getBFS() {
+		return this.bfs;
 	}
 
-	public ArrayList<Ennemi> getEnnemis() {
-		return this.ennemis;
-	}
-
-	public void addPNJ(PNJ p) {
-		this.pnjs.add(p);
-	}
-
-	public ArrayList<PNJ> getPNJ() {
-		return this.pnjs;
+	public ObservableList<Ennemi> getEnnemis() {
+		return this.listeEnnemis;
 	}
 
 	public JeanMichel getJeanMichel() {
-		return jeanMichel;
+		return this.jeanMichel;
 	}
 
-	public Jeu getJeu() {
-		return this;
+	public ObservableList<Item> getListeItems() {
+		return listeItems;
 	}
-
+	public boolean collisionObjet() { 
+		for (Item i: listeItems) {
+			if (this.getJeanMichel().getX() == i.getX() && this.getJeanMichel().getY() == i.getY()
+					|| this.getJeanMichel().getX() + this.getJeanMichel().getTailleX() == i.getX() && this.getJeanMichel().getY() == i.getY()
+					|| this.getJeanMichel().getX() == i.getX() && this.getJeanMichel().getY() + this.getJeanMichel().getTailleY() == i.getY()
+					|| this.getJeanMichel().getX() + this.getJeanMichel().getTailleX() == i.getX() && this.getJeanMichel().getY() + this.getJeanMichel().getTailleY() == i.getY())
+				return true;
+		}
+		return false;
+	}
 
 }
