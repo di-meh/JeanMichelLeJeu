@@ -38,31 +38,31 @@
 				<RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
 			</rowConstraints>
 			<children>
-				<ImageView fx:id="heart0" fitHeight="16.0" fitWidth="16.0"
+				<ImageView fx:id="coeur0" fitHeight="16.0" fitWidth="16.0"
 					pickOnBounds="true" preserveRatio="true">
 					<image>
 						<Image url="@../img/heart.png" />
 					</image>
 				</ImageView>
-				<ImageView fx:id="heart1" fitHeight="16.0" fitWidth="16.0"
+				<ImageView fx:id="coeur1" fitHeight="16.0" fitWidth="16.0"
 					pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
 					<image>
 						<Image url="@../img/heart.png" />
 					</image>
 				</ImageView>
-				<ImageView fx:id="heart2" fitHeight="16.0" fitWidth="16.0"
+				<ImageView fx:id="coeur2" fitHeight="16.0" fitWidth="16.0"
 					pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2">
 					<image>
 						<Image url="@../img/heart.png" />
 					</image>
 				</ImageView>
-				<ImageView fx:id="heart3" fitHeight="16.0" fitWidth="16.0"
+				<ImageView fx:id="coeur3" fitHeight="16.0" fitWidth="16.0"
 					pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3">
 					<image>
 						<Image url="@../img/heart.png" />
 					</image>
 				</ImageView>
-				<ImageView fx:id="heart4" fitHeight="16.0" fitWidth="16.0"
+				<ImageView fx:id="coeur4" fitHeight="16.0" fitWidth="16.0"
 					pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="4">
 					<image>
 						<Image url="@../img/heart.png" />
