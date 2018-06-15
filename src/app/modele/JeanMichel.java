@@ -1,20 +1,15 @@
 package app.modele;
 
-import java.util.ArrayList;
-
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 
-
 public class JeanMichel extends Personnage{
 
-	private ArrayList<Item> inventaire;
 
 	private Jeu jeu;
 
 	public JeanMichel(int x, int y) {
 		super("Jean-Michel", 5, x, y, 17, 23);
-		this.inventaire = new ArrayList<>();
 	}
 
 	public void action(KeyEvent e) {
@@ -104,10 +99,6 @@ public class JeanMichel extends Personnage{
 				return e;			
 		}
 		return null;
-	}
-
-	public ArrayList<Item> getInventaire() {
-		return this.inventaire;
 	}
 
 }

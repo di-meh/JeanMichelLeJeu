@@ -32,20 +32,8 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 		return this.pointsVie;
 	}
 
-	public void setPointsVie(SimpleIntegerProperty v) {
-		this.pointsVie = v;
-	}
-
 	public int getPointsVie() {
 		return this.pointsVie.getValue();
-	}
-
-	public void setPointsVie(int val) {
-		this.pointsVie.setValue(val);
-	}
-
-	public String getNom() {
-		return this.nom;
 	}
 
 	public int getX() {

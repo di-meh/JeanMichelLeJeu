@@ -57,16 +57,7 @@ public class Terrain {
 		return this.tab_2d_obs;
 	}
 
-	public String getUrlBase() {
-		return this.urlMapBase;
-	}
-
 	public String getUrlObs() {
 		return this.urlMapObs;
 	}
-
-	public void setTab2dObs(int[][] tab_2d_obs) {
-		this.tab_2d_obs = tab_2d_obs;
-	}
-
 }
