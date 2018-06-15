@@ -33,6 +33,9 @@ public class Controleur implements Initializable {
 	private Terrain map;
 	//vues
 	private VueTerrain vueMap;
+
+	private VueItem vueItem;
+	
 	private VuePersonnage vueHeros;
 
 	private VueItem vueitem;
@@ -83,7 +86,9 @@ public class Controleur implements Initializable {
 				verifVie();
 			}
 		});
+		
 		this.vueMap = new VueTerrain(this.map);
+		this.vueItem = new VueCoeur((Coeur)this.jeu.getListeItems().get(0));
 		this.vueHeros = new VueJeanMichel(this.jeu.getJeanMichel());
 		this.vueitem = new VueCoeur((Coeur)this.jeu.getListeItems().get(0));
 		//Ajout des élements dans le Scene Builder
@@ -126,7 +131,7 @@ public class Controleur implements Initializable {
 
 					if (jeu.collisionObjet() && this.jeu.getJeanMichel().getPointsVie()!=5) {
 						//TODO le faire dans le modèle
-						this.pane.getChildren().remove(vueitem.getSprite());
+						this.pane.getChildren().remove(vueItem.getSprite());
 						this.getJeanMichel().pointsVieProperty().set(this.getJeanMichel().getPointsVie()+1);
 						if (this.getJeanMichel().getPointsVie() > 5) this.getJeanMichel().pointsVieProperty().set(5);
 					}

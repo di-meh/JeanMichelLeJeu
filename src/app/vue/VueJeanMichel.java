@@ -1,7 +1,5 @@
 package app.vue;
 
-import app.modele.JeanMichel;
-//import java.util.ArrayList;
 import app.modele.Personnage;
 
 
