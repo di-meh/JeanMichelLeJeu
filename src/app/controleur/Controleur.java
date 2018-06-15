@@ -188,27 +188,27 @@ public class Controleur implements Initializable {
 		if (vieJM >= 5) {
 			this.coeur4.setImage(coeur0.getImage());
 		}
-		else
+		else {
 			this.coeur4.setImage(new Image("file:./src/app/img/heartempty.png"));
-		
+		}
 		if (vieJM >= 4) {
 			this.coeur3.setImage(coeur0.getImage());
 		}
-		else
+		else {
 			this.coeur3.setImage(new Image("file:./src/app/img/heartempty.png"));
-		
+		}
 		if (vieJM >= 3) {
 			this.coeur2.setImage(coeur0.getImage());
 		}
-		else
+		else {
 			this.coeur2.setImage(new Image("file:./src/app/img/heartempty.png"));
-			
+		}
 		if (vieJM >= 2) {
 			this.coeur1.setImage(coeur0.getImage());
 		}
-		else
+		else {
 			this.coeur1.setImage(new Image("file:./src/app/img/heartempty.png"));
-		
+		}
 		if (vieJM >= 1) {
 			this.coeur0.setImage(coeur0.getImage());
 		}
