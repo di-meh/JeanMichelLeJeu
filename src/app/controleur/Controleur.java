@@ -1,17 +1,22 @@
 package app.controleur;
 
 import java.net.URL;
+import java.util.HashMap;
 import java.util.ResourceBundle;
+
+import app.modele.Cactus;
 import app.modele.Coeur;
 import app.modele.Ennemi;
 //import app.modele.Item;
 import app.modele.JeanMichel;
 import app.modele.Jeu;
+import app.modele.Tentacule;
 import app.modele.Terrain;
-import app.vue.VueCoeur;
 import app.vue.VueCactus;
+import app.vue.VueCoeur;
 import app.vue.VueItem;
 import app.vue.VueJeanMichel;
+import app.vue.VuePersonnage;
 import app.vue.VueTentacule;
 import app.vue.VueTerrain;
 import javafx.animation.KeyFrame;
@@ -39,10 +44,10 @@ public class Controleur implements Initializable {
 	//vues
 	private VueTerrain vueMap;
 	private VueJeanMichel vueHeros;
-	private VueCactus vueCactus;
-	private VueTentacule vueTentacule;
 
-	private VueItem vueItem;
+	private VueItem vueitem;
+	
+	private HashMap<Ennemi, VuePersonnage> EnnemiVue;
 
 	private Timeline gameLoop;
 	//FXML
@@ -73,10 +78,11 @@ public class Controleur implements Initializable {
 
 	@FXML
 	private DialogPane dialog;
-	
-	
+
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		this.EnnemiVue = new HashMap<>();
 		this.map = new Terrain();
 		this.jeu = new Jeu();
 		this.dialog = new DialogPane();
@@ -89,7 +95,7 @@ public class Controleur implements Initializable {
 		});
 		this.vueMap = new VueTerrain(this.map);
 		this.vueHeros = new VueJeanMichel(this.jeu.getJeanMichel());
-		this.vueItem = new VueCoeur((Coeur)this.jeu.getListeItems().get(0));
+		this.vueitem = new VueCoeur((Coeur)this.jeu.getListeItems().get(0));
 		//Ajout des élements dans le Scene Builder
 
 		this.tilemap.getChildren().add(this.vueMap.getTileMap());
@@ -98,9 +104,17 @@ public class Controleur implements Initializable {
 		this.pane.getChildren().add(this.vueMap.getTileMapMov());
 
 		//affichage des persos
-		this.pane.getChildren().add(vueItem.getSprite());
+		this.pane.getChildren().add(vueitem.getSprite());
 		this.pane.getChildren().add(vueHeros.getSprite());
-		
+		for (Ennemi en : jeu.getEnnemis()) {
+			en.setJeu(jeu);
+			if(en instanceof Cactus)
+				EnnemiVue.put(en, new VueCactus(en));
+			else if(en instanceof Tentacule)
+				EnnemiVue.put(en, new VueTentacule(en));
+				this.pane.getChildren().add(EnnemiVue.get(en).getSprite());
+		}
+
 		pane.getChildren().add(dialog);
 		dialog.setVisible(false);
 		init();
@@ -122,7 +136,7 @@ public class Controleur implements Initializable {
 
 					if (jeu.collisionObjet() && this.jeu.getJeanMichel().getPointsVie()!=5) {
 						//TODO le faire dans le modèle
-						this.pane.getChildren().remove(vueItem.getSprite());
+						this.pane.getChildren().remove(vueitem.getSprite());
 						this.getJeanMichel().pointsVieProperty().set(this.getJeanMichel().getPointsVie()+1);
 						if (this.getJeanMichel().getPointsVie() > 5) this.getJeanMichel().pointsVieProperty().set(5);
 					}
@@ -130,7 +144,7 @@ public class Controleur implements Initializable {
 						System.out.println("Vous êtes mort");
 						heart0.setImage(new Image("file:./src/app/img/heartempty.png"));
 						this.pane.getChildren().remove(vueHeros.getSprite());
-						
+
 						dialog.setContentText("GAME OVER");
 						dialog.setPrefWidth(110);
 						dialog.setPrefHeight(20);
@@ -143,10 +157,10 @@ public class Controleur implements Initializable {
 					}
 					else
 						this.jeu.update();
-						if (Jeu.ennemiRetiré != null) {
-							pane.getChildren().remove(Jeu.ennemiRetiré.getVue().getSprite());
-							Jeu.ennemiRetiré=null;
-							if(jeu.getEnnemis().size() == 4) {					  
+					if (Jeu.ennemiRetiré != null) {
+						pane.getChildren().remove(EnnemiVue.get(Jeu.ennemiRetiré).getSprite());
+						Jeu.ennemiRetiré=null;
+						if(jeu.getEnnemis().size() == 4) {					  
 							dialog.setContentText("Bravo, tu as tué\nton premier cactus");
 							dialog.setPrefWidth(170);
 							dialog.setPrefHeight(72);
@@ -154,11 +168,11 @@ public class Controleur implements Initializable {
 							dialog.setLayoutX(500-dialog.getPrefWidth());
 							dialog.setOpacity(.59);
 							dialog.setVisible(true);
-							}else
-								dialog.setVisible(false);
-						}
+						}else
+							dialog.setVisible(false);
+					}
 
-					
+
 				})
 				);
 		getGameLoop().getKeyFrames().add(kf);
