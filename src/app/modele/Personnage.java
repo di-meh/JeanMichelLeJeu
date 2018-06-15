@@ -89,13 +89,13 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 	}
 
 	public void attaquer(Personnage en) { 
-		if (en != null && System.currentTimeMillis()%99==0) {
+		if (en != null && System.currentTimeMillis()%99 == 0) {
 			en.estAttaque(1);
 		}
 	}
 	
 	public void estAttaque(int atq) {
-		this.pointsVie.setValue(getPointsVie()-atq);	
+		this.pointsVie.setValue(getPointsVie() - atq);	
 	}
 	
 	public int caseX() {

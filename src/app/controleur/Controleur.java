@@ -123,52 +123,50 @@ public class Controleur implements Initializable {
 				// c'est un eventHandler d'ou le lambda
 
 				(ev ->{
-					System.out.println(this.getJeanMichel().pointsVieProperty());
-					if (jeu.collisionObjet() && this.jeu.getJeanMichel().getPointsVie()!=5) {
+					if (this.jeu.collisionObjet() && this.jeu.getJeanMichel().getPointsVie() != 5) {
 						this.pane.getChildren().remove(vueItem.getSprite());
-						this.getJeanMichel().pointsVieProperty().set(this.getJeanMichel().getPointsVie()+1);
+						this.getJeanMichel().pointsVieProperty().set(this.getJeanMichel().getPointsVie() + 1);
 						if (this.getJeanMichel().getPointsVie() > 5) this.getJeanMichel().pointsVieProperty().set(5);
 					}
 					if(this.jeu.getJeanMichel().getPointsVie() == 0){
 						System.out.println("Vous êtes mort");
-						coeur0.setImage(new Image("file:./src/app/img/heartempty.png"));
+						this.coeur0.setImage(new Image("file:./src/app/img/heartempty.png"));
 						this.pane.getChildren().remove(vueJeanMichel.getSprite());
-						dialog.setContentText("GAME OVER");
-						dialog.setPrefWidth(110);
-						dialog.setPrefHeight(20);
-						dialog.setLayoutY(510/2 - dialog.getPrefHeight()/2);
-						dialog.setLayoutX(510/2 - dialog.getPrefWidth()/2);
-						dialog.setOpacity(.75);
-						dialog.setVisible(true);
+						this.dialog.setContentText("GAME OVER");
+						this.dialog.setPrefWidth(110);
+						this.dialog.setPrefHeight(20);
+						this.dialog.setLayoutY(510/2 - dialog.getPrefHeight()/2);
+						this.dialog.setLayoutX(510/2 - dialog.getPrefWidth()/2);
+						this.dialog.setOpacity(.75);
+						this.dialog.setVisible(true);
 						getGameLoop().stop();
 
 					}
 					else
 						this.jeu.update();
 					if (Jeu.ennemiRetiré != null) {
-						pane.getChildren().remove(EnnemiVue.get(Jeu.ennemiRetiré).getSprite());
-						Jeu.ennemiRetiré=null;
+						this.pane.getChildren().remove(EnnemiVue.get(Jeu.ennemiRetiré).getSprite());
+						Jeu.ennemiRetiré = null;
 						if(jeu.getEnnemis().size() == 2) {					  
-							dialog.setContentText("Bravo, tu as tué\nton premier ennemi");
-							dialog.setPrefWidth(170);
-							dialog.setPrefHeight(72);
-							dialog.setLayoutY(400);
-							dialog.setLayoutX(500-dialog.getPrefWidth());
-							dialog.setOpacity(.59);
-							dialog.setVisible(true);
+							this.dialog.setContentText("Bravo, tu as tué\nton premier ennemi");
+							this.dialog.setPrefWidth(170);
+							this.dialog.setPrefHeight(72);
+							this.dialog.setLayoutY(400);
+							this.dialog.setLayoutX(500 - dialog.getPrefWidth());
+							this.dialog.setOpacity(.59);
+							this.dialog.setVisible(true);
 						}else
 							dialog.setVisible(false);
 					}
-					if (jeu.getEnnemis().size()==0) {
-						dialog.setContentText("Bravo, tu as tué\ntous les ennemis");
-						dialog.setPrefHeight(72);
-						dialog.setVisible(true);
+					if (this.jeu.getEnnemis().size() == 0) {
+						this.dialog.setContentText("Bravo, tu as tué\ntous les ennemis");
+						this.dialog.setPrefHeight(72);
+						this.dialog.setVisible(true);
 					}
 
 				})
 				);
 		getGameLoop().getKeyFrames().add(kf);
-
 	}
 
 	private Timeline getGameLoop() {
@@ -184,39 +182,38 @@ public class Controleur implements Initializable {
 	}
 
 	public void verifVie() {
-		int vieJM = jeu.getJeanMichel().getPointsVie();
+		int vieJM = this.jeu.getJeanMichel().getPointsVie();
 		
 		if (vieJM >= 5) {
-			coeur4.setImage(coeur0.getImage());
+			this.coeur4.setImage(coeur0.getImage());
 		}
-		else {
-			coeur4.setImage(new Image("file:./src/app/img/heartempty.png"));
-		}
+
+		else
+			this.coeur4.setImage(new Image("file:./src/app/img/heartempty.png"));
 		
 		if (vieJM >= 4) {
-			coeur3.setImage(coeur0.getImage());
+			this.coeur3.setImage(coeur0.getImage());
 		}
-		else {
-			coeur3.setImage(new Image("file:./src/app/img/heartempty.png"));
-		}
+
+		else
+			this.coeur3.setImage(new Image("file:./src/app/img/heartempty.png"));
 		
 		if (vieJM >= 3) {
-			coeur2.setImage(coeur0.getImage());
+			this.coeur2.setImage(coeur0.getImage());
 		}
-		else {
-			coeur2.setImage(new Image("file:./src/app/img/heartempty.png"));
-		}
+
+		else
+			this.coeur2.setImage(new Image("file:./src/app/img/heartempty.png"));
 			
 		if (vieJM >= 2) {
-			coeur1.setImage(coeur0.getImage());
+			this.coeur1.setImage(coeur0.getImage());
 		}
-		else {
-			coeur1.setImage(new Image("file:./src/app/img/heartempty.png"));
-			
-		}
+
+		else
+			this.coeur1.setImage(new Image("file:./src/app/img/heartempty.png"));
 		
 		if (vieJM >= 1) {
-			coeur0.setImage(coeur0.getImage());
+			this.coeur0.setImage(coeur0.getImage());
 		}
 	}
 

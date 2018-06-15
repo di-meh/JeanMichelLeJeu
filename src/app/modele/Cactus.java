@@ -11,8 +11,8 @@ public class Cactus extends Ennemi{
 
 		public void haut() {
 			if(!this.collision.collisionneObstacle(getX(), getY() - 1) 
-					&& !this.collision.collisionneObstacle(getX() + getTailleX(), getY() - 1)
-					&& !this.collision.collisionnePerso(this.jeu.getJeanMichel(), this, 0, 1)) {
+			&& !this.collision.collisionneObstacle(getX() + getTailleX(), getY() - 1)
+			&& !this.collision.collisionnePerso(this.jeu.getJeanMichel(), this, 0, 1)) {
 				this.positionY.set(getY() - 1);
 				this.orientation = 0;
 			}
@@ -22,8 +22,8 @@ public class Cactus extends Ennemi{
 
 		public void bas() {
 			if(!this.collision.collisionneObstacle(getX(), getY() + 1 + getTailleY()) 
-					&& !this.collision.collisionneObstacle(getX() + getTailleX(), getY() + 1 + getTailleY())
-					&& !this.collision.collisionnePerso(this.jeu.getJeanMichel(), this, 1, 1)) {
+			&& !this.collision.collisionneObstacle(getX() + getTailleX(), getY() + 1 + getTailleY())
+			&& !this.collision.collisionnePerso(this.jeu.getJeanMichel(), this, 1, 1)) {
 				this.positionY.set(getY() + 1);
 				this.orientation = 1;
 			}
@@ -33,9 +33,9 @@ public class Cactus extends Ennemi{
 
 		public void gauche() {
 			if(!this.collision.collisionneObstacle(getX() - 1, getY()) 
-					&& !this.collision.collisionneObstacle(getX() - 1, getY() + getTailleY()) 
-					&& !this.collision.collisionneObstacle(getX() - 1, getY() + getTailleY()/2)
-					&& !this.collision.collisionnePerso(this.jeu.getJeanMichel(), this, 2, 1)) {
+			&& !this.collision.collisionneObstacle(getX() - 1, getY() + getTailleY()) 
+			&& !this.collision.collisionneObstacle(getX() - 1, getY() + getTailleY()/2)
+			&& !this.collision.collisionnePerso(this.jeu.getJeanMichel(), this, 2, 1)) {
 				this.positionX.set(getX() - 1);
 				this.orientation = 2;
 			}
@@ -45,9 +45,9 @@ public class Cactus extends Ennemi{
 
 		public void droite() {
 			if(!this.collision.collisionneObstacle(getX() + 1 + getTailleX(), getY()) 
-					&& !this.collision.collisionneObstacle(getX() + getTailleX() + 1, getY() + getTailleY()) 
-					&& !this.collision.collisionneObstacle(getX() + getTailleX() + 1, getY() + getTailleY()/2)
-					&& !this.collision.collisionnePerso(this.jeu.getJeanMichel(), this, 3, 1)) {    
+			&& !this.collision.collisionneObstacle(getX() + getTailleX() + 1, getY() + getTailleY()) 
+			&& !this.collision.collisionneObstacle(getX() + getTailleX() + 1, getY() + getTailleY()/2)
+			&& !this.collision.collisionnePerso(this.jeu.getJeanMichel(), this, 3, 1)) {    
 				this.positionX.set(getX() + 1);
 				this.orientation = 3;
 			}
