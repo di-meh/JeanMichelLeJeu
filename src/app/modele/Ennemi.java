@@ -10,8 +10,8 @@ public abstract class Ennemi extends Personnage{
 
 	private VuePersonnage vue;
 
-	public Ennemi(String n, int pv, int x, int y) {
-		super(n, pv, x, y, 12, 29);
+	public Ennemi(String n, int pv, int x, int y, int tx, int ty) {
+		super(n, pv, x, y, tx, ty);
 		System.out.println("Superclass ennemi created");
 	}
 	

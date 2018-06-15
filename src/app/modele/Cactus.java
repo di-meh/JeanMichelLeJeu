@@ -5,7 +5,7 @@ public class Cactus extends Ennemi{
 	private int orientation;
 	
 	 public Cactus(String n, int pv, int x, int y) {
-		super(n, pv, x, y);
+		super(n, pv, x, y, 12, 29);
 		this.orientation = 0;
 	}
 

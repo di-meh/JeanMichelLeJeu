@@ -19,7 +19,7 @@ public class Main extends Application {
 	public void start(Stage primaryStage) throws Exception {
 
 		try {
-
+			System.out.println("Voici les touches: \nZ: Haut\nQ: Gauche\nS: Bas\nD: Droite\nE: Attaquer");
 			primaryStage.setTitle("Jean-Michel : le jeu");
 
 			FXMLLoader loader = new FXMLLoader();

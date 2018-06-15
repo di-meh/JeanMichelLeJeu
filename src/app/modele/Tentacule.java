@@ -3,7 +3,7 @@ package app.modele;
 public class Tentacule extends Ennemi{
 
 	public Tentacule(String n, int pv, int x, int y) {
-		super(n, pv, x, y);
+		super(n, pv, x, y ,15,20);
 	}
 
 	@Override
