@@ -12,6 +12,7 @@ import app.vue.VueCoeur;
 import app.vue.VueCactus;
 import app.vue.VueItem;
 import app.vue.VueJeanMichel;
+import app.vue.VuePersonnage;
 import app.vue.VueTentacule;
 import app.vue.VueTerrain;
 import javafx.animation.KeyFrame;
@@ -38,9 +39,9 @@ public class Controleur implements Initializable {
 	private Terrain map;
 	//vues
 	private VueTerrain vueMap;
-	private VueJeanMichel vueHeros;
-	private VueCactus vueCactus;
-	private VueTentacule vueTentacule;
+	private VuePersonnage vueJeanMichel;
+	private VuePersonnage vueCactus;
+	private VuePersonnage vueTentacule;
 
 	private VueItem vueItem;
 
@@ -88,7 +89,7 @@ public class Controleur implements Initializable {
 			}
 		});
 		this.vueMap = new VueTerrain(this.map);
-		this.vueHeros = new VueJeanMichel(this.jeu.getJeanMichel());
+		this.vueJeanMichel = new VueJeanMichel(this.jeu.getJeanMichel());
 		this.vueItem = new VueCoeur((Coeur)this.jeu.getListeItems().get(0));
 		//Ajout des élements dans le Scene Builder
 
@@ -99,7 +100,7 @@ public class Controleur implements Initializable {
 
 		//affichage des persos
 		this.pane.getChildren().add(vueItem.getSprite());
-		this.pane.getChildren().add(vueHeros.getSprite());
+		this.pane.getChildren().add(vueJeanMichel.getSprite());
 		
 		pane.getChildren().add(dialog);
 		dialog.setVisible(false);
@@ -129,7 +130,7 @@ public class Controleur implements Initializable {
 					if(this.jeu.getJeanMichel().getPointsVie() == 0){
 						System.out.println("Vous êtes mort");
 						heart0.setImage(new Image("file:./src/app/img/heartempty.png"));
-						this.pane.getChildren().remove(vueHeros.getSprite());
+						this.pane.getChildren().remove(vueJeanMichel.getSprite());
 						
 						dialog.setContentText("GAME OVER");
 						dialog.setPrefWidth(110);

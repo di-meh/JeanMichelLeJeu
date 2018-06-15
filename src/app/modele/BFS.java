@@ -24,9 +24,9 @@ public class BFS {
 		
 	}
 
-	public void lancerBFS(JeanMichel jm) {
+	public void lancerBFS(Personnage jeanMichel) {
 		
-		Tile sommetZero = new Tile(jm.getX(), jm.getY());
+		Tile sommetZero = new Tile(jeanMichel.getX(), jeanMichel.getY());
 		this.tiles.put(sommetZero, new Tile(0, 0));
 		this.file.add(sommetZero);
 		this.tilesMarquees.add(sommetZero);
