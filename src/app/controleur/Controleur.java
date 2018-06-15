@@ -33,16 +33,10 @@ public class Controleur implements Initializable {
 	private Terrain map;
 	//vues
 	private VueTerrain vueMap;
-<<<<<<< HEAD
-	private VuePersonnage vueJeanMichel;
-	private VueItem vueItem;
-=======
-
 	private VueItem vueItem;
 	
 	private VuePersonnage vueHeros;
 
->>>>>>> 84344544a5277110466a928ec2636a73edf3638f
 	private HashMap<Ennemi, VuePersonnage> EnnemiVue;
 
 	private Timeline gameLoop;
@@ -92,14 +86,8 @@ public class Controleur implements Initializable {
 		});
 		
 		this.vueMap = new VueTerrain(this.map);
-<<<<<<< HEAD
-		this.vueJeanMichel = new VueJeanMichel(this.jeu.getJeanMichel());
-		this.vueItem = new VueCoeur((Coeur)this.jeu.getListeItems().get(0));
-
-=======
 		this.vueItem = new VueCoeur((Coeur)this.jeu.getListeItems().get(0));
 		this.vueHeros = new VueJeanMichel(this.jeu.getJeanMichel());
->>>>>>> 84344544a5277110466a928ec2636a73edf3638f
 		//Ajout des élements dans le Scene Builder
 
 		this.tilemap.getChildren().add(this.vueMap.getTileMap());
@@ -108,15 +96,8 @@ public class Controleur implements Initializable {
 		this.pane.getChildren().add(this.vueMap.getTileMapMov());
 
 		//affichage des persos
-<<<<<<< HEAD
-
-		this.pane.getChildren().add(vueItem.getSprite());
-		this.pane.getChildren().add(vueJeanMichel.getSprite());
-
-=======
 		this.pane.getChildren().add(vueItem.getSprite());
 		this.pane.getChildren().add(vueHeros.getSprite());
->>>>>>> 84344544a5277110466a928ec2636a73edf3638f
 		for (Ennemi en : jeu.getEnnemis()) {
 			en.setJeu(jeu);
 			if(en instanceof Cactus)
@@ -154,12 +135,7 @@ public class Controleur implements Initializable {
 					if(this.jeu.getJeanMichel().getPointsVie() == 0){
 						System.out.println("Vous êtes mort");
 						heart0.setImage(new Image("file:./src/app/img/heartempty.png"));
-<<<<<<< HEAD
-						this.pane.getChildren().remove(vueJeanMichel.getSprite());
-
-=======
 						this.pane.getChildren().remove(vueHeros.getSprite());
->>>>>>> 84344544a5277110466a928ec2636a73edf3638f
 						dialog.setContentText("GAME OVER");
 						dialog.setPrefWidth(110);
 						dialog.setPrefHeight(20);
