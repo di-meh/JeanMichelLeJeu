@@ -1,10 +1,10 @@
 package app.vue;
 
-import app.modele.Ennemi;
+import app.modele.Personnage;
 
 public class VueCactus extends VuePersonnage{
 
-	public VueCactus(Ennemi e) {
-		super(e, "file:./src/app/img/cactus.png");
+	public VueCactus(Personnage p) {
+		super(p, "file:./src/app/img/cactus.png");
 	}
 }

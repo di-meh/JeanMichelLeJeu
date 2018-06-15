@@ -7,7 +7,6 @@ import java.util.ResourceBundle;
 import app.modele.Cactus;
 import app.modele.Coeur;
 import app.modele.Ennemi;
-//import app.modele.Item;
 import app.modele.JeanMichel;
 import app.modele.Jeu;
 import app.modele.Tentacule;
@@ -21,8 +20,6 @@ import app.vue.VueTentacule;
 import app.vue.VueTerrain;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-//import javafx.collections.FXCollections;
-//import javafx.collections.ObservableList;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -43,15 +40,9 @@ public class Controleur implements Initializable {
 	private Terrain map;
 	//vues
 	private VueTerrain vueMap;
-<<<<<<< HEAD
 	private VuePersonnage vueJeanMichel;
-	private VuePersonnage vueCactus;
-	private VuePersonnage vueTentacule;
-=======
-	private VueJeanMichel vueHeros;
->>>>>>> 252e566e8f45f467e780d70a81b3ef6b9703d49e
 
-	private VueItem vueitem;
+	private VueItem vueItem;
 	
 	private HashMap<Ennemi, VuePersonnage> EnnemiVue;
 
@@ -99,14 +90,10 @@ public class Controleur implements Initializable {
 				verifVie();
 			}
 		});
+		
 		this.vueMap = new VueTerrain(this.map);
-<<<<<<< HEAD
 		this.vueJeanMichel = new VueJeanMichel(this.jeu.getJeanMichel());
 		this.vueItem = new VueCoeur((Coeur)this.jeu.getListeItems().get(0));
-=======
-		this.vueHeros = new VueJeanMichel(this.jeu.getJeanMichel());
-		this.vueitem = new VueCoeur((Coeur)this.jeu.getListeItems().get(0));
->>>>>>> 252e566e8f45f467e780d70a81b3ef6b9703d49e
 		//Ajout des élements dans le Scene Builder
 
 		this.tilemap.getChildren().add(this.vueMap.getTileMap());
@@ -115,13 +102,9 @@ public class Controleur implements Initializable {
 		this.pane.getChildren().add(this.vueMap.getTileMapMov());
 
 		//affichage des persos
-<<<<<<< HEAD
 		this.pane.getChildren().add(vueItem.getSprite());
 		this.pane.getChildren().add(vueJeanMichel.getSprite());
-		
-=======
-		this.pane.getChildren().add(vueitem.getSprite());
-		this.pane.getChildren().add(vueHeros.getSprite());
+
 		for (Ennemi en : jeu.getEnnemis()) {
 			en.setJeu(jeu);
 			if(en instanceof Cactus)
@@ -131,7 +114,6 @@ public class Controleur implements Initializable {
 				this.pane.getChildren().add(EnnemiVue.get(en).getSprite());
 		}
 
->>>>>>> 252e566e8f45f467e780d70a81b3ef6b9703d49e
 		pane.getChildren().add(dialog);
 		dialog.setVisible(false);
 		init();
@@ -153,20 +135,15 @@ public class Controleur implements Initializable {
 
 					if (jeu.collisionObjet() && this.jeu.getJeanMichel().getPointsVie()!=5) {
 						//TODO le faire dans le modèle
-						this.pane.getChildren().remove(vueitem.getSprite());
+						this.pane.getChildren().remove(vueItem.getSprite());
 						this.getJeanMichel().pointsVieProperty().set(this.getJeanMichel().getPointsVie()+1);
 						if (this.getJeanMichel().getPointsVie() > 5) this.getJeanMichel().pointsVieProperty().set(5);
 					}
 					if(this.jeu.getJeanMichel().getPointsVie() == 0){
 						System.out.println("Vous êtes mort");
 						heart0.setImage(new Image("file:./src/app/img/heartempty.png"));
-<<<<<<< HEAD
 						this.pane.getChildren().remove(vueJeanMichel.getSprite());
-						
-=======
-						this.pane.getChildren().remove(vueHeros.getSprite());
 
->>>>>>> 252e566e8f45f467e780d70a81b3ef6b9703d49e
 						dialog.setContentText("GAME OVER");
 						dialog.setPrefWidth(110);
 						dialog.setPrefHeight(20);
@@ -183,7 +160,7 @@ public class Controleur implements Initializable {
 						pane.getChildren().remove(EnnemiVue.get(Jeu.ennemiRetiré).getSprite());
 						Jeu.ennemiRetiré=null;
 						if(jeu.getEnnemis().size() == 4) {					  
-							dialog.setContentText("Bravo, tu as tué\nton premier cactus");
+							dialog.setContentText("Bravo, tu as tué\nun ennemi !");
 							dialog.setPrefWidth(170);
 							dialog.setPrefHeight(72);
 							dialog.setLayoutY(400);
