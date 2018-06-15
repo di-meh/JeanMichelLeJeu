@@ -25,20 +25,8 @@ public class VuePersonnage {
 		this.sprite.translateXProperty().bind(this.personnage.XProperty());
 		this.sprite.translateYProperty().bind(this.personnage.YProperty());
 		rectangle = new Rectangle2D(sprite.getX(), sprite.getY(), sprite.getFitWidth(), sprite.getFitHeight());
-		//sprite.viewportProperty().bind(personnage.getRectangle());
 	}
 
-	//	public ImageView getSprite() {
-	//		int d = 0;
-	//		switch(d) {
-	//		case 0: return this.sprites.get(0);
-	//		case 1: return this.sprites.get(1);
-	//		case 2: return this.sprites.get(2);
-	//		case 3: return this.sprites.get(3);
-	//		}
-	//		return this.sprites.get(0);
-	//		
-	//	}
 
 	public Personnage getPersonnage() {
 		return personnage;

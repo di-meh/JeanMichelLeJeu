@@ -3,26 +3,16 @@ package app.controleur;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.ResourceBundle;
-
 import app.modele.Cactus;
 import app.modele.Coeur;
 import app.modele.Ennemi;
-//import app.modele.Item;
 import app.modele.JeanMichel;
 import app.modele.Jeu;
 import app.modele.Tentacule;
 import app.modele.Terrain;
-import app.vue.VueCactus;
-import app.vue.VueCoeur;
-import app.vue.VueItem;
-import app.vue.VueJeanMichel;
-import app.vue.VuePersonnage;
-import app.vue.VueTentacule;
-import app.vue.VueTerrain;
+import app.vue.*;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-//import javafx.collections.FXCollections;
-//import javafx.collections.ObservableList;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -43,10 +33,10 @@ public class Controleur implements Initializable {
 	private Terrain map;
 	//vues
 	private VueTerrain vueMap;
-	private VueJeanMichel vueHeros;
+	private VuePersonnage vueHeros;
 
 	private VueItem vueitem;
-	
+
 	private HashMap<Ennemi, VuePersonnage> EnnemiVue;
 
 	private Timeline gameLoop;
@@ -112,7 +102,7 @@ public class Controleur implements Initializable {
 				EnnemiVue.put(en, new VueCactus(en));
 			else if(en instanceof Tentacule)
 				EnnemiVue.put(en, new VueTentacule(en));
-				this.pane.getChildren().add(EnnemiVue.get(en).getSprite());
+			this.pane.getChildren().add(EnnemiVue.get(en).getSprite());
 		}
 
 		pane.getChildren().add(dialog);

@@ -9,7 +9,7 @@ public abstract class Ennemi extends Personnage{
 		super(n, pv, x, y, tx, ty);
 		System.out.println("Superclass ennemi created");
 	}
-	
+
 	public abstract void seDeplacer();
 
 	public void setJeu(Jeu j) {

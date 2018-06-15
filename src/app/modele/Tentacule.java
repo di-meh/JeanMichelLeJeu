@@ -27,7 +27,7 @@ public class Tentacule extends Ennemi{
 		break;
 		}
 	}
-	
+
 	public void haut() {
 		if(!this.collision.collisionneObstacle(getX(), getY() - 1) 
 				&& !this.collision.collisionneObstacle(getX() + getTailleX(), getY() - 1)
