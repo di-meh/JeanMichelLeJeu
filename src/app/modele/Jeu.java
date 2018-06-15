@@ -29,8 +29,6 @@ public class Jeu {
 		addEnnemi(new Tentacule("testEnnemi1", 5, 256, 456));
 		addEnnemi(new Tentacule("testEnnemi2", 5, 125, 200));
 
-
-
 		listeEnnemis.addListener(new ListChangeListener<Ennemi>() {
 			@Override
 			public void onChanged(Change<? extends Ennemi> c) {
@@ -85,7 +83,7 @@ public class Jeu {
 	}
 
 	public JeanMichel getJeanMichel() {
-		return jeanMichel;
+		return this.jeanMichel;
 	}
 
 	public ObservableList<Item> getListeItems() {

@@ -134,7 +134,6 @@ public class Controleur implements Initializable {
 						System.out.println("Vous êtes mort");
 						heart0.setImage(new Image("file:./src/app/img/heartempty.png"));
 						this.pane.getChildren().remove(vueHeros.getSprite());
-
 						dialog.setContentText("GAME OVER");
 						dialog.setPrefWidth(110);
 						dialog.setPrefHeight(20);
