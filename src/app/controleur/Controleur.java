@@ -31,6 +31,7 @@ public class Controleur implements Initializable {
 	//modeles
 	private Jeu jeu;
 	private Terrain map;
+	
 	//vues
 	private VueTerrain vueMap;
 	private VueItem vueItem;
@@ -51,19 +52,19 @@ public class Controleur implements Initializable {
 	private GridPane grid;
 
 	@FXML
-	private ImageView heart0;
+	private ImageView coeur0;
 
 	@FXML
-	private ImageView heart1;
+	private ImageView coeur1;
 
 	@FXML
-	private ImageView heart2;
+	private ImageView coeur2;
 
 	@FXML
-	private ImageView heart3;
+	private ImageView coeur3;
 
 	@FXML
-	private ImageView heart4;
+	private ImageView coeur4;
 
 	@FXML
 	private DialogPane dialog;
@@ -130,7 +131,7 @@ public class Controleur implements Initializable {
 					}
 					if(this.jeu.getJeanMichel().getPointsVie() == 0){
 						System.out.println("Vous êtes mort");
-						heart0.setImage(new Image("file:./src/app/img/heartempty.png"));
+						coeur0.setImage(new Image("file:./src/app/img/heartempty.png"));
 						this.pane.getChildren().remove(vueJeanMichel.getSprite());
 						dialog.setContentText("GAME OVER");
 						dialog.setPrefWidth(110);
@@ -186,31 +187,31 @@ public class Controleur implements Initializable {
 		int vieJM = jeu.getJeanMichel().getPointsVie();
 		
 		if (vieJM >= 5) {
-			heart4.setImage(heart0.getImage());
+			coeur4.setImage(coeur0.getImage());
 		}
 		else
-			heart4.setImage(new Image("file:./src/app/img/heartempty.png"));
+			coeur4.setImage(new Image("file:./src/app/img/heartempty.png"));
 		
 		if (vieJM >= 4) {
-			heart3.setImage(heart0.getImage());
+			coeur3.setImage(coeur0.getImage());
 		}
 		else
-			heart3.setImage(new Image("file:./src/app/img/heartempty.png"));
+			coeur3.setImage(new Image("file:./src/app/img/heartempty.png"));
 		
 		if (vieJM >= 3) {
-			heart2.setImage(heart0.getImage());
+			coeur2.setImage(coeur0.getImage());
 		}
 		else
-			heart2.setImage(new Image("file:./src/app/img/heartempty.png"));
+			coeur2.setImage(new Image("file:./src/app/img/heartempty.png"));
 			
 		if (vieJM >= 2) {
-			heart1.setImage(heart0.getImage());
+			coeur1.setImage(coeur0.getImage());
 		}
 		else
-			heart1.setImage(new Image("file:./src/app/img/heartempty.png"));
+			coeur1.setImage(new Image("file:./src/app/img/heartempty.png"));
 		
 		if (vieJM >= 1) {
-			heart0.setImage(heart0.getImage());
+			coeur0.setImage(coeur0.getImage());
 		}
 	}
 
