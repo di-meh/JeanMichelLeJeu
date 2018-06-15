@@ -38,8 +38,6 @@ public class Controleur implements Initializable {
 	
 	private VuePersonnage vueHeros;
 
-	private VueItem vueitem;
-
 	private HashMap<Ennemi, VuePersonnage> EnnemiVue;
 
 	private Timeline gameLoop;
@@ -90,7 +88,6 @@ public class Controleur implements Initializable {
 		this.vueMap = new VueTerrain(this.map);
 		this.vueItem = new VueCoeur((Coeur)this.jeu.getListeItems().get(0));
 		this.vueHeros = new VueJeanMichel(this.jeu.getJeanMichel());
-		this.vueitem = new VueCoeur((Coeur)this.jeu.getListeItems().get(0));
 		//Ajout des élements dans le Scene Builder
 
 		this.tilemap.getChildren().add(this.vueMap.getTileMap());
@@ -99,7 +96,7 @@ public class Controleur implements Initializable {
 		this.pane.getChildren().add(this.vueMap.getTileMapMov());
 
 		//affichage des persos
-		this.pane.getChildren().add(vueitem.getSprite());
+		this.pane.getChildren().add(vueItem.getSprite());
 		this.pane.getChildren().add(vueHeros.getSprite());
 		for (Ennemi en : jeu.getEnnemis()) {
 			en.setJeu(jeu);
