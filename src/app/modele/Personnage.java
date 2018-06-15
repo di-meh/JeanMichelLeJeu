@@ -12,7 +12,7 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 	protected SimpleIntegerProperty pointsVie;
 	private Rectangle2D rectangle;
 	private int tailleX, tailleY;
-	
+
 
 	private int orientation;
 
@@ -110,19 +110,9 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 
 
 	public void attaquer(Personnage en) { 
-		//		try {
-		//						if(equipee.getZoneAdapt().equals(en.getZone())) {
-		//						en.estAttaque(equipee.getDgtZone());
-		//					}
-		//					else {
-		//				task		en.estAttaque(equipee.getDgtPasZone());
-		//					}
-		//		} catch (Exception e) {
-		//			// TODO: handle exception
-		//		}
 		if (en != null && System.currentTimeMillis()%99==0) {
 			en.estAttaque(1);
-			
+
 		}
 	}
 	public void estAttaque(int atq) {
@@ -134,5 +124,5 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 	public int caseY() {
 		return getY()/16;
 	}
-	
+
 }

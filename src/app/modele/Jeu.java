@@ -8,7 +8,7 @@ public class Jeu {
 
 	private ObservableList<Ennemi> listeEnnemis;
 	private JeanMichel jeanMichel;
-	
+
 	private BFS bfs;
 	private ObservableList<Item> listeItems;
 
@@ -50,7 +50,7 @@ public class Jeu {
 					}
 				}
 			}
-			
+
 		});
 	}
 
@@ -61,7 +61,7 @@ public class Jeu {
 	public void update() {
 		this.bfs.lancerBFS(this.jeanMichel);
 		try {
-			
+
 			for (Ennemi ennemi : listeEnnemis) {
 				if(ennemi.getPointsVie() != 0) {
 					ennemi.seDeplacer();
@@ -73,7 +73,7 @@ public class Jeu {
 			// TODO: handle exception
 		}
 	}
-	
+
 	public BFS getBFS() {
 		return this.bfs;
 	}
@@ -89,12 +89,12 @@ public class Jeu {
 	public ObservableList<Item> getListeItems() {
 		return listeItems;
 	}
-	public boolean collisionObjet() { //TODO gérer les collisions
+	public boolean collisionObjet() { 
 		for (Item i: listeItems) {
 			if (this.getJeanMichel().getX() == i.getX() && this.getJeanMichel().getY() == i.getY()
-				|| this.getJeanMichel().getX() + this.getJeanMichel().getTailleX() == i.getX() && this.getJeanMichel().getY() == i.getY()
-				|| this.getJeanMichel().getX() == i.getX() && this.getJeanMichel().getY() + this.getJeanMichel().getTailleY() == i.getY()
-				|| this.getJeanMichel().getX() + this.getJeanMichel().getTailleX() == i.getX() && this.getJeanMichel().getY() + this.getJeanMichel().getTailleY() == i.getY())
+					|| this.getJeanMichel().getX() + this.getJeanMichel().getTailleX() == i.getX() && this.getJeanMichel().getY() == i.getY()
+					|| this.getJeanMichel().getX() == i.getX() && this.getJeanMichel().getY() + this.getJeanMichel().getTailleY() == i.getY()
+					|| this.getJeanMichel().getX() + this.getJeanMichel().getTailleX() == i.getX() && this.getJeanMichel().getY() + this.getJeanMichel().getTailleY() == i.getY())
 				return true;
 		}
 		return false;
