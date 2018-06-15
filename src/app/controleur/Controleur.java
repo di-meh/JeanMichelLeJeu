@@ -90,7 +90,6 @@ public class Controleur implements Initializable {
 		
 		//Ajout des élements dans le Scene Builder
 		this.tilemap.getChildren().add(this.vueMap.getTileMap());
-		this.pane.getChildren().add(this.vueMap.getTileMap());
 		this.pane.getChildren().add(this.vueMap.getTileMapObs());
 
 		//affichage des persos
