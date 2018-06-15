@@ -21,8 +21,6 @@ public class JeanMichel extends Personnage{
 		this.inventaire = new ArrayList<>();
 		this.inventaireArmes = new ArrayList<>();
 		this.equipee = e;
-		//listeItem = new ArrayList<>();
-		System.out.println("Jean-Michel is ready");
 	}
 
 	public ArrayList<Arme> getListeArmes() {
