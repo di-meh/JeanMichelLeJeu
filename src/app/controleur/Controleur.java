@@ -194,29 +194,25 @@ public class Controleur implements Initializable {
 
 	public void verifVie() {
 		int vieJM = jeu.getJeanMichel().getPointsVie();
-		if (vieJM >= 5) {
+		if (vieJM >= 5)
 			heart4.setImage(heart0.getImage());
-		}else {
+		else
 			heart4.setImage(new Image("file:./src/app/img/heartempty.png"));
-		}
-		if (vieJM >= 4) {
+		if (vieJM >= 4)
 			heart3.setImage(heart0.getImage());
-		}else {
+		else
 			heart3.setImage(new Image("file:./src/app/img/heartempty.png"));
-		}
-		if (vieJM >= 3) {
+		if (vieJM >= 3)
 			heart2.setImage(heart0.getImage());
-		}else {
+		else
 			heart2.setImage(new Image("file:./src/app/img/heartempty.png"));
-		}
-		if (vieJM >= 2) {
+		if (vieJM >= 2)
 			heart1.setImage(heart0.getImage());
-		}else {
+		else
 			heart1.setImage(new Image("file:./src/app/img/heartempty.png"));
-		}
-		if (vieJM >= 1) {
+		if (vieJM >= 1)
 			heart0.setImage(heart0.getImage());
-		}
+		
 	}
 
 }
