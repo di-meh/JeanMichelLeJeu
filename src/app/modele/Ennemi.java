@@ -1,20 +1,17 @@
 package app.modele;
 
-import app.vue.VueEnnemi;
+import app.vue.VueCactus;
+import app.vue.VuePersonnage;
+import app.vue.VueTentacule;
 
 public abstract class Ennemi extends Personnage{
 
-	private int orientation;
-
 	protected Jeu jeu;
 
-	private VueEnnemi vue;
-	
-
+	private VuePersonnage vue;
 
 	public Ennemi(String n, int pv, int x, int y) {
 		super(n, pv, x, y, 12, 29);
-		this.orientation = 0;
 		System.out.println("Superclass ennemi created");
 	}
 	
@@ -24,12 +21,16 @@ public abstract class Ennemi extends Personnage{
 		this.jeu = j;
 	}
 
-	public VueEnnemi getVue() {
+	public VuePersonnage getVue() {
 		return vue;
 	}
 
-	public void setVue(VueEnnemi vue) {
+	public void setVue(VueCactus vue) {
 		this.vue = vue;
 	}
 
+	public void setVue(VueTentacule vue) {
+		this.vue = vue;
+	}
+	
 }

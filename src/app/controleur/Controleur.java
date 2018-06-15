@@ -9,9 +9,10 @@ import app.modele.JeanMichel;
 import app.modele.Jeu;
 import app.modele.Terrain;
 import app.vue.VueCoeur;
-import app.vue.VueEnnemi;
+import app.vue.VueCactus;
 import app.vue.VueItem;
 import app.vue.VueJeanMichel;
+import app.vue.VueTentacule;
 import app.vue.VueTerrain;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -38,8 +39,10 @@ public class Controleur implements Initializable {
 	//vues
 	private VueTerrain vueMap;
 	private VueJeanMichel vueHeros;
+	private VueCactus vueCactus;
+	private VueTentacule vueTentacule;
 
-	private VueItem vueitem;
+	private VueItem vueItem;
 
 	private Timeline gameLoop;
 	//FXML
@@ -86,7 +89,7 @@ public class Controleur implements Initializable {
 		});
 		this.vueMap = new VueTerrain(this.map);
 		this.vueHeros = new VueJeanMichel(this.jeu.getJeanMichel());
-		this.vueitem = new VueCoeur((Coeur)this.jeu.getListeItems().get(0));
+		this.vueItem = new VueCoeur((Coeur)this.jeu.getListeItems().get(0));
 		//Ajout des élements dans le Scene Builder
 
 		this.tilemap.getChildren().add(this.vueMap.getTileMap());
@@ -95,13 +98,8 @@ public class Controleur implements Initializable {
 		this.pane.getChildren().add(this.vueMap.getTileMapMov());
 
 		//affichage des persos
-		this.pane.getChildren().add(vueitem.getSprite());
+		this.pane.getChildren().add(vueItem.getSprite());
 		this.pane.getChildren().add(vueHeros.getSprite());
-		for (Ennemi en : jeu.getEnnemis()) {
-			en.setJeu(jeu);
-			new VueEnnemi(en);
-			this.pane.getChildren().add(en.getVue().getSprite());
-		}
 		
 		pane.getChildren().add(dialog);
 		dialog.setVisible(false);
@@ -124,7 +122,7 @@ public class Controleur implements Initializable {
 
 					if (jeu.collisionObjet() && this.jeu.getJeanMichel().getPointsVie()!=5) {
 						//TODO le faire dans le modèle
-						this.pane.getChildren().remove(vueitem.getSprite());
+						this.pane.getChildren().remove(vueItem.getSprite());
 						this.getJeanMichel().pointsVieProperty().set(this.getJeanMichel().getPointsVie()+1);
 						if (this.getJeanMichel().getPointsVie() > 5) this.getJeanMichel().pointsVieProperty().set(5);
 					}
