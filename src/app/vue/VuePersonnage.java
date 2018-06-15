@@ -7,6 +7,7 @@ import javafx.scene.image.ImageView;
 public class VuePersonnage {
 
 	private Personnage personnage;
+	
 	private ImageView sprite;
 
 	private ArrayList<ImageView> sprites;
@@ -15,14 +16,13 @@ public class VuePersonnage {
 		this.personnage = p;
 		this.sprite = new ImageView(url);
 		this.sprites = new ArrayList<>();
-		sprites.add(sprite);
+		this.sprites.add(sprite);
 		this.sprite.translateXProperty().bind(this.personnage.XProperty());
 		this.sprite.translateYProperty().bind(this.personnage.YProperty());
 	}
 
-
 	public Personnage getPersonnage() {
-		return personnage;
+		return this.personnage;
 	}
 
 	public ImageView getSprite() {

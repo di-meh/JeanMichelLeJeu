@@ -8,27 +8,13 @@ import javafx.scene.input.KeyEvent;
 
 public class JeanMichel extends Personnage{
 
-	private ArrayList<Arme> inventaireArmes;
-
 	private ArrayList<Item> inventaire;
-
-	private Arme equipee;
 
 	private Jeu jeu;
 
-	public JeanMichel(Arme e, int x, int y) {
+	public JeanMichel(int x, int y) {
 		super("Jean-Michel", 5, x, y, 17, 23);
 		this.inventaire = new ArrayList<>();
-		this.inventaireArmes = new ArrayList<>();
-		this.equipee = e;
-	}
-
-	public ArrayList<Arme> getListeArmes() {
-		return inventaireArmes;
-	}
-
-	public void addArmes(Arme a) {
-		this.inventaireArmes.add(a);
 	}
 
 	public void action(KeyEvent e) {
@@ -38,38 +24,38 @@ public class JeanMichel extends Personnage{
 		switch(value) {
 		case Z: 
 			if(!this.collision.collisionneObstacle(getX(), getY() - 4) 
-					&& !this.collision.collisionneObstacle(getX() + getTailleX(), getY()-4) 
-					&& !this.collision.collisionnePerso(ennemiACote(), this, 0, 4)) haut();
+			&& !this.collision.collisionneObstacle(getX() + getTailleX(), getY()-4) 
+			&& !this.collision.collisionnePerso(ennemiACote(), this, 0, 4))
+				haut();
 			break;
 		case Q: 
 			if(!this.collision.collisionneObstacle(getX() - 4, getY()) 
-					&& !this.collision.collisionneObstacle(getX() -4, getY() + getTailleY()) 
-					&& !this.collision.collisionnePerso(ennemiACote(), this, 1, 4))
+			&& !this.collision.collisionneObstacle(getX() -4, getY() + getTailleY()) 
+			&& !this.collision.collisionnePerso(ennemiACote(), this, 1, 4))
 				gauche();
 			break;
 		case S: 
 			if(!this.collision.collisionneObstacle(getX(), getY() + 4 + getTailleY()) 
-					&& !this.collision.collisionneObstacle(getX() + getTailleX(), getY() + 4 + getTailleY()) 
-					&& !this.collision.collisionnePerso(ennemiACote(), this, 2, 4))
+			&& !this.collision.collisionneObstacle(getX() + getTailleX(), getY() + 4 + getTailleY()) 
+			&& !this.collision.collisionnePerso(ennemiACote(), this, 2, 4))
 				bas();
 			break;
 		case D: 
 			if(!this.collision.collisionneObstacle(getX() + 4 + getTailleX(), getY()) 
-					&& !this.collision.collisionneObstacle(getX() + getTailleX() + 4, getY() + getTailleY()) 
-					&& !this.collision.collisionneObstacle(getX() + getTailleX() + 4, getY() + getTailleY()/2) 
-					&& !this.collision.collisionnePerso(ennemiACote(), this, 3, 4))
+			&& !this.collision.collisionneObstacle(getX() + getTailleX() + 4, getY() + getTailleY()) 
+			&& !this.collision.collisionneObstacle(getX() + getTailleX() + 4, getY() + getTailleY()/2) 
+			&& !this.collision.collisionnePerso(ennemiACote(), this, 3, 4))
 				droite();
 			break;
 		case E:
-			if(this.collision.collisionnePerso(ennemiACote(), this, 0, 4) || this.collision.collisionnePerso(ennemiACote(), this, 1, 4)||this.collision.collisionnePerso(ennemiACote(), this, 2, 4)||this.collision.collisionnePerso(ennemiACote(), this, 3, 4))
+			if(this.collision.collisionnePerso(ennemiACote(), this, 0, 4) 
+			|| this.collision.collisionnePerso(ennemiACote(), this, 1, 4)
+			|| this.collision.collisionnePerso(ennemiACote(), this, 2, 4)
+			|| this.collision.collisionnePerso(ennemiACote(), this, 3, 4))
 				this.attaquer(ennemiACote());
 		break;
-		case K: System.out.println("Button K pressed"); //changer d'arme
-		this.setPointsVie(getPointsVie()+1);
-		break;
-		default:break;
-
-
+		default:
+			break;
 		}
 
 	}
@@ -91,12 +77,8 @@ public class JeanMichel extends Personnage{
 	}
 
 	public void attaquer(Personnage en) { 
-		if (en != null ) {
+		if (en != null)
 			en.estAttaque(1);
-		}
-	}
-	public Arme getArmeEquipee() {
-		return equipee;
 	}
 
 	public Jeu getJeu() {
@@ -110,13 +92,13 @@ public class JeanMichel extends Personnage{
 
 	public Ennemi ennemiACote() {
 		for (Ennemi e : jeu.getEnnemis()) {
-				if(e.caseX()==this.caseX() && e.caseY()== this.caseY() 
-				|| e.caseX()==this.caseX()+1 && e.caseY()== this.caseY()+1 
-				|| e.caseX()==this.caseX()-1 && e.caseY()== this.caseY()-1 
-				|| e.caseX()==this.caseX()+1 && e.caseY()== this.caseY() 
-				|| e.caseX()==this.caseX() && e.caseY()== this.caseY()+1 
-				|| e.caseX()==this.caseX()-1 && e.caseY()== this.caseY() 
-				|| e.caseX()==this.caseX() && e.caseY()== this.caseY()-1)
+				if(e.caseX() == this.caseX() && e.caseY()== this.caseY() 
+				|| e.caseX() == this.caseX() + 1 && e.caseY()== this.caseY() + 1
+				|| e.caseX() == this.caseX() - 1 && e.caseY()== this.caseY() - 1 
+				|| e.caseX() == this.caseX() + 1 && e.caseY()== this.caseY()
+				|| e.caseX() == this.caseX() && e.caseY()== this.caseY() + 1 
+				|| e.caseX() == this.caseX() - 1 && e.caseY()== this.caseY()
+				|| e.caseX() == this.caseX() && e.caseY()== this.caseY() - 1)
 				return e;			
 		}
 		return null;
@@ -124,10 +106,6 @@ public class JeanMichel extends Personnage{
 
 	public ArrayList<Item> getInventaire() {
 		return this.inventaire;
-	}
-
-	public void ramasserItem() {
-		//this.jeu.setItem(null);
 	}
 
 }

@@ -1,53 +1,52 @@
 package app.modele;
 
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.geometry.Rectangle2D;
 
 public abstract class Item {
 
 	private String nom;
 	private SimpleIntegerProperty x, y;
 	private int tailleX, tailleY;
-	private Rectangle2D rectangle;
 	
 	public Item(String nom, int x, int y) {
 		this.nom = nom;
 		this.x = new SimpleIntegerProperty(x);
 		this.y = new SimpleIntegerProperty(y);
 	}
+	
+	//constructeur pour les items dont la taille est indeterminee
 	public Item(String nom, int x, int y, int tailleX, int tailleY) {
 		this(nom, x, y);
 		this.tailleX = tailleX;
 		this.tailleY = tailleY;
-		rectangle = new Rectangle2D(x, y, tailleX, tailleY);
 	}
-	
-
 
 	public int getX() {
-		return x.get();
+		return this.x.get();
 	}
 
 	public int getY() {
-		return y.get();
+		return this.y.get();
 	}
 
 	public SimpleIntegerProperty XProperty() {
-		return x;
+		return this.x;
 	}
+	
 	public SimpleIntegerProperty YProperty() {
-		return y;
+		return this.y;
 	}
+	
 	public String getNom() {
-		return nom;
+		return this.nom;
 	}
+	
 	public int getTailleX() {
-		return tailleX;
+		return this.tailleX;
 	}
+	
 	public int getTailleY() {
-		return tailleY;
+		return this.tailleY;
 	}
-	public Rectangle2D getRectangle() {
-		return rectangle;
-	}
+
 }

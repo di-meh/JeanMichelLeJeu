@@ -21,7 +21,6 @@ public class BFS {
 		this.file = new LinkedList<Tile>();
 		this.tiles = new HashMap<Tile, Tile>();
 		this.tilesMarquees = new ArrayList<Tile>();
-		
 	}
 
 	public void lancerBFS(Personnage jeanMichel) {

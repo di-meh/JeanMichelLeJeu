@@ -7,27 +7,30 @@ import javafx.collections.ObservableList;
 public class Jeu {
 
 	private ObservableList<Ennemi> listeEnnemis;
+	
 	private JeanMichel jeanMichel;
 
 	private BFS bfs;
+	
 	private ObservableList<Item> listeItems;
 
 	public static Ennemi ennemiRetiré=null;
+	
 	public Jeu() {
 		this.listeEnnemis = FXCollections.observableArrayList();
 		this.listeItems = FXCollections.observableArrayList();
-		this.jeanMichel = new JeanMichel(null, 0, 0);
+		this.jeanMichel = new JeanMichel(0, 0);
 		this.bfs = new BFS();
-		this.listeItems.add(new Coeur(20,40));
+		this.listeItems.add(new Coeur(20, 40));
 		init(); //s'oocupe d'ajouter les ennemis/pnj aux listes
 	}
 
 	public void init() {
 		//ajouter les ennemis
 		//zone1
-		addEnnemi(new Cactus("testEnnemi1", 5, 0, 80));
-		addEnnemi(new Tentacule("testEnnemi1", 5, 256, 456));
-		addEnnemi(new Tentacule("testEnnemi2", 5, 125, 200));
+		addEnnemi(new Cactus("Cactus1", 5, 0, 80));
+		addEnnemi(new Tentacule("Tentacule1", 5, 256, 456));
+		addEnnemi(new Tentacule("Tentacule2", 5, 125, 200));
 
 		listeEnnemis.addListener(new ListChangeListener<Ennemi>() {
 			@Override
@@ -35,7 +38,7 @@ public class Jeu {
 				while (c.next()) {
 					if (c.wasRemoved()) {
 						for (Ennemi remitem : c.getRemoved()) {
-							ennemiRetiré=remitem;
+							ennemiRetiré = remitem;
 						}
 					}
 				}
@@ -91,9 +94,9 @@ public class Jeu {
 	public boolean collisionObjet() { 
 		for (Item i: listeItems) {
 			if (this.getJeanMichel().getX() == i.getX() && this.getJeanMichel().getY() == i.getY()
-					|| this.getJeanMichel().getX() + this.getJeanMichel().getTailleX() == i.getX() && this.getJeanMichel().getY() == i.getY()
-					|| this.getJeanMichel().getX() == i.getX() && this.getJeanMichel().getY() + this.getJeanMichel().getTailleY() == i.getY()
-					|| this.getJeanMichel().getX() + this.getJeanMichel().getTailleX() == i.getX() && this.getJeanMichel().getY() + this.getJeanMichel().getTailleY() == i.getY())
+			|| this.getJeanMichel().getX() + this.getJeanMichel().getTailleX() == i.getX() && this.getJeanMichel().getY() == i.getY()
+			|| this.getJeanMichel().getX() == i.getX() && this.getJeanMichel().getY() + this.getJeanMichel().getTailleY() == i.getY()				
+			|| this.getJeanMichel().getX() + this.getJeanMichel().getTailleX() == i.getX() && this.getJeanMichel().getY() + this.getJeanMichel().getTailleY() == i.getY())
 				return true;
 		}
 		return false;

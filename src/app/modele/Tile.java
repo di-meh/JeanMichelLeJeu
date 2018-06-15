@@ -14,7 +14,7 @@ public class Tile {
 	public Tile(int nx, int ny, String bla) {
 		this.x = nx;
 		this.y = ny;
-		
+	
 	}
 	
 	public int getX() {
@@ -24,7 +24,6 @@ public class Tile {
 	public int getY() {
 		return this.y;
 	}
-
 
 	@Override
 	public int hashCode() {

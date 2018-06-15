@@ -9,10 +9,9 @@ public class VueTerrain {
 
 	private Terrain terrain;
 
-	private TilePane tilemap_base, tilemap_obs, tilemap_obs_mov;
+	private TilePane tilemap_base, tilemap_obs;
 
 	private int tailleMap;
-
 
 	public VueTerrain(Terrain t) {
 		this.terrain = t;
@@ -20,11 +19,9 @@ public class VueTerrain {
 
 		int [][] t2base = this.terrain.getTab2dBase();
 		int [][] t2obs = this.terrain.getTab2dObs();
-		int [][] t2mov = this.terrain.getTab2dObsMov();
 		
 		this.tilemap_base = ajoutTiles(t2base);
 		this.tilemap_obs = ajoutTiles(t2obs);
-		this.tilemap_obs_mov = ajoutTiles(t2mov);
 	}
 	
 	private TilePane ajoutTiles(int [][] tab) {
@@ -48,14 +45,10 @@ public class VueTerrain {
 	public TilePane getTileMapObs() {
 		return this.tilemap_obs;
 	}
-	
-	public TilePane getTileMapMov() {
-		return tilemap_obs_mov;
-	}
 
 	public String imageDe(int i) {
 		try {
-			return "./src/app/img/tile_"+i+".png";
+			return "./src/app/img/tile_" + i + ".png";
 		}catch (Exception e) {
 			e.printStackTrace();
 			return "./src/app/img/tile_0.png";
