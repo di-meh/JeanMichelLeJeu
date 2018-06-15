@@ -33,20 +33,12 @@ public class Controleur implements Initializable {
 	private Terrain map;
 	//vues
 	private VueTerrain vueMap;
-<<<<<<< HEAD
 	private VuePersonnage vueJeanMichel;
-
 	private VueItem vueItem;
-	
-=======
-	private VuePersonnage vueHeros;
-
-	private VueItem vueitem;
-
->>>>>>> c535092d501414c0fb643b6a0de71ba88f378588
 	private HashMap<Ennemi, VuePersonnage> EnnemiVue;
 
 	private Timeline gameLoop;
+	
 	//FXML
 	@FXML
 	private BorderPane borderpane;
@@ -92,13 +84,9 @@ public class Controleur implements Initializable {
 		});
 		
 		this.vueMap = new VueTerrain(this.map);
-<<<<<<< HEAD
 		this.vueJeanMichel = new VueJeanMichel(this.jeu.getJeanMichel());
 		this.vueItem = new VueCoeur((Coeur)this.jeu.getListeItems().get(0));
-=======
-		this.vueHeros = new VueJeanMichel(this.jeu.getJeanMichel());
-		this.vueitem = new VueCoeur((Coeur)this.jeu.getListeItems().get(0));
->>>>>>> c535092d501414c0fb643b6a0de71ba88f378588
+
 		//Ajout des élements dans le Scene Builder
 
 		this.tilemap.getChildren().add(this.vueMap.getTileMap());
@@ -107,14 +95,10 @@ public class Controleur implements Initializable {
 		this.pane.getChildren().add(this.vueMap.getTileMapMov());
 
 		//affichage des persos
-<<<<<<< HEAD
+
 		this.pane.getChildren().add(vueItem.getSprite());
 		this.pane.getChildren().add(vueJeanMichel.getSprite());
 
-=======
-		this.pane.getChildren().add(vueitem.getSprite());
-		this.pane.getChildren().add(vueHeros.getSprite());
->>>>>>> c535092d501414c0fb643b6a0de71ba88f378588
 		for (Ennemi en : jeu.getEnnemis()) {
 			en.setJeu(jeu);
 			if(en instanceof Cactus)
@@ -152,12 +136,8 @@ public class Controleur implements Initializable {
 					if(this.jeu.getJeanMichel().getPointsVie() == 0){
 						System.out.println("Vous êtes mort");
 						heart0.setImage(new Image("file:./src/app/img/heartempty.png"));
-<<<<<<< HEAD
 						this.pane.getChildren().remove(vueJeanMichel.getSprite());
 
-=======
-						this.pane.getChildren().remove(vueHeros.getSprite());
->>>>>>> c535092d501414c0fb643b6a0de71ba88f378588
 						dialog.setContentText("GAME OVER");
 						dialog.setPrefWidth(110);
 						dialog.setPrefHeight(20);
