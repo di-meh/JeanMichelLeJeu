@@ -126,8 +126,4 @@ public class JeanMichel extends Personnage{
 		return this.inventaire;
 	}
 
-	public void ramasserItem() {
-		//this.jeu.setItem(null);
-	}
-
 }
