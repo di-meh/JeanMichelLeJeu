@@ -149,8 +149,9 @@ public class Controleur implements Initializable {
 					if (Jeu.ennemiRetiré != null) {
 						pane.getChildren().remove(EnnemiVue.get(Jeu.ennemiRetiré).getSprite());
 						Jeu.ennemiRetiré=null;
-						if(jeu.getEnnemis().size() == 4) {					  
-							dialog.setContentText("Bravo, tu as tué\nton premier cactus");
+						if(jeu.getEnnemis().size() == 2) {					  
+							dialog.setContentText("Bravo,tu as tué\n"
+									+ "ton premier ennemi");
 							dialog.setPrefWidth(170);
 							dialog.setPrefHeight(72);
 							dialog.setLayoutY(400);
@@ -160,7 +161,12 @@ public class Controleur implements Initializable {
 						}else
 							dialog.setVisible(false);
 					}
-
+					if (jeu.getEnnemis().size()==0) {
+						dialog.setContentText("Bravo,t'as tué\n"
+								+ "tout les ennemis");
+						dialog.setPrefHeight(72);
+						dialog.setVisible(true);
+					}
 
 				})
 				);
