@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="app.modele.BFS" project="projet-jeanmichel" 
     file="/projet-jeanmichel/src/app/modele/BFS.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1682" y="746"/>    
+    <position height="-1" width="-1" x="1488" y="582"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -30,7 +30,7 @@
   </class>  
   <class id="4" language="java" name="app.modele.Item" project="projet-jeanmichel" 
     file="/projet-jeanmichel/src/app/modele/Item.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="2396" y="1578"/>    
+    <position height="-1" width="-1" x="2020" y="1338"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -57,7 +57,7 @@
   </class>  
   <class id="7" language="java" name="app.modele.Jeu" project="projet-jeanmichel" 
     file="/projet-jeanmichel/src/app/modele/Jeu.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1942" y="1364"/>    
+    <position height="-1" width="-1" x="1650" y="1004"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -75,7 +75,7 @@
   </class>  
   <class id="9" language="java" name="app.vue.VuePersonnage" project="projet-jeanmichel" 
     file="/projet-jeanmichel/src/app/vue/VuePersonnage.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="474" y="518"/>    
+    <position height="-1" width="-1" x="748" y="256"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -84,7 +84,7 @@
   </class>  
   <class id="10" language="java" name="app.vue.VueTerrain" project="projet-jeanmichel" 
     file="/projet-jeanmichel/src/app/vue/VueTerrain.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="494" y="902"/>    
+    <position height="-1" width="-1" x="646" y="600"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -93,7 +93,7 @@
   </class>  
   <class id="11" language="java" name="app.vue.VueItem" project="projet-jeanmichel" 
     file="/projet-jeanmichel/src/app/vue/VueItem.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="806" y="1424"/>    
+    <position height="-1" width="-1" x="668" y="962"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      

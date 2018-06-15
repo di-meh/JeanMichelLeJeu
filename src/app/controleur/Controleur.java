@@ -184,53 +184,28 @@ public class Controleur implements Initializable {
 	public void verifVie() {
 		int vieJM = this.jeu.getJeanMichel().getPointsVie();
 		
-		if (vieJM >= 5) {
+		if (vieJM >= 5)
 			this.coeur4.setImage(coeur0.getImage());
-		}
-<<<<<<< HEAD
-		else {
-=======
-
 		else
->>>>>>> cd049607da0c0996c7c2632882800a28697226b5
 			this.coeur4.setImage(new Image("file:./src/app/img/heartempty.png"));
-		}
-		if (vieJM >= 4) {
+		
+		if (vieJM >= 4)
 			this.coeur3.setImage(coeur0.getImage());
-		}
-<<<<<<< HEAD
-		else {
-=======
-
 		else
->>>>>>> cd049607da0c0996c7c2632882800a28697226b5
 			this.coeur3.setImage(new Image("file:./src/app/img/heartempty.png"));
-		}
-		if (vieJM >= 3) {
+		
+		if (vieJM >= 3)
 			this.coeur2.setImage(coeur0.getImage());
-		}
-<<<<<<< HEAD
-		else {
-=======
-
 		else
->>>>>>> cd049607da0c0996c7c2632882800a28697226b5
 			this.coeur2.setImage(new Image("file:./src/app/img/heartempty.png"));
-		}
-		if (vieJM >= 2) {
+		
+		if (vieJM >= 2)
 			this.coeur1.setImage(coeur0.getImage());
-		}
-<<<<<<< HEAD
-		else {
-=======
-
 		else
->>>>>>> cd049607da0c0996c7c2632882800a28697226b5
 			this.coeur1.setImage(new Image("file:./src/app/img/heartempty.png"));
-		}
-		if (vieJM >= 1) {
+		
+		if (vieJM >= 1)
 			this.coeur0.setImage(coeur0.getImage());
-		}
 	}
 
 }
