@@ -123,7 +123,7 @@ public class Controleur implements Initializable {
 				// c'est un eventHandler d'ou le lambda
 
 				(ev ->{
-
+					System.out.println(this.getJeanMichel().pointsVieProperty());
 					if (jeu.collisionObjet() && this.jeu.getJeanMichel().getPointsVie()!=5) {
 						this.pane.getChildren().remove(vueItem.getSprite());
 						this.getJeanMichel().pointsVieProperty().set(this.getJeanMichel().getPointsVie()+1);
@@ -189,26 +189,31 @@ public class Controleur implements Initializable {
 		if (vieJM >= 5) {
 			coeur4.setImage(coeur0.getImage());
 		}
-		else
+		else {
 			coeur4.setImage(new Image("file:./src/app/img/heartempty.png"));
+		}
 		
 		if (vieJM >= 4) {
 			coeur3.setImage(coeur0.getImage());
 		}
-		else
+		else {
 			coeur3.setImage(new Image("file:./src/app/img/heartempty.png"));
+		}
 		
 		if (vieJM >= 3) {
 			coeur2.setImage(coeur0.getImage());
 		}
-		else
+		else {
 			coeur2.setImage(new Image("file:./src/app/img/heartempty.png"));
+		}
 			
 		if (vieJM >= 2) {
 			coeur1.setImage(coeur0.getImage());
 		}
-		else
+		else {
 			coeur1.setImage(new Image("file:./src/app/img/heartempty.png"));
+			
+		}
 		
 		if (vieJM >= 1) {
 			coeur0.setImage(coeur0.getImage());
