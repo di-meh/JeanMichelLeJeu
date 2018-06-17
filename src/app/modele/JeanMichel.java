@@ -92,8 +92,8 @@ public class JeanMichel extends Personnage{
 				|| e.caseX() == this.caseX() && e.caseY()== this.caseY() + 1 
 				|| e.caseX() == this.caseX() - 1 && e.caseY()== this.caseY()
 				|| e.caseX() == this.caseX() && e.caseY()== this.caseY() - 1
-				|| e.caseX()==this.caseX()+1 && e.caseY()== this.caseY()-1
-				|| e.caseX()==this.caseX()-1 && e.caseY()== this.caseY()+1)
+				|| e.caseX() == this.caseX() + 1 && e.caseY()== this.caseY() - 1
+				|| e.caseX() == this.caseX() - 1 && e.caseY()== this.caseY() + 1)
 				return e;			
 		}
 		return null;
