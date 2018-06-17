@@ -14,7 +14,7 @@ public class Jeu {
 	
 	private ObservableList<Item> listeItems;
 
-	public static Ennemi ennemiRetirÃ©=null;
+	public static Ennemi ennemiRetiré = null;
 	
 	public Jeu() {
 		this.listeEnnemis = FXCollections.observableArrayList();
@@ -38,7 +38,7 @@ public class Jeu {
 				while (c.next()) {
 					if (c.wasRemoved()) {
 						for (Ennemi remitem : c.getRemoved()) {
-							ennemiRetirÃ© = remitem;
+							ennemiRetiré = remitem;
 						}
 					}
 				}
@@ -90,16 +90,6 @@ public class Jeu {
 
 	public ObservableList<Item> getListeItems() {
 		return listeItems;
-	}
-	public boolean collisionObjet() { 
-		for (Item i: listeItems) {
-			if (this.getJeanMichel().getX() == i.getX() && this.getJeanMichel().getY() == i.getY()
-			|| this.getJeanMichel().getX() + this.getJeanMichel().getTailleX() == i.getX() && this.getJeanMichel().getY() == i.getY()
-			|| this.getJeanMichel().getX() == i.getX() && this.getJeanMichel().getY() + this.getJeanMichel().getTailleY() == i.getY()				
-			|| this.getJeanMichel().getX() + this.getJeanMichel().getTailleX() == i.getX() && this.getJeanMichel().getY() + this.getJeanMichel().getTailleY() == i.getY())
-				return true;
-		}
-		return false;
 	}
 
 }

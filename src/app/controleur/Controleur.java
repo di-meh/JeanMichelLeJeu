@@ -122,7 +122,7 @@ public class Controleur implements Initializable {
 				// c'est un eventHandler d'ou le lambda
 
 				(ev ->{
-					if (this.jeu.collisionObjet() && this.jeu.getJeanMichel().getPointsVie() != 5) {
+					if (this.jeu.getJeanMichel().recupererItem() && this.jeu.getJeanMichel().getPointsVie() != 5) {
 						this.pane.getChildren().remove(vueItem.getSprite());
 						this.getJeanMichel().pointsVieProperty().set(this.getJeanMichel().getPointsVie() + 1);
 						if (this.getJeanMichel().getPointsVie() > 5) this.getJeanMichel().pointsVieProperty().set(5);
@@ -143,11 +143,11 @@ public class Controleur implements Initializable {
 					}
 					else
 						this.jeu.update();
-					if (Jeu.ennemiRetir√© != null) {
-						this.pane.getChildren().remove(EnnemiVue.get(Jeu.ennemiRetir√©).getSprite());
-						Jeu.ennemiRetir√© = null;
+					if (Jeu.ennemiRetirÈ != null) {
+						this.pane.getChildren().remove(EnnemiVue.get(Jeu.ennemiRetirÈ).getSprite());
+						Jeu.ennemiRetirÈ = null;
 						if(jeu.getEnnemis().size() == 2) {					  
-							this.dialog.setContentText("Bravo, tu as tu√©\nton premier ennemi");
+							this.dialog.setContentText("Bravo, tu as tue\nton premier ennemi");
 							this.dialog.setPrefWidth(170);
 							this.dialog.setPrefHeight(72);
 							this.dialog.setLayoutY(400);
@@ -158,7 +158,7 @@ public class Controleur implements Initializable {
 							dialog.setVisible(false);
 					}
 					if (this.jeu.getEnnemis().size() == 0) {
-						this.dialog.setContentText("Bravo, tu as tu√©\ntous les ennemis");
+						this.dialog.setContentText("Bravo, tu as tue\ntous les ennemis");
 						this.dialog.setPrefHeight(72);
 						this.dialog.setVisible(true);
 					}

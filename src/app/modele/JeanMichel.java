@@ -52,7 +52,6 @@ public class JeanMichel extends Personnage{
 		default:
 			break;
 		}
-
 	}
 
 	public void haut() {
@@ -78,7 +77,6 @@ public class JeanMichel extends Personnage{
 
 	public Jeu getJeu() {
 		return this.jeu;
-
 	}
 
 	public void setJeu(Jeu j) {
@@ -101,4 +99,36 @@ public class JeanMichel extends Personnage{
 		return null;
 	}
 
+	public boolean recupererItem() { 
+		for (Item i: this.jeu.getListeItems()) {
+			if (collisionItem(getX(), getY(), i.getX(), i.getY(), 0, 0)
+			|| collisionItem(getX() + getTailleX(), getY(), i.getX(), i.getY(), 0, 0)
+			|| collisionItem(getX(), getY() + getTailleY(), i.getX(), i.getY(), 0, 0)	
+			|| collisionItem(getX() + getTailleX(), getY() + getTailleY(), i.getX(), i.getY(), 0, 0)
+			
+			|| collisionItem(getX(), getY(), i.getX(), i.getY(), i.getTailleX(), 0)
+			|| collisionItem(getX() + getTailleX(), getY(), i.getX(), i.getY(), i.getTailleX(), 0)
+			|| collisionItem(getX(), getY() + getTailleY(), i.getX(), i.getY(), i.getTailleX(), 0)
+			|| collisionItem(getX() + getTailleX(), getY() + getTailleY(), i.getX(), i.getY(), i.getTailleX(), 0)
+			
+			|| collisionItem(getX(), getY(), i.getX(), i.getY(), 0, i.getTailleY())
+			|| collisionItem(getX() + getTailleX(), getY(), i.getX(), i.getY(), 0, i.getTailleY())
+			|| collisionItem(getX(), getY() + getTailleY(), i.getX(), i.getY(), 0, i.getTailleY())	
+			|| collisionItem(getX() + getTailleX(), getY() + getTailleY(), i.getX(), i.getY(), 0, i.getTailleY())
+			
+			|| collisionItem(getX(), getY(), i.getX(), i.getY(), i.getTailleX(), i.getTailleY())
+			|| collisionItem(getX() + getTailleX(), getY(), i.getX(), i.getY(), i.getTailleX(), i.getTailleY())
+			|| collisionItem(getX(), getY() + getTailleY(), i.getX(), i.getY(), i.getTailleX(), i.getTailleY())	
+			|| collisionItem(getX() + getTailleX(), getY() + getTailleY(), i.getX(), i.getY(), i.getTailleX(), i.getTailleY()))
+				return true;
+		}
+		return false;
+	}
+	
+	public boolean collisionItem(int xJM, int yJM, int xObj, int yObj, int tXObj, int tYObj) {
+		if(xJM >= xObj && xJM <= xObj + tXObj && yJM >= yObj && yJM <= yObj + tYObj)
+			return true;
+		return false;
+	}
+	
 }
