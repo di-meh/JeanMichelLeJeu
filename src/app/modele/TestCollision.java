@@ -8,17 +8,19 @@ public class TestCollision {
 	@Test
 	public void testAucuneCollision() {
 		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	//test collision entre personnages
+	//test collision entre personnages ?
 	
 	
 	

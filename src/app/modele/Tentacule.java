@@ -25,6 +25,9 @@ public class Tentacule extends Ennemi{
 			if(this.collision.collisionnePerso(this.jeu.getJeanMichel(), this, 3, 1))
 				this.attaquer(this.jeu.getJeanMichel());
 		break;
+		case 4: System.out.println("there");
+			haut();
+		break;
 		}
 	}
 

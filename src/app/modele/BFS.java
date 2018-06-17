@@ -82,6 +82,7 @@ public class BFS {
 	
 	public int deplacementEnnemi(Ennemi e) {
 		Tile positionEnnemiHautGauche = new Tile(e.getX(), e.getY());
+		Tile positionEnnemiBasGauche = new Tile(e.getX() + e.getTailleX(), e.getY());
 		
 		//haut
 		if(positionEnnemiHautGauche.getX() - this.tiles.get(positionEnnemiHautGauche).getX() == 0 
@@ -95,17 +96,19 @@ public class BFS {
 		
 		//gauche
 		if(positionEnnemiHautGauche.getX() - this.tiles.get(positionEnnemiHautGauche).getX() == 1 
-		&& positionEnnemiHautGauche.getY() - this.tiles.get(positionEnnemiHautGauche).getY() == 0)
+		&& positionEnnemiHautGauche.getY() - this.tiles.get(positionEnnemiHautGauche).getY() == 0
+		/*&& positionEnnemiBasGauche.getX() - this.tiles.get(positionEnnemiBasGauche).getX() == -1
+		&& positionEnnemiBasGauche.getY() - this.tiles.get(positionEnnemiBasGauche).getY() == 0*/)
 			return 2;
 		
 		//droite
 		if(positionEnnemiHautGauche.getX() - this.tiles.get(positionEnnemiHautGauche).getX() == -1 
-		&& positionEnnemiHautGauche.getY() - this.tiles.get(positionEnnemiHautGauche).getY() == 0)
+		&& positionEnnemiHautGauche.getY() - this.tiles.get(positionEnnemiHautGauche).getY() == 0
+		/*&& positionEnnemiBasGauche.getX() - this.tiles.get(positionEnnemiBasGauche).getX() == -2
+		&& positionEnnemiBasGauche.getY() - this.tiles.get(positionEnnemiBasGauche).getY() == 0*/)
 			return 3;
 		
 		return 4;
-		
 	}
 	
 }
-
