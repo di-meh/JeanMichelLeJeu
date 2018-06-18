@@ -10,7 +10,6 @@ public class GestionCollision {
 
 	private ArrayList<Integer> obstacles;
 
-
 	public GestionCollision() {
 		this.terrain = new Terrain();
 		
