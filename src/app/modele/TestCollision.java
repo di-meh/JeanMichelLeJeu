@@ -3,7 +3,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-
 public class TestCollision {
 
 	private Cactus cactus1 = new Cactus("essai1", 1, 0, 0);
@@ -11,9 +10,8 @@ public class TestCollision {
 	
 	private GestionCollision gestionCollision = new GestionCollision();
 	
-	//test collision entre les personnages
 	@Test
-	public void testAucuneCollision() {
+	public final void testAucuneCollision() {
 		//cas ou ils sont eloignes
 		this.cactus1.setX(0); this.cactus2.setY(0);
 		this.cactus2.setX(200); this.cactus2.setY(200);
@@ -23,60 +21,60 @@ public class TestCollision {
 		assertFalse("cactus 1 va vers la droite personne", this.gestionCollision.collisionnePerso(cactus1, cactus2, 3, 1));
 		
 		//cas limites (au pixel pres)
-/*pb*/		this.cactus1.setX(224); this.cactus2.setY(208);
-		this.cactus2.setX(224); this.cactus2.setY(178);
-		assertFalse("cactus 1 va vers le haut obstacle", this.gestionCollision.collisionnePerso(cactus1, cactus2, 0, 1));
+		this.cactus1.setX(224); this.cactus1.setY(208);
+		this.cactus2.setX(224); this.cactus2.setY(177);
+		assertFalse("cactus 1 va vers le haut limite obstacle", this.gestionCollision.collisionnePerso(cactus1, cactus2, 0, 1));
 		
-		this.cactus1.setX(224); this.cactus2.setY(208);
-		this.cactus2.setX(224); this.cactus2.setY(238);
-		assertTrue("cactus 1 va vers le bas obstacle", this.gestionCollision.collisionnePerso(cactus1, cactus2, 1, 1));
+		this.cactus1.setX(224); this.cactus1.setY(208);
+		this.cactus2.setX(224); this.cactus2.setY(239);
+		assertFalse("cactus 1 va vers le bas limite obstacle", this.gestionCollision.collisionnePerso(cactus1, cactus2, 1, 1));
 		
-		this.cactus1.setX(224); this.cactus2.setY(208);
-		this.cactus2.setX(211); this.cactus2.setY(208);
-		assertTrue("cactus 1 va vers la gauche obstacle", this.gestionCollision.collisionnePerso(cactus1, cactus2, 2, 1));
+		this.cactus1.setX(224); this.cactus1.setY(208);
+		this.cactus2.setX(210); this.cactus2.setY(208);
+		assertFalse("cactus 1 va vers la gauche limite obstacle", this.gestionCollision.collisionnePerso(cactus1, cactus2, 2, 1));
 		
-		this.cactus1.setX(224); this.cactus2.setY(208);
-		this.cactus2.setX(237); this.cactus2.setY(208);
-		assertTrue("cactus 1 va vers la droite obstacle", this.gestionCollision.collisionnePerso(cactus1, cactus2, 3, 1));
+		this.cactus1.setX(224); this.cactus1.setY(208);
+		this.cactus2.setX(238); this.cactus2.setY(208);
+		assertFalse("cactus 1 va vers la droite limite obstacle", this.gestionCollision.collisionnePerso(cactus1, cactus2, 3, 1));
 	}
 
 	@Test
-	public void testEstUnObstacle() {
+	public final void testEstUnObstacle() {
 
-		//cas coordonnees a la limite
-/*pb*/		this.cactus1.setX(224); this.cactus2.setY(208);
-		this.cactus2.setX(224); this.cactus2.setY(179);
-		assertFalse("cactus 1 va vers le haut obstacle x=", this.gestionCollision.collisionnePerso(cactus1, cactus2, 0, 1));
+		//cas coordonnees inferieurs (donc entre 'dans' l'autre ennemi)
+		this.cactus1.setX(224); this.cactus1.setY(208);
+		this.cactus2.setX(224); this.cactus2.setY(178);
+		assertTrue("cactus 1 va vers le haut obstacle <", this.gestionCollision.collisionnePerso(cactus1, cactus2, 0, 1));
 		
-		this.cactus1.setX(224); this.cactus2.setY(208);
-		this.cactus2.setX(224); this.cactus2.setY(237);
-		assertTrue("cactus 1 va vers le bas obstacle x=", this.gestionCollision.collisionnePerso(cactus1, cactus2, 1, 1));
-		
-		this.cactus1.setX(224); this.cactus2.setY(208);
-		this.cactus2.setX(212); this.cactus2.setY(208);
-		assertTrue("cactus 1 va vers la gauche obstacle y=", this.gestionCollision.collisionnePerso(cactus1, cactus2, 2, 1));
-		
-		this.cactus1.setX(224); this.cactus2.setY(208);
-		this.cactus2.setX(236); this.cactus2.setY(208);
-		assertTrue("cactus 1 va vers la droite obstacle y=", this.gestionCollision.collisionnePerso(cactus1, cactus2, 3, 1));
-		
-		
-		//cas coordonnees inferieurs (donc 'dans' l'autre ennemi)
-/*pb*/		this.cactus1.setX(224); this.cactus2.setY(208);
-		this.cactus2.setX(224); this.cactus2.setY(180);
-		assertFalse("cactus 1 va vers le haut obstacle <", this.gestionCollision.collisionnePerso(cactus1, cactus2, 0, 1));
-		
-		this.cactus1.setX(224); this.cactus2.setY(208);
-		this.cactus2.setX(224); this.cactus2.setY(236);
+		this.cactus1.setX(224); this.cactus1.setY(208);
+		this.cactus2.setX(224); this.cactus2.setY(238);
 		assertTrue("cactus 1 va vers le bas obstacle <", this.gestionCollision.collisionnePerso(cactus1, cactus2, 1, 1));
 		
-		this.cactus1.setX(224); this.cactus2.setY(208);
+		this.cactus1.setX(224); this.cactus1.setY(208);
 		this.cactus2.setX(211); this.cactus2.setY(208);
 		assertTrue("cactus 1 va vers la gauche obstacle <", this.gestionCollision.collisionnePerso(cactus1, cactus2, 2, 1));
 		
-		this.cactus1.setX(224); this.cactus2.setY(208);
-		this.cactus2.setX(235); this.cactus2.setY(208);
+		this.cactus1.setX(224); this.cactus1.setY(208);
+		this.cactus2.setX(237); this.cactus2.setY(208);
 		assertTrue("cactus 1 va vers la droite obstacle <", this.gestionCollision.collisionnePerso(cactus1, cactus2, 3, 1));
+		
+		
+		//cas coordonnees a la limite
+		this.cactus1.setX(224); this.cactus1.setY(208);
+		this.cactus2.setX(224); this.cactus2.setY(179);
+		assertTrue("cactus 1 va vers le haut obstacle x=", this.gestionCollision.collisionnePerso(cactus1, cactus2, 0, 1));
+		
+		this.cactus1.setX(224); this.cactus1.setY(208);
+		this.cactus2.setX(224); this.cactus2.setY(237);
+		assertTrue("cactus 1 va vers le bas obstacle x=", this.gestionCollision.collisionnePerso(cactus1, cactus2, 1, 1));
+		
+		this.cactus1.setX(224); this.cactus1.setY(208);
+		this.cactus2.setX(212); this.cactus2.setY(208);
+		assertTrue("cactus 1 va vers la gauche obstacle y=", this.gestionCollision.collisionnePerso(cactus1, cactus2, 2, 1));
+		
+		this.cactus1.setX(224); this.cactus1.setY(208);
+		this.cactus2.setX(236); this.cactus2.setY(208);
+		assertTrue("cactus 1 va vers la droite obstacle y=", this.gestionCollision.collisionnePerso(cactus1, cactus2, 3, 1));
 	}
 
 }
