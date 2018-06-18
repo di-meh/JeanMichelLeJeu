@@ -143,9 +143,9 @@ public class Controleur implements Initializable {
 					}
 					else
 						this.jeu.update();
-					if (Jeu.ennemiRetiré != null) {
-						this.pane.getChildren().remove(EnnemiVue.get(Jeu.ennemiRetiré).getSprite());
-						Jeu.ennemiRetiré = null;
+					if (Jeu.ennemiRetirÃ© != null) {
+						this.pane.getChildren().remove(EnnemiVue.get(Jeu.ennemiRetirÃ©).getSprite());
+						Jeu.ennemiRetirÃ© = null;
 						if(jeu.getEnnemis().size() == 2) {					  
 							this.dialog.setContentText("Bravo, tu as tue\nton premier ennemi");
 							this.dialog.setPrefWidth(170);
