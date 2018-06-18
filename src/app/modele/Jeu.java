@@ -15,10 +15,6 @@ public class Jeu {
 	private ObservableList<Item> listeItems;
 
 	public static Ennemi ennemiRetire = null;
-<<<<<<< HEAD
-=======
-
->>>>>>> f5e2b197484eaba10bd9cbb6c3db4194cac5fd3e
 	
 	public Jeu() {
 		this.listeEnnemis = FXCollections.observableArrayList();
@@ -43,10 +39,6 @@ public class Jeu {
 					if (c.wasRemoved()) {
 						for (Ennemi remitem : c.getRemoved()) {
 							ennemiRetire = remitem;
-<<<<<<< HEAD
-=======
-
->>>>>>> f5e2b197484eaba10bd9cbb6c3db4194cac5fd3e
 						}
 					}
 				}
