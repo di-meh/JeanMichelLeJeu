@@ -2,7 +2,8 @@ package app.modele;
 
 import javafx.beans.property.SimpleIntegerProperty;
 
-public abstract class Personnage { //contient tous les getters et les setters necessaires a tous les personnages (ennemis, pnjs, Jean Michel)
+public abstract class Personnage {
+	//contient tous les getters et les setters necessaires a tous les personnages (ennemis, pnjs, Jean Michel)
 
 	private String nom;
 
@@ -48,16 +49,24 @@ public abstract class Personnage { //contient tous les getters et les setters ne
 		return this.positionX;
 	}
 
-	public final void setX(SimpleIntegerProperty x) {
+	public final void setXProperty(SimpleIntegerProperty x) {
 		this.positionX = x;
+	}
+	
+	public final void setX(int x) {
+		this.positionY.set(x);
 	}
 
 	public final SimpleIntegerProperty YProperty() {
 		return this.positionY;
 	}
 
-	public final void setY(SimpleIntegerProperty y) {
+	public final void setYProperty(SimpleIntegerProperty y) {
 		this.positionY = y;
+	}
+	
+	public final void setY(int y) {
+		this.positionY.set(y);
 	}
 
 	public int getTailleX() {
