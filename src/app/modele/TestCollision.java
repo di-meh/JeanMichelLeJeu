@@ -26,7 +26,6 @@ public class TestCollision {
 		assertFalse("vers la gauche aucun obstacle", this.gestionCollision.collisionneObstacle(this.cactusObstacle.getX() - 1, this.cactusObstacle.getY()) 
 				|| this.gestionCollision.collisionneObstacle(this.cactusObstacle.getX() - 1, this.cactusObstacle.getY() + this.cactusObstacle.getTailleY())
 				|| this.gestionCollision.collisionneObstacle(this.cactusObstacle.getX() - 1, this.cactusObstacle.getY() + this.cactusObstacle.getTailleY()/2));
-		
 		assertFalse("vers la droite aucun obstacle", this.gestionCollision.collisionneObstacle(this.cactusObstacle.getX() + 1 + this.cactusObstacle.getTailleX(), this.cactusObstacle.getY()) 
 				|| this.gestionCollision.collisionneObstacle(this.cactusObstacle.getX() + this.cactusObstacle.getTailleX() + 1, this.cactusObstacle.getY() + this.cactusObstacle.getTailleY()) 
 				|| this.gestionCollision.collisionneObstacle(this.cactusObstacle.getX() + this.cactusObstacle.getTailleX() + 1, this.cactusObstacle.getY() + this.cactusObstacle.getTailleY()/2));	
@@ -34,15 +33,19 @@ public class TestCollision {
 	
 	@Test
 	public final void testCollisionObstacle() {
-		this.cactusObstacle.setX(96); this.cactusObstacle.setY(96);
+		this.cactusObstacle.setX(224); this.cactusObstacle.setY(128);
+		System.out.println(cactusObstacle.caseX() +"    "+ cactusObstacle.caseY());
+
 		assertTrue("vers le haut obstacle", this.gestionCollision.collisionneObstacle(this.cactusObstacle.getX(), this.cactusObstacle.getY() - 1) 
 				|| this.gestionCollision.collisionneObstacle(this.cactusObstacle.getX() + this.cactusObstacle.getTailleX(), this.cactusObstacle.getY() - 1));
-		
-		this.cactusObstacle.setX(96); this.cactusObstacle.setY(96);
+
+		this.cactusObstacle.setX(224); this.cactusObstacle.setY(32);
+		System.out.println(cactusObstacle.caseX() +"    "+ cactusObstacle.caseY());
 		assertTrue("vers le bas obstacle", this.gestionCollision.collisionneObstacle(this.cactusObstacle.getX(), this.cactusObstacle.getY() + 1 + this.cactusObstacle.getTailleY()) 
 				|| this.gestionCollision.collisionneObstacle(this.cactusObstacle.getX() + this.cactusObstacle.getTailleX(), this.cactusObstacle.getY() + 1 + this.cactusObstacle.getTailleY()));
-		
-		this.cactusObstacle.setX(96); this.cactusObstacle.setY(96);
+
+		this.cactusObstacle.setX(288); this.cactusObstacle.setY(70);
+		System.out.println(cactusObstacle.caseX() +"    "+ cactusObstacle.caseY());
 		assertTrue("vers la gauche obstacle", this.gestionCollision.collisionneObstacle(this.cactusObstacle.getX() - 1, this.cactusObstacle.getY()) 
 				|| this.gestionCollision.collisionneObstacle(this.cactusObstacle.getX() - 1, this.cactusObstacle.getY() + this.cactusObstacle.getTailleY())
 				|| this.gestionCollision.collisionneObstacle(this.cactusObstacle.getX() - 1, this.cactusObstacle.getY() + this.cactusObstacle.getTailleY()/2));

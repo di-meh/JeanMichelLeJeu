@@ -54,7 +54,7 @@ public abstract class Personnage {
 	}
 	
 	public final void setX(int x) {
-		this.positionY.set(x);
+		this.positionX.set(x);
 	}
 
 	public final SimpleIntegerProperty YProperty() {
