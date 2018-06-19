@@ -32,7 +32,7 @@ public class Cactus extends Ennemi{
 		}
 
 		public void gauche() {
-			if(!this.collision.collisionneObstacle(getX() - 1, getY()) 
+			if(!this.collision.collisionneObstacle(getX() - 1, getY() + getTailleY()) 
 			&& !this.collision.collisionneObstacle(getX() - 1, getY() + getTailleY()) 
 			&& !this.collision.collisionneObstacle(getX() - 1, getY() + getTailleY()/2)
 			&& !this.collision.collisionnePerso(this.jeu.getJeanMichel(), this, 2, 1)) {
