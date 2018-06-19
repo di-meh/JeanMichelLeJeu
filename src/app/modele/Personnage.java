@@ -103,4 +103,8 @@ public abstract class Personnage {
 		return this.getY()/16;
 	}
 
+	public String getNom() {
+		return nom;
+	}
+
 }

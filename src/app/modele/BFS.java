@@ -82,7 +82,7 @@ public class BFS {
 	
 	public int deplacementEnnemi(Ennemi e) {
 		Tile positionEnnemiHautGauche = new Tile(e.getX(), e.getY());
-		Tile positionEnnemiBasGauche = new Tile(e.getX() + e.getTailleX(), e.getY());
+		//Tile positionEnnemiBasGauche = new Tile(e.getX() + e.getTailleX(), e.getY());
 		
 		//haut
 		if(positionEnnemiHautGauche.getX() - this.tiles.get(positionEnnemiHautGauche).getX() == 0 
